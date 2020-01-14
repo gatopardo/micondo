@@ -2444,3 +2444,15 @@ INFO 2020/01/13 20:22:54 logrequest.go:14: 10.0.0.45:59892 GET /apto/list/
 INFO 2020/01/13 20:22:54 logrequest.go:14: 10.0.0.45:59892 GET /static/css/global.css?1578961302
 INFO 2020/01/13 20:23:08 logrequest.go:14: 10.0.0.45:59892 GET /categoria/list
 INFO 2020/01/13 20:23:08 logrequest.go:14: 10.0.0.45:59892 GET /static/css/global.css?1578961302
+INFO 2020/01/13 21:27:18 main.go:42: Starting app
+INFO 2020/01/13 21:27:18 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/13 21:27:18 route.go:345: middleware felipe
+INFO 2020/01/13 21:27:18 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/13 21:27:18 route.go:345: middleware felipe
+INFO 2020/01/13 21:27:18 server.go:35: 0.0.0.0:4430
+2020/01/13 21:27:51 server.go:3012: http: TLS handshake error from 10.0.0.45:60632: remote error: tls: unknown certificate
+INFO 2020/01/13 21:27:51 logrequest.go:14: 10.0.0.45:60634 GET /cuota/list
+INFO 2020/01/13 21:27:51 logrequest.go:14: 10.0.0.45:60634 GET /static/css/global.css?1578961302
+INFO 2020/01/13 21:27:58 logrequest.go:14: 10.0.0.45:60634 POST /cuota/list
+INFO 2020/01/13 21:28:11 logrequest.go:14: 10.0.0.45:60634 GET /egreso/list
+INFO 2020/01/13 21:28:18 logrequest.go:14: 10.0.0.45:60634 POST /egreso/list
