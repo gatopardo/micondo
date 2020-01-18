@@ -7,14 +7,14 @@ import (
 	"runtime"
 //        "fmt"
 
-	"app/route"
-	"app/shared/email"
-	"app/shared/jsonconfig"
-	"app/shared/recaptcha"
-	"app/shared/server"
-	"app/model"
-	"app/shared/view"
-	"app/shared/view/plugin"
+	"github.com/gatopardo/micondo/app/route"
+	"github.com/gatopardo/micondo/app/shared/email"
+	"github.com/gatopardo/micondo/app/shared/jsonconfig"
+	"github.com/gatopardo/micondo/app/shared/recaptcha"
+	"github.com/gatopardo/micondo/app/shared/server"
+	"github.com/gatopardo/micondo/app/model"
+	"github.com/gatopardo/micondo/app/shared/view"
+	"github.com/gatopardo/micondo/app/shared/view/plugin"
 )
 
 var  file  * os.File

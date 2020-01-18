@@ -1,18 +1,18 @@
    {
 	"Database": {
-                "Origin": "localhost",
+                "Origin": "heroku",
 		"Type": "PostgreSQL",
 		"PostgreSql": {
 			"Username": "postgres",
 			"Password": "",
 			"Name": "dbcondo",
 			"Hostname": "127.0.0.1",
-			"Port": 5432,
+			"Port": 5434,
 			"Parameter": "disable"
 		}
 	},
 	"Server": {
-                "Origin"   : "localhost",
+                "Origin"   : "heroku",
 		"Hostname" : "0.0.0.0",
 		"UseHTTP"  : true,
 		"UseHTTPS" : true,
