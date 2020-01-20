@@ -218,7 +218,7 @@ func IngreLis(w http.ResponseWriter, r *http.Request) {
 	    sess.AddFlash(view.Flash{"Error Listando Ingresos.", view.FlashError})
             sess.Save(r, w)
          }
-fmt.Println("List Ingreso ", Id)
+// fmt.Println("List Ingreso ", Id)
 	v                   := view.New(r)
 	v.Name               = "ingreso/ingresolis"
 	v.Vars["token"]      = csrfbanana.Token(w, r, sess)

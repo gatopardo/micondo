@@ -3,7 +3,7 @@ package model
 import (
         "database/sql"
 	"time"
-//        "log"
+        "log"
 //	"fmt"
 )
 
@@ -121,20 +121,32 @@ func CuotDeleteAll() (err error) {
 // Get cuotas from a period 
   func CuotLim(id uint32 ) (cuotas []CuotaN, err error) {
         stq :=   "SELECT c.id, c.period_id, p.inicio, c.aparta_id, a.codigo, c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t where c.period_id = p.id and c.aparta_id = a.id and c.tipo_id = t.id and p.id = $1 order by p.inicio, c.fecha "
+//	fmt.Println("CuotLim id ", id)
 	rows, err := Db.Query(stq, id)
 	if err != nil {
+		log.Println(err)
+//		fmt.Println(err)
             return
 	}
+//	fmt.Println("CuotLim middle  ")
         defer rows.Close()
+        cuot := CuotaN{}
         for rows.Next() {
-           cuot := CuotaN{}
+//           fmt.Println("CuotLim Next  ")
            if err = rows.Scan(&cuot.Id,&cuot.PeriodId,&cuot.Period, &cuot.ApartaId, &cuot.Apto, &cuot.TipoId, &cuot.Tipo, &cuot.Fecha, &cuot.Amount,  &cuot.CreatedAt, &cuot.UpdatedAt); err != nil {
-                  return
+		log.Println(err)
+//		fmt.Println(err)
+                 return
             }
+//  fmt.Printf("%4d %4d %s %s %14d\n",cuot.Id,cuot.PeriodId, cuot.Period, cuot.Apto, cuot.Amount)
            cuotas = append(cuotas, cuot)
          }
+//	fmt.Println("CuotLim fin  ", len(cuotas))
        return
  }
+
+
+
 // -------------------------------------------------------------
 // Get all cuotas in the database and returns the list
   func Cuots() (cuotas []CuotaN, err error) {

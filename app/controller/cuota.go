@@ -84,7 +84,7 @@ func CuotRegPOST(w http.ResponseWriter, r *http.Request) {
         var cuot   model.CuotaN
         var period  model.Periodo
         var err  error
-fmt.Println("CuotRegPost 1")
+//fmt.Println("CuotRegPost 1")
 	sess   := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
@@ -186,7 +186,7 @@ func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
 	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
         cuot.Id      = Id
-        path        :=  fmt.Sprintf("/cuota/list/%s", SPag)
+        path        :=  fmt.Sprintf("/cuota/list", SPag)
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             sr          :=  fmt.Sprintf(" where cuotas.id = %s ", SId)
@@ -212,8 +212,10 @@ func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
 // CuotLis displays the cuot page
 func CuotLis(w http.ResponseWriter, r *http.Request) {
         var Id  uint32
+	var per model.Periodo
 	sess            := model.Instance(r)
-        lisPeriod,err    := model.Periods()
+        lisPeriod,err   := model.Periods()
+//	fmt.Println("CuotLis len  Per", len(lisPeriod))
         if err != nil {
             log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Obteniendo Periodos.", view.FlashError})
@@ -221,10 +223,15 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
          }
         if r.Method == "GET" {
             Id = lisPeriod[0].Id
+	    per.Id           = Id
         }else{
             Id,_             = atoi32(r.FormValue("id"))
+	    per.Id           = Id
+	    (&per).PeriodById()
+
         }
         lisCuot, err         := model.CuotLim(Id)
+//	fmt.Println("CuotLis len Cuot", len(lisCuot), " Id ", Id)
         if err != nil {
             log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Listando Cuotas.", view.FlashError})
@@ -233,6 +240,7 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
 	v                   := view.New(r)
 	v.Name               = "cuota/cuotlis"
 	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+	v.Vars["Per"]     = per
         v.Vars["LisPeriod"]  = lisPeriod
         v.Vars["LisCuot"]    = lisCuot
         v.Vars["Level"]      =  sess.Values["level"]

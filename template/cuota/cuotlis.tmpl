@@ -3,20 +3,24 @@
  
 {{end}}
 
-
  {{define "content"}}
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
 
-     <form method="post">
+     <form method="post" action="/cuota/list" >
    	<div class="fwrapper fcols4">
            <div class="fbox">
                <label for="period" >Periodo</label>
            </div>
+           {{$Pid := .Per.Id}}
            <div class="fbox">
                <select name="id"> 
                   {{range $key, $value := .LisPeriod}}
-                    <option value="{{ $value.Id }}">{{ $value.Inicio | DATEFORMAT }}</option>
+                     {{ if  eq $key $Pid }}
+                        <option value="{{ $value.Id }}" selected >{{ $value.Inicio | DATEFORMAT }}</option>
+                     {{else}}
+                        <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }}</option>
+                     {{end}}
                   {{end}}
                </select>
            </div>
@@ -32,6 +36,12 @@
         </div>
        </form>
 
+	  <div class="lwrapper fcols6">
+               <div class="box">             </div>
+               <div class="box"> Periodo     </div>
+               <div class="box"> {{.Per.Inicio  | DATEFORMAT }}     </div>
+               <div class="box">             </div>
+          </div>
 	  <div class="lwrapper fcols6">
              <div class="box"> Periodo     </div>
              <div class="box"> Apto        </div>
