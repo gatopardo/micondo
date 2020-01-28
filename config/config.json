@@ -1,6 +1,6 @@
    {
 	"Database": {
-                "bremot": true,
+                "Remote": true,
 		"Type": "PostgreSQL",
 		"PostgreSql": {
 			"Username": "postgres",
@@ -12,7 +12,7 @@
 		}
 	},
 	"Server": {
-                "bremot": true,
+                "Remote": true,
 		"Hostname" : "0.0.0.0",
 		"UseHTTP"  : true,
 		"UseHTTPS" : true,
