@@ -95,7 +95,7 @@ func MyDSN(ci MySQLInfo) string {
 }
 
   func PgDNS(ci PostgreSQLInfo  ) string {
-         return   fmt.Sprintf("user=%s dbname=%s port=%d sslmode=%s",ci.Username, ci.Name, ci.Port, ci.Parameter) 
+         return   fmt.Sprintf("user=%s dbname=%s port=%d sslmode=%s",ci.Username, ci.Name, ci.Port, ci.Parameter)
      }
 // Connect to the database
 func Connect(d Info) {

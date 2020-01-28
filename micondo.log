@@ -4605,3 +4605,28 @@ INFO 2020/01/27 20:20:59 logrequest.go:14: 10.0.0.45:48002 GET /report/rptapto
 INFO 2020/01/27 20:21:01 logrequest.go:14: 10.0.0.45:48002 POST /report/rptapto
 INFO 2020/01/27 20:21:06 logrequest.go:14: 10.0.0.45:48002 GET /report/rptcondo
 INFO 2020/01/27 20:21:07 logrequest.go:14: 10.0.0.45:48002 POST /report/rptcondo
+INFO 2020/01/27 21:08:34 main.go:42: Starting app
+INFO 2020/01/27 21:08:34 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/27 21:08:34 route.go:357: middleware felipe
+INFO 2020/01/27 21:08:34 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/27 21:08:34 route.go:357: middleware felipe
+INFO 2020/01/27 21:08:34 server.go:35: 0.0.0.0:4430
+2020/01/27 21:08:47 server.go:3056: http: TLS handshake error from 10.0.0.45:48226: remote error: tls: unknown certificate
+INFO 2020/01/27 21:08:47 logrequest.go:14: 10.0.0.45:48228 GET /egreso/list
+INFO 2020/01/27 21:08:47 logrequest.go:14: 10.0.0.45:48228 GET /static/css/global.css?1580153564
+INFO 2020/01/27 21:08:53 logrequest.go:14: 10.0.0.45:48228 GET /cuota/list
+INFO 2020/01/27 21:08:57 logrequest.go:14: 10.0.0.45:48228 GET /ingreso/list
+INFO 2020/01/27 21:09:01 logrequest.go:14: 10.0.0.45:48228 GET /egreso/list
+INFO 2020/01/27 21:09:07 logrequest.go:14: 10.0.0.45:48228 GET /report/rptapto
+INFO 2020/01/27 21:09:12 logrequest.go:14: 10.0.0.45:48228 POST /report/rptapto
+INFO 2020/01/27 21:09:23 logrequest.go:14: 10.0.0.45:48228 GET /report/rptcondo
+INFO 2020/01/27 21:09:25 logrequest.go:14: 10.0.0.45:48228 POST /report/rptcondo
+INFO 2020/01/27 21:09:30 logrequest.go:14: 10.0.0.45:48228 GET /report/rptcondo
+INFO 2020/01/27 21:09:35 logrequest.go:14: 10.0.0.45:48228 POST /report/rptcondo
+INFO 2020/01/27 21:10:09 logrequest.go:14: 10.0.0.45:48228 GET /cuota/list
+INFO 2020/01/27 21:10:14 logrequest.go:14: 10.0.0.45:48228 POST /cuota/list
+INFO 2020/01/27 21:11:06 logrequest.go:14: 10.0.0.45:48228 POST /cuota/list
+INFO 2020/01/27 21:11:15 logrequest.go:14: 10.0.0.45:48228 GET /report/rptcondo
+INFO 2020/01/27 21:11:21 logrequest.go:14: 10.0.0.45:48228 POST /report/rptcondo
+INFO 2020/01/27 21:22:38 main.go:42: Starting app
+2020/01/27 21:22:38 model.go:110: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
