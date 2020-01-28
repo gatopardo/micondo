@@ -66,9 +66,10 @@ func IngrePerPOST(w http.ResponseWriter, r *http.Request) {
            c.Period, _     = time.Parse(formato,r.FormValue("period"))
            c.TipoId, _     = atoi32(r.FormValue("tipId"))
            c.Fecha, _      =  time.Parse(layout,r.FormValue("fecha"))
-           unr, err       := money2uint64(r.FormValue("amount"))
+	   var nro int64
+           nro, err       = money2int64(r.FormValue("amount"))
            if err == nil {
-                 c.Amount   =  unr
+		   c.Amount   =  nro
             }
            c.Descripcion   =  r.FormValue("descripcion")
        return
@@ -144,15 +145,15 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
 // ---------------------------------------------------
  func   getIngreFormUp(r * http.Request)(st string){
         var sf string
-        var nr  uint64
+        var nr  int64
         var sup []string
         if r.FormValue("ckingreso") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("ingreso") )
+	     nr, _  =  money2int64(  r.FormValue("ingreso") )
              sf  =  fmt.Sprintf( " ingreso = '%d' ", nr )
 	     sup = append(sup, sf)
            }
         if r.FormValue("ckamount") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("amount") )
+	     nr, _  =  money2int64(  r.FormValue("amount") )
              sf  =  fmt.Sprintf( " amount = '%d' ", nr )
 	     sup = append(sup, sf)
            }
@@ -200,6 +201,7 @@ func IngreUpPOST(w http.ResponseWriter, r *http.Request) {
 // IngreLis displays the ingres page
 func IngreLis(w http.ResponseWriter, r *http.Request) {
         var Id  uint32
+	var per model.Periodo
 	sess            := model.Instance(r)
         lisPeriod,err    := model.PeriodsI()
         if err != nil {
@@ -212,16 +214,17 @@ func IngreLis(w http.ResponseWriter, r *http.Request) {
         }else{
             Id,_             = atoi32(r.FormValue("id"))
         }
+	per.Id                 = Id
         lisIngre, err         := model.IngresLim(Id)
         if err != nil {
             log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Listando Ingresos.", view.FlashError})
             sess.Save(r, w)
          }
-// fmt.Println("List Ingreso ", Id)
 	v                   := view.New(r)
 	v.Name               = "ingreso/ingresolis"
 	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+	v.Vars["Per"]        = per
         v.Vars["LisPeriod"]  = lisPeriod
         v.Vars["LisIngre"]    = lisIngre
         v.Vars["Level"]      =  sess.Values["level"]
@@ -233,12 +236,13 @@ func IngreLis(w http.ResponseWriter, r *http.Request) {
  func IngreDeleteGET(w http.ResponseWriter, r *http.Request) {
         sess := model.Instance(r)
         var ingres model.IngresoN
+/*
         var params httprouter.Params
         params = context.Get(r, "params").(httprouter.Params)
+*/
 	id,_        := atoi32(r.FormValue("id"))
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/ingreso/list/%s", SPag)
-        ingres.Id      = id
+        path        :=  "/ingreso/list"
+        ingres.Id   = id
 	err         := (&ingres).IngresById()
 	if err != nil { // Si no existe el usuario
            log.Println(err)
@@ -265,9 +269,8 @@ func IngreDeletePOST(w http.ResponseWriter, r *http.Request) {
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
-        ingres.Id      = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/ingreso/list/%s", SPag)
+        ingres.Id    = Id
+        path        :=  "/ingreso/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
              err = ingres.IngresDelete()

@@ -68,7 +68,7 @@ func LoginPOST(w http.ResponseWriter, r *http.Request) {
 	password := r.FormValue("password")
 	// Get database user
          var user  model.User
-         user.Cuenta  = cuenta 
+         user.Cuenta  = cuenta
 	 err := user.UserByCuenta()
 	// Determine if user exists
 	if err == model.ErrNoResult {

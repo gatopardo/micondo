@@ -1,6 +1,6 @@
    {
 	"Database": {
-                "Origin": "heroku",
+                "bremot": true,
 		"Type": "PostgreSQL",
 		"PostgreSql": {
 			"Username": "postgres",
@@ -12,7 +12,7 @@
 		}
 	},
 	"Server": {
-                "Origin"   : "heroku",
+                "bremot": true,
 		"Hostname" : "0.0.0.0",
 		"UseHTTP"  : true,
 		"UseHTTPS" : true,
@@ -20,8 +20,8 @@
 		"HTTPSPort": 4430,
 		"CertFile" : "./tls/server.crt",
 		"KeyFile"  : "./tls/server.key"
-	},
-	"Email": {
+         },
+         "Email": {
 		"Username": "gato.pardo",
 		"Password": "valle1nuevo5",
 		"Hostname": "smtp.gmail.com",

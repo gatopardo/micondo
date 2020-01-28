@@ -36,14 +36,15 @@
         </div>
        </form>
 
-	  <div class="lwrapper fcols6">
-               <div class="box">             </div>
+	  <div class="lwrapper fcols5a">
                <div class="box"> Periodo     </div>
                <div class="box"> {{.Per.Inicio  | DATEFORMAT }}     </div>
                <div class="box">             </div>
+               <div class="box">             </div>
+               <div class="box">             </div>
           </div>
-	  <div class="lwrapper fcols6">
-             <div class="box"> Periodo     </div>
+
+	  <div class="lwrapper fcols5a">
              <div class="box"> Apto        </div>
              <div class="box"> Tipo        </div>
              <div class="box"> Fecha       </div>
@@ -64,8 +65,7 @@
           </div>
 
      {{ range  .LisCuot}}
-         <div class="lwrapper fcols6">
-            <div class="box"> {{ .Period | DATEFORMAT }} </div>
+         <div class="lwrapper fcols5a">
             <div class="box"> {{ .Apto  }} </div>
             <div class="box"> {{ .Tipo  }} </div>
             <div class="box"> {{ .Fecha | DATEFORMAT }} </div>

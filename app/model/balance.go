@@ -3,7 +3,7 @@ package model
 import (
         "database/sql"
 	"time"
-//        "log"
+        "log"
 //	"fmt"
 )
 
@@ -15,8 +15,8 @@ import (
 type Balance struct {
 	Id               uint32     `db:"id" bson:"id,omitempty"`
 	PeriodId         uint32     `db:"balanid" bson:"balanid,omitempty"`
-        Amount           uint64     `db:"amount" bson:"amount"` 
-        Cuota            uint64     `db:"cuota" bson:"cuota"` 
+        Amount           int64     `db:"amount" bson:"amount"`
+        Cuota            int64     `db:"cuota" bson:"cuota"`
 	CreatedAt   time.Time       `db:"created_at" bson:"created_at"`
 	UpdatedAt   time.Time       `db:"updated_at" bson:"updated_at"`
 }
@@ -25,8 +25,8 @@ type BalanceN struct {
 	Id             uint32      `db:"id" bson:"id,omitempty"`
 	PeriodId       uint32      `db:"periodid" bson:"id,omitempty"`
 	Period    time.Time        `db:"period" bson:"period"`
-        Amount         uint64      `db:"amount" bson:"amount"` 
-        Cuota          uint64      `db:"cuota" bson:"cuota"` 
+        Amount         int64      `db:"amount" bson:"amount"`
+        Cuota          int64      `db:"cuota" bson:"cuota"`
 	CreatedAt time.Time        `db:"created_at" bson:"created_at"`
 	UpdatedAt time.Time        `db:"updated_at" bson:"updated_at"`
 }
@@ -59,6 +59,7 @@ func (b *Balance)BalanCreate() error {
          stq := "INSERT INTO balances ( period_id, amount, cuota, created_at, updated_at ) VALUES ($1,$2,$3,$4, $5) returning id"
 	 now  := time.Now()
          if stmt, err = Db.Prepare(stq ); err != nil  {
+                 log.Println(err)
 	          return standardizeError(err)
          }
          defer stmt.Close()
@@ -67,6 +68,7 @@ func (b *Balance)BalanCreate() error {
          if err == nil {
                b.Id = id
          }
+                 log.Println(err)
 	 return standardizeError(err)
   }
 
@@ -83,17 +85,22 @@ func (balan *Balance) BalanDelete() (err error) {
 	statement := "delete from balances where id = $1"
 	stmt, err := Db.Prepare(statement)
 	if err != nil {
+                 log.Println(err)
 		return
 	}
 	defer stmt.Close()
 	_, err = stmt.Exec(balan.Id)
+        if err != nil {
+                 log.Println(err)
+	         return
+	 }
 	return
 }
 
 // -----------------------------------------------------
 // Actualizar informacion de balance en la database
 func (balan *BalanceN)BalanUpdate(stq string) (err error) {
-        _, err = Db.Exec(stq ) 
+        _, err = Db.Exec(stq )
         return standardizeError(err)
 }
 
@@ -102,6 +109,10 @@ func (balan *BalanceN)BalanUpdate(stq string) (err error) {
 func BalanDeleteAll() (err error) {
 	statement := "delete from balances"
 	_, err = Db.Exec(statement)
+        if err != nil {
+                 log.Println(err)
+	         return
+	 }
 	return
 }
 
@@ -111,12 +122,14 @@ func BalanDeleteAll() (err error) {
         stq :=  "SELECT COUNT(*) as count FROM balances "
 	rows, err := Db.Query(stq)
 	if err != nil {
+                 log.Println(err)
 		return
 	}
 	defer rows.Close()
         for rows.Next() {
             err = rows.Scan(&count)
 	    if err != nil {
+                 log.Println(err)
 	         return
 	    }
         }
@@ -128,12 +141,14 @@ func BalanDeleteAll() (err error) {
         stq :=   "SELECT id, period_id, amount, cuota, created_at, updated_at FROM balances order by level, cuota LIMIT $1 OFFSET $2"
 	rows, err := Db.Query(stq, lim, offs)
 	if err != nil {
+            log.Println(err)
             return
 	}
         defer rows.Close()
         for rows.Next() {
            balan := Balance{}
            if err = rows.Scan(&balan.Id,&balan.PeriodId, &balan.Amount, &balan.Cuota, &balan.CreatedAt, &balan.UpdatedAt); err != nil {
+                  log.Println(err)
                   return
             }
            balances = append(balances, balan)
@@ -146,6 +161,7 @@ func BalanDeleteAll() (err error) {
         stq :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b, periods p where p.id = b.period_id order by p.inicio LIMIT $1 OFFSET $2"
 	rows, err := Db.Query(stq, lim, offs)
 	if err != nil {
+            log.Println(err)
             return
 	}
         defer rows.Close()
@@ -164,12 +180,14 @@ func BalanDeleteAll() (err error) {
         stq :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b, periods p where b.period_id = p.id order by p.inicio"
 	rows, err := Db.Query(stq)
 	if err != nil {
+            log.Println(err)
             return
 	}
 	defer rows.Close()
 	for rows.Next() {
             balan := BalanceN{}
             if err = rows.Scan(&balan.Id,&balan.PeriodId, &balan.Period, &balan.Amount, &balan.Cuota, &balan.CreatedAt, &balan.UpdatedAt); err != nil {
+                  log.Println(err)
                   return
              }
              balances = append(balances, balan)

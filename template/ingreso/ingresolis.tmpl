@@ -32,8 +32,15 @@
         </div>
        </form>
 
-	  <div class="lwrapper fcols6">
-             <div class="box"> Periodo      </div>
+	  <div class="lwrapper fcols5a">
+               <div class="box"> Periodo     </div>
+               <div class="box"> {{.Per.Inicio  | DATEFORMAT }}     </div>
+               <div class="box">             </div>
+               <div class="box">             </div>
+               <div class="box">             </div>
+          </div>
+
+	  <div class="lwrapper fcols5a">
              <div class="box"> Tipo      </div>
              <div class="box"> Fecha      </div>
              <div class="box"> Monto      </div>
@@ -54,8 +61,7 @@
           </div>
 
      {{ range  .LisIngre}}
-          <div class="lwrapper fcols6">
-             <div class="box"> {{ .Period | DATEFORMAT }} </div>
+          <div class="lwrapper fcols5a">
              <div class="box"> {{ .Tipo  }} </div>
              <div class="box"> {{ .Fecha | DATEFORMAT }} </div>
              <div class="box"> {{ .Amount | FORMAT64 }} </div>

@@ -144,6 +144,7 @@ func PeriodUpPOST(w http.ResponseWriter, r *http.Request) {
 // PeriodLisGET displays the aparta page
 func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
+/*
         var params httprouter.Params
         params           = context.Get(r, "params").(httprouter.Params)
         SPg             := params.ByName("pg")
@@ -152,7 +153,8 @@ func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
         offset           = posact  - 1
         offset           = offset * limit
         TotalCount       = model.PeriodCount()
-        lisPeriods, err := model.PeriodLim(limit, offset)
+*/
+        lisPeriods, err := model.Periods()
         if err != nil {
            log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Listando Periodos.", view.FlashError})

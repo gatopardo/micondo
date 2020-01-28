@@ -4,7 +4,7 @@ import (
         "database/sql"
 	"time"
 //	"fmt"
-//        "log"
+        "log"
 
 
 )
@@ -172,4 +172,21 @@ func AptDeleteAll() (err error) {
 	}
 	return
  }
+// -------------------------------------------------------------
+// Given user.Id get aparta
+    func ApartaByUserId(id uint32)(p Person, a Aparta, err error){
+
+        stq := "SELECT a.id, a.codigo, a.descripcion, p.fname, p.lname, p.email, p.mobil, p.tipo,p.photo from users u join persons p on u.person_id = p.id join apartas a on p.aparta_id = a.id  where u.id = $1"
+
+	row := Db.QueryRow(stq, id)
+        err = row.Scan(&a.Id, &a.Codigo, &a.Descripcion, &p.Fname, &p.Lname, &p.Email,&p.Mobil, &p.Tipo, &p.Photo)
+	if err != nil {
+                  if err ==  sql.ErrNoRows {
+                     log.Println("No rows were returned!")
+		   }else{
+                     log.Println(err)
+		   }
+             }
+     return
+    }
 // -------------------------------------------------------------

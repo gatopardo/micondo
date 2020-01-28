@@ -67,12 +67,12 @@ func CuotPerPOST(w http.ResponseWriter, r *http.Request) {
  }
 // ---------------------------------------------------
  func getCuotData(c *  model.CuotaN, r *http.Request)(err error){
-           formato         := "2006/01/02"
-           c.Period, _     = time.Parse(formato,r.FormValue("period"))
-           c.ApartaId, _   = atoi32(r.FormValue("aptId"))
-           c.TipoId, _     = atoi32(r.FormValue("tipId"))
+           formato        :=  "2006/01/02"
+           c.Period, _     =  time.Parse(formato,r.FormValue("period"))
+           c.ApartaId, _   =  atoi32(r.FormValue("aptId"))
+           c.TipoId, _     =  atoi32(r.FormValue("tipId"))
            c.Fecha, _      =  time.Parse(layout,r.FormValue("fecha"))
-           unr, err       := money2uint64(r.FormValue("amount"))
+           unr, err       :=  money2int64(r.FormValue("amount"))
            if err == nil {
                  c.Amount   =  unr
             }
@@ -156,15 +156,15 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 // ---------------------------------------------------
  func   getCuotFormUp(r * http.Request)(st string){
         var sf string
-        var nr  uint64
+        var nr  int64
         var sup []string
         if r.FormValue("ckcuota") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("cuota") )
+	     nr, _  =  money2int64(  r.FormValue("cuota") )
              sf  =  fmt.Sprintf( " cuota = '%d' ", nr )
 	     sup = append(sup, sf)
            }
         if r.FormValue("ckamount") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("amount") )
+	     nr, _  =  money2int64(  r.FormValue("amount") )
              sf  =  fmt.Sprintf( " amount = '%d' ", nr )
 	     sup = append(sup, sf)
            }
@@ -215,7 +215,6 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
 	var per model.Periodo
 	sess            := model.Instance(r)
         lisPeriod,err   := model.Periods()
-//	fmt.Println("CuotLis len  Per", len(lisPeriod))
         if err != nil {
             log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Obteniendo Periodos.", view.FlashError})
@@ -228,10 +227,8 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
             Id,_             = atoi32(r.FormValue("id"))
 	    per.Id           = Id
 	    (&per).PeriodById()
-
         }
         lisCuot, err         := model.CuotLim(Id)
-//	fmt.Println("CuotLis len Cuot", len(lisCuot), " Id ", Id)
         if err != nil {
             log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Listando Cuotas.", view.FlashError})

@@ -4,7 +4,7 @@ import (
         "database/sql"
 	"time"
         "log"
-//	"fmt"
+//       "fmt"
 )
 
 // *****************************************************************************
@@ -18,7 +18,7 @@ type Cuota struct {
 	ApartaId         uint32     `db:"apartaid" bson:"apartaid,omitempty"`
 	TipoId           uint32     `db:"tipoid" bson:"tipoid,omitempty"`
         Fecha       time.Time       `db:"fecha" bson:"fecha"`
-        Amount           uint64     `db:"amount" bson:"amount"`
+        Amount           int64     `db:"amount" bson:"amount"`
 	CreatedAt   time.Time       `db:"created_at" bson:"created_at"`
 	UpdatedAt   time.Time       `db:"updated_at" bson:"updated_at"`
 }
@@ -32,10 +32,26 @@ type CuotaN struct {
 	TipoId           uint32     `db:"tipoid" bson:"tipoid,omitempty"`
 	Tipo             string     `db:"tdescripcion" bson:"tdescripcion,omitempty"`
         Fecha         time.Time     `db:"fecha" bson:"fecha"`
-        Amount           uint64     `db:"amount" bson:"amount"`
+        Amount           int64     `db:"amount" bson:"amount"`
 	CreatedAt     time.Time     `db:"created_at" bson:"created_at"`
 	UpdatedAt     time.Time     `db:"updated_at" bson:"updated_at"`
 }
+
+  type  CuotApt  struct {
+	 Id               uint32
+         Inicio        time.Time
+	 Cuota             int64
+         Fecha         time.Time
+	 Amount             int64
+	 Balance           int64
+  }
+
+  type  AmtCond  struct {
+	 Codigo        string
+	 Amount        int64
+	 Atraso        int64
+	 Mora          int64
+  }
 
 // -----------------------------------------
 // CuotById tenemos la cuota dado id
@@ -63,7 +79,7 @@ func (c * CuotaN)CuotCreate() error {
               c.Id = id
          }
 	 return standardizeError(err)
-  }
+ }
 
 // -----------------------------------------------------
  func  (cuot * Cuota)CuotDeleteById()( err error){
@@ -183,4 +199,103 @@ func CuotDeleteAll() (err error) {
 	}
         return
  }
+// -------------------------------------------------------------
+//  merge to merge 2 arrays
+    func merge( cuots []CuotApt) ( []CuotApt){
+	    sum := int64(0)
+	    for i, _ :=  range cuots{
+	        sum              =   sum + cuots[i].Cuota - cuots[i].Amount
+		if i > 0 && cuots[i].Inicio == cuots[i -1].Inicio{
+                       sum  = sum - cuots[i].Cuota
+		}
+	        cuots[i].Balance = sum
+	    }
+         return cuots
+    }
+// -------------------------------------------------------------
+// Payments of a given apt up to a period
+   func Payments(aid uint32, fec time.Time )(cuotas []CuotApt, err error){
+        var rows * sql.Rows
+
+	stq := "SELECT p.id,  p.inicio, b.cuota, c1.fecha, c1.amount from balances b join periods p on b.period_id = p.id left join (select p.id as id, c.fecha as fecha, c.amount as amount from cuotas c join periods p on p.id = c.period_id where c.aparta_id = $1 ) c1 on p.id = c1.id where p.inicio <= $2  order by p.inicio"
+
+	rows, err = Db.Query(stq, aid, fec)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer rows.Close()
+	stLayout := "2006-01-02"
+        for rows.Next() {
+            c := CuotApt{}
+	    var  sqFec  sql.NullTime
+	    var  sqAmt  sql.NullInt64
+            err = rows.Scan(&c.Id, &c.Inicio, &c.Cuota, &sqFec, &sqAmt)
+	    if err != nil {
+		log.Println(err)
+	         return
+	    }
+	    if sqFec.Valid{
+		 c.Fecha = sqFec.Time
+	    }else{
+		  c.Fecha, _ = time.Parse(stLayout, "1900-01-01")
+	  }
+	    if sqAmt.Valid{
+		    c.Amount = sqAmt.Int64
+	    }else{
+		    c.Amount = 0
+	    }
+            cuotas = append(cuotas, c)
+        }
+// fmt.Println("Payments lon ",len(cuotas)," apt_id ",aid ," fec -  ", fec.Format("2006-02-01"))
+        cuotas = merge(cuotas)
+	return
+   }
+// -------------------------------------------------------------
+// Amounts paid in Condo up to a period
+   func Amounts( fec time.Time )(amts []AmtCond, err error){
+    stq  := "select a.codigo, sum(c.amount) as monto from cuotas c join apartas a on c.aparta_id = a.id join periods p on c.period_id = p.id where c.fecha <= $1 group by a.codigo order by monto"
+
+        var rows  * sql.Rows
+	rows, err = Db.Query(stq,  fec)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer rows.Close()
+        for rows.Next() {
+            c := AmtCond{}
+            err = rows.Scan(&c.Codigo, &c.Amount)
+	    if err != nil {
+		log.Println(err)
+	         return
+	    }
+	    amts = append(amts,c)
+        }
+
+	stq = "select sum(b.cuota) as cuota from balances b join periods p on b.period_id = p.id where p.final  <= $1 "
+
+	rows, err = Db.Query(stq,  fec)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer rows.Close()
+        var  a  int64
+        if rows.Next() {
+            err = rows.Scan(&a)
+	    if err != nil {
+		log.Println(err)
+	         return
+	    }
+        }
+	 for i,_ := range amts {
+	      dife               := a - amts[i].Amount
+	      mora               :=  dife + dife/ int64(5)
+	      amts[i].Atraso      = dife
+	      amts[i].Mora        =  mora
+	 }
+
+	return
+    }
 // -------------------------------------------------------------

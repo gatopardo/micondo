@@ -17,7 +17,7 @@ type Ingreso struct {
 	PeriodId         uint32     `db:"periodid" bson:"periodid,omitempty"`
 	TipoId           uint32     `db:"tipoid" bson:"tipoid,omitempty"`
         Fecha       time.Time       `db:"fecha" bson:"fecha"`
-        Amount           uint64     `db:"amount" bson:"amount"`
+        Amount           int64     `db:"amount" bson:"amount"`
         Descripcion      string      `db:"dscripcion" bson:"dscripcion"`
 	CreatedAt   time.Time       `db:"created_at" bson:"created_at"`
 	UpdatedAt   time.Time       `db:"updated_at" bson:"updated_at"`
@@ -30,7 +30,7 @@ type IngresoN struct {
 	TipoId           uint32     `db:"tipoid" bson:"tipoid,omitempty"`
 	Tipo             string     `db:"tcodigo" bson:"tcodigo,omitempty"`
         Fecha       time.Time       `db:"fecha" bson:"fecha"`
-        Amount           uint64     `db:"amount" bson:"amount"`
+        Amount           int64     `db:"amount" bson:"amount"`
         Descripcion      string      `db:"dscripcion" bson:"dscripcion"`
 	CreatedAt time.Time        `db:"created_at" bson:"created_at"`
 	UpdatedAt time.Time        `db:"updated_at" bson:"updated_at"`

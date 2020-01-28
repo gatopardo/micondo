@@ -65,8 +65,8 @@ func main() {
 		plugin.PrettyTime(),
 		plugin.DateFormat(),
 		plugin.Format64(),
+		plugin.ConcatStr(),
 		recaptcha.Plugin())
-// fmt.Println("Vamos al server")
 	// Start the listener
 	server.Run(route.LoadHTTP(), route.LoadHTTPS(), config.Server)
 }

@@ -198,14 +198,14 @@ func routes() *httprouter.Router {
 		New(acl.DisallowAnon).
 		ThenFunc(controller.BalanUpPOST)))
 ////          List
-	r.GET("/balance/list/:pg", hr.Handler(alice.
+	r.GET("/balance/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.BalanLisGET)))
 ////          Delete
-	r.GET("/balance/delete/:id/:pg", hr.Handler(alice.
+	r.GET("/balance/delete/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.BalanDeleteGET)))
-	r.POST("/balance/delete/:id/:pg", hr.Handler(alice.
+	r.POST("/balance/delete/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.BalanDeletePOST)))
 
@@ -312,6 +312,18 @@ func routes() *httprouter.Router {
 	r.POST("/email", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.MailSendPOST)))
+       r.GET("/report/rptapto", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptAptGET)))
+	r.POST("/report/rptapto", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptAptPOST)))
+       r.GET("/report/rptcondo", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptCondGET)))
+	r.POST("/report/rptcondo", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptCondPOST)))
 
 
 	// About

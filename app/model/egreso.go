@@ -16,9 +16,9 @@ type Egreso struct {
 	Id               uint32     `db:"id" bson:"id,omitempty"`
 	PeriodId         uint32     `db:"periodid" bson:"periodid,omitempty"`
 	TipoId           uint32     `db:"tipoid" bson:"tipoid,omitempty"`
-        Fecha       time.Time       `db:"fecha" bson:"fecha"` 
-        Amount           uint64     `db:"amount" bson:"amount"` 
-        Descripcion      string      `db:"dscripcion" bson:"dscripcion"`  
+        Fecha       time.Time       `db:"fecha" bson:"fecha"`
+        Amount           int64     `db:"amount" bson:"amount"`
+        Descripcion      string      `db:"dscripcion" bson:"dscripcion"`
 	CreatedAt   time.Time       `db:"created_at" bson:"created_at"`
 	UpdatedAt   time.Time       `db:"updated_at" bson:"updated_at"`
 }
@@ -26,12 +26,12 @@ type Egreso struct {
 type EgresoN struct {
 	Id               uint32     `db:"id" bson:"id,omitempty"`
 	PeriodId         uint32     `db:"periodid" bson:"periodid,omitempty"`
-        Period      time.Time       `db:"period" bson:"period"` 
+        Period      time.Time       `db:"period" bson:"period"`
 	TipoId           uint32     `db:"tipoid" bson:"tipoid,omitempty"`
 	Tipo             string     `db:"tcodigo" bson:"tcodigo,omitempty"`
-        Fecha       time.Time       `db:"fecha" bson:"fecha"` 
-        Amount           uint64     `db:"amount" bson:"amount"` 
-        Descripcion      string      `db:"dscripcion" bson:"dscripcion"`  
+        Fecha       time.Time       `db:"fecha" bson:"fecha"`
+        Amount           int64     `db:"amount" bson:"amount"`
+        Descripcion      string      `db:"dscripcion" bson:"dscripcion"`
 	CreatedAt time.Time        `db:"created_at" bson:"created_at"`
 	UpdatedAt time.Time        `db:"updated_at" bson:"updated_at"`
 }

@@ -1,0 +1,39 @@
+{{define "title"}}Enviar Correo{{end}}
+{{define "head"}}{{JS "//www.google.com/recaptcha/api.js"}}{{end}}
+
+{{define "content"}}
+   <div class="fcontent">
+
+      <h3 class="mcenter">{{template "title" .}}</h3>
+
+	<form enctype="multipart/form-data"  action="/email"  method="post" class="myForm" >
+
+                 <label for="aptId" ><span>Apto</span></label>
+                  <select name="aptId" id="aptId" autofocus> 
+                     {{range $key, $value := .LisApts}}
+                        <option value="{{ $value.Id }}">{{ $value.Codigo }}</option>
+                     {{end}}
+                  </select>
+
+                <label for="tema">Tema </label>
+                <input type="text" id="tema" name="tema" size="32" maxlength="64" placeholder="tema" />
+
+                <label for="content">Contenido </label>
+                <input type="textarea" id="content" name="content" rows="4" maxlength="512" placeholder="content" wrap="hard" class="mytxt" />
+              
+                <div>
+		<input type="hidden" name="token" value="{{.token}}">
+                </div>
+                 <span> 
+                     <input type="submit" name="action" formenctype="multipart/form-data" value="Enviar" />
+                     <input type="submit" name="action" value="Cancelar" />
+                 </span> 
+	</form>
+	
+
+	{{template "footer" .}}
+  </div>
+
+{{end}}
+{{define "foot"}}{{end}}
+

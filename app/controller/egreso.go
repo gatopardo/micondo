@@ -66,9 +66,10 @@ func EgrePerPOST(w http.ResponseWriter, r *http.Request) {
            c.Period, _     = time.Parse(formato,r.FormValue("period"))
            c.TipoId, _     = atoi32(r.FormValue("tipId"))
            c.Fecha, _      =  time.Parse(layout,r.FormValue("fecha"))
-           unr, err       := money2uint64(r.FormValue("amount"))
+	   var nro int64
+           nro, err        = money2int64(r.FormValue("amount"))
            if err == nil {
-                 c.Amount   =  unr
+                 c.Amount   =  nro
             }
            c.Descripcion   =  r.FormValue("descripcion")
        return
@@ -147,17 +148,17 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
 // ---------------------------------------------------
  func   getEgreFormUp(r * http.Request)(st string){
         var sf string
-        var nr  uint64
+        var nr  int64
         var sup []string
         if r.FormValue("ckegreso") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("egreso") )
-             sf  =  fmt.Sprintf( " egreso = '%d' ", nr )
-	     sup = append(sup, sf)
+	     nr, _  =  money2int64(  r.FormValue("egreso") )
+             sf     =  fmt.Sprintf( " egreso = '%d' ", nr )
+	     sup    = append(sup, sf)
            }
         if r.FormValue("ckamount") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("amount") )
-             sf  =  fmt.Sprintf( " amount = '%d' ", nr )
-	     sup = append(sup, sf)
+             nr, _  =  money2int64(  r.FormValue("amount") )
+             sf     =  fmt.Sprintf( " amount = '%d' ", nr )
+	     sup    = append(sup, sf)
            }
 
          if len(sup) > 0 {
@@ -203,6 +204,7 @@ func EgreUpPOST(w http.ResponseWriter, r *http.Request) {
 // EgreLis displays the egres page
 func EgreLis(w http.ResponseWriter, r *http.Request) {
         var Id  uint32
+	var per  model.Periodo
 	sess            := model.Instance(r)
         lisPeriod,err    := model.Periods()
         if err != nil {
@@ -215,7 +217,8 @@ func EgreLis(w http.ResponseWriter, r *http.Request) {
         }else{
             Id,_             = atoi32(r.FormValue("id"))
         }
-fmt.Println("List Egreso ", Id)
+	per.Id               = Id
+// fmt.Println("List Egreso ", Id)
         lisEgre, err         := model.EgresLim(Id)
         if err != nil {
             log.Println(err)
@@ -225,6 +228,7 @@ fmt.Println("List Egreso ", Id)
 	v                   := view.New(r)
 	v.Name               = "egreso/egresolis"
 	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+	v.Vars["Per"]        = per
         v.Vars["LisPeriod"]  = lisPeriod
         v.Vars["LisEgre"]    = lisEgre
         v.Vars["Level"]      =  sess.Values["level"]

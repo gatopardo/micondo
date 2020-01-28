@@ -548,8 +548,17 @@ h1, h2, h3, h4, h5, h6 {
   .fcols42 {
        grid-template-columns: 1fr  2fr  1fr 3fr  ;
      }
+  .fcols4b {
+       grid-template-columns: 1fr  2fr 2fr 2fr  ;
+     }
   .fcols5 {
        grid-template-columns: 2fr  1fr 2fr 2fr 2fr ;
+     }
+  .fcols5a {
+       grid-template-columns: 1fr  2fr 2fr 5fr 2fr   ;
+     }
+  .fcols5b {
+       grid-template-columns: 2fr  2fr 2fr 2fr 2fr ;
      }
   .fcols6 {
        grid-template-columns: 2fr  1fr  2fr 2fr 5fr 2fr   ;

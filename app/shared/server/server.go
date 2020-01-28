@@ -13,7 +13,7 @@ import (
 
 // Server stores the hostname and port number
 type Server struct {
-        Origin    string `json:"Origin"`   // Server origin
+        Remote    bool   `json:"Origin"`   // Server origin
 	Hostname  string `json:"Hostname"`  // Server name
 	UseHTTP   bool   `json:"UseHTTP"`   // Listen on HTTP
 	UseHTTPS  bool   `json:"UseHTTPS"`  // Listen on HTTPS
@@ -26,7 +26,7 @@ type Server struct {
 // Run starts the HTTP and/or HTTPS listener
 func Run(httpHandlers http.Handler, httpsHandlers http.Handler, s Server) {
 //        fmt.Println("Server al inicio")
-        if s.Origin ==  "heroku" {
+        if s.Remote  {
               sport := os.Getenv("PORT")
               iport, _ :=  strconv.Atoi(sport)
               s.HTTPPort = iport

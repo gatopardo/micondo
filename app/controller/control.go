@@ -36,20 +36,27 @@ func rpad(s string,pad string, plength int)string{
     }
     return s
 }
-func  money2uint64(st string)(val uint64, err error){
+
+ func  commify(st string) (str string){
        parts :=   strings.Split(st, ".")
-       fmt.Println(st, parts)
+//       fmt.Println(st, parts)
        if len(parts) == 1 {
             parts = append(parts, "00")
         }else  {
             parts[1] = rpad(parts[1], "0",2)
         }
-       fmt.Println(st, parts)
-       str   :=  strings.Join( parts, "" )
+//       fmt.Println(st, parts)
+       str    =  strings.Join( parts, "" )
        str    =  strings.Join( strings.Split(str, ","), "" )
-       val, err  = strconv.ParseUint(str, 10, 64)
-       return 
+       return
+ }
+
+ func  money2int64(st string)(val int64, err error){
+       str      := commify(st)
+       val, err  = strconv.ParseInt(str, 10, 64)
+       return
     }
+
 // ---------------------------------------------------
 func getNumberOfButtonsForPagination(TotalCount int, limit int) int {
     num := (int)(TotalCount / limit)
@@ -89,3 +96,15 @@ func createSliceForBtns(number int, posact int) []int {
     return sliceOfBtn
 }
 // ---------------------------------------------------
+
+ func ConcatNames(s1,s2, sep string) string {
+        st1 := strings.Trim(s1, " ")
+        st2 := strings.Trim(s2, " ")
+        s := []string{st1,st2}
+        st :=  fmt.Sprintf(strings.Join(s, sep))
+        return st
+      }
+
+//--------------------------------------------------------
+
+

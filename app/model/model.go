@@ -49,7 +49,7 @@ const (
 
 // Info contains the database configurations
 type Info struct {
-         Origin  string
+         Remote  bool
 	// Database type
 	Type Type
 	// MySQL info if used
@@ -95,14 +95,14 @@ func MyDSN(ci MySQLInfo) string {
 }
 
   func PgDNS(ci PostgreSQLInfo  ) string {
-         return   fmt.Sprintf("user=%s dbname=%s sslmode=%s",ci.Username, ci.Name, ci.Parameter) 
+         return   fmt.Sprintf("user=%s dbname=%s port=%d sslmode=%s",ci.Username, ci.Name, ci.Port, ci.Parameter) 
      }
 // Connect to the database
 func Connect(d Info) {
 	var err error
 	// Store the config
 	databases = d
-        if d.Origin == "heroku" {
+        if d.Remote  {
 
           regex := regexp.MustCompile("(?i)^postgres://(?:([^:@]+):([^@]*)@)?([^@/:]+):(\\d+)/(.*)$")
           matches := regex.FindStringSubmatch(os.Getenv("DATABASE_URL"))
@@ -124,20 +124,6 @@ func Connect(d Info) {
 
         } else {
 
-	switch d.Type {
-	case TypeMySQL:
-		// Connect to MySQL
-//		if SQL, err = sqlx.Connect("mysql", DSN(d.MySQL)); err != nil {
-		if Db, err = sql.Open("mysql", MyDSN(d.MySQL)); err != nil {
-			log.Println("SQL Driver Error", err)
-                        log.Fatal("Connection to database error")
-		}
-
-		// Check if is alive
-		if err = Db.Ping(); err != nil {
-			log.Println("Database Error", err)
-		}
-         case TypePostgreSQL:
           if Db,err  = sql.Open("postgres", PgDNS(d.PostgreSQL)); err !=  nil{
 			log.Println("SQL Driver Error", err)
                         log.Fatal("Connection to database error")
@@ -145,11 +131,7 @@ func Connect(d Info) {
 		if err = Db.Ping(); err != nil {
 			log.Println("Database Error", err)
 		}
-	default:
-		log.Println("Base de datos no registrada en config")
-                log.Fatal("No hay database registrada")
 	}
-     }
 }
 
 

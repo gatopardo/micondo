@@ -37,14 +37,15 @@ func BalanGET(w http.ResponseWriter, r *http.Request) {
  }
 // ---------------------------------------------------
  func getBalanData(b *  model.Balance, r *http.Request)(err error){
+	   var nro int64
            b.PeriodId, _   = atoi32(r.FormValue("periodId"))
-           unr, err        := money2uint64(r.FormValue("amount"))
+           nro, err        = money2int64(r.FormValue("amount"))
            if err == nil {
-                 b.Amount  =  unr
-                 unr,err   = money2uint64(r.FormValue("cuota"))
+                 b.Amount  =  nro
+                 nro,err   = money2int64(r.FormValue("cuota"))
             }
            if err == nil {
-                 b.Cuota   =  unr
+                 b.Cuota   =  nro
             }
        return
    }
@@ -110,16 +111,16 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
 // ---------------------------------------------------
  func   getBalanFormUp(r * http.Request)(st string){
         var sf string
-        var nr  uint64
+        var nro  int64
         var sup []string
         if r.FormValue("ckcuota") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("cuota") )
-             sf  =  fmt.Sprintf( " cuota = '%d' ", nr )
+	     nro, _  =  money2int64(  r.FormValue("cuota") )
+             sf  =  fmt.Sprintf( " cuota = '%d' ", nro )
 	     sup = append(sup, sf)
            }
         if r.FormValue("ckamount") == "true" {
-	     nr, _  =  money2uint64(  r.FormValue("amount") )
-             sf  =  fmt.Sprintf( " amount = '%d' ", nr )
+	     nro, _  =  money2int64(  r.FormValue("amount") )
+             sf  =  fmt.Sprintf( " amount = '%d' ", nro )
 	     sup = append(sup, sf)
            }
 
@@ -166,15 +167,18 @@ func BalanUpPOST(w http.ResponseWriter, r *http.Request) {
 // BalanLisGET displays the balance page
 func BalanLisGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
+/*	
         var params httprouter.Params
         params = context.Get(r, "params").(httprouter.Params)
+
         SPg := params.ByName("pg")
         Pg,_ := atoi32(SPg)
         posact = int(Pg)
         offset =  posact   -  1
         offset = offset * limit
         TotalCount =  model.BalansCount()
-        lisBalan, err := model.BalanPerLim(limit, offset)
+*/
+        lisBalan, err := model.Balans()
         if err != nil {
 //            fmt.Println(err)
             log.Println(err)
@@ -184,10 +188,12 @@ func BalanLisGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name             = "balance/balanlis"
 	v.Vars["token"]    = csrfbanana.Token(w, r, sess)
+/*
         numberOfBtns      :=  getNumberOfButtonsForPagination(TotalCount, limit)
         sliceBtns         :=  createSliceForBtns(numberOfBtns, posact)
         v.Vars["slice"]    =  sliceBtns
         v.Vars["current"]  =  posact
+*/
         v.Vars["LisBalan"] = lisBalan
         v.Vars["Level"]    =  sess.Values["level"]
 	v.Render(w)
@@ -226,13 +232,16 @@ func BalanDeletePOST(w http.ResponseWriter, r *http.Request) {
         var err error
         var balan model.Balance
 	sess := model.Instance(r)
+/*
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
         balan.Id      = Id
 	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/balance/list/%s", SPag)
+        path        :=  fmt.Sprintf("/balance/list", SPag)
+*/
+        path        :=  "/balance/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
              err = balan.BalanDelete()
