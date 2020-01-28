@@ -229,10 +229,10 @@ func routes() *httprouter.Router {
 ////          List
 	r.GET("/cuota/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.CuotLis)))
+		ThenFunc(controller.CuotLisGET)))
 	r.POST("/cuota/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.CuotLis)))
+		ThenFunc(controller.CuotLisPOST)))
 ////          Delete
 	r.GET("/cuota/delete/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).

@@ -209,10 +209,8 @@ func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, path, http.StatusFound)
  }
 //------------------------------------------------
-// CuotLis displays the cuot page
-func CuotLis(w http.ResponseWriter, r *http.Request) {
-        var Id  uint32
-	var per model.Periodo
+// CuotLisGET displays the cuot page
+func CuotLisGET(w http.ResponseWriter, r *http.Request) {
 	sess            := model.Instance(r)
         lisPeriod,err   := model.Periods()
         if err != nil {
@@ -220,14 +218,23 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
 	    sess.AddFlash(view.Flash{"Error Obteniendo Periodos.", view.FlashError})
             sess.Save(r, w)
          }
-        if r.Method == "GET" {
-            Id = lisPeriod[0].Id
-	    per.Id           = Id
-        }else{
+	v                   := view.New(r)
+	v.Name               = "cuota/cuotper"
+	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+        v.Vars["LisPeriod"]  = lisPeriod
+        v.Vars["Level"]      =  sess.Values["level"]
+	v.Render(w)
+ }
+
+//------------------------------------------------
+// CuotLisPOST displays the cuot page
+func CuotLisPOST(w http.ResponseWriter, r *http.Request) {
+        var Id  uint32
+	var per model.Periodo
+	sess            := model.Instance(r)
             Id,_             = atoi32(r.FormValue("id"))
 	    per.Id           = Id
 	    (&per).PeriodById()
-        }
         lisCuot, err         := model.CuotLim(Id)
         if err != nil {
             log.Println(err)
@@ -237,8 +244,7 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
 	v                   := view.New(r)
 	v.Name               = "cuota/cuotlis"
 	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
-	v.Vars["Per"]     = per
-        v.Vars["LisPeriod"]  = lisPeriod
+	v.Vars["Per"]        = per
         v.Vars["LisCuot"]    = lisCuot
         v.Vars["Level"]      =  sess.Values["level"]
 	v.Render(w)

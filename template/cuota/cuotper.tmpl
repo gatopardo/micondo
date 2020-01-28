@@ -1,4 +1,4 @@
-{{define "title"}}Escoger Periodo{{end}}
+{{define "title"}}Periodo Cuotas{{end}}
 {{define "head"}} {{end}}
 {{define "content"}}
 
@@ -11,7 +11,7 @@
                <label for="period" >Periodo</label>
            </div>
            <div class="fbox">
-               <select name="periodId"> 
+               <select name="id"> 
                   {{range $key, $value := .LisPeriod}}
                     <option value="{{ $value.Id }}">{{ $value.Inicio | DATEFORMAT }}</option>
                   {{end}}
@@ -29,7 +29,8 @@
         </div>
        </form>
   </div>
+  <div>
 	{{template "footer" .}}
-
+  </div>
 {{end}}
-{{define "foot"}}<h5 class="mcenter">Cuota</h5>{{end}}
+{{define "foot"}}<div><h5 class="mcenter">Cuota</h5></div>{{end}}

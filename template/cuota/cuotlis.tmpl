@@ -1,4 +1,4 @@
-{{define "title"}}Listar Cuotas{{end}}
+{{define "title"}} Cuotas por Periodo{{end}}
 {{define "head"}}  
  
 {{end}}
@@ -7,44 +7,16 @@
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
 
-     <form method="post" action="/cuota/list" >
-   	<div class="fwrapper fcols4">
-           <div class="fbox">
-               <label for="period" >Periodo</label>
-           </div>
-           {{$Pid := .Per.Id}}
-           <div class="fbox">
-               <select name="id"> 
-                  {{range $key, $value := .LisPeriod}}
-                     {{ if  eq $key $Pid }}
-                        <option value="{{ $value.Id }}" selected >{{ $value.Inicio | DATEFORMAT }}</option>
-                     {{else}}
-                        <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }}</option>
-                     {{end}}
-                  {{end}}
-               </select>
-           </div>
-           <div class="fbox">
-                 <span>
-		<input type="submit" name="action"  value="Seguir" />
-		<input type="submit" name="action"  value="Cancelar" />
-                 </span>
-           </div>
-           <div class="fbox">
-		<input type="hidden" name="token" value="{{.token}}">
-           </div>
-        </div>
-       </form>
 
-	  <div class="lwrapper fcols5a">
+	  <div class="lwrapper fcols5b">
                <div class="box"> Periodo     </div>
-               <div class="box"> {{.Per.Inicio  | DATEFORMAT }}     </div>
-               <div class="box">             </div>
+               <div class="box"> Del {{.Per.Inicio | DATEFORMAT }} </div>
+               <div class="box"> Al {{.Per.Final   | DATEFORMAT }} </div>
                <div class="box">             </div>
                <div class="box">             </div>
           </div>
 
-	  <div class="lwrapper fcols5a">
+	  <div class="lwrapper fcols5b">
              <div class="box"> Apto        </div>
              <div class="box"> Tipo        </div>
              <div class="box"> Fecha       </div>

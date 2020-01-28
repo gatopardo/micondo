@@ -218,6 +218,13 @@ func EgreLis(w http.ResponseWriter, r *http.Request) {
             Id,_             = atoi32(r.FormValue("id"))
         }
 	per.Id               = Id
+	err  = (&per).PeriodById()
+        if err != nil {
+            log.Println(err)
+	    sess.AddFlash(view.Flash{"Error con Periodo.", view.FlashError})
+            sess.Save(r, w)
+         }
+
 // fmt.Println("List Egreso ", Id)
         lisEgre, err         := model.EgresLim(Id)
         if err != nil {

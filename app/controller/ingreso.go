@@ -214,7 +214,14 @@ func IngreLis(w http.ResponseWriter, r *http.Request) {
         }else{
             Id,_             = atoi32(r.FormValue("id"))
         }
+fmt.Println("IngreLis lon ", len(lisPeriod), " id ", Id, " ", r.Method)
 	per.Id                 = Id
+	err = (&per).PeriodById();
+        if err != nil {
+            log.Println(err)
+	    sess.AddFlash(view.Flash{"Error Obteniendo Periodos.", view.FlashError})
+            sess.Save(r, w)
+         }
         lisIngre, err         := model.IngresLim(Id)
         if err != nil {
             log.Println(err)
