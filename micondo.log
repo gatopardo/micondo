@@ -4963,3 +4963,47 @@ INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/
 INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_cent.jpg
 INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_caset.jpg
 INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/29 07:26:14 main.go:42: Starting app
+INFO 2020/01/29 07:26:14 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:26:14 route.go:357: middleware felipe
+INFO 2020/01/29 07:26:14 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:26:14 route.go:357: middleware felipe
+INFO 2020/01/29 07:26:14 server.go:36: 0.0.0.0:4430
+2020/01/29 07:26:23 server.go:3056: http: TLS handshake error from 10.0.0.45:51636: remote error: tls: unknown certificate
+INFO 2020/01/29 07:26:23 logrequest.go:14: 10.0.0.45:51638 GET /login
+INFO 2020/01/29 07:26:34 logrequest.go:14: 10.0.0.45:51638 POST /login
+INFO 2020/01/29 07:26:35 logrequest.go:14: 10.0.0.45:51638 GET /
+INFO 2020/01/29 07:26:35 logrequest.go:14: 10.0.0.45:51638 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/29 07:26:35 logrequest.go:14: 10.0.0.45:51638 GET /static/css/global.css?1580161104
+INFO 2020/01/29 07:26:39 logrequest.go:14: 10.0.0.45:51638 GET /period/list
+INFO 2020/01/29 07:26:43 logrequest.go:14: 10.0.0.45:51638 GET /egreso/list
+INFO 2020/01/29 07:26:48 logrequest.go:14: 10.0.0.45:51638 GET /cuota/list
+INFO 2020/01/29 07:26:51 logrequest.go:14: 10.0.0.45:51638 POST /cuota/list
+INFO 2020/01/29 07:28:25 main.go:42: Starting app
+INFO 2020/01/29 07:28:25 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:28:25 route.go:357: middleware felipe
+INFO 2020/01/29 07:28:25 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:28:25 route.go:357: middleware felipe
+INFO 2020/01/29 07:28:25 server.go:36: 0.0.0.0:4430
+2020/01/29 07:28:32 server.go:3056: http: TLS handshake error from 10.0.0.45:51642: remote error: tls: unknown certificate
+INFO 2020/01/29 07:28:32 logrequest.go:14: 10.0.0.45:51644 GET /ingreso/list
+INFO 2020/01/29 07:28:37 logrequest.go:14: 10.0.0.45:51644 GET /cuota/list
+INFO 2020/01/29 07:28:39 logrequest.go:14: 10.0.0.45:51644 POST /cuota/list
+INFO 2020/01/29 07:31:34 main.go:42: Starting app
+INFO 2020/01/29 07:31:34 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:31:34 route.go:357: middleware felipe
+INFO 2020/01/29 07:31:34 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:31:34 route.go:357: middleware felipe
+INFO 2020/01/29 07:31:34 server.go:36: 0.0.0.0:4430
+2020/01/29 07:31:39 server.go:3056: http: TLS handshake error from 10.0.0.45:51648: remote error: tls: unknown certificate
+INFO 2020/01/29 07:31:39 logrequest.go:14: 10.0.0.45:51650 GET /ingreso/list
+INFO 2020/01/29 07:31:43 logrequest.go:14: 10.0.0.45:51650 GET /cuota/list
+INFO 2020/01/29 07:31:45 logrequest.go:14: 10.0.0.45:51650 POST /cuota/list
+INFO 2020/01/29 07:47:46 main.go:42: Starting app
+INFO 2020/01/29 07:47:46 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:47:46 route.go:357: middleware felipe
+INFO 2020/01/29 07:47:46 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:47:46 route.go:357: middleware felipe
+INFO 2020/01/29 07:47:46 server.go:36: 0.0.0.0:4430
+INFO 2020/01/29 07:48:52 main.go:42: Starting app
+2020/01/29 07:48:52 model.go:110: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')

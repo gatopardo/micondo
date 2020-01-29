@@ -7,7 +7,7 @@
 			"Password": "",
 			"Name": "dbcondo",
 			"Hostname": "127.0.0.1",
-			"Port": 5433,
+			"Port": 5432,
 			"Parameter": "disable"
 		}
 	},
