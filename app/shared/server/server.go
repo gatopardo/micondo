@@ -25,7 +25,7 @@ type Server struct {
 
 // Run starts the HTTP and/or HTTPS listener
 func Run(httpHandlers http.Handler, httpsHandlers http.Handler, s Server) {
-//        fmt.Println("Server al inicio")
+        fmt.Println("Server al inicio", s.Remote)
         if s.Remote  {
               sport := os.Getenv("PORT")
               iport, _ :=  strconv.Atoi(sport)

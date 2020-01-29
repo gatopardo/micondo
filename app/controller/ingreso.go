@@ -214,7 +214,7 @@ func IngreLis(w http.ResponseWriter, r *http.Request) {
         }else{
             Id,_             = atoi32(r.FormValue("id"))
         }
-fmt.Println("IngreLis lon ", len(lisPeriod), " id ", Id, " ", r.Method)
+// fmt.Println("IngreLis lon ", len(lisPeriod), " id ", Id, " ", r.Method)
 	per.Id                 = Id
 	err = (&per).PeriodById();
         if err != nil {

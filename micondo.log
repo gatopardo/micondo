@@ -4787,3 +4787,40 @@ INFO 2020/01/28 19:08:42 logrequest.go:14: 10.0.0.45:50986 GET /report/rptcondo
 INFO 2020/01/28 19:08:44 logrequest.go:14: 10.0.0.45:50986 POST /report/rptcondo
 INFO 2020/01/28 19:11:35 logrequest.go:14: 10.0.0.45:50986 GET /report/rptcondo
 INFO 2020/01/28 19:11:39 logrequest.go:14: 10.0.0.45:50986 POST /report/rptcondo
+INFO 2020/01/28 19:50:15 main.go:42: Starting app
+INFO 2020/01/28 19:50:15 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/28 19:50:15 route.go:357: middleware felipe
+INFO 2020/01/28 19:50:15 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/28 19:50:15 route.go:357: middleware felipe
+INFO 2020/01/28 19:50:15 server.go:36: 0.0.0.0:4430
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49551 GET /
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49551 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49553 GET /static/css/global.css?1580161104
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49555 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49557 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49559 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49561 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49553 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49553 GET /static/js/global.js?1580161104
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49557 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/28 19:51:34 logrequest.go:14: 10.0.0.12:49553 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/28 19:51:36 logrequest.go:14: 10.0.0.12:49553 GET /login
+INFO 2020/01/28 19:51:56 logrequest.go:14: 10.0.0.12:49553 POST /login
+INFO 2020/01/28 19:51:56 logrequest.go:14: 10.0.0.12:49553 GET /
+INFO 2020/01/28 19:52:06 logrequest.go:14: 10.0.0.12:49553 GET /report/rptapto
+INFO 2020/01/28 19:52:17 logrequest.go:14: 10.0.0.12:49553 POST /report/rptapto
+INFO 2020/01/28 19:52:41 logrequest.go:14: 10.0.0.12:49553 GET /report/rptapto
+INFO 2020/01/28 19:52:50 logrequest.go:14: 10.0.0.12:49553 POST /report/rptapto
+INFO 2020/01/28 19:52:54 logrequest.go:14: 10.0.0.12:49553 GET /report/rptapto
+INFO 2020/01/28 19:53:03 logrequest.go:14: 10.0.0.12:49553 GET /report/rptcondo
+INFO 2020/01/28 19:53:07 logrequest.go:14: 10.0.0.12:49553 POST /report/rptcondo
+INFO 2020/01/28 19:53:49 logrequest.go:14: 10.0.0.12:49553 GET /report/rptcondo
+INFO 2020/01/28 19:54:06 logrequest.go:14: 10.0.0.12:49553 GET /cuota/list
+INFO 2020/01/28 19:54:10 logrequest.go:14: 10.0.0.12:49553 POST /cuota/list
+INFO 2020/01/28 19:54:17 logrequest.go:14: 10.0.0.12:49553 GET /cuota/list
+INFO 2020/01/28 19:54:27 logrequest.go:14: 10.0.0.12:49553 GET /ingreso/list
+INFO 2020/01/28 19:54:41 logrequest.go:14: 10.0.0.12:49553 POST /ingreso/list
+INFO 2020/01/28 19:54:46 logrequest.go:14: 10.0.0.12:49553 GET /ingreso/list
+INFO 2020/01/28 19:54:57 logrequest.go:14: 10.0.0.12:49553 GET /egreso/list
+INFO 2020/01/28 19:55:08 logrequest.go:14: 10.0.0.12:49553 POST /egreso/list
+INFO 2020/01/28 19:55:23 logrequest.go:14: 10.0.0.12:49553 GET /egreso/list
