@@ -103,7 +103,6 @@ func Connect(d Info) {
 	// Store the config
 	databases = d
         if d.Remote  {
-
           regex := regexp.MustCompile("(?i)^postgres://(?:([^:@]+):([^@]*)@)?([^@/:]+):(\\d+)/(.*)$")
           matches := regex.FindStringSubmatch(os.Getenv("DATABASE_URL"))
 	  if matches == nil {

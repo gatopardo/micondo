@@ -44,6 +44,7 @@ func main() {
 	jsonconfig.Load("config"+string(os.PathSeparator)+"config.json", config)
 
 	// Configure the session cookie store
+//	fmt.Println(" main Server Remote ", config.Server.Remote)
 	model.Configure(config.Session)
 	// Connect to database
 	model.Connect(config.Database)

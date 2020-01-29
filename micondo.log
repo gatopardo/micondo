@@ -4824,3 +4824,142 @@ INFO 2020/01/28 19:54:46 logrequest.go:14: 10.0.0.12:49553 GET /ingreso/list
 INFO 2020/01/28 19:54:57 logrequest.go:14: 10.0.0.12:49553 GET /egreso/list
 INFO 2020/01/28 19:55:08 logrequest.go:14: 10.0.0.12:49553 POST /egreso/list
 INFO 2020/01/28 19:55:23 logrequest.go:14: 10.0.0.12:49553 GET /egreso/list
+INFO 2020/01/28 21:55:06 main.go:42: Starting app
+INFO 2020/01/28 21:55:06 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/28 21:55:06 route.go:357: middleware felipe
+INFO 2020/01/28 21:55:06 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/28 21:55:06 route.go:357: middleware felipe
+INFO 2020/01/28 21:55:06 server.go:36: 0.0.0.0:4430
+INFO 2020/01/28 21:55:48 main.go:42: Starting app
+INFO 2020/01/28 21:55:48 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/28 21:55:48 route.go:357: middleware felipe
+INFO 2020/01/28 21:55:48 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/28 21:55:48 route.go:357: middleware felipe
+INFO 2020/01/28 21:55:48 server.go:36: 0.0.0.0:4430
+INFO 2020/01/29 06:07:56 main.go:42: Starting app
+INFO 2020/01/29 06:07:56 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:07:56 route.go:357: middleware felipe
+INFO 2020/01/29 06:07:56 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:07:56 route.go:357: middleware felipe
+INFO 2020/01/29 06:07:56 server.go:36: 0.0.0.0:4430
+INFO 2020/01/29 06:32:09 main.go:42: Starting app
+INFO 2020/01/29 06:32:09 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:32:09 route.go:357: middleware felipe
+INFO 2020/01/29 06:32:09 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:32:09 route.go:357: middleware felipe
+INFO 2020/01/29 06:32:09 server.go:36: 0.0.0.0:4430
+INFO 2020/01/29 06:34:54 main.go:42: Starting app
+INFO 2020/01/29 06:34:54 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:34:54 route.go:357: middleware felipe
+INFO 2020/01/29 06:34:54 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:34:54 route.go:357: middleware felipe
+INFO 2020/01/29 06:34:54 server.go:36: 0.0.0.0:4430
+INFO 2020/01/29 06:39:29 main.go:42: Starting app
+INFO 2020/01/29 06:39:29 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:39:29 route.go:357: middleware felipe
+INFO 2020/01/29 06:39:29 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:39:29 route.go:357: middleware felipe
+INFO 2020/01/29 06:39:29 server.go:36: 0.0.0.0:4430
+2020/01/29 06:39:29 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 06:43:14 main.go:42: Starting app
+INFO 2020/01/29 06:43:14 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:43:14 route.go:357: middleware felipe
+INFO 2020/01/29 06:43:14 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:43:14 route.go:357: middleware felipe
+INFO 2020/01/29 06:43:14 server.go:36: 0.0.0.0:4430
+2020/01/29 06:43:14 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 06:51:14 main.go:42: Starting app
+INFO 2020/01/29 06:51:14 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:51:14 route.go:357: middleware felipe
+INFO 2020/01/29 06:51:14 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:51:14 route.go:357: middleware felipe
+INFO 2020/01/29 06:51:14 server.go:36: 0.0.0.0:4430
+2020/01/29 06:51:14 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 06:52:45 main.go:42: Starting app
+INFO 2020/01/29 06:52:45 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:52:45 route.go:357: middleware felipe
+INFO 2020/01/29 06:52:45 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:52:45 route.go:357: middleware felipe
+INFO 2020/01/29 06:52:45 server.go:36: 0.0.0.0:4430
+2020/01/29 06:52:45 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 06:56:30 main.go:42: Starting app
+INFO 2020/01/29 06:56:30 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:56:30 route.go:357: middleware felipe
+INFO 2020/01/29 06:56:30 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:56:30 route.go:357: middleware felipe
+INFO 2020/01/29 06:56:30 server.go:36: 0.0.0.0:4430
+2020/01/29 06:56:30 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 06:58:32 main.go:42: Starting app
+INFO 2020/01/29 06:58:32 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 06:58:32 route.go:357: middleware felipe
+INFO 2020/01/29 06:58:32 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 06:58:32 route.go:357: middleware felipe
+INFO 2020/01/29 06:58:32 server.go:36: 0.0.0.0:4430
+2020/01/29 06:58:32 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 07:05:17 main.go:42: Starting app
+INFO 2020/01/29 07:05:17 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:05:17 route.go:357: middleware felipe
+INFO 2020/01/29 07:05:17 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:05:17 route.go:357: middleware felipe
+INFO 2020/01/29 07:05:17 server.go:36: 0.0.0.0:4430
+2020/01/29 07:05:17 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 07:05:29 main.go:42: Starting app
+INFO 2020/01/29 07:05:29 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:05:29 route.go:357: middleware felipe
+INFO 2020/01/29 07:05:29 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:05:29 route.go:357: middleware felipe
+INFO 2020/01/29 07:05:29 server.go:36: 0.0.0.0:4430
+2020/01/29 07:05:29 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 07:06:43 main.go:42: Starting app
+INFO 2020/01/29 07:06:43 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:06:43 route.go:357: middleware felipe
+INFO 2020/01/29 07:06:43 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:06:43 route.go:357: middleware felipe
+INFO 2020/01/29 07:06:43 server.go:36: 0.0.0.0:4430
+2020/01/29 07:06:43 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 07:09:59 main.go:42: Starting app
+2020/01/29 07:09:59 model.go:109: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2020/01/29 07:10:40 main.go:42: Starting app
+INFO 2020/01/29 07:10:40 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:10:40 route.go:357: middleware felipe
+INFO 2020/01/29 07:10:40 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:10:40 route.go:357: middleware felipe
+INFO 2020/01/29 07:10:40 server.go:36: 0.0.0.0:4430
+2020/01/29 07:10:40 server.go:65: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 07:17:07 main.go:42: Starting app
+INFO 2020/01/29 07:17:07 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:17:07 route.go:357: middleware felipe
+INFO 2020/01/29 07:17:07 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:17:07 route.go:357: middleware felipe
+INFO 2020/01/29 07:17:07 server.go:36: 0.0.0.0:4430
+2020/01/29 07:17:07 server.go:66: open tls/cert.pem: no such file or directory
+INFO 2020/01/29 07:19:29 main.go:42: Starting app
+INFO 2020/01/29 07:19:29 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 07:19:29 route.go:357: middleware felipe
+INFO 2020/01/29 07:19:29 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 07:19:29 route.go:357: middleware felipe
+INFO 2020/01/29 07:19:29 server.go:36: 0.0.0.0:4430
+2020/01/29 07:19:49 server.go:3056: http: TLS handshake error from 10.0.0.45:51592: remote error: tls: unknown certificate
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /report/rptcondo
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/css/global.css?1580161104
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/js/global.js?1580161104
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/29 07:19:49 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/29 07:19:50 logrequest.go:14: 10.0.0.45:51594 GET /login
+INFO 2020/01/29 07:19:57 logrequest.go:14: 10.0.0.45:51594 POST /login
+INFO 2020/01/29 07:19:57 logrequest.go:14: 10.0.0.45:51594 GET /
+INFO 2020/01/29 07:20:06 logrequest.go:14: 10.0.0.45:51594 GET /report/rptapto
+INFO 2020/01/29 07:20:10 logrequest.go:14: 10.0.0.45:51594 POST /report/rptapto
+INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /logout
+INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /
+INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/29 07:20:12 logrequest.go:14: 10.0.0.45:51594 GET /static/favicons/jpeg/imp_2_der.jpg
