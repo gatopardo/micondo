@@ -9,7 +9,6 @@
 			"Hostname": "127.0.0.1",
 			"Port": 5432,
 			"Parameter": "disable"
-		}
 	},
 	"Server": {
                 "Remote": true,
