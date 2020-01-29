@@ -5007,3 +5007,9 @@ INFO 2020/01/29 07:47:46 route.go:357: middleware felipe
 INFO 2020/01/29 07:47:46 server.go:36: 0.0.0.0:4430
 INFO 2020/01/29 07:48:52 main.go:42: Starting app
 2020/01/29 07:48:52 model.go:110: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2020/01/29 15:20:52 main.go:42: Starting app
+2020/01/29 15:20:52 model.go:109: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2020/01/29 15:21:36 main.go:42: Starting app
+2020/01/29 15:21:36 model.go:109: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2020/01/29 15:25:52 main.go:42: Starting app
+2020/01/29 15:25:52 model.go:110: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
