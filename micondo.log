@@ -5013,3 +5013,28 @@ INFO 2020/01/29 15:21:36 main.go:42: Starting app
 2020/01/29 15:21:36 model.go:109: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
 INFO 2020/01/29 15:25:52 main.go:42: Starting app
 2020/01/29 15:25:52 model.go:110: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2020/01/29 17:02:17 main.go:42: Starting app
+INFO 2020/01/29 17:02:17 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 17:02:17 route.go:357: middleware felipe
+INFO 2020/01/29 17:02:17 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 17:02:17 route.go:357: middleware felipe
+INFO 2020/01/29 17:02:17 server.go:37: 0.0.0.0:4430
+2020/01/29 17:02:41 server.go:3056: http: TLS handshake error from 10.0.0.45:52588: remote error: tls: unknown certificate
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /cuota/list
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/css/global.css?1580161104
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/js/global.js?1580161104
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/29 17:02:41 logrequest.go:14: 10.0.0.45:52590 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/29 17:02:44 logrequest.go:14: 10.0.0.45:52590 GET /login
+INFO 2020/01/29 17:02:53 logrequest.go:14: 10.0.0.45:52590 POST /login
+INFO 2020/01/29 17:02:53 logrequest.go:14: 10.0.0.45:52590 GET /
+INFO 2020/01/29 17:02:57 logrequest.go:14: 10.0.0.45:52590 GET /cuota/list
+INFO 2020/01/29 17:03:00 logrequest.go:14: 10.0.0.45:52590 POST /cuota/list
+2020/01/29 17:12:03 h2_bundle.go:4213: http2: received GOAWAY [FrameHeader GOAWAY len=33], starting graceful shutdown
