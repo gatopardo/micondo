@@ -5038,3 +5038,22 @@ INFO 2020/01/29 17:02:53 logrequest.go:14: 10.0.0.45:52590 GET /
 INFO 2020/01/29 17:02:57 logrequest.go:14: 10.0.0.45:52590 GET /cuota/list
 INFO 2020/01/29 17:03:00 logrequest.go:14: 10.0.0.45:52590 POST /cuota/list
 2020/01/29 17:12:03 h2_bundle.go:4213: http2: received GOAWAY [FrameHeader GOAWAY len=33], starting graceful shutdown
+INFO 2020/01/29 17:52:04 main.go:42: Starting app
+INFO 2020/01/29 17:52:04 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 17:52:04 route.go:357: middleware felipe
+INFO 2020/01/29 17:52:04 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 17:52:04 route.go:357: middleware felipe
+INFO 2020/01/29 17:52:04 server.go:35: 0.0.0.0:4430
+2020/01/29 17:53:18 server.go:3056: http: TLS handshake error from 10.0.0.45:53098: remote error: tls: unknown certificate
+INFO 2020/01/29 17:53:18 logrequest.go:14: 10.0.0.45:53100 GET /logout
+INFO 2020/01/29 17:53:18 logrequest.go:14: 10.0.0.45:53100 GET /
+INFO 2020/01/29 17:53:18 logrequest.go:14: 10.0.0.45:53100 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/29 17:53:18 logrequest.go:14: 10.0.0.45:53100 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/29 17:53:18 logrequest.go:14: 10.0.0.45:53100 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/29 17:53:18 logrequest.go:14: 10.0.0.45:53100 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/29 21:52:32 main.go:42: Starting app
+INFO 2020/01/29 21:52:32 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/29 21:52:32 route.go:357: middleware felipe
+INFO 2020/01/29 21:52:32 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/29 21:52:32 route.go:357: middleware felipe
+INFO 2020/01/29 21:52:32 server.go:35: 0.0.0.0:4430

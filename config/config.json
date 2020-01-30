@@ -7,7 +7,7 @@
 			"Password": "",
 			"Name": "dbcondo",
 			"Hostname": "127.0.0.1",
-			"Port": 5432,
+			"Port": 5433,
 			"Parameter": "disable"
 		}
 	},
@@ -15,7 +15,7 @@
                 "Remote": true,
 		"Hostname": "0.0.0.0",
 		"UseHTTP": true,
-		"UseHTTPS": true,
+		"UseHTTPS": false,
 		"HTTPPort": 9090,
 		"HTTPSPort": 4430,
 		"CertFile": "tls/server.crt",
