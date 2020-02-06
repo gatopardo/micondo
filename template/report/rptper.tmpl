@@ -8,17 +8,32 @@
           <h3 class="center"> {{template "title" . }} </h3>
 
      <form method="post" action="/report/rptapto" >
-   	<div class="fwrapper fcols4">
+   	<div class="fwrapper fcols2a">
            <div class="fbox">
-               <label for="period" >Periodo</label>
+               <label for="periodf" >Periodo Final</label>
            </div>
            <div class="fbox">
-               <select name="id"> 
+               <select name="idf"> 
                   {{range $key, $value := .LisPeriods}}
                         <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }}</option>
                   {{end}}
                </select>
            </div>
+        </div>
+
+   	<div class="fwrapper fcols2a">
+           <div class="fbox">
+               <label for="period" >Periodo Inicial</label>
+           </div>
+           <div class="fbox">
+               <select name="idi"> 
+                  {{range $key, $value := .LisPeriods}}
+                        <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }}</option>
+                  {{end}}
+               </select>
+           </div>
+        </div>
+   	<div class="fwrapper fcols2a">
            <div class="fbox">
                  <span>
 		<input type="submit" name="action"  value="Seguir" />

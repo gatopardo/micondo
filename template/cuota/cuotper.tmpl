@@ -1,5 +1,6 @@
 {{define "title"}}Periodo Cuotas{{end}}
 {{define "head"}} {{end}}
+{{define "foot"}}<div><h5 class="mcenter">Cuota</h5></div>{{end}}
 {{define "content"}}
 
   <div class="fcontent">
@@ -30,7 +31,8 @@
        </form>
   </div>
   <div>
-	{{template "footer" .}}
   </div>
 {{end}}
-{{define "foot"}}<div><h5 class="mcenter">Cuota</h5></div>{{end}}
+  <div>
+	{{template "footer" .}}
+  </div>

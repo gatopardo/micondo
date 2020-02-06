@@ -5,11 +5,11 @@ import (
 	"net/http"
          "strings"
          "fmt"
-          "path/filepath"
+//          "path/filepath"
           "os"
           "io"
-//          "io/ioutil"
-//          "encoding/base64"
+	  "math/rand"
+	  "time"
           "mime/multipart"
 
 	"github.com/gatopardo/micondo/app/model"
@@ -21,28 +21,18 @@ import (
 	"github.com/julienschmidt/httprouter"
   )
 
- const maxUploadSize = 2 << 20 // 2 mb
+ const (
+	 maxUploadSize = 2 << 20 // 2 mb
+         path_img = "/static/favicons/icon_"
+ )
 
-// ---------------------------------------------------
+ type Tipo struct{
+     Code string
+     Stip  string
+ }
 
-  func saveFile( fileHeader *multipart.FileHeader , data []byte )(err error){
-         fileName    := fileHeader.Filename
-
-         newPath := filepath.Join("images", fileName)
-         var newFile *os.File
-         newFile, err = os.Create(newPath)
-         if err != nil {
-             fmt.Println(err)
-             return
-         }
-         defer newFile.Close()
-         if _, err = newFile.Write(data); err != nil {
-              fmt.Println(err)
-              return
-         }
-       return
-    }
-
+ var LisTip =  [...]Tipo{{"D","Owner"},{"I","Tenant"},{"A","Admin"},{"R","Reference"}}
+ var LisIcon = [...]string{"a", "b", "c", "d"}
 // ---------------------------------------------------
 
   func getImage(r *http.Request, sname string)( st string ,err error){
@@ -57,37 +47,45 @@ import (
              return
          }
          defer file.Close()
-//         fmt.Printf("Uploaded File: %+v\n", fileHeader.Filename)
-//         fmt.Printf("File Size: %+v\n", fileHeader.Size)
-//         fmt.Printf("MIME Header: %+v\n", fileHeader.Header)
-         st = "./static/favicons/icon_a/"+fileHeader.Filename
-         f, err := os.OpenFile(st, os.O_WRONLY|os.O_CREATE, 0666)
+
+         sr  := rand.NewSource(time.Now().UnixNano())
+         rn  := rand.New(sr)
+	 ir  :=  rn.Intn(len(LisIcon))
+         s2  :=  LisIcon[ir] + "/"
+         st   =  path_img+s2+fileHeader.Filename
+	 str :=  "."+st
+// fmt.Println(" get Image ", fileHeader.Filename , str)
+         f, err := os.OpenFile(str, os.O_WRONLY|os.O_CREATE, 0666)
          if err != nil {
-             fmt.Println(err)
+             fmt.Println("OpenFile ", err)
              return
          }
          defer f.Close()
-         io.Copy(f, file)
+            var  nr int64
+            nr, err =     io.Copy(f, file)
+            if err != nil {
+                fmt.Println(nr, err)
+                return
+         }
          return
    }
 
 //----------------------------------------------------
  func DatFormPers(p *model.Person, r * http.Request){
 	 p.ApartaId,_     = atoi32(r.FormValue("aptId"))
-         p.Fname     =  r.FormValue("fname")
-         p.Lname     =  r.FormValue("lname")
-         p.Email     =  r.FormValue("email")
-         p.Address   =  r.FormValue("address")
-         p.Tele      =  r.FormValue("tele")
-         p.Mobil     =  r.FormValue("mobil")
-         p.Tipo      =  r.FormValue("tipo")
-         rPhoto, _  :=  getImage(r, "photo")
-         p.Photo     =  rPhoto
+         p.Fname          =  r.FormValue("fname")
+         p.Lname          =  r.FormValue("lname")
+         p.Email          =  r.FormValue("email")
+         p.Address        =  r.FormValue("address")
+         p.Tele           =  r.FormValue("tele")
+         p.Mobil          =  r.FormValue("mobil")
+         p.Tipo           =  r.FormValue("tipo")
+         rPhoto, _       :=  getImage(r, "photo")
+         p.Photo          =  rPhoto
 //         fmt.Println("Person ", *p )
    }
 
 // --------------------------------------------------------
-
 // RegisterGET despliega la pagina del usuario
  func RegisterGET(w http.ResponseWriter, r *http.Request) {
 	// Get session
@@ -99,8 +97,9 @@ import (
 	}
 	// Display the view
 	v := view.New(r)
-        v.Vars["LisApts"] = lsApts
 	v.Name = "register/register"
+        v.Vars["LisApts"] = lsApts
+        v.Vars["LisTips"] = LisTip
 	v.Vars["token"] = csrfbanana.Token(w, r, sess)
 	v.Render(w)
  }
@@ -118,10 +117,10 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
         action     := r.FormValue("action")
 //      fmt.Println(action)
         if ! (strings.Compare(action,"Cancelar") == 0) {
-           if validate, missingField := view.Validate(r, []string{"cuenta", "level"}); !validate {
+           if validate, missingField := view.Validate(r, []string{"cuenta", "nivel", "password"}); !validate {
                sess.AddFlash(view.Flash{"Falta Campo: " + missingField, view.FlashError})
                sess.Save(r, w)
-               RegisterGET(w, r)
+//               RegisterGET(w, r)
                return
 	   }
            stUuid := model.CreateUUID()
@@ -129,7 +128,7 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
            rPasswd         := r.FormValue("password")
 	   user.Cuenta      = r.FormValue("cuenta")
            vPasswd         := r.FormValue("password_verify")
-           user.Nivel, _    = atoi32( r.FormValue("level"))
+           user.Nivel, _    = atoi32( r.FormValue("nivel"))
            user.Uuid        = stUuid
            if strings.Compare(rPasswd, vPasswd) != 0{
 		log.Println(rPasswd, " * ", vPasswd)
@@ -153,11 +152,11 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
 	   err := (&user).UserByCuenta()
            if err == model.ErrNoResult { // Exito:  no hay usuario creado aun 
                 DatFormPers(&person, r)
-// fmt.Println("Person ", person.Fname, person.Lname)
+ // fmt.Println("Person ", person.Fname, person.Lname)
                 err = (&person).PersonCreate()
                 if err != nil {
                    log.Println(err)
- fmt.Println("Person ", person.Fname, person.Lname)
+//  fmt.Println("Person ", person.Fname, person.Lname)
                    sess.AddFlash(view.Flash{"Error guardando Person.", view.FlashError})
                    sess.Save(r, w)
 		  http.Redirect(w, r, "/user/register", http.StatusFound)
@@ -197,13 +196,18 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
         var user model.User
         var pers model.Person
 	sess := model.Instance(r)
+	lsApts, err  := model.Apts()
+	if err != nil {
+	   fmt.Println(err)
+	   log.Println(err)
+	}
         // necesitamos user id
         var params httprouter.Params
         params = context.Get(r, "params").(httprouter.Params)
         id,_ := atoi32(params.ByName("id"))
         user.Id = id
         // Obtener usuario dado id
-        err := (&user).UserById()
+        err  = (&user).UserById()
         if err != nil { // Si no existe el usuario
             log.Println(err)
             sess.AddFlash(view.Flash{"Es raro. No usuario.", view.FlashError})
@@ -211,9 +215,8 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
             http.Redirect(w, r, "/user/list", http.StatusFound)
             return
         }
-// fmt.Println("User ", user.Cuenta )
         pers.Id = user.PersonId
-        pers,err = model.PersonById(pers.Id)
+        err = (&pers).PersonById()
         if err != nil { // Si no existe el usuario
             log.Println(err)
             sess.AddFlash(view.Flash{"No hay atributos.", view.FlashError})
@@ -221,73 +224,78 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
             http.Redirect(w, r, "/user/list", http.StatusFound)
             return
         }
+// fmt.Println("RegisUpGET uid ", id, " pid " , pers.Id," ",pers.Photo, " apt ", pers.ApartaId, " ", pers.Lname)
 	// Display the view
 	v := view.New(r)
-	v.Name = "register/regisupdate"
-	v.Vars["token"]  = csrfbanana.Token(w, r, sess)
-        v.Vars["cuenta"]   = user.Cuenta
-        v.Vars["pers"]     =  pers
-        v.Vars["imgPhoto"] =  string(pers.Photo)
-        v.Vars["Level"]  =  sess.Values["level"]
-
+	v.Name               = "register/regisupdate"
+	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+        v.Vars["User"]       = user
+        v.Vars["Person"]     = pers
+        v.Vars["LisTips"]    = LisTip
+        v.Vars["LisApts"]    = lsApts
+        v.Vars["Level"]      = sess.Values["level"]
 //    Refill any form fields
 //	view.Repopulate([]string{"cuenta", "level"}, r.Form, v.Vars)
         v.Render(w)
    }
+//---------------------------------------------------------------
+   func getFormStr(sfld1, sfld2, snom string) ( sform string){
+        st1 := strings.Trim(sfld1, " ")
+        st2 := strings.Trim(sfld2, " ")
+	if st1 != st2 {
+            sform = fmt.Sprintf(" %s = '%s' ",snom, st2 )
+	}
+	return
+   }
 
-//----------------------------------------------------
-//  gettin partial updates
-     func getPartialUp(r *http.Request,fieldname,  dname string) ( sform string ){
-         sform = ""
-         stTrimf  :=  strings.Trim(r.FormValue(fieldname), " ")
-         stTrimp  :=   strings.Trim(dname, " ")
-         if  ( stTrimf != stTrimp) && (len(stTrimp) > 0){
-             sform = fmt.Sprintf(" %s  = '%s' ",fieldname, stTrimf )
-         }
-        return
-      }
-
-//----------------------------------------------------
-    func getPersFormUp(p model.Person,r *http.Request)(stUp string){
+//---------------------------------------------------------------
+    func getPersFormUp(p1, p2 model.Person)(stUp string){
       var sform string
       var  sArrSup []string
-      sform =  getPartialUp(r, "fname", p.Fname)
-      if len(sform) > 0 {
-          sArrSup = append(sArrSup, sform)
-       }
-      sform =  getPartialUp(r, "lname", p.Lname)
-      if len(sform) > 0 {
-          sArrSup = append(sArrSup, sform)
-       }
-      sform =  getPartialUp(r, "address", p.Address)
-      if len(sform) > 0 {
-          sArrSup = append(sArrSup, sform)
-       }
-      sform =  getPartialUp(r, "tele", string(p.Tele))
-      if len(sform) > 0 {
-          sArrSup = append(sArrSup, sform)
-       }
-      sform =  getPartialUp(r, "mobil", p.Mobil)
-      if len(sform) > 0 {
-          sArrSup = append(sArrSup, sform)
-       }
-        rPhoto, _ := getImage(r, "photo")
-        if len(rPhoto)  > 0  { // != len(p.Photo){
-            sform = fmt.Sprintf(" photo  = '%s' ", string(rPhoto) )
-//      sform =  getPartialUp(r,"photo", string( p.Photo))
-             if len(sform) > 0 {
-                  sArrSup = append(sArrSup, sform)
-             }
-       }
+      if p1.ApartaId != p2.ApartaId  {
+           sform = fmt.Sprintf(" %s = %d ","aparta_id", p2.ApartaId)
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Fname, " ") !=  strings.Trim(p2.Fname," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","fname",  strings.Trim(p2.Fname," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Lname, " ") !=  strings.Trim(p2.Lname," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","lname",  strings.Trim(p2.Lname," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Email, " ") !=  strings.Trim(p2.Email," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","email",  strings.Trim(p2.Email," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Address, " ") !=  strings.Trim(p2.Address," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","address",  strings.Trim(p2.Address," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Tele, " ") !=  strings.Trim(p2.Tele," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","tele",  strings.Trim(p2.Tele," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Mobil, " ") !=  strings.Trim(p2.Mobil," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","mobil",  strings.Trim(p2.Mobil," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Tipo, " ") !=  strings.Trim(p2.Tipo," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","tipo",  strings.Trim(p2.Tipo," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Photo, " ") !=  strings.Trim(p2.Photo," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","photo",  strings.Trim(p2.Photo," ") )
+           sArrSup = append(sArrSup, sform)
+      }
 
-//      fmt.Println("getPersFormUp photo ", len(p.Photo))
-        lon := len(sArrSup)
+       lon := len(sArrSup)
        if lon  > 0 {
             sini        :=  "update persons set "
             stUp =  strings.Join(sArrSup, ", ")
-            sr          :=  fmt.Sprintf(" where persons.id = %d ", p.Id)
+            sr          :=  fmt.Sprintf(" where persons.id = %d ", p1.Id)
              stUp = sini + stUp + sr
-// fmt.Println(sArrSup[:lon - 1])
+ fmt.Println( stUp)
        }
          return
     }
@@ -296,7 +304,7 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
 func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
         var err error
         var user model.User
-        var pers model.Person
+        var pers, p model.Person
 	sess := model.Instance(r)
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
@@ -319,7 +327,7 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
             return
         }
         pers.Id = user.PersonId
-        pers, err = model.PersonById(pers.Id)
+        err     = (&pers).PersonById()
         if err != nil { // Si no existe persona
             log.Println(err)
             sess.AddFlash(view.Flash{"No hay atributos.", view.FlashError})
@@ -328,7 +336,9 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
             return
         }
 	user.Cuenta     = r.FormValue("cuenta")
-        st          :=  getPersFormUp(pers,r)
+	DatFormPers(&p,r)
+        st          :=  getPersFormUp(pers,p)
+	fmt.Println(" RegisUpPOST ", st)
         if len(st) == 0{
             sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})
         } else {

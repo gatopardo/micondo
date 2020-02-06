@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
 
  form {
   margin: 0 auto;
-  width: 800px;
+  width: 99%;
   padding: 1em;
   border: 1px solid #CCCC;
   border-radius: 1em;
@@ -410,37 +410,6 @@ h1, h2, h3, h4, h5, h6 {
     .lcols6a{
         grid-template-columns: 4fr 2fr 2fr  2fr 2fr 1fr 1fr ;
       }
-   .box {
-          color: #000;
-          font-size: 80%; 
-          border-right: 1px;
-/*       
-          background-color: #444;
-          padding: 20px;
- */
-       }
-   .ebox {
-          color: #000;
-          font-size: 80%; 
-          border-right: 1px;
-          background-color: #DC8288;
-       }
-   .elabel {
-          color: #000;
-          font-size: 80%; 
-          border-right: 1px;
-          background-color: #DC8288;
-       }
-
-/*       
-   .box:nth-child(even) {
-          background-color: #ccc;
-          color: #000;
-      }
-
- */
-/*   */
-
 .cwrapper {
   display: flex;
   flex-direction: row;  
@@ -539,6 +508,9 @@ h1, h2, h3, h4, h5, h6 {
   .fcols2 {
        grid-template-columns: 1fr  3fr;
      }
+  .fcols2a {
+       grid-template-columns: 2fr  3fr;
+     }
   .fcols3 {
        grid-template-columns: 3fr  3fr 1fr ;
      }
@@ -558,7 +530,10 @@ h1, h2, h3, h4, h5, h6 {
        grid-template-columns: 1fr  2fr 2fr 5fr 2fr   ;
      }
   .fcols5b {
-       grid-template-columns: 2fr  2fr 2fr 2fr 2fr ;
+       grid-template-columns: 2fr  3fr 2fr 2fr 2fr ;
+     }
+  .fcols5c {
+       grid-template-columns: 1fr  1fr 3fr 3fr 1fr   ;
      }
   .fcols6 {
        grid-template-columns: 2fr  1fr  2fr 2fr 5fr 2fr   ;
@@ -569,7 +544,35 @@ h1, h2, h3, h4, h5, h6 {
   .fcols21 {
        grid-template-columns: 4fr  1fr;
      }
+   .box {
+          color: #000;
+          font-size: 80%; 
+          border-right: 1px;
+/*       
+          background-color: #444;
+          padding: 20px;
+ */
+     }
 
+   .ebox {
+          color: #000;
+          font-size: 80%; 
+          border-right: 1px;
+          background-color: #63BECE;
+       }
+   .elabel {
+          color: #000;
+          font-size: 80%; 
+          border-right: 1px;
+          background-color: #DC8288;
+       }
+
+/*       
+   .box:nth-child(even) {
+          background-color: #ccc;
+          color: #000;
+      }
+*/
 
   .fbox{
        grid-row: auto;
@@ -578,6 +581,15 @@ h1, h2, h3, h4, h5, h6 {
        padding: 1px;
        background-color: #8E848A;
      }
+
+  .gbox{
+       grid-row: auto;
+       border: 1px;
+       margin: 1px;
+       padding: 1px;
+       background-color: #D3B4AE;
+     }
+
   .fwidth{
       grid-column: 2 / 3;
        grid-row: 3;

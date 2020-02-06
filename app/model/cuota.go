@@ -137,27 +137,20 @@ func CuotDeleteAll() (err error) {
 // Get cuotas from a period 
   func CuotLim(id uint32 ) (cuotas []CuotaN, err error) {
         stq :=   "SELECT c.id, c.period_id, p.inicio, c.aparta_id, a.codigo, c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t where c.period_id = p.id and c.aparta_id = a.id and c.tipo_id = t.id and p.id = $1 order by p.inicio, c.fecha "
-//	fmt.Println("CuotLim id ", id)
 	rows, err := Db.Query(stq, id)
 	if err != nil {
 		log.Println(err)
-//		fmt.Println(err)
             return
 	}
-//	fmt.Println("CuotLim middle  ")
         defer rows.Close()
         cuot := CuotaN{}
         for rows.Next() {
-//           fmt.Println("CuotLim Next  ")
            if err = rows.Scan(&cuot.Id,&cuot.PeriodId,&cuot.Period, &cuot.ApartaId, &cuot.Apto, &cuot.TipoId, &cuot.Tipo, &cuot.Fecha, &cuot.Amount,  &cuot.CreatedAt, &cuot.UpdatedAt); err != nil {
 		log.Println(err)
-//		fmt.Println(err)
                  return
             }
-//  fmt.Printf("%4d %4d %s %s %14d\n",cuot.Id,cuot.PeriodId, cuot.Period, cuot.Apto, cuot.Amount)
            cuotas = append(cuotas, cuot)
          }
-//	fmt.Println("CuotLim fin  ", len(cuotas))
        return
  }
 
@@ -201,7 +194,7 @@ func CuotDeleteAll() (err error) {
  }
 // -------------------------------------------------------------
 //  merge to merge 2 arrays
-    func merge( cuots []CuotApt) ( []CuotApt){
+    func merge( cuots []CuotApt, fec time.Time) ( []CuotApt){
 	    sum := int64(0)
 	    for i, _ :=  range cuots{
 	        sum              =   sum + cuots[i].Cuota - cuots[i].Amount
@@ -210,16 +203,23 @@ func CuotDeleteAll() (err error) {
 		}
 	        cuots[i].Balance = sum
 	    }
-         return cuots
+	    var i int
+	    for i,_ =  range cuots {
+		 feci  := cuots[i].Inicio
+                 if fec.Equal(feci) || fec.Before(feci) {
+			 break
+		 }
+	    }
+	    return cuots[i:]
     }
 // -------------------------------------------------------------
 // Payments of a given apt up to a period
-   func Payments(aid uint32, fec time.Time )(cuotas []CuotApt, err error){
+   func Payments(aid uint32, fecf time.Time, feci time.Time )(cuotas []CuotApt, err error){
         var rows * sql.Rows
 
 	stq := "SELECT p.id,  p.inicio, b.cuota, c1.fecha, c1.amount from balances b join periods p on b.period_id = p.id left join (select p.id as id, c.fecha as fecha, c.amount as amount from cuotas c join periods p on p.id = c.period_id where c.aparta_id = $1 ) c1 on p.id = c1.id where p.inicio <= $2  order by p.inicio"
 
-	rows, err = Db.Query(stq, aid, fec)
+	rows, err = Db.Query(stq, aid, fecf)
 	if err != nil {
 		log.Println(err)
 		return
@@ -247,8 +247,7 @@ func CuotDeleteAll() (err error) {
 	    }
             cuotas = append(cuotas, c)
         }
-// fmt.Println("Payments lon ",len(cuotas)," apt_id ",aid ," fec -  ", fec.Format("2006-02-01"))
-        cuotas = merge(cuotas)
+        cuotas = merge(cuotas, feci)
 	return
    }
 // -------------------------------------------------------------

@@ -105,7 +105,6 @@ func Connect(d Info) {
         if d.Remote  {
           regex := regexp.MustCompile("(?i)^postgres://(?:([^:@]+):([^@]*)@)?([^@/:]+):(\\d+)/(.*)$")
           matches := regex.FindStringSubmatch(os.Getenv("DATABASE_URL"))
-	  fmt.Println(" model connected ", matches)
 	  if matches == nil {
 		log.Fatalf("DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '%v')", os.Getenv("DATABASE_URL"))
 	   }

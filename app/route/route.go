@@ -6,7 +6,7 @@ import (
 
 	"github.com/gatopardo/micondo/app/controller"
 	"github.com/gatopardo/micondo/app/route/middleware/acl"
-	hr "github.com/gatopardo/micondo/app/route/middleware/httprouterwrapper"
+	 hr  "github.com/gatopardo/micondo/app/route/middleware/httprouterwrapper"
 	"github.com/gatopardo/micondo/app/route/middleware/logrequest"
 	"github.com/gatopardo/micondo/app/route/middleware/pprofhandler"
 	"github.com/gatopardo/micondo/app/model"
@@ -229,10 +229,10 @@ func routes() *httprouter.Router {
 ////          List
 	r.GET("/cuota/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.CuotLisGET)))
+		ThenFunc(controller.CuotLis)))
 	r.POST("/cuota/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.CuotLisPOST)))
+		ThenFunc(controller.CuotLis)))
 ////          Delete
 	r.GET("/cuota/delete/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).

@@ -166,9 +166,9 @@ func (sd *Shadow)ShadCreate() error {
 
 // -----------------------------------------------------
 // PersonById obtenemos la persona dado id
-func PersonById(id uint32) (p Person,err error) {
-         stq    :=   "SELECT fname,lname, email, address, tele, mobil, tipo,photo, created_at, updated_at FROM  persons   WHERE  id = $1"
-         err = Db.QueryRow(stq, id).Scan( &p.Fname, &p.Lname, &p.Email, &p.Address, &p.Tele, &p.Mobil, &p.Tipo, &p.Photo, &p.CreatedAt, &p.UpdatedAt )
+func (p * Person)PersonById() (err error) {
+         stq    :=   "SELECT aparta_id, fname,lname, email, address, tele, mobil, tipo,photo, created_at, updated_at FROM  persons   WHERE  id = $1"
+         err = Db.QueryRow(stq, p.Id).Scan( &p.ApartaId, &p.Fname, &p.Lname, &p.Email, &p.Address, &p.Tele, &p.Mobil, &p.Tipo, &p.Photo, &p.CreatedAt, &p.UpdatedAt )
 //         return  standardizeError(err)
          return
  }
@@ -228,7 +228,7 @@ func PersDeleteAll() (err error) {
 
 // Get all users in the database and returns it
   func Persons() (persons []Person, err error) {
-        stq :=   "SELECT p.id,   fname, lname, email, address, tele, mobil,p.photo, p.created_at, p.updated_at FROM persons p, users u where p.user_id = u.id  order by cuenta"
+        stq :=   "SELECT p.id, p.aparta_id , fname, lname, email, address, tele, mobil,p.photo, p.created_at, p.updated_at FROM persons p, users u where p.user_id = u.id  order by cuenta"
 	rows, err := Db.Query(stq)
 	if err != nil {
 
@@ -237,7 +237,7 @@ func PersDeleteAll() (err error) {
 	defer rows.Close()
 	for rows.Next() {
 		person := Person{}
-		if err = rows.Scan(&person.Id, &person.Fname, &person.Lname, &person.Email, &person.Address, &person.Tele, &person.Mobil, &person.Photo ,&person.CreatedAt, &person.UpdatedAt); err != nil {
+		if err = rows.Scan(&person.Id, &person.ApartaId ,&person.Fname, &person.Lname, &person.Email, &person.Address, &person.Tele, &person.Mobil, &person.Photo ,&person.CreatedAt, &person.UpdatedAt); err != nil {
 
 			return
 		}
@@ -330,7 +330,7 @@ func UserDeleteAll() (err error) {
 // Get all users in the database and returns the list
   func Users() (users []Individ, err error) {
        var stq  string
-       stq =   "SELECT u.id, u.cuenta, u.nivel, p.id, p.fname, p.lname,p.email, p.address, p.tele, p.mobil, p.tipo, p.photo,a.id, a.codigo, a.descripcion  FROM users u join persons p on u.person_id = p.id join apartas a on p.aparta_id = a.id order by p.fname, p.lname"
+       stq =   "SELECT u.id, u.cuenta, u.nivel, p.id, p.fname, p.lname,p.email, p.address, p.tele, p.mobil, p.tipo, p.photo,a.id, a.codigo, a.descripcion  FROM users u join persons p on u.person_id = p.id join apartas a on p.aparta_id = a.id order by a.codigo, p.fname, p.lname"
 
 	rows, err := Db.Query(stq)
 	if err != nil {

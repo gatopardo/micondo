@@ -1,38 +1,49 @@
 {{define "title"}}Listar Egresos{{end}}
-{{define "head"}}  
- 
-{{end}}
+{{define "head"}}  {{end}}
+{{define "header"}}Listar Egresos{{end}}
+{{define "foot"}}
+ <h5 class="center">
+       Egresos 
+     del {{.Per.Inicio | DATEFORMAT }} 
+    al   {{.Per.Final  | DATEFORMAT }} </h5> 
+ {{end}}
+
 
 
  {{define "content"}}
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
-     <form method="post">
+
+     <form action="/egreso/list" method="post">
 
    	<div class="fwrapper fcols4">
-           <div class="fbox">
+           <div class="box">
                <label for="period" >Periodo</label>
            </div>
-           <div class="fbox">
+           <div class="box">
                <select name="id"> 
                   {{range $key, $value := .LisPeriod}}
-                    <option value="{{ $value.Id }}">{{ $value.Inicio | DATEFORMAT }}</option>
+                    {{ if eq $value.Id  $.Per.Id }}
+                    <option value="{{ $value.Id }}" selected>{{ $value.Inicio | DATEFORMAT }} </option>
+                    {{else}}
+                    <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }} </option>
+                    {{end}}
                   {{end}}
                </select>
            </div>
-           <div class="fbox">
+           <div class="box">
                  <span>
 		<input type="submit" name="action"  value="Seguir" />
 		<input type="submit" name="action"  value="Cancelar" />
                  </span>
            </div>
-           <div class="fbox">
+           <div class="box">
 		<input type="hidden" name="token" value="{{.token}}">
            </div>
         </div>
        </form>
 
-	  <div class="lwrapper fcols5a">
+	  <div class="lwrapper fcols5c">
                <div class="box"> Periodo     </div>
                <div class="box"> {{.Per.Inicio  | DATEFORMAT }}     </div>
                <div class="box">             </div>
@@ -82,7 +93,5 @@
            {{end}} 
          </div>
       {{end}}
-      {{template "footer" .}}
 {{end}}
 
-{{define "foot"}}{{end}}

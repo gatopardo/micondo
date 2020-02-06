@@ -1,18 +1,50 @@
 {{define "title"}} Cuotas por Periodo{{end}}
-{{define "head"}}  
- 
-{{end}}
+{{define "head"}}  {{end}}
+{{define "foot"}}
+ <h5 class="center">
+       Ingresos 
+     del {{.Per.Inicio | DATEFORMAT }} 
+    al   {{.Per.Final  | DATEFORMAT }} </h5> 
+ {{end}}
 
  {{define "content"}}
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
 
+    <form action="/cuota/list"  method="post">
 
-	  <div class="lwrapper fcols5b">
-               <div class="box"> Periodo     </div>
-               <div class="box"> Del {{.Per.Inicio | DATEFORMAT }} </div>
-               <div class="box"> Al {{.Per.Final   | DATEFORMAT }} </div>
+   	<div class="lwrapper fcols4">
+           <div class="box">
+               <label for="period" >Periodo</label>
+           </div>
+           <div class="box">
+               <select name="id"> 
+                  {{range $key, $value := .LisPeriod}}
+                    {{ if eq $value.Id  $.Per.Id }}
+                    <option value="{{ $value.Id }}" selected>{{ $value.Inicio | DATEFORMAT }} </option>
+                    {{else}}
+                    <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }} </option>
+                    {{end}}
+                  {{end}}
+               </select>
+           </div>
+           <div class="box">
+                 <span>
+		<input type="submit" name="action"  value="Seguir" />
+		<input type="submit" name="action"  value="Cancelar" />
+                 </span>
+           </div>
+           <div class="box">
+		<input type="hidden" name="token" value="{{.token}}">
+           </div>
+        </div>
+       </form>
+
+	  <div class="lwrapper fcols5c">
                <div class="box">             </div>
+               <div class="box"> Periodo     </div>
+               <div class="gbox"> Del {{.Per.Inicio | DATEFORMAT }} </div>
+               <div class="gbox"> Al {{.Per.Final   | DATEFORMAT }} </div>
                <div class="box">             </div>
           </div>
 
@@ -57,7 +89,5 @@
             {{end}} 
          </div>
      {{end}}
-      {{template "footer" .}}
 {{end}}
 
-{{define "foot"}}{{end}}

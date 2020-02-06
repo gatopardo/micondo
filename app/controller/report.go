@@ -70,15 +70,18 @@ func RptAptGET(w http.ResponseWriter, r *http.Request) {
 func RptAptPOST(w http.ResponseWriter, r *http.Request) {
 	var pers model.Person
 	var apt model.Aparta
-	var prid model.Periodo
+	var peridi model.Periodo
+	var peridf model.Periodo
 	var err error
 	sess := model.Instance(r)
         uid, ok       := sess.Values["id"].(uint32)
 	if ! ok {
              log.Println("No uint32 value in session")
 	}
-        sPerid    :=  r.FormValue("id")
-	perid,_   := atoi32(sPerid)
+        sPeridf    :=  r.FormValue("idf")
+	fperid,_   := atoi32(sPeridf)
+        sPeridi    :=  r.FormValue("idi")
+	iperid,_   := atoi32(sPeridi)
 	action    := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
              pers, apt, err = model.ApartaByUserId(uid)
@@ -86,18 +89,27 @@ func RptAptPOST(w http.ResponseWriter, r *http.Request) {
 	        log.Println(err)
                 sess.AddFlash(view.Flash{"No apto", view.FlashError})
 	     }
-            prid.Id = perid
-            err := (&prid).PeriodById()
+            peridf.Id = fperid
+            err := (&peridf).PeriodById()
             if err != nil {
 	        log.Println(err)
                 sess.AddFlash(view.Flash{"No hay periodo", view.FlashError})
              }
-	     lisPaym, _            := model.Payments(apt.Id, prid.Inicio)
+            peridi.Id = iperid
+            err = (&peridi).PeriodById()
+            if err != nil {
+	        log.Println(err)
+                sess.AddFlash(view.Flash{"No hay periodo", view.FlashError})
+             }
+	     lisPaym, _            := model.Payments(apt.Id, peridf.Inicio, peridi.Inicio)
+	     value                 := lisPaym[len(lisPaym) - 1].Balance
              v                     := view.New(r)
              v.Name                 = "report/rptapto"
 	     v.Vars["token"]        = csrfbanana.Token(w, r, sess)
              v.Vars["Apt"]          = apt
              v.Vars["Pers"]         = pers
+             v.Vars["Perid"]        = peridf
+	     v.Vars["Valor"]        = value
              v.Vars["LisPaym"]      = lisPaym
              v.Vars["Level"]        =  sess.Values["level"]
 	     v.Render(w)

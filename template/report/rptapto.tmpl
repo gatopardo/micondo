@@ -1,12 +1,24 @@
-{{define "title"}}Estado Apto{{end}}
-{{define "head"}}  
- 
+{{define "title"}}Estado Apto {{.Apt.Codigo}} {{end}}
+{{define "head"}}  {{end}}
+{{define "foot"}}{{end}}
+{{define "header"}} 
+  <h5 class="center" > 
+      Resumen Estado Apto {{.Apt.Codigo}}
+      al dia {{.Perid.Final | DATEFORMAT }}
+      {{ if le 0 .Valor }}
+         no debe
+      {{else}}
+          debe {{ .Valor  | FORMAT64}}
+      {{end}}
+  </h5> 
 {{end}}
 
  {{define "content"}}
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
-	  <div class="lwrapper fcols5b">
+
+             {{ template "header" . }}
+       	  <div class="lwrapper fcols5b">
                <div class="box"> Apto     </div>
                <div class="box"> {{.Apt.Codigo}}     </div>
                <div class="box"> {{.Pers.Fname | CONCATSTR  .Pers.Lname}}  </div>
@@ -42,4 +54,3 @@
       {{template "footer" .}}
 {{end}}
 
-{{define "foot"}}{{end}}

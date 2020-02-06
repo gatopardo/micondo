@@ -37,7 +37,6 @@ func Run(httpHandlers http.Handler, httpsHandlers http.Handler, s Server) {
 		go func() {
 			startHTTPS(httpsHandlers, s)
 		}()
-//        fmt.Println("Server al medio", s.Remote, s.UseHTTP, s.UseHTTPS)
 
 		startHTTP(httpHandlers, s)
 	} else if s.UseHTTP {

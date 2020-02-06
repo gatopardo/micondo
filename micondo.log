@@ -5057,3 +5057,2004 @@ INFO 2020/01/29 21:52:32 route.go:357: middleware felipe
 INFO 2020/01/29 21:52:32 route.go:30: HTTPS routes LoadHTTPS
 INFO 2020/01/29 21:52:32 route.go:357: middleware felipe
 INFO 2020/01/29 21:52:32 server.go:35: 0.0.0.0:4430
+INFO 2020/01/30 08:27:06 main.go:42: Starting app
+INFO 2020/01/30 08:27:06 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:27:06 route.go:357: middleware felipe
+INFO 2020/01/30 08:27:06 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:27:06 route.go:357: middleware felipe
+INFO 2020/01/30 08:27:06 server.go:35: 0.0.0.0:4430
+2020/01/30 08:27:21 server.go:3055: http: TLS handshake error from [::1]:42790: remote error: tls: unknown certificate
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/css/global.css?1580175504
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/js/global.js?1580175504
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/30 08:27:21 logrequest.go:14: [::1]:42792 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/30 08:27:27 logrequest.go:14: [::1]:42792 GET /login
+INFO 2020/01/30 08:27:41 logrequest.go:14: [::1]:42792 POST /login
+INFO 2020/01/30 08:27:41 logrequest.go:14: [::1]:42792 GET /
+INFO 2020/01/30 08:27:46 logrequest.go:14: [::1]:42792 GET /cuota/list
+INFO 2020/01/30 08:27:48 logrequest.go:14: [::1]:42792 POST /cuota/list
+INFO 2020/01/30 08:28:07 logrequest.go:14: [::1]:42792 GET /ingreso/list
+INFO 2020/01/30 08:29:08 logrequest.go:14: [::1]:42792 GET /cuota/list
+INFO 2020/01/30 08:29:14 logrequest.go:14: [::1]:42792 POST /cuota/list
+INFO 2020/01/30 08:34:07 main.go:42: Starting app
+INFO 2020/01/30 08:34:07 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:34:07 route.go:357: middleware felipe
+INFO 2020/01/30 08:34:07 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:34:07 route.go:357: middleware felipe
+INFO 2020/01/30 08:34:07 server.go:35: 0.0.0.0:4430
+2020/01/30 08:34:18 server.go:3055: http: TLS handshake error from [::1]:42796: remote error: tls: unknown certificate
+INFO 2020/01/30 08:34:18 logrequest.go:14: [::1]:42798 GET /ingreso/list
+INFO 2020/01/30 08:34:28 logrequest.go:14: [::1]:42798 GET /cuota/list
+INFO 2020/01/30 08:34:38 logrequest.go:14: [::1]:42798 POST /cuota/list
+INFO 2020/01/30 08:36:04 main.go:42: Starting app
+INFO 2020/01/30 08:36:04 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:36:04 route.go:357: middleware felipe
+INFO 2020/01/30 08:36:04 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:36:04 route.go:357: middleware felipe
+INFO 2020/01/30 08:36:04 server.go:35: 0.0.0.0:4430
+2020/01/30 08:36:11 server.go:3055: http: TLS handshake error from [::1]:42802: remote error: tls: unknown certificate
+INFO 2020/01/30 08:36:11 logrequest.go:14: [::1]:42804 GET /ingreso/list
+INFO 2020/01/30 08:36:38 logrequest.go:14: [::1]:42804 GET /cuota/list
+INFO 2020/01/30 08:36:50 logrequest.go:14: [::1]:42804 POST /cuota/list
+INFO 2020/01/30 08:38:27 main.go:42: Starting app
+INFO 2020/01/30 08:38:27 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:38:27 route.go:357: middleware felipe
+INFO 2020/01/30 08:38:27 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:38:27 route.go:357: middleware felipe
+INFO 2020/01/30 08:38:27 server.go:35: 0.0.0.0:4430
+2020/01/30 08:38:41 server.go:3055: http: TLS handshake error from [::1]:42808: remote error: tls: unknown certificate
+INFO 2020/01/30 08:38:41 logrequest.go:14: [::1]:42810 GET /ingreso/list
+INFO 2020/01/30 08:38:41 logrequest.go:14: [::1]:42810 GET /static/css/global.css?1580387893
+INFO 2020/01/30 08:38:44 logrequest.go:14: [::1]:42810 GET /cuota/list
+INFO 2020/01/30 08:38:44 logrequest.go:14: [::1]:42810 GET /static/css/global.css?1580387893
+INFO 2020/01/30 08:38:59 logrequest.go:14: [::1]:42810 POST /cuota/list
+INFO 2020/01/30 08:38:59 logrequest.go:14: [::1]:42810 GET /static/css/global.css?1580387893
+INFO 2020/01/30 08:40:03 logrequest.go:14: [::1]:42810 GET /ingreso/list
+INFO 2020/01/30 08:40:03 logrequest.go:14: [::1]:42810 GET /static/css/global.css?1580387893
+INFO 2020/01/30 08:45:45 main.go:42: Starting app
+INFO 2020/01/30 08:45:45 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:45:45 route.go:357: middleware felipe
+INFO 2020/01/30 08:45:45 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:45:45 route.go:357: middleware felipe
+INFO 2020/01/30 08:45:45 server.go:35: 0.0.0.0:4430
+2020/01/30 08:45:55 server.go:3055: http: TLS handshake error from [::1]:42814: remote error: tls: unknown certificate
+INFO 2020/01/30 08:45:55 logrequest.go:14: [::1]:42816 GET /cuota/list
+INFO 2020/01/30 08:45:55 logrequest.go:14: [::1]:42816 GET /static/css/global.css?1580387893
+INFO 2020/01/30 08:45:59 logrequest.go:14: [::1]:42816 GET /ingreso/list
+INFO 2020/01/30 08:46:08 logrequest.go:14: [::1]:42816 POST /ingreso/list
+INFO 2020/01/30 08:50:42 main.go:42: Starting app
+INFO 2020/01/30 08:50:42 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:50:42 route.go:357: middleware felipe
+INFO 2020/01/30 08:50:42 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:50:42 route.go:357: middleware felipe
+INFO 2020/01/30 08:50:42 server.go:35: 0.0.0.0:4430
+2020/01/30 08:50:47 server.go:3055: http: TLS handshake error from [::1]:42820: remote error: tls: unknown certificate
+INFO 2020/01/30 08:50:47 logrequest.go:14: [::1]:42822 GET /cuota/list
+INFO 2020/01/30 08:50:47 logrequest.go:14: [::1]:42822 GET /static/css/global.css?1580387893
+INFO 2020/01/30 08:50:52 logrequest.go:14: [::1]:42822 GET /ingreso/list
+INFO 2020/01/30 08:55:31 main.go:42: Starting app
+INFO 2020/01/30 08:55:31 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:55:31 route.go:357: middleware felipe
+INFO 2020/01/30 08:55:31 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:55:31 route.go:357: middleware felipe
+INFO 2020/01/30 08:55:31 server.go:35: 0.0.0.0:4430
+2020/01/30 08:55:36 server.go:3055: http: TLS handshake error from [::1]:42826: remote error: tls: unknown certificate
+INFO 2020/01/30 08:55:36 logrequest.go:14: [::1]:42828 GET /cuota/list
+INFO 2020/01/30 08:55:36 logrequest.go:14: [::1]:42828 GET /static/css/global.css?1580388916
+INFO 2020/01/30 08:55:39 logrequest.go:14: [::1]:42828 GET /ingreso/list
+INFO 2020/01/30 08:55:39 logrequest.go:14: [::1]:42828 GET /static/css/global.css?1580388916
+INFO 2020/01/30 08:58:17 main.go:42: Starting app
+INFO 2020/01/30 08:58:17 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:58:17 route.go:357: middleware felipe
+INFO 2020/01/30 08:58:17 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:58:17 route.go:357: middleware felipe
+INFO 2020/01/30 08:58:17 server.go:35: 0.0.0.0:4430
+2020/01/30 08:58:23 server.go:3055: http: TLS handshake error from [::1]:42832: remote error: tls: unknown certificate
+INFO 2020/01/30 08:58:23 logrequest.go:14: [::1]:42834 GET /cuota/list
+INFO 2020/01/30 08:58:23 logrequest.go:14: [::1]:42834 GET /static/css/global.css?1580388916
+INFO 2020/01/30 08:58:26 logrequest.go:14: [::1]:42834 GET /ingreso/list
+INFO 2020/01/30 08:59:44 main.go:42: Starting app
+INFO 2020/01/30 08:59:44 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 08:59:44 route.go:357: middleware felipe
+INFO 2020/01/30 08:59:44 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 08:59:44 route.go:357: middleware felipe
+INFO 2020/01/30 08:59:44 server.go:35: 0.0.0.0:4430
+2020/01/30 08:59:49 server.go:3055: http: TLS handshake error from [::1]:42838: remote error: tls: unknown certificate
+INFO 2020/01/30 08:59:49 logrequest.go:14: [::1]:42840 GET /cuota/list
+INFO 2020/01/30 08:59:49 logrequest.go:14: [::1]:42840 GET /static/css/global.css?1580388916
+INFO 2020/01/30 08:59:52 logrequest.go:14: [::1]:42840 GET /ingreso/list
+INFO 2020/01/30 09:04:45 logrequest.go:14: [::1]:42840 GET /cuota/list
+INFO 2020/01/30 09:04:46 logrequest.go:14: [::1]:42840 GET /static/css/global.css?1580389479
+INFO 2020/01/30 09:04:48 logrequest.go:14: [::1]:42840 GET /ingreso/list
+INFO 2020/01/30 09:04:48 logrequest.go:14: [::1]:42840 GET /static/css/global.css?1580389479
+INFO 2020/01/30 09:10:50 main.go:42: Starting app
+INFO 2020/01/30 09:10:50 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/30 09:10:50 route.go:357: middleware felipe
+INFO 2020/01/30 09:10:50 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/30 09:10:50 route.go:357: middleware felipe
+INFO 2020/01/30 09:10:50 server.go:35: 0.0.0.0:4430
+2020/01/30 09:10:56 server.go:3055: http: TLS handshake error from [::1]:42844: remote error: tls: unknown certificate
+INFO 2020/01/30 09:10:56 logrequest.go:14: [::1]:42846 GET /cuota/list
+INFO 2020/01/30 09:10:56 logrequest.go:14: [::1]:42846 GET /static/css/global.css?1580389812
+INFO 2020/01/30 09:10:58 logrequest.go:14: [::1]:42846 GET /ingreso/list
+INFO 2020/01/30 09:11:32 logrequest.go:14: [::1]:42846 GET /egreso/list
+INFO 2020/01/30 09:11:32 logrequest.go:14: [::1]:42846 GET /static/css/global.css?1580389812
+INFO 2020/01/30 09:12:12 logrequest.go:14: [::1]:42846 GET /report/rptcondo
+INFO 2020/01/30 09:12:12 logrequest.go:14: [::1]:42846 GET /static/css/global.css?1580389812
+INFO 2020/01/30 09:12:14 logrequest.go:14: [::1]:42846 POST /report/rptcondo
+INFO 2020/01/31 07:56:13 main.go:42: Starting app
+INFO 2020/01/31 07:56:13 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 07:56:13 route.go:357: middleware felipe
+INFO 2020/01/31 07:56:13 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 07:56:13 route.go:357: middleware felipe
+INFO 2020/01/31 07:56:13 server.go:35: 0.0.0.0:4430
+2020/01/31 07:56:47 server.go:3055: http: TLS handshake error from [::1]:46864: remote error: tls: unknown certificate
+INFO 2020/01/31 09:52:28 main.go:42: Starting app
+INFO 2020/01/31 09:52:28 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 09:52:28 route.go:357: middleware felipe
+INFO 2020/01/31 09:52:28 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 09:52:28 route.go:357: middleware felipe
+INFO 2020/01/31 09:52:28 server.go:35: 0.0.0.0:4430
+2020/01/31 10:30:36 server.go:3055: http: TLS handshake error from [::1]:51984: remote error: tls: unknown certificate
+INFO 2020/01/31 10:30:37 logrequest.go:14: [::1]:51988 GET /report/rptcondo
+INFO 2020/01/31 10:30:37 logrequest.go:14: [::1]:51988 GET /
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/css/global.css?1580389812
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/js/global.js?1580175504
+INFO 2020/01/31 10:30:38 logrequest.go:14: [::1]:51988 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/31 10:31:17 logrequest.go:14: [::1]:51988 GET /login
+INFO 2020/01/31 10:31:31 logrequest.go:14: [::1]:51988 POST /login
+INFO 2020/01/31 10:31:32 logrequest.go:14: [::1]:51988 GET /
+INFO 2020/01/31 10:31:44 logrequest.go:14: [::1]:51988 GET /cuota/list
+INFO 2020/01/31 10:31:50 logrequest.go:14: [::1]:51988 POST /cuota/list
+INFO 2020/01/31 10:32:04 logrequest.go:14: [::1]:51988 GET /ingreso/list
+INFO 2020/01/31 10:32:11 logrequest.go:14: [::1]:51988 POST /ingreso/list
+INFO 2020/01/31 10:32:14 logrequest.go:14: [::1]:51988 GET /egreso/list
+INFO 2020/01/31 10:32:28 logrequest.go:14: [::1]:51988 POST /egreso/list
+INFO 2020/01/31 10:33:32 logrequest.go:14: [::1]:51988 GET /cuota/list
+INFO 2020/01/31 10:33:36 logrequest.go:14: [::1]:51988 POST /cuota/list
+INFO 2020/01/31 10:34:02 logrequest.go:14: [::1]:51988 GET /report/rptapto
+INFO 2020/01/31 10:34:08 logrequest.go:14: [::1]:51988 POST /report/rptapto
+INFO 2020/01/31 10:34:39 logrequest.go:14: [::1]:51988 GET /report/rptcondo
+INFO 2020/01/31 10:34:44 logrequest.go:14: [::1]:51988 POST /report/rptcondo
+INFO 2020/01/31 11:10:53 logrequest.go:14: [::1]:51988 GET /report/rptapto
+INFO 2020/01/31 11:10:56 logrequest.go:14: [::1]:51988 POST /report/rptapto
+INFO 2020/01/31 11:11:09 logrequest.go:14: [::1]:51988 GET /about
+INFO 2020/01/31 11:11:21 logrequest.go:14: [::1]:51988 GET /report/rptapto
+INFO 2020/01/31 11:21:36 logrequest.go:14: [::1]:51988 GET /ingreso/list
+INFO 2020/01/31 11:49:15 logrequest.go:14: [::1]:51988 GET /cuota/list
+INFO 2020/01/31 11:49:19 logrequest.go:14: [::1]:51988 POST /cuota/list
+INFO 2020/01/31 11:49:26 logrequest.go:14: [::1]:51988 GET /cuota/list
+INFO 2020/01/31 11:55:39 logrequest.go:14: [::1]:51988 GET /ingreso/list
+INFO 2020/01/31 11:55:46 logrequest.go:14: [::1]:51988 GET /cuota/list
+INFO 2020/01/31 11:55:50 logrequest.go:14: [::1]:51988 GET /ingreso/list
+INFO 2020/01/31 11:56:00 logrequest.go:14: [::1]:51988 GET /cuota/list
+INFO 2020/01/31 11:56:02 logrequest.go:14: [::1]:51988 POST /cuota/list
+INFO 2020/01/31 11:56:10 logrequest.go:14: [::1]:51988 GET /ingreso/list
+INFO 2020/01/31 12:04:07 main.go:42: Starting app
+INFO 2020/01/31 12:04:07 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 12:04:07 route.go:357: middleware felipe
+INFO 2020/01/31 12:04:07 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 12:04:07 route.go:357: middleware felipe
+INFO 2020/01/31 12:04:07 server.go:35: 0.0.0.0:4430
+2020/01/31 12:04:21 server.go:3055: http: TLS handshake error from [::1]:53870: remote error: tls: unknown certificate
+INFO 2020/01/31 12:04:21 logrequest.go:14: [::1]:53872 GET /cuota/list
+INFO 2020/01/31 12:04:30 logrequest.go:14: [::1]:53872 GET /ingreso/list
+INFO 2020/01/31 12:04:30 logrequest.go:14: [::1]:53872 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 12:04:30 logrequest.go:14: [::1]:53872 GET /static/css/global.css?1580389812
+INFO 2020/01/31 12:13:55 main.go:42: Starting app
+INFO 2020/01/31 12:13:55 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 12:13:55 route.go:357: middleware felipe
+INFO 2020/01/31 12:13:55 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 12:13:55 route.go:357: middleware felipe
+INFO 2020/01/31 12:13:55 server.go:35: 0.0.0.0:4430
+2020/01/31 12:13:59 server.go:3055: http: TLS handshake error from [::1]:53902: remote error: tls: unknown certificate
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /ingreso/list
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /static/css/global.css?1580389812
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 12:13:59 logrequest.go:14: [::1]:53904 GET /static/js/global.js?1580175504
+INFO 2020/01/31 12:14:02 logrequest.go:14: [::1]:53904 GET /cuota/list
+INFO 2020/01/31 12:14:04 logrequest.go:14: [::1]:53904 POST /cuota/list
+INFO 2020/01/31 12:14:08 logrequest.go:14: [::1]:53904 GET /ingreso/list
+INFO 2020/01/31 12:14:20 logrequest.go:14: [::1]:53904 POST /ingreso/list
+INFO 2020/01/31 12:14:38 logrequest.go:14: [::1]:53904 POST /ingreso/list
+INFO 2020/01/31 12:14:51 logrequest.go:14: [::1]:53904 GET /cuota/list
+INFO 2020/01/31 12:14:57 logrequest.go:14: [::1]:53904 POST /cuota/list
+INFO 2020/01/31 12:15:10 logrequest.go:14: [::1]:53904 GET /ingreso/list
+INFO 2020/01/31 12:15:25 logrequest.go:14: [::1]:53904 POST /ingreso/list
+INFO 2020/01/31 12:24:46 logrequest.go:14: [::1]:53904 GET /cuota/list
+INFO 2020/01/31 12:27:37 main.go:42: Starting app
+INFO 2020/01/31 12:27:37 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 12:27:37 route.go:357: middleware felipe
+INFO 2020/01/31 12:27:37 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 12:27:37 route.go:357: middleware felipe
+INFO 2020/01/31 12:27:37 server.go:35: 0.0.0.0:4430
+2020/01/31 12:27:43 server.go:3055: http: TLS handshake error from [::1]:53910: remote error: tls: unknown certificate
+INFO 2020/01/31 12:27:43 logrequest.go:14: [::1]:53912 GET /cuota/list
+INFO 2020/01/31 12:27:47 logrequest.go:14: [::1]:53912 POST /cuota/list
+INFO 2020/01/31 12:27:52 logrequest.go:14: [::1]:53912 GET /ingreso/list
+INFO 2020/01/31 12:28:28 logrequest.go:14: [::1]:53912 POST /ingreso/list
+INFO 2020/01/31 13:05:48 main.go:42: Starting app
+INFO 2020/01/31 13:05:48 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:05:48 route.go:357: middleware felipe
+INFO 2020/01/31 13:05:48 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:05:48 route.go:357: middleware felipe
+INFO 2020/01/31 13:05:48 server.go:35: 0.0.0.0:4430
+2020/01/31 13:05:53 server.go:3055: http: TLS handshake error from [::1]:54090: remote error: tls: unknown certificate
+INFO 2020/01/31 13:05:53 logrequest.go:14: [::1]:54092 GET /cuota/list
+INFO 2020/01/31 13:05:55 logrequest.go:14: [::1]:54092 POST /cuota/list
+INFO 2020/01/31 13:06:04 logrequest.go:14: [::1]:54092 GET /ingreso/list
+INFO 2020/01/31 13:06:04 logrequest.go:14: [::1]:54092 GET /favicon.ico
+INFO 2020/01/31 13:12:21 main.go:42: Starting app
+INFO 2020/01/31 13:12:21 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:12:21 route.go:357: middleware felipe
+INFO 2020/01/31 13:12:21 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:12:21 route.go:357: middleware felipe
+INFO 2020/01/31 13:12:21 server.go:35: 0.0.0.0:4430
+2020/01/31 13:12:26 server.go:3055: http: TLS handshake error from [::1]:54096: remote error: tls: unknown certificate
+2020/01/31 13:12:36 server.go:3055: http: TLS handshake error from [::1]:54098: remote error: tls: unknown certificate
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /cuota/list
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /static/css/global.css?1580389812
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 13:12:36 logrequest.go:14: [::1]:54100 GET /static/js/global.js?1580175504
+INFO 2020/01/31 13:12:40 logrequest.go:14: [::1]:54100 GET /ingreso/list
+INFO 2020/01/31 13:12:48 logrequest.go:14: [::1]:54100 POST /ingreso/list
+INFO 2020/01/31 13:19:34 main.go:42: Starting app
+INFO 2020/01/31 13:19:34 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:19:34 route.go:357: middleware felipe
+INFO 2020/01/31 13:19:34 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:19:34 route.go:357: middleware felipe
+INFO 2020/01/31 13:19:34 server.go:35: 0.0.0.0:4430
+2020/01/31 13:19:39 server.go:3055: http: TLS handshake error from [::1]:54104: remote error: tls: unknown certificate
+INFO 2020/01/31 13:19:39 logrequest.go:14: [::1]:54106 GET /cuota/list
+INFO 2020/01/31 13:19:41 logrequest.go:14: [::1]:54106 POST /cuota/list
+INFO 2020/01/31 13:19:47 logrequest.go:14: [::1]:54106 GET /ingreso/list
+INFO 2020/01/31 13:24:19 main.go:42: Starting app
+INFO 2020/01/31 13:24:19 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:24:19 route.go:357: middleware felipe
+INFO 2020/01/31 13:24:19 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:24:19 route.go:357: middleware felipe
+INFO 2020/01/31 13:24:19 server.go:35: 0.0.0.0:4430
+2020/01/31 13:24:24 server.go:3055: http: TLS handshake error from [::1]:54112: remote error: tls: unknown certificate
+INFO 2020/01/31 13:24:24 logrequest.go:14: [::1]:54114 GET /cuota/list
+INFO 2020/01/31 13:24:26 logrequest.go:14: [::1]:54114 POST /cuota/list
+INFO 2020/01/31 13:24:31 logrequest.go:14: [::1]:54114 GET /ingreso/list
+INFO 2020/01/31 13:34:15 main.go:42: Starting app
+INFO 2020/01/31 13:34:15 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:34:15 route.go:357: middleware felipe
+INFO 2020/01/31 13:34:15 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:34:15 route.go:357: middleware felipe
+INFO 2020/01/31 13:34:15 server.go:35: 0.0.0.0:4430
+2020/01/31 13:34:21 server.go:3055: http: TLS handshake error from [::1]:54118: remote error: tls: unknown certificate
+INFO 2020/01/31 13:34:21 logrequest.go:14: [::1]:54120 GET /cuota/list
+INFO 2020/01/31 13:34:24 logrequest.go:14: [::1]:54120 POST /cuota/list
+INFO 2020/01/31 13:34:28 logrequest.go:14: [::1]:54120 GET /cuota/list
+INFO 2020/01/31 13:34:32 logrequest.go:14: [::1]:54120 POST /cuota/list
+INFO 2020/01/31 13:34:39 logrequest.go:14: [::1]:54120 GET /cuota/list
+INFO 2020/01/31 13:34:47 logrequest.go:14: [::1]:54120 GET /ingreso/list
+INFO 2020/01/31 13:39:42 main.go:42: Starting app
+INFO 2020/01/31 13:39:42 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:39:42 route.go:357: middleware felipe
+INFO 2020/01/31 13:39:42 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:39:42 route.go:357: middleware felipe
+INFO 2020/01/31 13:39:42 server.go:35: 0.0.0.0:4430
+2020/01/31 13:39:47 server.go:3055: http: TLS handshake error from [::1]:54124: remote error: tls: unknown certificate
+INFO 2020/01/31 13:39:47 logrequest.go:14: [::1]:54126 GET /cuota/list
+INFO 2020/01/31 13:39:49 logrequest.go:14: [::1]:54126 POST /cuota/list
+INFO 2020/01/31 13:39:53 logrequest.go:14: [::1]:54126 GET /ingreso/list
+INFO 2020/01/31 13:40:48 main.go:42: Starting app
+INFO 2020/01/31 13:40:48 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:40:48 route.go:357: middleware felipe
+INFO 2020/01/31 13:40:48 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:40:48 route.go:357: middleware felipe
+INFO 2020/01/31 13:40:48 server.go:35: 0.0.0.0:4430
+2020/01/31 13:40:52 server.go:3055: http: TLS handshake error from [::1]:54132: remote error: tls: unknown certificate
+2020/01/31 13:41:00 server.go:3055: http: TLS handshake error from [::1]:54134: remote error: tls: unknown certificate
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /cuota/list
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /static/css/global.css?1580389812
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 13:41:00 logrequest.go:14: [::1]:54136 GET /static/js/global.js?1580175504
+INFO 2020/01/31 13:41:03 logrequest.go:14: [::1]:54136 POST /cuota/list
+INFO 2020/01/31 13:41:05 logrequest.go:14: [::1]:54136 GET /ingreso/list
+INFO 2020/01/31 13:47:59 main.go:42: Starting app
+INFO 2020/01/31 13:47:59 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:47:59 route.go:357: middleware felipe
+INFO 2020/01/31 13:47:59 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:47:59 route.go:357: middleware felipe
+INFO 2020/01/31 13:47:59 server.go:35: 0.0.0.0:4430
+2020/01/31 13:48:05 server.go:3055: http: TLS handshake error from [::1]:54140: remote error: tls: unknown certificate
+INFO 2020/01/31 13:48:05 logrequest.go:14: [::1]:54142 GET /cuota/list
+INFO 2020/01/31 13:48:08 logrequest.go:14: [::1]:54142 GET /ingreso/list
+INFO 2020/01/31 13:51:03 main.go:42: Starting app
+INFO 2020/01/31 13:51:03 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:51:03 route.go:357: middleware felipe
+INFO 2020/01/31 13:51:03 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:51:03 route.go:357: middleware felipe
+INFO 2020/01/31 13:51:03 server.go:35: 0.0.0.0:4430
+2020/01/31 13:51:10 server.go:3055: http: TLS handshake error from [::1]:54146: remote error: tls: unknown certificate
+INFO 2020/01/31 13:51:10 logrequest.go:14: [::1]:54148 GET /cuota/list
+INFO 2020/01/31 13:51:13 logrequest.go:14: [::1]:54148 GET /ingreso/list
+INFO 2020/01/31 13:51:46 main.go:42: Starting app
+INFO 2020/01/31 13:51:46 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:51:46 route.go:357: middleware felipe
+INFO 2020/01/31 13:51:46 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:51:46 route.go:357: middleware felipe
+INFO 2020/01/31 13:51:46 server.go:35: 0.0.0.0:4430
+2020/01/31 13:51:51 server.go:3055: http: TLS handshake error from [::1]:54152: remote error: tls: unknown certificate
+INFO 2020/01/31 13:51:51 logrequest.go:14: [::1]:54154 GET /ingreso/list
+INFO 2020/01/31 13:52:09 logrequest.go:14: [::1]:54154 GET /cuota/list
+INFO 2020/01/31 13:52:11 logrequest.go:14: [::1]:54154 GET /ingreso/list
+INFO 2020/01/31 13:53:20 main.go:42: Starting app
+INFO 2020/01/31 13:53:20 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 13:53:20 route.go:357: middleware felipe
+INFO 2020/01/31 13:53:20 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 13:53:20 route.go:357: middleware felipe
+INFO 2020/01/31 13:53:20 server.go:35: 0.0.0.0:4430
+2020/01/31 13:53:29 server.go:3055: http: TLS handshake error from [::1]:54160: remote error: tls: unknown certificate
+INFO 2020/01/31 13:53:29 logrequest.go:14: [::1]:54162 GET /cuota/list
+INFO 2020/01/31 13:53:29 logrequest.go:14: [::1]:54162 GET /static/css/global.css?1580493190
+INFO 2020/01/31 13:53:32 logrequest.go:14: [::1]:54162 POST /cuota/list
+INFO 2020/01/31 13:53:32 logrequest.go:14: [::1]:54162 GET /static/css/global.css?1580493190
+INFO 2020/01/31 13:53:40 logrequest.go:14: [::1]:54162 GET /ingreso/list
+INFO 2020/01/31 13:53:40 logrequest.go:14: [::1]:54162 GET /static/css/global.css?1580493190
+INFO 2020/01/31 14:03:35 main.go:42: Starting app
+INFO 2020/01/31 14:03:35 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 14:03:35 route.go:357: middleware felipe
+INFO 2020/01/31 14:03:35 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 14:03:35 route.go:357: middleware felipe
+INFO 2020/01/31 14:03:35 server.go:35: 0.0.0.0:4430
+2020/01/31 14:03:40 server.go:3055: http: TLS handshake error from [::1]:54310: remote error: tls: unknown certificate
+INFO 2020/01/31 14:03:40 logrequest.go:14: [::1]:54312 GET /cuota/list
+INFO 2020/01/31 14:03:40 logrequest.go:14: [::1]:54312 GET /static/css/global.css?1580493801
+INFO 2020/01/31 14:03:43 logrequest.go:14: [::1]:54312 GET /ingreso/list
+INFO 2020/01/31 14:03:43 logrequest.go:14: [::1]:54312 GET /static/css/global.css?1580493801
+INFO 2020/01/31 14:05:46 main.go:42: Starting app
+INFO 2020/01/31 14:05:46 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 14:05:46 route.go:357: middleware felipe
+INFO 2020/01/31 14:05:46 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 14:05:46 route.go:357: middleware felipe
+INFO 2020/01/31 14:05:46 server.go:35: 0.0.0.0:4430
+2020/01/31 14:05:51 server.go:3055: http: TLS handshake error from [::1]:54316: remote error: tls: unknown certificate
+INFO 2020/01/31 14:05:51 logrequest.go:14: [::1]:54318 GET /cuota/list
+INFO 2020/01/31 14:05:51 logrequest.go:14: [::1]:54318 GET /static/css/global.css?1580493801
+INFO 2020/01/31 14:05:56 logrequest.go:14: [::1]:54318 GET /ingreso/list
+INFO 2020/01/31 14:25:16 main.go:42: Starting app
+INFO 2020/01/31 14:25:16 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 14:25:16 route.go:357: middleware felipe
+INFO 2020/01/31 14:25:16 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 14:25:16 route.go:357: middleware felipe
+INFO 2020/01/31 14:25:16 server.go:35: 0.0.0.0:4430
+2020/01/31 14:25:23 server.go:3055: http: TLS handshake error from [::1]:54484: remote error: tls: unknown certificate
+INFO 2020/01/31 14:25:23 logrequest.go:14: [::1]:54486 GET /cuota/list
+INFO 2020/01/31 14:25:23 logrequest.go:14: [::1]:54486 GET /static/css/global.css?1580493801
+INFO 2020/01/31 14:25:26 logrequest.go:14: [::1]:54486 GET /ingreso/list
+INFO 2020/01/31 14:26:34 main.go:42: Starting app
+INFO 2020/01/31 14:26:34 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 14:26:34 route.go:357: middleware felipe
+INFO 2020/01/31 14:26:34 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 14:26:34 route.go:357: middleware felipe
+INFO 2020/01/31 14:26:34 server.go:35: 0.0.0.0:4430
+2020/01/31 14:26:40 server.go:3055: http: TLS handshake error from [::1]:54506: remote error: tls: unknown certificate
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /cuota/list
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /static/css/global.css?1580493801
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 14:26:40 logrequest.go:14: [::1]:54508 GET /static/js/global.js?1580175504
+INFO 2020/01/31 14:26:42 logrequest.go:14: [::1]:54508 POST /cuota/list
+INFO 2020/01/31 14:26:49 logrequest.go:14: [::1]:54508 GET /ingreso/list
+INFO 2020/01/31 14:28:50 logrequest.go:14: [::1]:54508 GET /cuota/list
+INFO 2020/01/31 14:28:50 logrequest.go:14: [::1]:54508 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 14:28:50 logrequest.go:14: [::1]:54508 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 14:28:50 logrequest.go:14: [::1]:54508 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 14:28:50 logrequest.go:14: [::1]:54508 GET /static/js/global.js?1580175504
+INFO 2020/01/31 14:28:52 logrequest.go:14: [::1]:54508 POST /cuota/list
+INFO 2020/01/31 14:28:56 logrequest.go:14: [::1]:54508 GET /ingreso/list
+INFO 2020/01/31 14:31:06 main.go:42: Starting app
+INFO 2020/01/31 14:31:06 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 14:31:06 route.go:357: middleware felipe
+INFO 2020/01/31 14:31:06 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 14:31:06 route.go:357: middleware felipe
+INFO 2020/01/31 14:31:06 server.go:35: 0.0.0.0:4430
+2020/01/31 14:31:12 server.go:3055: http: TLS handshake error from [::1]:54528: remote error: tls: unknown certificate
+INFO 2020/01/31 14:31:12 logrequest.go:14: [::1]:54530 GET /cuota/list
+INFO 2020/01/31 14:31:13 logrequest.go:14: [::1]:54530 GET /static/css/global.css?1580493801
+INFO 2020/01/31 14:31:13 logrequest.go:14: [::1]:54530 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 14:31:13 logrequest.go:14: [::1]:54530 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 14:31:13 logrequest.go:14: [::1]:54530 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 14:31:13 logrequest.go:14: [::1]:54530 GET /static/js/global.js?1580175504
+INFO 2020/01/31 14:31:16 logrequest.go:14: [::1]:54530 GET /ingreso/list
+INFO 2020/01/31 14:44:28 logrequest.go:14: [::1]:54530 GET /egreso/list
+INFO 2020/01/31 14:44:28 logrequest.go:14: [::1]:54530 GET /static/css/global.css?1580495704
+INFO 2020/01/31 14:44:55 logrequest.go:14: [::1]:54530 GET /ingreso/list
+INFO 2020/01/31 14:44:55 logrequest.go:14: [::1]:54530 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 14:44:55 logrequest.go:14: [::1]:54530 GET /static/css/global.css?1580495704
+INFO 2020/01/31 14:45:02 logrequest.go:14: [::1]:54530 POST /ingreso/list
+INFO 2020/01/31 14:45:03 logrequest.go:14: [::1]:54530 POST /ingreso/list
+INFO 2020/01/31 14:45:07 logrequest.go:14: [::1]:54530 POST /ingreso/list
+INFO 2020/01/31 14:45:08 logrequest.go:14: [::1]:54530 POST /ingreso/list
+INFO 2020/01/31 15:07:43 main.go:42: Starting app
+INFO 2020/01/31 15:07:43 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:07:43 route.go:357: middleware felipe
+INFO 2020/01/31 15:07:43 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:07:43 route.go:357: middleware felipe
+INFO 2020/01/31 15:07:43 server.go:35: 0.0.0.0:4430
+2020/01/31 15:07:52 server.go:3055: http: TLS handshake error from [::1]:55052: remote error: tls: unknown certificate
+INFO 2020/01/31 15:07:52 logrequest.go:14: [::1]:55054 GET /cuota/list
+INFO 2020/01/31 15:07:52 logrequest.go:14: [::1]:55054 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:08:08 logrequest.go:14: [::1]:55054 POST /cuota/list
+INFO 2020/01/31 15:08:08 logrequest.go:14: [::1]:55054 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 15:08:08 logrequest.go:14: [::1]:55054 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:08:39 logrequest.go:14: [::1]:55054 GET /ingreso/list
+INFO 2020/01/31 15:08:39 logrequest.go:14: [::1]:55054 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 15:08:39 logrequest.go:14: [::1]:55054 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:08:52 logrequest.go:14: [::1]:55054 GET /egreso/list
+INFO 2020/01/31 15:08:52 logrequest.go:14: [::1]:55054 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 15:08:52 logrequest.go:14: [::1]:55054 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:09:00 logrequest.go:14: [::1]:55054 POST /egreso/list
+INFO 2020/01/31 15:09:14 logrequest.go:14: [::1]:55054 POST /egreso/list
+INFO 2020/01/31 15:09:21 logrequest.go:14: [::1]:55054 POST /egreso/list
+INFO 2020/01/31 15:09:43 logrequest.go:14: [::1]:55054 GET /ingreso/list
+INFO 2020/01/31 15:10:13 logrequest.go:14: [::1]:55054 GET /report/rptapto
+INFO 2020/01/31 15:10:16 logrequest.go:14: [::1]:55054 POST /report/rptapto
+INFO 2020/01/31 15:16:02 logrequest.go:14: [::1]:55054 GET /report/rptcondo
+INFO 2020/01/31 15:16:02 logrequest.go:14: [::1]:55054 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:16:08 logrequest.go:14: [::1]:55054 POST /report/rptcondo
+INFO 2020/01/31 15:16:12 logrequest.go:14: [::1]:55054 GET /report/rptapto
+INFO 2020/01/31 15:16:14 logrequest.go:14: [::1]:55054 POST /report/rptapto
+INFO 2020/01/31 15:49:49 main.go:42: Starting app
+INFO 2020/01/31 15:49:49 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:49:49 route.go:357: middleware felipe
+INFO 2020/01/31 15:49:49 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:49:49 route.go:357: middleware felipe
+INFO 2020/01/31 15:49:49 server.go:35: 0.0.0.0:4430
+2020/01/31 15:49:59 server.go:3055: http: TLS handshake error from [::1]:55138: remote error: tls: unknown certificate
+INFO 2020/01/31 15:49:59 logrequest.go:14: [::1]:55140 GET /report/rptcondo
+INFO 2020/01/31 15:49:59 logrequest.go:14: [::1]:55140 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:50:02 logrequest.go:14: [::1]:55140 POST /report/rptcondo
+INFO 2020/01/31 15:50:07 logrequest.go:14: [::1]:55140 GET /report/rptapto
+INFO 2020/01/31 15:50:09 logrequest.go:14: [::1]:55140 POST /report/rptapto
+INFO 2020/01/31 15:50:38 main.go:42: Starting app
+INFO 2020/01/31 15:50:38 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:50:38 route.go:357: middleware felipe
+INFO 2020/01/31 15:50:38 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:50:38 route.go:357: middleware felipe
+INFO 2020/01/31 15:50:38 server.go:35: 0.0.0.0:4430
+2020/01/31 15:50:41 server.go:3055: http: TLS handshake error from [::1]:55144: remote error: tls: unknown certificate
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /report/rptapto
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 15:50:41 logrequest.go:14: [::1]:55146 GET /static/js/global.js?1580175504
+INFO 2020/01/31 15:50:43 logrequest.go:14: [::1]:55146 POST /report/rptapto
+INFO 2020/01/31 15:51:29 main.go:42: Starting app
+INFO 2020/01/31 15:51:29 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:51:29 route.go:357: middleware felipe
+INFO 2020/01/31 15:51:29 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:51:29 route.go:357: middleware felipe
+INFO 2020/01/31 15:51:29 server.go:35: 0.0.0.0:4430
+2020/01/31 15:51:31 server.go:3055: http: TLS handshake error from [::1]:55150: remote error: tls: unknown certificate
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /report/rptapto
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 15:51:31 logrequest.go:14: [::1]:55152 GET /static/js/global.js?1580175504
+INFO 2020/01/31 15:51:33 logrequest.go:14: [::1]:55152 POST /report/rptapto
+INFO 2020/01/31 15:52:55 main.go:42: Starting app
+INFO 2020/01/31 15:52:55 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:52:55 route.go:357: middleware felipe
+INFO 2020/01/31 15:52:55 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:52:55 route.go:357: middleware felipe
+INFO 2020/01/31 15:52:55 server.go:35: 0.0.0.0:4430
+2020/01/31 15:53:00 server.go:3055: http: TLS handshake error from [::1]:55156: remote error: tls: unknown certificate
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /report/rptapto
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /static/css/global.css?1580496481
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 15:53:00 logrequest.go:14: [::1]:55158 GET /static/js/global.js?1580175504
+INFO 2020/01/31 15:53:02 logrequest.go:14: [::1]:55158 POST /report/rptapto
+INFO 2020/01/31 15:53:54 main.go:42: Starting app
+INFO 2020/01/31 15:53:54 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:53:54 route.go:357: middleware felipe
+INFO 2020/01/31 15:53:54 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:53:54 route.go:357: middleware felipe
+INFO 2020/01/31 15:53:54 server.go:35: 0.0.0.0:4430
+2020/01/31 15:54:02 server.go:3055: http: TLS handshake error from [::1]:55162: remote error: tls: unknown certificate
+INFO 2020/01/31 15:54:02 logrequest.go:14: [::1]:55164 GET /report/rptcondo
+INFO 2020/01/31 15:54:06 logrequest.go:14: [::1]:55164 GET /report/rptapto
+INFO 2020/01/31 15:54:07 logrequest.go:14: [::1]:55164 POST /report/rptapto
+INFO 2020/01/31 15:57:27 main.go:42: Starting app
+INFO 2020/01/31 15:57:27 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 15:57:27 route.go:357: middleware felipe
+INFO 2020/01/31 15:57:27 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 15:57:27 route.go:357: middleware felipe
+INFO 2020/01/31 15:57:27 server.go:35: 0.0.0.0:4430
+2020/01/31 15:57:38 server.go:3055: http: TLS handshake error from [::1]:55170: remote error: tls: unknown certificate
+INFO 2020/01/31 15:57:38 logrequest.go:14: [::1]:55172 GET /report/rptcondo
+INFO 2020/01/31 15:57:38 logrequest.go:14: [::1]:55172 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 15:57:38 logrequest.go:14: [::1]:55172 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 15:57:38 logrequest.go:14: [::1]:55172 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 15:57:38 logrequest.go:14: [::1]:55172 GET /static/js/global.js?1580175504
+INFO 2020/01/31 15:57:41 logrequest.go:14: [::1]:55172 GET /report/rptapto
+INFO 2020/01/31 15:57:43 logrequest.go:14: [::1]:55172 POST /report/rptapto
+INFO 2020/01/31 16:00:39 main.go:42: Starting app
+INFO 2020/01/31 16:00:39 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 16:00:39 route.go:357: middleware felipe
+INFO 2020/01/31 16:00:39 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 16:00:39 route.go:357: middleware felipe
+INFO 2020/01/31 16:00:39 server.go:35: 0.0.0.0:4430
+2020/01/31 16:00:46 server.go:3055: http: TLS handshake error from [::1]:55176: remote error: tls: unknown certificate
+INFO 2020/01/31 16:00:46 logrequest.go:14: [::1]:55178 GET /report/rptcondo
+INFO 2020/01/31 16:00:47 logrequest.go:14: [::1]:55178 GET /static/css/global.css?1580496481
+INFO 2020/01/31 16:00:49 logrequest.go:14: [::1]:55178 GET /report/rptapto
+INFO 2020/01/31 16:00:51 logrequest.go:14: [::1]:55178 POST /report/rptapto
+INFO 2020/01/31 16:05:01 logrequest.go:14: [::1]:55178 GET /report/rptapto
+INFO 2020/01/31 16:10:26 logrequest.go:14: [::1]:55178 GET /ingreso/list
+INFO 2020/01/31 16:10:26 logrequest.go:14: [::1]:55178 GET /static/css/global.css?1580496481
+INFO 2020/01/31 16:10:35 logrequest.go:14: [::1]:55178 GET /report/rptapto
+INFO 2020/01/31 16:10:37 logrequest.go:14: [::1]:55178 POST /report/rptapto
+INFO 2020/01/31 16:12:47 logrequest.go:14: [::1]:55178 GET /report/rptapto
+INFO 2020/01/31 16:15:30 main.go:42: Starting app
+INFO 2020/01/31 16:15:30 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 16:15:30 route.go:357: middleware felipe
+INFO 2020/01/31 16:15:30 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 16:15:30 route.go:357: middleware felipe
+INFO 2020/01/31 16:15:30 server.go:35: 0.0.0.0:4430
+2020/01/31 16:15:39 server.go:3055: http: TLS handshake error from [::1]:55182: remote error: tls: unknown certificate
+INFO 2020/01/31 16:15:39 logrequest.go:14: [::1]:55184 GET /report/rptapto
+INFO 2020/01/31 16:15:40 logrequest.go:14: [::1]:55184 POST /report/rptapto
+INFO 2020/01/31 16:16:03 logrequest.go:14: [::1]:55184 GET /report/rptapto
+INFO 2020/01/31 16:41:57 main.go:42: Starting app
+INFO 2020/01/31 16:41:57 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 16:41:57 route.go:357: middleware felipe
+INFO 2020/01/31 16:41:57 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 16:41:57 route.go:357: middleware felipe
+INFO 2020/01/31 16:41:57 server.go:35: 0.0.0.0:4430
+2020/01/31 16:42:05 server.go:3055: http: TLS handshake error from [::1]:55190: remote error: tls: unknown certificate
+INFO 2020/01/31 16:42:05 logrequest.go:14: [::1]:55192 GET /report/rptapto
+INFO 2020/01/31 16:42:05 logrequest.go:14: [::1]:55192 GET /static/css/global.css?1580502366
+INFO 2020/01/31 16:42:14 logrequest.go:14: [::1]:55192 POST /report/rptapto
+INFO 2020/01/31 16:42:14 logrequest.go:14: [::1]:55192 GET /static/css/global.css?1580502366
+INFO 2020/01/31 16:42:26 logrequest.go:14: [::1]:55192 GET /report/rptapto
+INFO 2020/01/31 16:42:26 logrequest.go:14: [::1]:55192 GET /static/css/global.css?1580502366
+INFO 2020/01/31 16:42:36 logrequest.go:14: [::1]:55192 POST /report/rptapto
+INFO 2020/01/31 16:42:36 logrequest.go:14: [::1]:55192 GET /static/css/global.css?1580502366
+INFO 2020/01/31 16:47:54 main.go:42: Starting app
+INFO 2020/01/31 16:47:54 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 16:47:54 route.go:357: middleware felipe
+INFO 2020/01/31 16:47:54 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 16:47:54 route.go:357: middleware felipe
+INFO 2020/01/31 16:47:54 server.go:35: 0.0.0.0:4430
+2020/01/31 16:48:03 server.go:3055: http: TLS handshake error from [::1]:55196: remote error: tls: unknown certificate
+INFO 2020/01/31 16:48:03 logrequest.go:14: [::1]:55198 GET /report/rptcondo
+INFO 2020/01/31 16:48:03 logrequest.go:14: [::1]:55198 GET /static/css/global.css?1580502366
+INFO 2020/01/31 16:48:07 logrequest.go:14: [::1]:55198 GET /report/rptapto
+INFO 2020/01/31 16:48:18 logrequest.go:14: [::1]:55198 POST /report/rptapto
+INFO 2020/01/31 16:49:17 main.go:42: Starting app
+INFO 2020/01/31 16:49:17 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 16:49:17 route.go:357: middleware felipe
+INFO 2020/01/31 16:49:17 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 16:49:17 route.go:357: middleware felipe
+INFO 2020/01/31 16:49:17 server.go:35: 0.0.0.0:4430
+2020/01/31 16:49:22 server.go:3055: http: TLS handshake error from [::1]:55202: remote error: tls: unknown certificate
+INFO 2020/01/31 16:49:22 logrequest.go:14: [::1]:55204 GET /report/rptapto
+INFO 2020/01/31 16:49:34 logrequest.go:14: [::1]:55204 POST /report/rptapto
+2020/01/31 16:49:34 h2_bundle.go:4213: http2: panic serving [::1]:55204: runtime error: index out of range [-1]
+goroutine 16 [running]:
+net/http.(*http2serverConn).runHandler.func1(0xc0000106e0, 0xc000267f67, 0xc000080a80)
+	/opt/go/src/net/http/h2_bundle.go:5706 +0x16b
+panic(0x964f40, 0xc0001314c0)
+	/opt/go/src/runtime/panic.go:679 +0x1b2
+github.com/gatopardo/micondo/app/controller.RptAptPOST(0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/u13/www/html/go/src/micondo/app/controller/report.go:106 +0x1647
+net/http.HandlerFunc.ServeHTTP(0x9ca1d8, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/acl.DisallowAnon.func1(0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/u13/www/html/go/src/micondo/app/route/middleware/acl/acl.go:36 +0xe3
+net/http.HandlerFunc.ServeHTTP(0xc000191900, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/httprouterwrapper.Handler.func1(0xa653c0, 0xc0000106e0, 0xc00010b500, 0x0, 0x0, 0x0)
+	/u13/www/html/go/src/micondo/app/route/middleware/httprouterwrapper/httprouterwrapper.go:27 +0xc3
+github.com/julienschmidt/httprouter.(*Router).ServeHTTP(0xc00010c6c0, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/u13/www/html/go/pkg/mod/github.com/julienschmidt/httprouter@v1.3.0/router.go:387 +0xa3d
+github.com/josephspurrier/csrfbanana.(*CSRFHandler).ServeHTTP(0xc00018a310, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/u13/www/html/go/pkg/mod/github.com/josephspurrier/csrfbanana@v0.0.0-20170308132943-2c49e3597176/csrfbanana.go:117 +0x86
+github.com/gatopardo/micondo/app/route/middleware/logrequest.Handler.func1(0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/u13/www/html/go/src/micondo/app/route/middleware/logrequest/logrequest.go:16 +0x2b2
+net/http.HandlerFunc.ServeHTTP(0xc000191a60, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gorilla/context.ClearHandler.func1(0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/u13/www/html/go/pkg/mod/github.com/gorilla/context@v1.1.1/context.go:141 +0x9e
+net/http.HandlerFunc.ServeHTTP(0xc000191a80, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+net/http.serverHandler.ServeHTTP(0xc0001b6000, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/opt/go/src/net/http/server.go:2802 +0xa4
+net/http.initNPNRequest.ServeHTTP(0xa66980, 0xc000097fb0, 0xc0001e6380, 0xc0001b6000, 0xa653c0, 0xc0000106e0, 0xc00010b500)
+	/opt/go/src/net/http/server.go:3374 +0x8d
+net/http.(*http2serverConn).runHandler(0xc000080a80, 0xc0000106e0, 0xc00010b500, 0xc0002f9280)
+	/opt/go/src/net/http/h2_bundle.go:5713 +0x9f
+created by net/http.(*http2serverConn).processHeaders
+	/opt/go/src/net/http/h2_bundle.go:5447 +0x4eb
+INFO 2020/01/31 16:53:35 main.go:42: Starting app
+INFO 2020/01/31 16:53:35 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 16:53:35 route.go:357: middleware felipe
+INFO 2020/01/31 16:53:35 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 16:53:35 route.go:357: middleware felipe
+INFO 2020/01/31 16:53:35 server.go:35: 0.0.0.0:4430
+2020/01/31 16:53:41 server.go:3055: http: TLS handshake error from [::1]:55210: remote error: tls: unknown certificate
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /report/rptapto
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /static/css/global.css?1580502366
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 16:53:41 logrequest.go:14: [::1]:55212 GET /static/js/global.js?1580175504
+INFO 2020/01/31 16:53:50 logrequest.go:14: [::1]:55212 GET /report/rptcondo
+INFO 2020/01/31 16:53:53 logrequest.go:14: [::1]:55212 GET /report/rptapto
+INFO 2020/01/31 16:53:59 logrequest.go:14: [::1]:55212 POST /report/rptapto
+2020/01/31 16:53:59 h2_bundle.go:4213: http2: panic serving [::1]:55212: runtime error: index out of range [-1]
+goroutine 164 [running]:
+net/http.(*http2serverConn).runHandler.func1(0xc00040a158, 0xc00028bf67, 0xc0001aa300)
+	/opt/go/src/net/http/h2_bundle.go:5706 +0x16b
+panic(0x964f40, 0xc0003fe180)
+	/opt/go/src/runtime/panic.go:679 +0x1b2
+github.com/gatopardo/micondo/app/controller.RptAptPOST(0xa65400, 0xc00040a158, 0xc00020b500)
+	/u13/www/html/go/src/micondo/app/controller/report.go:106 +0x1691
+net/http.HandlerFunc.ServeHTTP(0x9ca1d8, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/acl.DisallowAnon.func1(0xa65400, 0xc00040a158, 0xc00020b500)
+	/u13/www/html/go/src/micondo/app/route/middleware/acl/acl.go:36 +0xe3
+net/http.HandlerFunc.ServeHTTP(0xc000191980, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/httprouterwrapper.Handler.func1(0xa65400, 0xc00040a158, 0xc00020b500, 0x0, 0x0, 0x0)
+	/u13/www/html/go/src/micondo/app/route/middleware/httprouterwrapper/httprouterwrapper.go:27 +0xc3
+github.com/julienschmidt/httprouter.(*Router).ServeHTTP(0xc0000747e0, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/u13/www/html/go/pkg/mod/github.com/julienschmidt/httprouter@v1.3.0/router.go:387 +0xa3d
+github.com/josephspurrier/csrfbanana.(*CSRFHandler).ServeHTTP(0xc00018a310, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/u13/www/html/go/pkg/mod/github.com/josephspurrier/csrfbanana@v0.0.0-20170308132943-2c49e3597176/csrfbanana.go:117 +0x86
+github.com/gatopardo/micondo/app/route/middleware/logrequest.Handler.func1(0xa65400, 0xc00040a158, 0xc00020b500)
+	/u13/www/html/go/src/micondo/app/route/middleware/logrequest/logrequest.go:16 +0x2b2
+net/http.HandlerFunc.ServeHTTP(0xc000191ae0, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gorilla/context.ClearHandler.func1(0xa65400, 0xc00040a158, 0xc00020b500)
+	/u13/www/html/go/pkg/mod/github.com/gorilla/context@v1.1.1/context.go:141 +0x9e
+net/http.HandlerFunc.ServeHTTP(0xc000191b00, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/opt/go/src/net/http/server.go:2007 +0x44
+net/http.serverHandler.ServeHTTP(0xc0000fe1c0, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/opt/go/src/net/http/server.go:2802 +0xa4
+net/http.initNPNRequest.ServeHTTP(0xa669c0, 0xc0001262a0, 0xc0000f9180, 0xc0000fe1c0, 0xa65400, 0xc00040a158, 0xc00020b500)
+	/opt/go/src/net/http/server.go:3374 +0x8d
+net/http.(*http2serverConn).runHandler(0xc0001aa300, 0xc00040a158, 0xc00020b500, 0xc0004a96a0)
+	/opt/go/src/net/http/h2_bundle.go:5713 +0x9f
+created by net/http.(*http2serverConn).processHeaders
+	/opt/go/src/net/http/h2_bundle.go:5447 +0x4eb
+INFO 2020/01/31 17:16:05 main.go:42: Starting app
+INFO 2020/01/31 17:16:05 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 17:16:05 route.go:357: middleware felipe
+INFO 2020/01/31 17:16:05 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 17:16:05 route.go:357: middleware felipe
+INFO 2020/01/31 17:16:05 server.go:35: 0.0.0.0:4430
+2020/01/31 17:16:13 server.go:3055: http: TLS handshake error from [::1]:55260: remote error: tls: unknown certificate
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /report/rptapto
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /static/css/global.css?1580502366
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 17:16:13 logrequest.go:14: [::1]:55262 GET /static/js/global.js?1580175504
+INFO 2020/01/31 17:16:17 logrequest.go:14: [::1]:55262 POST /report/rptapto
+2020/01/31 17:16:17 cuota.go:231: pq: got 3 parameters but the statement requires 2
+2020/01/31 17:16:17 h2_bundle.go:4213: http2: panic serving [::1]:55262: runtime error: index out of range [-1]
+goroutine 53 [running]:
+net/http.(*http2serverConn).runHandler.func1(0xc0003d9250, 0xc000279f67, 0xc000001b00)
+	/opt/go/src/net/http/h2_bundle.go:5706 +0x16b
+panic(0x964f40, 0xc000031080)
+	/opt/go/src/runtime/panic.go:679 +0x1b2
+github.com/gatopardo/micondo/app/controller.RptAptPOST(0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/u13/www/html/go/src/micondo/app/controller/report.go:106 +0x1691
+net/http.HandlerFunc.ServeHTTP(0x9ca1c8, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/acl.DisallowAnon.func1(0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/u13/www/html/go/src/micondo/app/route/middleware/acl/acl.go:36 +0xe3
+net/http.HandlerFunc.ServeHTTP(0xc0001938e0, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/httprouterwrapper.Handler.func1(0xa65420, 0xc0003d9250, 0xc0002ad100, 0x0, 0x0, 0x0)
+	/u13/www/html/go/src/micondo/app/route/middleware/httprouterwrapper/httprouterwrapper.go:27 +0xc3
+github.com/julienschmidt/httprouter.(*Router).ServeHTTP(0xc00010c720, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/u13/www/html/go/pkg/mod/github.com/julienschmidt/httprouter@v1.3.0/router.go:387 +0xa3d
+github.com/josephspurrier/csrfbanana.(*CSRFHandler).ServeHTTP(0xc00018c310, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/u13/www/html/go/pkg/mod/github.com/josephspurrier/csrfbanana@v0.0.0-20170308132943-2c49e3597176/csrfbanana.go:117 +0x86
+github.com/gatopardo/micondo/app/route/middleware/logrequest.Handler.func1(0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/u13/www/html/go/src/micondo/app/route/middleware/logrequest/logrequest.go:16 +0x2b2
+net/http.HandlerFunc.ServeHTTP(0xc000193a40, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gorilla/context.ClearHandler.func1(0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/u13/www/html/go/pkg/mod/github.com/gorilla/context@v1.1.1/context.go:141 +0x9e
+net/http.HandlerFunc.ServeHTTP(0xc000193a60, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/opt/go/src/net/http/server.go:2007 +0x44
+net/http.serverHandler.ServeHTTP(0xc0001a8000, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/opt/go/src/net/http/server.go:2802 +0xa4
+net/http.initNPNRequest.ServeHTTP(0xa669e0, 0xc00012c060, 0xc0001e6380, 0xc0001a8000, 0xa65420, 0xc0003d9250, 0xc0002ad100)
+	/opt/go/src/net/http/server.go:3374 +0x8d
+net/http.(*http2serverConn).runHandler(0xc000001b00, 0xc0003d9250, 0xc0002ad100, 0xc0003f1dc0)
+	/opt/go/src/net/http/h2_bundle.go:5713 +0x9f
+created by net/http.(*http2serverConn).processHeaders
+	/opt/go/src/net/http/h2_bundle.go:5447 +0x4eb
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /report/rptapto
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /static/css/global.css?1580502366
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 17:17:37 logrequest.go:14: [::1]:55262 GET /static/js/global.js?1580175504
+INFO 2020/01/31 17:17:42 logrequest.go:14: [::1]:55262 GET /report/rptcondo
+INFO 2020/01/31 17:17:43 logrequest.go:14: [::1]:55262 POST /report/rptcondo
+INFO 2020/01/31 17:17:48 logrequest.go:14: [::1]:55262 GET /report/rptapto
+INFO 2020/01/31 17:17:53 logrequest.go:14: [::1]:55262 POST /report/rptapto
+2020/01/31 17:17:53 cuota.go:231: pq: got 3 parameters but the statement requires 2
+2020/01/31 17:17:53 h2_bundle.go:4213: http2: panic serving [::1]:55262: runtime error: index out of range [-1]
+goroutine 219 [running]:
+net/http.(*http2serverConn).runHandler.func1(0xc000116460, 0xc0004ddf67, 0xc000001b00)
+	/opt/go/src/net/http/h2_bundle.go:5706 +0x16b
+panic(0x964f40, 0xc0004d4140)
+	/opt/go/src/runtime/panic.go:679 +0x1b2
+github.com/gatopardo/micondo/app/controller.RptAptPOST(0xa65420, 0xc000116460, 0xc0002cd600)
+	/u13/www/html/go/src/micondo/app/controller/report.go:106 +0x1691
+net/http.HandlerFunc.ServeHTTP(0x9ca1c8, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/acl.DisallowAnon.func1(0xa65420, 0xc000116460, 0xc0002cd600)
+	/u13/www/html/go/src/micondo/app/route/middleware/acl/acl.go:36 +0xe3
+net/http.HandlerFunc.ServeHTTP(0xc0001938e0, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gatopardo/micondo/app/route/middleware/httprouterwrapper.Handler.func1(0xa65420, 0xc000116460, 0xc0002cd600, 0x0, 0x0, 0x0)
+	/u13/www/html/go/src/micondo/app/route/middleware/httprouterwrapper/httprouterwrapper.go:27 +0xc3
+github.com/julienschmidt/httprouter.(*Router).ServeHTTP(0xc00010c720, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/u13/www/html/go/pkg/mod/github.com/julienschmidt/httprouter@v1.3.0/router.go:387 +0xa3d
+github.com/josephspurrier/csrfbanana.(*CSRFHandler).ServeHTTP(0xc00018c310, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/u13/www/html/go/pkg/mod/github.com/josephspurrier/csrfbanana@v0.0.0-20170308132943-2c49e3597176/csrfbanana.go:117 +0x86
+github.com/gatopardo/micondo/app/route/middleware/logrequest.Handler.func1(0xa65420, 0xc000116460, 0xc0002cd600)
+	/u13/www/html/go/src/micondo/app/route/middleware/logrequest/logrequest.go:16 +0x2b2
+net/http.HandlerFunc.ServeHTTP(0xc000193a40, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/opt/go/src/net/http/server.go:2007 +0x44
+github.com/gorilla/context.ClearHandler.func1(0xa65420, 0xc000116460, 0xc0002cd600)
+	/u13/www/html/go/pkg/mod/github.com/gorilla/context@v1.1.1/context.go:141 +0x9e
+net/http.HandlerFunc.ServeHTTP(0xc000193a60, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/opt/go/src/net/http/server.go:2007 +0x44
+net/http.serverHandler.ServeHTTP(0xc0001a8000, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/opt/go/src/net/http/server.go:2802 +0xa4
+net/http.initNPNRequest.ServeHTTP(0xa669e0, 0xc00012c060, 0xc0001e6380, 0xc0001a8000, 0xa65420, 0xc000116460, 0xc0002cd600)
+	/opt/go/src/net/http/server.go:3374 +0x8d
+net/http.(*http2serverConn).runHandler(0xc000001b00, 0xc000116460, 0xc0002cd600, 0xc0002216a0)
+	/opt/go/src/net/http/h2_bundle.go:5713 +0x9f
+created by net/http.(*http2serverConn).processHeaders
+	/opt/go/src/net/http/h2_bundle.go:5447 +0x4eb
+INFO 2020/01/31 17:19:27 main.go:42: Starting app
+INFO 2020/01/31 17:19:27 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 17:19:27 route.go:357: middleware felipe
+INFO 2020/01/31 17:19:27 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 17:19:27 route.go:357: middleware felipe
+INFO 2020/01/31 17:19:27 server.go:35: 0.0.0.0:4430
+2020/01/31 17:19:32 server.go:3055: http: TLS handshake error from [::1]:55266: remote error: tls: unknown certificate
+2020/01/31 17:19:32 server.go:3055: http: TLS handshake error from [::1]:55268: remote error: tls: unknown certificate
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /report/rptapto
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /static/css/bootstrap.css?1580175504
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /static/css/global.css?1580502366
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /static/js/jquery.min.js?1580175504
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /static/js/underscore-min.js?1580175504
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /static/js/popper.min.js?1580175504
+INFO 2020/01/31 17:19:32 logrequest.go:14: [::1]:55270 GET /static/js/global.js?1580175504
+INFO 2020/01/31 17:19:36 logrequest.go:14: [::1]:55270 POST /report/rptapto
+INFO 2020/01/31 17:22:38 main.go:42: Starting app
+INFO 2020/01/31 17:22:38 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 17:22:38 route.go:357: middleware felipe
+INFO 2020/01/31 17:22:38 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 17:22:38 route.go:357: middleware felipe
+INFO 2020/01/31 17:22:38 server.go:35: 0.0.0.0:4430
+2020/01/31 17:22:43 server.go:3055: http: TLS handshake error from [::1]:55276: remote error: tls: unknown certificate
+INFO 2020/01/31 17:22:43 logrequest.go:14: [::1]:55278 GET /report/rptapto
+INFO 2020/01/31 17:22:49 logrequest.go:14: [::1]:55278 POST /report/rptapto
+INFO 2020/01/31 17:22:56 logrequest.go:14: [::1]:55278 GET /report/rptapto
+INFO 2020/01/31 17:23:01 logrequest.go:14: [::1]:55278 POST /report/rptapto
+INFO 2020/01/31 17:23:14 logrequest.go:14: [::1]:55278 GET /report/rptapto
+INFO 2020/01/31 17:23:19 logrequest.go:14: [::1]:55278 POST /report/rptapto
+INFO 2020/01/31 20:04:54 main.go:42: Starting app
+INFO 2020/01/31 20:04:54 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 20:04:54 route.go:357: middleware felipe
+INFO 2020/01/31 20:04:54 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 20:04:54 route.go:357: middleware felipe
+INFO 2020/01/31 20:04:54 server.go:35: 0.0.0.0:4430
+2020/01/31 20:07:24 server.go:3056: http: TLS handshake error from 10.0.0.45:38002: remote error: tls: unknown certificate
+2020/01/31 20:07:35 server.go:3056: http: TLS handshake error from 10.0.0.45:38004: remote error: tls: unknown certificate
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /report/rptcondo
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/css/global.css?1580487966
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/js/global.js?1580161104
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/31 20:07:35 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/31 20:07:40 logrequest.go:14: 10.0.0.45:38006 GET /login
+INFO 2020/01/31 20:07:56 logrequest.go:14: 10.0.0.45:38006 POST /login
+INFO 2020/01/31 20:07:56 logrequest.go:14: 10.0.0.45:38006 GET /
+INFO 2020/01/31 20:08:01 logrequest.go:14: 10.0.0.45:38006 GET /report/rptapto
+INFO 2020/01/31 20:08:01 logrequest.go:14: 10.0.0.45:38006 GET /report/rptapto
+INFO 2020/01/31 20:08:11 logrequest.go:14: 10.0.0.45:38006 POST /report/rptapto
+INFO 2020/01/31 20:08:11 logrequest.go:14: 10.0.0.45:38006 POST /report/rptapto
+INFO 2020/01/31 20:08:36 logrequest.go:14: 10.0.0.45:38006 GET /logout
+INFO 2020/01/31 20:08:36 logrequest.go:14: 10.0.0.45:38006 GET /
+INFO 2020/01/31 20:08:36 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/01/31 20:08:36 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/01/31 20:08:36 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/01/31 20:08:36 logrequest.go:14: 10.0.0.45:38006 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/01/31 20:08:37 logrequest.go:14: 10.0.0.45:38006 GET /login
+INFO 2020/01/31 20:08:46 logrequest.go:14: 10.0.0.45:38006 POST /login
+INFO 2020/01/31 20:08:46 logrequest.go:14: 10.0.0.45:38006 GET /
+INFO 2020/01/31 20:08:51 logrequest.go:14: 10.0.0.45:38006 GET /user/register
+INFO 2020/01/31 20:08:55 logrequest.go:14: 10.0.0.45:38006 GET /user/list
+INFO 2020/01/31 20:09:11 logrequest.go:14: 10.0.0.45:38006 GET /user/update/7
+INFO 2020/01/31 20:09:15 logrequest.go:14: 10.0.0.45:38006 GET /user/list
+INFO 2020/01/31 20:44:07 main.go:42: Starting app
+INFO 2020/01/31 20:44:07 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 20:44:07 route.go:357: middleware felipe
+INFO 2020/01/31 20:44:07 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 20:44:07 route.go:357: middleware felipe
+INFO 2020/01/31 20:44:07 server.go:35: 0.0.0.0:4430
+2020/01/31 20:44:23 server.go:3056: http: TLS handshake error from 10.0.0.45:38162: remote error: tls: unknown certificate
+INFO 2020/01/31 20:44:23 logrequest.go:14: 10.0.0.45:38164 GET /user/list
+INFO 2020/01/31 20:44:27 logrequest.go:14: 10.0.0.45:38164 GET /user/update/6
+INFO 2020/01/31 20:44:35 logrequest.go:14: 10.0.0.45:38164 GET /user/list
+INFO 2020/01/31 21:05:36 main.go:42: Starting app
+INFO 2020/01/31 21:05:36 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 21:05:36 route.go:357: middleware felipe
+INFO 2020/01/31 21:05:36 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 21:05:36 route.go:357: middleware felipe
+INFO 2020/01/31 21:05:36 server.go:35: 0.0.0.0:4430
+2020/01/31 21:08:21 server.go:3056: http: TLS handshake error from 10.0.0.45:38402: remote error: tls: unknown certificate
+INFO 2020/01/31 21:08:21 logrequest.go:14: 10.0.0.45:38404 GET /user/register
+INFO 2020/01/31 21:08:21 logrequest.go:14: 10.0.0.45:38404 GET /static/css/global.css?1580487966
+INFO 2020/01/31 21:08:30 logrequest.go:14: 10.0.0.45:38404 GET /user/list
+INFO 2020/01/31 21:08:30 logrequest.go:14: 10.0.0.45:38404 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/31 21:08:30 logrequest.go:14: 10.0.0.45:38404 GET /static/css/global.css?1580487966
+INFO 2020/01/31 21:08:38 logrequest.go:14: 10.0.0.45:38404 GET /user/update/7
+INFO 2020/01/31 21:09:17 logrequest.go:14: 10.0.0.45:38404 GET /user/list
+INFO 2020/01/31 21:09:17 logrequest.go:14: 10.0.0.45:38404 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/31 21:09:17 logrequest.go:14: 10.0.0.45:38404 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/31 21:09:17 logrequest.go:14: 10.0.0.45:38404 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/31 21:09:17 logrequest.go:14: 10.0.0.45:38404 GET /static/js/global.js?1580161104
+INFO 2020/01/31 21:09:21 logrequest.go:14: 10.0.0.45:38404 GET /user/register
+INFO 2020/01/31 21:36:08 main.go:42: Starting app
+INFO 2020/01/31 21:36:08 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 21:36:08 route.go:357: middleware felipe
+INFO 2020/01/31 21:36:08 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 21:36:08 route.go:357: middleware felipe
+INFO 2020/01/31 21:36:08 server.go:35: 0.0.0.0:4430
+2020/01/31 21:36:21 server.go:3056: http: TLS handshake error from 10.0.0.45:38408: remote error: tls: unknown certificate
+INFO 2020/01/31 21:36:21 logrequest.go:14: 10.0.0.45:38410 GET /user/list
+INFO 2020/01/31 21:36:25 logrequest.go:14: 10.0.0.45:38410 GET /user/update/6
+INFO 2020/01/31 21:36:25 logrequest.go:14: 10.0.0.45:38410 GET /favicon.ico
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /user/list
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /static/css/global.css?1580487966
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/31 21:36:37 logrequest.go:14: 10.0.0.45:38410 GET /static/js/global.js?1580161104
+INFO 2020/01/31 21:37:48 main.go:42: Starting app
+INFO 2020/01/31 21:37:48 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 21:37:48 route.go:357: middleware felipe
+INFO 2020/01/31 21:37:48 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 21:37:48 route.go:357: middleware felipe
+INFO 2020/01/31 21:37:48 server.go:35: 0.0.0.0:4430
+2020/01/31 21:38:00 server.go:3056: http: TLS handshake error from 10.0.0.45:38416: remote error: tls: unknown certificate
+INFO 2020/01/31 21:38:00 logrequest.go:14: 10.0.0.45:38418 GET /user/update/6
+INFO 2020/01/31 21:38:00 logrequest.go:14: 10.0.0.45:38418 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/31 21:38:00 logrequest.go:14: 10.0.0.45:38418 GET /static/css/global.css?1580487966
+INFO 2020/01/31 21:41:57 main.go:42: Starting app
+INFO 2020/01/31 21:41:57 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 21:41:57 route.go:357: middleware felipe
+INFO 2020/01/31 21:41:57 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 21:41:57 route.go:357: middleware felipe
+INFO 2020/01/31 21:41:57 server.go:35: 0.0.0.0:4430
+2020/01/31 21:42:04 server.go:3056: http: TLS handshake error from 10.0.0.45:38422: remote error: tls: unknown certificate
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /user/register
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /static/css/global.css?1580487966
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /static/js/jquery.min.js?1580161104
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /static/js/underscore-min.js?1580161104
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /static/js/popper.min.js?1580161104
+INFO 2020/01/31 21:42:04 logrequest.go:14: 10.0.0.45:38424 GET /static/js/global.js?1580161104
+INFO 2020/01/31 21:42:18 logrequest.go:14: 10.0.0.45:38424 GET /user/list
+INFO 2020/01/31 21:42:18 logrequest.go:14: 10.0.0.45:38424 GET /static/css/bootstrap.css?1580161104
+INFO 2020/01/31 21:42:18 logrequest.go:14: 10.0.0.45:38424 GET /static/css/global.css?1580487966
+INFO 2020/01/31 21:42:21 logrequest.go:14: 10.0.0.45:38424 GET /user/update/6
+INFO 2020/01/31 21:42:21 logrequest.go:14: 10.0.0.45:38424 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/01/31 21:50:11 main.go:42: Starting app
+INFO 2020/01/31 21:50:11 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/01/31 21:50:11 route.go:357: middleware felipe
+INFO 2020/01/31 21:50:11 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/01/31 21:50:11 route.go:357: middleware felipe
+INFO 2020/01/31 21:50:11 server.go:35: 0.0.0.0:4430
+2020/01/31 21:50:19 server.go:3056: http: TLS handshake error from 10.0.0.45:38428: remote error: tls: unknown certificate
+INFO 2020/01/31 21:50:19 logrequest.go:14: 10.0.0.45:38430 GET /user/list
+INFO 2020/01/31 21:50:22 logrequest.go:14: 10.0.0.45:38430 GET /user/update/6
+INFO 2020/01/31 21:50:22 logrequest.go:14: 10.0.0.45:38430 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 08:02:49 main.go:42: Starting app
+INFO 2020/02/01 08:02:49 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 08:02:49 route.go:357: middleware felipe
+INFO 2020/02/01 08:02:49 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 08:02:49 route.go:357: middleware felipe
+INFO 2020/02/01 08:02:49 server.go:35: 0.0.0.0:4430
+2020/02/01 08:06:47 server.go:3055: http: TLS handshake error from [::1]:44616: remote error: tls: unknown certificate
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /report/rptapto
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/css/global.css?1580502366
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/js/global.js?1580175504
+INFO 2020/02/01 08:06:47 logrequest.go:14: [::1]:44618 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/01 08:06:53 logrequest.go:14: [::1]:44618 GET /login
+INFO 2020/02/01 08:07:01 logrequest.go:14: [::1]:44618 POST /login
+INFO 2020/02/01 08:07:02 logrequest.go:14: [::1]:44618 GET /
+INFO 2020/02/01 08:07:05 logrequest.go:14: [::1]:44618 GET /user/list
+INFO 2020/02/01 08:07:17 logrequest.go:14: [::1]:44618 GET /user/update/6
+INFO 2020/02/01 08:07:17 logrequest.go:14: [::1]:44618 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 08:26:53 main.go:42: Starting app
+INFO 2020/02/01 08:26:53 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 08:26:53 route.go:357: middleware felipe
+INFO 2020/02/01 08:26:53 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 08:26:53 route.go:357: middleware felipe
+INFO 2020/02/01 08:26:53 server.go:35: 0.0.0.0:4430
+2020/02/01 08:27:05 server.go:3055: http: TLS handshake error from [::1]:44650: remote error: tls: unknown certificate
+INFO 2020/02/01 08:27:05 logrequest.go:14: [::1]:44652 GET /user/list
+INFO 2020/02/01 08:27:08 logrequest.go:14: [::1]:44652 GET /user/update/6
+INFO 2020/02/01 08:27:08 logrequest.go:14: [::1]:44652 GET /user/update/batman.png
+2020/02/01 08:27:08 user.go:216: Result  no encontrado.
+INFO 2020/02/01 08:27:08 logrequest.go:14: [::1]:44652 GET /user/list
+INFO 2020/02/01 08:45:31 main.go:42: Starting app
+INFO 2020/02/01 08:45:31 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 08:45:31 route.go:357: middleware felipe
+INFO 2020/02/01 08:45:31 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 08:45:31 route.go:357: middleware felipe
+INFO 2020/02/01 08:45:31 server.go:35: 0.0.0.0:4430
+INFO 2020/02/01 09:36:11 main.go:42: Starting app
+INFO 2020/02/01 09:36:11 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 09:36:11 route.go:357: middleware felipe
+INFO 2020/02/01 09:36:11 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 09:36:11 route.go:357: middleware felipe
+INFO 2020/02/01 09:36:11 server.go:35: 0.0.0.0:4430
+2020/02/01 09:36:36 server.go:3055: http: TLS handshake error from [::1]:45072: remote error: tls: unknown certificate
+INFO 2020/02/01 09:36:36 logrequest.go:14: [::1]:45076 GET /user/list
+INFO 2020/02/01 09:36:44 logrequest.go:14: [::1]:45076 GET /user/list
+INFO 2020/02/01 09:36:46 logrequest.go:14: [::1]:45076 GET /user/update/6
+INFO 2020/02/01 09:40:36 main.go:42: Starting app
+INFO 2020/02/01 09:40:36 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 09:40:36 route.go:357: middleware felipe
+INFO 2020/02/01 09:40:36 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 09:40:36 route.go:357: middleware felipe
+INFO 2020/02/01 09:40:36 server.go:35: 0.0.0.0:4430
+2020/02/01 09:40:43 server.go:3055: http: TLS handshake error from [::1]:45082: remote error: tls: unknown certificate
+INFO 2020/02/01 09:40:43 logrequest.go:14: [::1]:45084 GET /user/list
+INFO 2020/02/01 09:40:43 logrequest.go:14: [::1]:45084 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/01 09:40:43 logrequest.go:14: [::1]:45084 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/01 09:40:43 logrequest.go:14: [::1]:45084 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/01 09:40:43 logrequest.go:14: [::1]:45084 GET /static/js/global.js?1580175504
+INFO 2020/02/01 09:40:45 logrequest.go:14: [::1]:45084 GET /user/update/6
+INFO 2020/02/01 09:43:14 main.go:42: Starting app
+INFO 2020/02/01 09:43:14 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 09:43:14 route.go:357: middleware felipe
+INFO 2020/02/01 09:43:14 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 09:43:14 route.go:357: middleware felipe
+INFO 2020/02/01 09:43:14 server.go:35: 0.0.0.0:4430
+2020/02/01 09:43:20 server.go:3055: http: TLS handshake error from [::1]:45088: remote error: tls: unknown certificate
+INFO 2020/02/01 09:43:20 logrequest.go:14: [::1]:45090 GET /user/list
+INFO 2020/02/01 09:43:20 logrequest.go:14: [::1]:45090 GET /static/css/global.css?1580502366
+INFO 2020/02/01 09:43:20 logrequest.go:14: [::1]:45090 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/01 09:43:20 logrequest.go:14: [::1]:45090 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/01 09:43:20 logrequest.go:14: [::1]:45090 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/01 09:43:20 logrequest.go:14: [::1]:45090 GET /static/js/global.js?1580175504
+INFO 2020/02/01 09:43:23 logrequest.go:14: [::1]:45090 GET /user/update/6
+INFO 2020/02/01 09:55:31 main.go:42: Starting app
+INFO 2020/02/01 09:55:31 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 09:55:31 route.go:357: middleware felipe
+INFO 2020/02/01 09:55:31 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 09:55:31 route.go:357: middleware felipe
+INFO 2020/02/01 09:55:31 server.go:35: 0.0.0.0:4430
+2020/02/01 09:55:37 server.go:3055: http: TLS handshake error from [::1]:45100: remote error: tls: unknown certificate
+INFO 2020/02/01 09:55:37 logrequest.go:14: [::1]:45102 GET /user/list
+INFO 2020/02/01 09:55:37 logrequest.go:14: [::1]:45102 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/01 09:55:37 logrequest.go:14: [::1]:45102 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/01 09:55:37 logrequest.go:14: [::1]:45102 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/01 09:55:37 logrequest.go:14: [::1]:45102 GET /static/js/global.js?1580175504
+INFO 2020/02/01 09:55:40 logrequest.go:14: [::1]:45102 GET /user/update/6
+INFO 2020/02/01 09:55:40 logrequest.go:14: [::1]:45102 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:18:20 main.go:42: Starting app
+INFO 2020/02/01 10:18:20 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 10:18:20 route.go:357: middleware felipe
+INFO 2020/02/01 10:18:20 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 10:18:20 route.go:357: middleware felipe
+INFO 2020/02/01 10:18:20 server.go:35: 0.0.0.0:4430
+2020/02/01 10:18:32 server.go:3055: http: TLS handshake error from [::1]:45522: remote error: tls: unknown certificate
+INFO 2020/02/01 10:18:32 logrequest.go:14: [::1]:45524 GET /user/list
+INFO 2020/02/01 10:18:34 logrequest.go:14: [::1]:45524 GET /user/update/6
+INFO 2020/02/01 10:18:34 logrequest.go:14: [::1]:45524 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:19:27 logrequest.go:14: [::1]:45524 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:27:00 main.go:42: Starting app
+INFO 2020/02/01 10:27:00 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 10:27:00 route.go:357: middleware felipe
+INFO 2020/02/01 10:27:00 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 10:27:00 route.go:357: middleware felipe
+INFO 2020/02/01 10:27:00 server.go:35: 0.0.0.0:4430
+2020/02/01 10:27:10 server.go:3055: http: TLS handshake error from [::1]:45532: remote error: tls: unknown certificate
+INFO 2020/02/01 10:27:10 logrequest.go:14: [::1]:45534 GET /user/list
+INFO 2020/02/01 10:27:13 logrequest.go:14: [::1]:45534 GET /user/update/6
+INFO 2020/02/01 10:27:13 logrequest.go:14: [::1]:45534 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:35:09 main.go:42: Starting app
+INFO 2020/02/01 10:35:09 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 10:35:09 route.go:357: middleware felipe
+INFO 2020/02/01 10:35:09 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 10:35:09 route.go:357: middleware felipe
+INFO 2020/02/01 10:35:09 server.go:35: 0.0.0.0:4430
+2020/02/01 10:35:15 server.go:3055: http: TLS handshake error from [::1]:45782: remote error: tls: unknown certificate
+2020/02/01 10:35:25 server.go:3055: http: TLS handshake error from [::1]:45784: remote error: tls: unknown certificate
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/css/global.css?1580502366
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/js/global.js?1580175504
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/01 10:35:25 logrequest.go:14: [::1]:45786 GET /static/favicons/favicon-32x32.png
+INFO 2020/02/01 10:35:33 logrequest.go:14: [::1]:45786 GET /user/list
+INFO 2020/02/01 10:35:35 logrequest.go:14: [::1]:45786 GET /user/update/6
+INFO 2020/02/01 10:35:35 logrequest.go:14: [::1]:45786 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:39:24 logrequest.go:14: [::1]:45786 GET /user/register
+INFO 2020/02/01 10:43:11 logrequest.go:14: [::1]:45786 GET /user/list
+INFO 2020/02/01 10:43:11 logrequest.go:14: [::1]:45786 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/01 10:43:11 logrequest.go:14: [::1]:45786 GET /static/css/global.css?1580502366
+INFO 2020/02/01 10:43:12 logrequest.go:14: [::1]:45786 GET /user/update/6
+INFO 2020/02/01 10:43:12 logrequest.go:14: [::1]:45786 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:43:32 logrequest.go:14: [::1]:45786 GET /user/register
+INFO 2020/02/01 10:47:40 logrequest.go:14: [::1]:45786 GET /user/list
+INFO 2020/02/01 10:47:42 logrequest.go:14: [::1]:45786 GET /user/update/6
+INFO 2020/02/01 10:47:42 logrequest.go:14: [::1]:45786 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:48:08 main.go:42: Starting app
+INFO 2020/02/01 10:48:08 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 10:48:08 route.go:357: middleware felipe
+INFO 2020/02/01 10:48:08 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 10:48:08 route.go:357: middleware felipe
+INFO 2020/02/01 10:48:08 server.go:35: 0.0.0.0:4430
+2020/02/01 10:48:17 server.go:3055: http: TLS handshake error from [::1]:45842: remote error: tls: unknown certificate
+INFO 2020/02/01 10:48:17 logrequest.go:14: [::1]:45844 GET /user/register
+INFO 2020/02/01 10:53:43 logrequest.go:14: [::1]:45844 GET /user/list
+INFO 2020/02/01 10:53:43 logrequest.go:14: [::1]:45844 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/01 10:53:43 logrequest.go:14: [::1]:45844 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/01 10:53:43 logrequest.go:14: [::1]:45844 GET /static/js/global.js?1580175504
+INFO 2020/02/01 10:53:43 logrequest.go:14: [::1]:45844 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/01 10:54:30 logrequest.go:14: [::1]:45844 GET /user/update/6
+INFO 2020/02/01 10:54:30 logrequest.go:14: [::1]:45844 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 10:56:22 main.go:42: Starting app
+INFO 2020/02/01 10:56:22 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 10:56:22 route.go:357: middleware felipe
+INFO 2020/02/01 10:56:22 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 10:56:22 route.go:357: middleware felipe
+INFO 2020/02/01 10:56:22 server.go:35: 0.0.0.0:4430
+2020/02/01 10:56:33 server.go:3055: http: TLS handshake error from [::1]:45850: remote error: tls: unknown certificate
+INFO 2020/02/01 10:56:33 logrequest.go:14: [::1]:45852 GET /user/register
+INFO 2020/02/01 10:58:30 logrequest.go:14: [::1]:45852 GET /user/list
+INFO 2020/02/01 10:58:34 logrequest.go:14: [::1]:45852 GET /user/update/6
+INFO 2020/02/01 10:58:34 logrequest.go:14: [::1]:45852 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 11:04:19 main.go:42: Starting app
+INFO 2020/02/01 11:04:19 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 11:04:19 route.go:357: middleware felipe
+INFO 2020/02/01 11:04:19 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 11:04:19 route.go:357: middleware felipe
+INFO 2020/02/01 11:04:19 server.go:35: 0.0.0.0:4430
+2020/02/01 11:04:26 server.go:3055: http: TLS handshake error from [::1]:45880: remote error: tls: unknown certificate
+INFO 2020/02/01 11:04:26 logrequest.go:14: [::1]:45882 GET /user/register
+INFO 2020/02/01 11:04:45 logrequest.go:14: [::1]:45882 GET /user/list
+INFO 2020/02/01 11:04:48 logrequest.go:14: [::1]:45882 GET /user/update/6
+INFO 2020/02/01 11:04:48 logrequest.go:14: [::1]:45882 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 11:20:12 main.go:42: Starting app
+INFO 2020/02/01 11:20:12 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 11:20:12 route.go:357: middleware felipe
+INFO 2020/02/01 11:20:12 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 11:20:12 route.go:357: middleware felipe
+INFO 2020/02/01 11:20:12 server.go:35: 0.0.0.0:4430
+2020/02/01 11:20:21 server.go:3055: http: TLS handshake error from [::1]:45886: remote error: tls: unknown certificate
+INFO 2020/02/01 11:20:21 logrequest.go:14: [::1]:45888 GET /user/list
+INFO 2020/02/01 11:20:23 logrequest.go:14: [::1]:45888 GET /user/update/6
+INFO 2020/02/01 11:20:23 logrequest.go:14: [::1]:45888 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 20:47:39 main.go:42: Starting app
+INFO 2020/02/01 20:47:39 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 20:47:39 route.go:357: middleware felipe
+INFO 2020/02/01 20:47:39 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 20:47:39 route.go:357: middleware felipe
+INFO 2020/02/01 20:47:39 server.go:35: 0.0.0.0:4430
+2020/02/01 20:47:50 server.go:3056: http: TLS handshake error from 10.0.0.45:47946: remote error: tls: unknown certificate
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /user/update/6
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/css/global.css?1580487966
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/js/global.js?1580161104
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/01 20:47:50 logrequest.go:14: 10.0.0.45:47948 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/01 20:47:52 logrequest.go:14: 10.0.0.45:47948 GET /login
+INFO 2020/02/01 20:48:00 logrequest.go:14: 10.0.0.45:47948 POST /login
+INFO 2020/02/01 20:48:00 logrequest.go:14: 10.0.0.45:47948 GET /
+INFO 2020/02/01 20:48:05 logrequest.go:14: 10.0.0.45:47948 GET /user/register
+INFO 2020/02/01 20:48:27 logrequest.go:14: 10.0.0.45:47948 GET /user/list
+INFO 2020/02/01 20:48:34 logrequest.go:14: 10.0.0.45:47948 GET /user/update/6
+INFO 2020/02/01 20:48:34 logrequest.go:14: 10.0.0.45:47948 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 21:56:08 main.go:42: Starting app
+INFO 2020/02/01 21:56:08 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 21:56:08 route.go:357: middleware felipe
+INFO 2020/02/01 21:56:08 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 21:56:08 route.go:357: middleware felipe
+INFO 2020/02/01 21:56:08 server.go:35: 0.0.0.0:4430
+2020/02/01 21:56:19 server.go:3056: http: TLS handshake error from 10.0.0.45:48494: remote error: tls: unknown certificate
+INFO 2020/02/01 21:56:19 logrequest.go:14: 10.0.0.45:48496 GET /user/list
+INFO 2020/02/01 21:56:21 logrequest.go:14: 10.0.0.45:48496 GET /user/update/6
+INFO 2020/02/01 21:56:21 logrequest.go:14: 10.0.0.45:48496 GET /favicon.ico
+INFO 2020/02/01 21:58:20 main.go:42: Starting app
+INFO 2020/02/01 21:58:20 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 21:58:20 route.go:357: middleware felipe
+INFO 2020/02/01 21:58:20 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 21:58:20 route.go:357: middleware felipe
+INFO 2020/02/01 21:58:20 server.go:35: 0.0.0.0:4430
+2020/02/01 21:58:26 server.go:3056: http: TLS handshake error from 10.0.0.45:48500: remote error: tls: unknown certificate
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /user/list
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /static/css/global.css?1580487966
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/01 21:58:26 logrequest.go:14: 10.0.0.45:48502 GET /static/js/global.js?1580161104
+INFO 2020/02/01 21:58:28 logrequest.go:14: 10.0.0.45:48502 GET /user/update/6
+INFO 2020/02/01 21:58:28 logrequest.go:14: 10.0.0.45:48502 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 22:10:04 main.go:42: Starting app
+INFO 2020/02/01 22:10:04 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/01 22:10:04 route.go:357: middleware felipe
+INFO 2020/02/01 22:10:04 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/01 22:10:04 route.go:357: middleware felipe
+INFO 2020/02/01 22:10:04 server.go:35: 0.0.0.0:4430
+2020/02/01 22:10:10 server.go:3056: http: TLS handshake error from 10.0.0.45:48506: remote error: tls: unknown certificate
+INFO 2020/02/01 22:10:10 logrequest.go:14: 10.0.0.45:48508 GET /user/list
+INFO 2020/02/01 22:10:12 logrequest.go:14: 10.0.0.45:48508 GET /user/update/6
+INFO 2020/02/01 22:10:12 logrequest.go:14: 10.0.0.45:48508 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/01 22:11:44 logrequest.go:14: 10.0.0.45:48508 GET /user/register
+INFO 2020/02/01 22:15:57 logrequest.go:14: 10.0.0.45:48508 GET /apto/list
+INFO 2020/02/01 22:15:57 logrequest.go:14: 10.0.0.45:48508 GET /apto/list/
+INFO 2020/02/01 22:16:02 logrequest.go:14: 10.0.0.45:48508 GET /user/list
+INFO 2020/02/01 22:16:04 logrequest.go:14: 10.0.0.45:48508 GET /user/update/6
+INFO 2020/02/01 22:16:04 logrequest.go:14: 10.0.0.45:48508 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/02 21:36:00 main.go:42: Starting app
+INFO 2020/02/02 21:36:00 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/02 21:36:00 route.go:357: middleware felipe
+INFO 2020/02/02 21:36:00 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/02 21:36:00 route.go:357: middleware felipe
+INFO 2020/02/02 21:36:00 server.go:35: 0.0.0.0:4430
+2020/02/02 21:36:05 server.go:3056: http: TLS handshake error from 10.0.0.45:55096: remote error: tls: unknown certificate
+2020/02/02 21:36:07 server.go:3056: http: TLS handshake error from 10.0.0.45:55100: remote error: tls: unknown certificate
+2020/02/02 21:36:07 server.go:3056: http: TLS handshake error from 10.0.0.45:55102: remote error: tls: unknown certificate
+2020/02/02 21:36:12 server.go:3056: http: TLS handshake error from 10.0.0.45:55104: remote error: tls: unknown certificate
+2020/02/02 21:36:14 server.go:3056: http: TLS handshake error from 10.0.0.45:55106: remote error: tls: unknown certificate
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /user/update/6
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/css/global.css?1580487966
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/js/global.js?1580161104
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/02 21:36:14 logrequest.go:14: 10.0.0.45:55108 GET /static/favicons/favicon-32x32.png
+INFO 2020/02/02 21:36:16 logrequest.go:14: 10.0.0.45:55108 GET /login
+INFO 2020/02/02 21:36:24 logrequest.go:14: 10.0.0.45:55108 POST /login
+INFO 2020/02/02 21:36:25 logrequest.go:14: 10.0.0.45:55108 GET /
+INFO 2020/02/02 21:43:01 logrequest.go:14: 10.0.0.45:55108 GET /user/register
+INFO 2020/02/02 22:00:27 logrequest.go:14: 10.0.0.45:55108 GET /
+INFO 2020/02/02 22:00:27 logrequest.go:14: 10.0.0.45:55108 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/02 22:00:27 logrequest.go:14: 10.0.0.45:55108 GET /static/css/global.css?1580487966
+INFO 2020/02/02 22:00:37 logrequest.go:14: 10.0.0.45:55108 GET /user/list
+INFO 2020/02/02 22:00:38 logrequest.go:14: 10.0.0.45:55108 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/02 22:00:38 logrequest.go:14: 10.0.0.45:55108 GET /static/css/global.css?1580487966
+INFO 2020/02/02 22:00:40 logrequest.go:14: 10.0.0.45:55108 GET /user/update/6
+INFO 2020/02/02 22:00:40 logrequest.go:14: 10.0.0.45:55108 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/03 07:34:43 main.go:42: Starting app
+INFO 2020/02/03 07:34:43 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/03 07:34:43 route.go:357: middleware felipe
+INFO 2020/02/03 07:34:43 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/03 07:34:43 route.go:357: middleware felipe
+INFO 2020/02/03 07:34:43 server.go:35: 0.0.0.0:4430
+2020/02/03 07:34:48 server.go:3056: http: TLS handshake error from 10.0.0.45:36140: remote error: tls: unknown certificate
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /user/update/6
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/css/global.css?1580487966
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/js/global.js?1580161104
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/03 07:34:48 logrequest.go:14: 10.0.0.45:36142 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/03 07:34:50 logrequest.go:14: 10.0.0.45:36142 GET /login
+INFO 2020/02/03 07:34:58 logrequest.go:14: 10.0.0.45:36142 POST /login
+INFO 2020/02/03 07:34:58 logrequest.go:14: 10.0.0.45:36142 GET /
+INFO 2020/02/03 07:35:03 logrequest.go:14: 10.0.0.45:36142 GET /user/register
+INFO 2020/02/03 07:35:25 logrequest.go:14: 10.0.0.45:36142 GET /
+INFO 2020/02/03 07:35:31 logrequest.go:14: 10.0.0.45:36142 GET /user/list
+INFO 2020/02/03 07:35:33 logrequest.go:14: 10.0.0.45:36142 GET /user/update/6
+INFO 2020/02/03 07:35:33 logrequest.go:14: 10.0.0.45:36142 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/03 07:36:10 logrequest.go:14: 10.0.0.45:36142 GET /user/register
+INFO 2020/02/03 15:29:17 main.go:42: Starting app
+INFO 2020/02/03 15:29:17 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/03 15:29:17 route.go:357: middleware felipe
+INFO 2020/02/03 15:29:17 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/03 15:29:17 route.go:357: middleware felipe
+INFO 2020/02/03 15:29:17 server.go:35: 0.0.0.0:4430
+2020/02/03 15:31:13 server.go:3056: http: TLS handshake error from 10.0.0.45:53928: remote error: tls: unknown certificate
+INFO 2020/02/03 15:31:13 logrequest.go:14: 10.0.0.45:53930 GET /user/register
+INFO 2020/02/03 15:31:13 logrequest.go:14: 10.0.0.45:53930 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/03 15:31:13 logrequest.go:14: 10.0.0.45:53930 GET /static/css/global.css?1580487966
+INFO 2020/02/03 15:31:13 logrequest.go:14: 10.0.0.45:53930 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/03 15:31:13 logrequest.go:14: 10.0.0.45:53930 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/03 15:31:13 logrequest.go:14: 10.0.0.45:53930 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/03 15:31:14 logrequest.go:14: 10.0.0.45:53930 GET /static/js/global.js?1580161104
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /user/list
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /static/css/global.css?1580487966
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/03 16:33:11 logrequest.go:14: 10.0.0.45:53930 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/03 16:33:12 logrequest.go:14: 10.0.0.45:53930 GET /login
+INFO 2020/02/03 16:33:20 logrequest.go:14: 10.0.0.45:53930 POST /login
+INFO 2020/02/03 16:33:20 logrequest.go:14: 10.0.0.45:53930 GET /
+INFO 2020/02/03 16:33:27 logrequest.go:14: 10.0.0.45:53930 GET /user/register
+INFO 2020/02/03 16:33:40 logrequest.go:14: 10.0.0.45:53930 GET /user/list
+INFO 2020/02/03 16:33:42 logrequest.go:14: 10.0.0.45:53930 GET /user/update/6
+INFO 2020/02/03 16:33:42 logrequest.go:14: 10.0.0.45:53930 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/03 19:39:58 main.go:42: Starting app
+INFO 2020/02/03 19:39:58 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/03 19:39:58 route.go:357: middleware felipe
+INFO 2020/02/03 19:39:58 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/03 19:39:58 route.go:357: middleware felipe
+INFO 2020/02/03 19:39:58 server.go:35: 0.0.0.0:4430
+2020/02/03 19:55:38 server.go:3056: http: TLS handshake error from 10.0.0.45:33740: remote error: tls: unknown certificate
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /user/update/6
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /static/css/global.css?1580487966
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /static/js/global.js?1580161104
+INFO 2020/02/03 19:55:38 logrequest.go:14: 10.0.0.45:33742 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/04 18:10:50 main.go:42: Starting app
+INFO 2020/02/04 18:10:50 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/04 18:14:47 main.go:42: Starting app
+INFO 2020/02/04 18:14:47 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/04 18:16:00 main.go:42: Starting app
+INFO 2020/02/04 18:16:00 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/04 18:16:00 route.go:357: middleware felipe
+INFO 2020/02/04 18:16:00 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/04 18:16:00 route.go:357: middleware felipe
+INFO 2020/02/04 18:16:00 server.go:35: 0.0.0.0:4430
+2020/02/04 18:17:09 server.go:3056: http: TLS handshake error from 10.0.0.45:54814: remote error: tls: unknown certificate
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /user/update/6
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/css/global.css?1580487966
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/js/global.js?1580161104
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/04 18:17:09 logrequest.go:14: 10.0.0.45:54816 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/04 18:31:21 logrequest.go:14: 10.0.0.45:54816 GET /login
+INFO 2020/02/04 18:31:21 logrequest.go:14: 10.0.0.45:54816 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/04 18:31:21 logrequest.go:14: 10.0.0.45:54816 GET /static/css/global.css?1580487966
+INFO 2020/02/04 18:31:29 logrequest.go:14: 10.0.0.45:54816 POST /login
+INFO 2020/02/04 18:31:29 logrequest.go:14: 10.0.0.45:54816 GET /
+INFO 2020/02/04 18:31:29 logrequest.go:14: 10.0.0.45:54816 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/04 18:31:29 logrequest.go:14: 10.0.0.45:54816 GET /static/css/global.css?1580487966
+INFO 2020/02/04 18:31:34 logrequest.go:14: 10.0.0.45:54816 GET /user/list
+INFO 2020/02/04 18:31:35 logrequest.go:14: 10.0.0.45:54816 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/04 18:31:35 logrequest.go:14: 10.0.0.45:54816 GET /static/css/global.css?1580487966
+INFO 2020/02/04 18:31:40 logrequest.go:14: 10.0.0.45:54816 GET /user/update/6
+INFO 2020/02/04 18:31:40 logrequest.go:14: 10.0.0.45:54816 GET /user/update/ic/favicons/icon_a/iconbatman.png
+INFO 2020/02/04 18:38:43 main.go:42: Starting app
+INFO 2020/02/04 18:38:43 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/04 18:38:43 route.go:357: middleware felipe
+INFO 2020/02/04 18:38:43 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/04 18:38:43 route.go:357: middleware felipe
+INFO 2020/02/04 18:38:43 server.go:35: 0.0.0.0:4430
+2020/02/04 18:38:51 server.go:3056: http: TLS handshake error from 10.0.0.45:54992: remote error: tls: unknown certificate
+INFO 2020/02/04 18:38:51 logrequest.go:14: 10.0.0.45:54994 GET /user/list
+INFO 2020/02/04 18:38:55 logrequest.go:14: 10.0.0.45:54994 GET /user/update/6
+INFO 2020/02/04 18:38:55 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/icon_a/iconbatman.png
+INFO 2020/02/04 18:41:49 logrequest.go:14: 10.0.0.45:54994 POST /user/update/:6
+INFO 2020/02/04 18:41:49 logrequest.go:14: 10.0.0.45:54994 GET /user/list/
+INFO 2020/02/04 18:41:49 logrequest.go:14: 10.0.0.45:54994 GET /user/list
+INFO 2020/02/04 18:42:28 logrequest.go:14: 10.0.0.45:54994 GET /logout
+INFO 2020/02/04 18:42:28 logrequest.go:14: 10.0.0.45:54994 GET /
+INFO 2020/02/04 18:42:28 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/04 18:42:28 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/04 18:42:28 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/04 18:42:28 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/04 18:42:30 logrequest.go:14: 10.0.0.45:54994 GET /login
+INFO 2020/02/04 18:42:47 logrequest.go:14: 10.0.0.45:54994 POST /login
+INFO 2020/02/04 18:42:47 logrequest.go:14: 10.0.0.45:54994 GET /
+INFO 2020/02/04 18:43:10 logrequest.go:14: 10.0.0.45:54994 GET /logout
+INFO 2020/02/04 18:43:10 logrequest.go:14: 10.0.0.45:54994 GET /
+INFO 2020/02/04 18:43:10 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/04 18:43:10 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/04 18:43:10 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/04 18:43:10 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/04 18:43:12 logrequest.go:14: 10.0.0.45:54994 GET /login
+INFO 2020/02/04 18:43:22 logrequest.go:14: 10.0.0.45:54994 POST /login
+INFO 2020/02/04 18:43:22 logrequest.go:14: 10.0.0.45:54994 GET /
+INFO 2020/02/04 18:43:26 logrequest.go:14: 10.0.0.45:54994 GET /user/list
+INFO 2020/02/04 18:43:29 logrequest.go:14: 10.0.0.45:54994 GET /user/update/7
+INFO 2020/02/04 18:43:29 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/icon_a/iconstudm75.png
+INFO 2020/02/04 18:43:34 logrequest.go:14: 10.0.0.45:54994 GET /user/list
+INFO 2020/02/04 18:43:38 logrequest.go:14: 10.0.0.45:54994 GET /user/update/8
+INFO 2020/02/04 18:43:38 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/icon_a/iconneon.png
+INFO 2020/02/04 18:44:46 logrequest.go:14: 10.0.0.45:54994 GET /user/list
+INFO 2020/02/04 18:44:49 logrequest.go:14: 10.0.0.45:54994 GET /user/update/8
+INFO 2020/02/04 18:44:49 logrequest.go:14: 10.0.0.45:54994 GET /static/favicons/icon_a/iconneom.png
+INFO 2020/02/04 21:07:25 main.go:42: Starting app
+INFO 2020/02/04 21:07:26 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/04 21:07:26 route.go:357: middleware felipe
+INFO 2020/02/04 21:07:26 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/04 21:07:26 route.go:357: middleware felipe
+INFO 2020/02/04 21:07:26 server.go:35: 0.0.0.0:4430
+2020/02/04 21:17:18 server.go:3056: http: TLS handshake error from 10.0.0.45:53074: remote error: tls: unknown certificate
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /user/update/8
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/css/global.css?1580487966
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/js/global.js?1580161104
+INFO 2020/02/04 21:17:18 logrequest.go:14: 10.0.0.45:53076 GET /static/favicons/icon_a/iconneom.png
+INFO 2020/02/04 21:17:31 logrequest.go:14: 10.0.0.45:53076 POST /user/update/:8
+2020/02/04 21:17:31 user.go:330: Result  no encontrado.
+INFO 2020/02/04 21:17:31 logrequest.go:14: 10.0.0.45:53076 GET /user/list
+INFO 2020/02/04 21:40:24 logrequest.go:14: 10.0.0.45:53076 GET /user/register
+INFO 2020/02/05 06:09:06 main.go:42: Starting app
+INFO 2020/02/05 06:09:06 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 06:09:06 route.go:357: middleware felipe
+INFO 2020/02/05 06:09:06 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 06:09:06 route.go:357: middleware felipe
+INFO 2020/02/05 06:09:06 server.go:35: 0.0.0.0:4430
+2020/02/05 06:09:13 server.go:3056: http: TLS handshake error from 10.0.0.45:35496: remote error: tls: unknown certificate
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /user/register
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/css/global.css?1580487966
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/js/global.js?1580161104
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/05 06:09:13 logrequest.go:14: 10.0.0.45:35498 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/05 06:09:15 logrequest.go:14: 10.0.0.45:35498 GET /login
+INFO 2020/02/05 06:09:23 logrequest.go:14: 10.0.0.45:35498 POST /login
+INFO 2020/02/05 06:09:24 logrequest.go:14: 10.0.0.45:35498 GET /
+INFO 2020/02/05 06:09:27 logrequest.go:14: 10.0.0.45:35498 GET /user/register
+INFO 2020/02/05 06:09:35 logrequest.go:14: 10.0.0.45:35498 GET /user/list
+INFO 2020/02/05 06:09:38 logrequest.go:14: 10.0.0.45:35498 GET /user/update/6
+INFO 2020/02/05 06:09:38 logrequest.go:14: 10.0.0.45:35498 GET /static/favicons/icon_a/iconbatman.png
+INFO 2020/02/05 06:10:02 logrequest.go:14: 10.0.0.45:35498 GET /user/register
+INFO 2020/02/05 06:10:06 logrequest.go:14: 10.0.0.45:35498 GET /user/list
+INFO 2020/02/05 06:10:08 logrequest.go:14: 10.0.0.45:35498 GET /user/update/6
+INFO 2020/02/05 14:15:18 main.go:42: Starting app
+INFO 2020/02/05 14:15:18 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 14:15:18 route.go:357: middleware felipe
+INFO 2020/02/05 14:15:18 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 14:15:18 route.go:357: middleware felipe
+INFO 2020/02/05 14:15:18 server.go:35: 0.0.0.0:4430
+2020/02/05 14:16:19 server.go:3056: http: TLS handshake error from 10.0.0.45:50694: remote error: tls: unknown certificate
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /user/update/6
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/css/global.css?1580487966
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/js/global.js?1580161104
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/05 14:16:20 logrequest.go:14: 10.0.0.45:50696 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/05 14:16:25 logrequest.go:14: 10.0.0.45:50696 GET /login
+INFO 2020/02/05 14:16:35 logrequest.go:14: 10.0.0.45:50696 POST /login
+INFO 2020/02/05 14:16:35 logrequest.go:14: 10.0.0.45:50696 GET /
+INFO 2020/02/05 14:16:49 logrequest.go:14: 10.0.0.45:50696 GET /user/list
+INFO 2020/02/05 14:16:49 logrequest.go:14: 10.0.0.45:50696 GET /user/list
+INFO 2020/02/05 14:16:53 logrequest.go:14: 10.0.0.45:50696 GET /user/update/7
+INFO 2020/02/05 14:16:53 logrequest.go:14: 10.0.0.45:50696 GET /user/update/7
+INFO 2020/02/05 14:16:53 logrequest.go:14: 10.0.0.45:50696 GET /static/favicons/icon_a/iconstudm75.png
+INFO 2020/02/05 14:17:05 logrequest.go:14: 10.0.0.45:50696 GET /user/list
+INFO 2020/02/05 14:17:05 logrequest.go:14: 10.0.0.45:50696 GET /
+INFO 2020/02/05 14:17:09 logrequest.go:14: 10.0.0.45:50696 GET /user/list
+INFO 2020/02/05 14:17:12 logrequest.go:14: 10.0.0.45:50696 GET /user/update/6
+INFO 2020/02/05 14:17:12 logrequest.go:14: 10.0.0.45:50696 GET /static/favicons/icon_a/iconbatman.png
+INFO 2020/02/05 14:24:11 logrequest.go:14: 10.0.0.45:50696 GET /user/register
+INFO 2020/02/05 17:10:41 main.go:42: Starting app
+INFO 2020/02/05 17:10:41 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 17:10:41 route.go:357: middleware felipe
+INFO 2020/02/05 17:10:41 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 17:10:41 route.go:357: middleware felipe
+INFO 2020/02/05 17:10:41 server.go:35: 0.0.0.0:4430
+2020/02/05 17:11:01 server.go:3056: http: TLS handshake error from 10.0.0.45:51132: remote error: tls: unknown certificate
+INFO 2020/02/05 17:11:01 logrequest.go:14: 10.0.0.45:51134 GET /user/list
+INFO 2020/02/05 17:11:01 logrequest.go:14: 10.0.0.45:51134 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 17:11:01 logrequest.go:14: 10.0.0.45:51134 GET /static/css/global.css?1580487966
+INFO 2020/02/05 17:11:19 logrequest.go:14: 10.0.0.45:51134 GET /user/register
+INFO 2020/02/05 17:11:19 logrequest.go:14: 10.0.0.45:51134 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 17:11:19 logrequest.go:14: 10.0.0.45:51134 GET /static/css/global.css?1580487966
+INFO 2020/02/05 17:17:58 logrequest.go:14: 10.0.0.45:51134 POST /user/register
+INFO 2020/02/05 17:17:58 logrequest.go:14: 10.0.0.45:51134 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 17:17:58 logrequest.go:14: 10.0.0.45:51134 GET /static/css/global.css?1580487966
+INFO 2020/02/05 17:21:18 logrequest.go:14: 10.0.0.45:51134 POST /user/register
+INFO 2020/02/05 17:21:18 logrequest.go:14: 10.0.0.45:51134 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 17:21:18 logrequest.go:14: 10.0.0.45:51134 GET /static/css/global.css?1580487966
+INFO 2020/02/05 17:21:28 logrequest.go:14: 10.0.0.45:51134 POST /user/register
+INFO 2020/02/05 17:21:28 logrequest.go:14: 10.0.0.45:51134 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 17:21:28 logrequest.go:14: 10.0.0.45:51134 GET /static/css/global.css?1580487966
+INFO 2020/02/05 17:23:18 logrequest.go:14: 10.0.0.45:51134 POST /user/register
+INFO 2020/02/05 17:23:18 logrequest.go:14: 10.0.0.45:51134 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 17:23:18 logrequest.go:14: 10.0.0.45:51134 GET /static/css/global.css?1580487966
+INFO 2020/02/05 17:23:24 logrequest.go:14: 10.0.0.45:51134 POST /user/register
+INFO 2020/02/05 17:25:28 main.go:42: Starting app
+INFO 2020/02/05 17:25:28 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 17:25:28 route.go:357: middleware felipe
+INFO 2020/02/05 17:25:28 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 17:25:28 route.go:357: middleware felipe
+INFO 2020/02/05 17:25:28 server.go:35: 0.0.0.0:4430
+2020/02/05 17:26:25 server.go:3056: http: TLS handshake error from 10.0.0.45:51166: remote error: tls: unknown certificate
+2020/02/05 17:26:26 server.go:3056: http: TLS handshake error from 10.0.0.45:51168: remote error: tls: unknown certificate
+INFO 2020/02/05 17:26:26 logrequest.go:14: 10.0.0.45:51170 POST /user/register
+INFO 2020/02/05 17:26:26 logrequest.go:14: 10.0.0.45:51170 GET /user/list
+INFO 2020/02/05 17:31:03 logrequest.go:14: 10.0.0.45:51170 GET /user/update/9
+INFO 2020/02/05 17:31:03 logrequest.go:14: 10.0.0.45:51170 GET /static/favicons/icon_a/iconbravew.png
+INFO 2020/02/05 17:31:13 logrequest.go:14: 10.0.0.45:51170 GET /user/list
+INFO 2020/02/05 17:32:10 logrequest.go:14: 10.0.0.45:51170 GET /user/update/6
+INFO 2020/02/05 17:32:10 logrequest.go:14: 10.0.0.45:51170 GET /static/favicons/icon_a/iconbatman.png
+INFO 2020/02/05 17:33:08 logrequest.go:14: 10.0.0.45:51170 GET /user/list
+INFO 2020/02/05 17:33:10 logrequest.go:14: 10.0.0.45:51170 GET /user/update/9
+INFO 2020/02/05 17:33:10 logrequest.go:14: 10.0.0.45:51170 GET /static/favicons/icon_a/iconbravew.png
+INFO 2020/02/05 17:33:56 logrequest.go:14: 10.0.0.45:51170 GET /user/list
+INFO 2020/02/05 17:39:51 main.go:42: Starting app
+INFO 2020/02/05 17:39:51 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 17:39:51 route.go:357: middleware felipe
+INFO 2020/02/05 17:39:51 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 17:39:51 route.go:357: middleware felipe
+INFO 2020/02/05 17:39:51 server.go:35: 0.0.0.0:4430
+2020/02/05 17:39:57 server.go:3056: http: TLS handshake error from 10.0.0.45:51200: remote error: tls: unknown certificate
+INFO 2020/02/05 17:39:57 logrequest.go:14: 10.0.0.45:51202 GET /user/list
+INFO 2020/02/05 17:40:05 logrequest.go:14: 10.0.0.45:51202 GET /user/register
+INFO 2020/02/05 17:40:06 logrequest.go:14: 10.0.0.45:51202 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/05 17:40:06 logrequest.go:14: 10.0.0.45:51202 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/05 17:40:06 logrequest.go:14: 10.0.0.45:51202 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/05 17:40:06 logrequest.go:14: 10.0.0.45:51202 GET /static/js/global.js?1580161104
+INFO 2020/02/05 17:41:46 logrequest.go:14: 10.0.0.45:51202 POST /user/register
+INFO 2020/02/05 17:41:46 logrequest.go:14: 10.0.0.45:51202 GET /user/list
+INFO 2020/02/05 17:44:22 logrequest.go:14: 10.0.0.45:51202 GET /user/list
+INFO 2020/02/05 17:44:29 logrequest.go:14: 10.0.0.45:51202 GET /user/update/10
+INFO 2020/02/05 17:44:29 logrequest.go:14: 10.0.0.45:51202 GET /static/favicons/icon_b/icongunivers.png
+INFO 2020/02/05 17:44:38 logrequest.go:14: 10.0.0.45:51202 GET /logout
+INFO 2020/02/05 17:44:38 logrequest.go:14: 10.0.0.45:51202 GET /
+INFO 2020/02/05 17:44:38 logrequest.go:14: 10.0.0.45:51202 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/05 17:44:38 logrequest.go:14: 10.0.0.45:51202 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/05 17:44:38 logrequest.go:14: 10.0.0.45:51202 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/05 17:44:38 logrequest.go:14: 10.0.0.45:51202 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/05 18:20:18 main.go:42: Starting app
+INFO 2020/02/05 18:20:18 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 18:20:19 route.go:357: middleware felipe
+INFO 2020/02/05 18:20:19 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 18:20:19 route.go:357: middleware felipe
+INFO 2020/02/05 18:20:19 server.go:35: 0.0.0.0:4430
+2020/02/05 18:27:06 server.go:3056: http: TLS handshake error from 10.0.0.45:57344: remote error: tls: unknown certificate
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/css/global.css?1580487966
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/js/global.js?1580161104
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/05 18:27:06 logrequest.go:14: 10.0.0.45:57346 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/05 18:28:13 logrequest.go:14: 10.0.0.45:57346 GET /login
+INFO 2020/02/05 18:28:13 logrequest.go:14: 10.0.0.45:57346 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 18:28:13 logrequest.go:14: 10.0.0.45:57346 GET /static/css/global.css?1580487966
+INFO 2020/02/05 18:44:57 main.go:42: Starting app
+INFO 2020/02/05 18:44:57 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 18:44:57 route.go:357: middleware felipe
+INFO 2020/02/05 18:44:57 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 18:44:57 route.go:357: middleware felipe
+INFO 2020/02/05 18:44:57 server.go:35: 0.0.0.0:4430
+2020/02/05 18:45:18 server.go:3056: http: TLS handshake error from 10.0.0.45:57454: remote error: tls: unknown certificate
+INFO 2020/02/05 18:45:18 logrequest.go:14: 10.0.0.45:57456 POST /login
+INFO 2020/02/05 18:45:18 logrequest.go:14: 10.0.0.45:57456 GET /
+INFO 2020/02/05 18:45:18 logrequest.go:14: 10.0.0.45:57456 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/05 18:45:18 logrequest.go:14: 10.0.0.45:57456 GET /static/css/global.css?1580487966
+INFO 2020/02/05 18:45:23 logrequest.go:14: 10.0.0.45:57456 GET /user/register
+INFO 2020/02/05 18:45:27 logrequest.go:14: 10.0.0.45:57456 GET /user/list
+INFO 2020/02/05 18:46:03 logrequest.go:14: 10.0.0.45:57456 GET /user/register
+INFO 2020/02/05 18:46:54 logrequest.go:14: 10.0.0.45:57456 POST /user/register
+INFO 2020/02/05 18:46:54 logrequest.go:14: 10.0.0.45:57456 GET /user/list
+INFO 2020/02/05 18:47:26 logrequest.go:14: 10.0.0.45:57456 GET /user/update/11
+INFO 2020/02/05 19:57:52 main.go:42: Starting app
+INFO 2020/02/05 19:57:52 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/05 19:57:52 route.go:357: middleware felipe
+INFO 2020/02/05 19:57:52 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/05 19:57:52 route.go:357: middleware felipe
+INFO 2020/02/05 19:57:52 server.go:35: 0.0.0.0:4430
+2020/02/05 19:58:01 server.go:3056: http: TLS handshake error from 10.0.0.45:57952: remote error: tls: unknown certificate
+INFO 2020/02/05 19:58:01 logrequest.go:14: 10.0.0.45:57954 GET /user/list
+INFO 2020/02/05 19:58:03 logrequest.go:14: 10.0.0.45:57954 GET /user/update/11
+INFO 2020/02/05 20:01:18 logrequest.go:14: 10.0.0.45:57954 GET /user/list
+INFO 2020/02/05 20:01:23 logrequest.go:14: 10.0.0.45:57954 GET /user/update/11
+INFO 2020/02/05 20:01:23 logrequest.go:14: 10.0.0.45:57954 GET /static/favicons/icon_b/iconmermaid.png
+INFO 2020/02/05 20:02:29 logrequest.go:14: 10.0.0.45:57954 GET /user/list
+INFO 2020/02/05 20:02:32 logrequest.go:14: 10.0.0.45:57954 GET /user/update/11
+INFO 2020/02/05 20:02:32 logrequest.go:14: 10.0.0.45:57954 GET /static/favicons/icon_c/iconmermaid.png
+INFO 2020/02/05 20:05:55 logrequest.go:14: 10.0.0.45:57954 GET /user/register
+INFO 2020/02/05 20:06:03 logrequest.go:14: 10.0.0.45:57954 GET /user/list
+INFO 2020/02/05 20:06:25 logrequest.go:14: 10.0.0.45:57954 GET /user/register
+INFO 2020/02/05 20:08:00 logrequest.go:14: 10.0.0.45:57954 POST /user/register
+INFO 2020/02/05 20:08:00 logrequest.go:14: 10.0.0.45:57954 GET /user/list
+INFO 2020/02/06 08:49:38 main.go:42: Starting app
+INFO 2020/02/06 08:49:38 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 08:49:38 route.go:357: middleware felipe
+INFO 2020/02/06 08:49:38 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 08:49:38 route.go:357: middleware felipe
+INFO 2020/02/06 08:49:38 server.go:35: 0.0.0.0:4430
+2020/02/06 08:49:53 server.go:3055: http: TLS handshake error from [::1]:34328: remote error: tls: unknown certificate
+INFO 2020/02/06 08:49:53 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 08:50:00 logrequest.go:14: [::1]:34330 GET /user/update/6
+INFO 2020/02/06 08:50:00 logrequest.go:14: [::1]:34330 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/06 08:50:24 logrequest.go:14: [::1]:34330 GET /user/register
+INFO 2020/02/06 08:54:27 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 08:54:30 logrequest.go:14: [::1]:34330 GET /user/update/6
+INFO 2020/02/06 08:54:30 logrequest.go:14: [::1]:34330 GET /user/update/static/favicons/icon_a/iconbatman.png
+INFO 2020/02/06 08:58:49 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 08:58:52 logrequest.go:14: [::1]:34330 GET /user/update/6
+INFO 2020/02/06 08:58:52 logrequest.go:14: [::1]:34330 GET /static/favicons/icon_a/iconbatman.png
+INFO 2020/02/06 08:58:54 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 08:58:56 logrequest.go:14: [::1]:34330 GET /user/update/7
+INFO 2020/02/06 08:58:56 logrequest.go:14: [::1]:34330 GET /static/favicons/icon_a/iconstudm75.png
+INFO 2020/02/06 08:59:14 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 08:59:16 logrequest.go:14: [::1]:34330 GET /user/update/8
+INFO 2020/02/06 08:59:16 logrequest.go:14: [::1]:34330 GET /static/favicons/icon_a/iconneon.png
+INFO 2020/02/06 08:59:30 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 09:00:49 logrequest.go:14: [::1]:34330 GET /user/update/8
+INFO 2020/02/06 09:00:49 logrequest.go:14: [::1]:34330 GET /static/favicons/icon_a/iconneom.png
+INFO 2020/02/06 09:07:18 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 09:07:56 logrequest.go:14: [::1]:34330 GET /user/register
+INFO 2020/02/06 09:09:30 logrequest.go:14: [::1]:34330 POST /user/register
+INFO 2020/02/06 09:09:31 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 09:09:37 logrequest.go:14: [::1]:34330 GET /user/update/9
+INFO 2020/02/06 09:09:37 logrequest.go:14: [::1]:34330 GET /static/favicons/icon_c/icongunivers.png
+INFO 2020/02/06 09:12:03 logrequest.go:14: [::1]:34330 GET /user/list
+INFO 2020/02/06 09:12:06 logrequest.go:14: [::1]:34330 GET /user/update/9
+INFO 2020/02/06 09:12:06 logrequest.go:14: [::1]:34330 GET /static/favicons/icon_c/icongunivers.png
+INFO 2020/02/06 09:44:15 main.go:42: Starting app
+INFO 2020/02/06 09:44:15 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 09:44:15 route.go:357: middleware felipe
+INFO 2020/02/06 09:44:15 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 09:44:15 route.go:357: middleware felipe
+INFO 2020/02/06 09:44:15 server.go:35: 0.0.0.0:4430
+2020/02/06 09:44:23 server.go:3055: http: TLS handshake error from [::1]:34516: remote error: tls: unknown certificate
+INFO 2020/02/06 09:44:23 logrequest.go:14: [::1]:34518 GET /user/list
+INFO 2020/02/06 09:45:36 logrequest.go:14: [::1]:34518 GET /user/register
+INFO 2020/02/06 09:45:36 logrequest.go:14: [::1]:34518 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 09:45:36 logrequest.go:14: [::1]:34518 GET /static/css/global.css?1580502366
+INFO 2020/02/06 09:46:34 logrequest.go:14: [::1]:34518 POST /user/register
+INFO 2020/02/06 09:46:34 logrequest.go:14: [::1]:34518 GET /user/list
+INFO 2020/02/06 09:46:34 logrequest.go:14: [::1]:34518 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 09:46:34 logrequest.go:14: [::1]:34518 GET /static/css/global.css?1580502366
+INFO 2020/02/06 09:46:46 logrequest.go:14: [::1]:34518 GET /user/update/10
+INFO 2020/02/06 09:46:46 logrequest.go:14: [::1]:34518 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 09:46:46 logrequest.go:14: [::1]:34518 GET /static/css/global.css?1580502366
+INFO 2020/02/06 09:46:46 logrequest.go:14: [::1]:34518 GET /static/favicons/icon__b/iconbravew.png
+INFO 2020/02/06 09:54:12 logrequest.go:14: [::1]:34518 GET /user/list
+INFO 2020/02/06 09:54:12 logrequest.go:14: [::1]:34518 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 09:54:12 logrequest.go:14: [::1]:34518 GET /static/css/global.css?1580502366
+INFO 2020/02/06 09:54:18 logrequest.go:14: [::1]:34518 GET /user/update/10
+INFO 2020/02/06 09:54:18 logrequest.go:14: [::1]:34518 GET /static/favicons/icon__b/iconbravew.png
+INFO 2020/02/06 09:56:23 logrequest.go:14: [::1]:34518 GET /user/list
+INFO 2020/02/06 09:56:26 logrequest.go:14: [::1]:34518 GET /user/update/10
+INFO 2020/02/06 09:56:26 logrequest.go:14: [::1]:34518 GET /static/favicons/icon_b/iconbravew.png
+INFO 2020/02/06 09:59:00 main.go:42: Starting app
+INFO 2020/02/06 09:59:00 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 09:59:00 route.go:357: middleware felipe
+INFO 2020/02/06 09:59:00 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 09:59:00 route.go:357: middleware felipe
+INFO 2020/02/06 09:59:00 server.go:35: 0.0.0.0:4430
+2020/02/06 09:59:10 server.go:3055: http: TLS handshake error from [::1]:34522: remote error: tls: unknown certificate
+INFO 2020/02/06 09:59:10 logrequest.go:14: [::1]:34524 GET /user/list
+INFO 2020/02/06 09:59:45 logrequest.go:14: [::1]:34524 GET /user/register
+INFO 2020/02/06 10:01:40 logrequest.go:14: [::1]:34524 POST /user/register
+INFO 2020/02/06 10:01:40 logrequest.go:14: [::1]:34524 GET /user/list
+INFO 2020/02/06 10:05:26 logrequest.go:14: [::1]:34524 GET /user/update/11
+INFO 2020/02/06 10:05:26 logrequest.go:14: [::1]:34524 GET /static/favicons/icon_b/iconwomanbw.png
+INFO 2020/02/06 10:58:54 main.go:42: Starting app
+INFO 2020/02/06 10:58:54 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 10:58:54 route.go:360: middleware felipe
+INFO 2020/02/06 10:58:54 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 10:58:54 route.go:360: middleware felipe
+INFO 2020/02/06 10:58:54 server.go:35: 0.0.0.0:4430
+2020/02/06 10:59:09 server.go:3055: http: TLS handshake error from [::1]:34856: remote error: tls: unknown certificate
+INFO 2020/02/06 10:59:09 logrequest.go:14: [::1]:34858 GET /logout
+INFO 2020/02/06 10:59:09 logrequest.go:14: [::1]:34858 GET /
+INFO 2020/02/06 10:59:09 logrequest.go:14: [::1]:34858 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/06 10:59:09 logrequest.go:14: [::1]:34858 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/06 10:59:09 logrequest.go:14: [::1]:34858 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/06 10:59:09 logrequest.go:14: [::1]:34858 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/06 10:59:10 logrequest.go:14: [::1]:34858 GET /login
+INFO 2020/02/06 10:59:20 logrequest.go:14: [::1]:34858 POST /login
+INFO 2020/02/06 10:59:20 logrequest.go:14: [::1]:34858 GET /
+INFO 2020/02/06 10:59:24 logrequest.go:14: [::1]:34858 GET /user/files
+INFO 2020/02/06 10:59:24 logrequest.go:14: [::1]:34858 GET /favicon.ico
+INFO 2020/02/06 11:02:13 main.go:42: Starting app
+INFO 2020/02/06 11:02:13 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:02:13 route.go:360: middleware felipe
+INFO 2020/02/06 11:02:13 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:02:13 route.go:360: middleware felipe
+INFO 2020/02/06 11:02:13 server.go:35: 0.0.0.0:4430
+2020/02/06 11:02:18 server.go:3055: http: TLS handshake error from [::1]:34862: remote error: tls: unknown certificate
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:02:18 logrequest.go:14: [::1]:34864 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:02:21 logrequest.go:14: [::1]:34864 GET /user/files
+INFO 2020/02/06 11:08:11 main.go:42: Starting app
+INFO 2020/02/06 11:08:11 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:08:11 route.go:360: middleware felipe
+INFO 2020/02/06 11:08:11 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:08:11 route.go:360: middleware felipe
+INFO 2020/02/06 11:08:11 server.go:35: 0.0.0.0:4430
+2020/02/06 11:08:19 server.go:3055: http: TLS handshake error from [::1]:34870: remote error: tls: unknown certificate
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:08:19 logrequest.go:14: [::1]:34872 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:08:24 logrequest.go:14: [::1]:34872 GET /user/files
+INFO 2020/02/06 11:09:21 main.go:42: Starting app
+INFO 2020/02/06 11:09:21 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:09:21 route.go:360: middleware felipe
+INFO 2020/02/06 11:09:21 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:09:21 route.go:360: middleware felipe
+INFO 2020/02/06 11:09:21 server.go:35: 0.0.0.0:4430
+2020/02/06 11:09:27 server.go:3055: http: TLS handshake error from [::1]:34876: remote error: tls: unknown certificate
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:09:27 logrequest.go:14: [::1]:34878 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:09:30 logrequest.go:14: [::1]:34878 GET /user/files
+INFO 2020/02/06 11:25:10 main.go:42: Starting app
+INFO 2020/02/06 11:25:10 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:25:10 route.go:360: middleware felipe
+INFO 2020/02/06 11:25:10 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:25:10 route.go:360: middleware felipe
+INFO 2020/02/06 11:25:10 server.go:35: 0.0.0.0:4430
+2020/02/06 11:25:15 server.go:3055: http: TLS handshake error from [::1]:34882: remote error: tls: unknown certificate
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:25:15 logrequest.go:14: [::1]:34884 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:25:18 logrequest.go:14: [::1]:34884 GET /user/files
+INFO 2020/02/06 11:26:54 main.go:42: Starting app
+INFO 2020/02/06 11:26:54 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:26:54 route.go:360: middleware felipe
+INFO 2020/02/06 11:26:54 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:26:54 route.go:360: middleware felipe
+INFO 2020/02/06 11:26:54 server.go:35: 0.0.0.0:4430
+2020/02/06 11:26:58 server.go:3055: http: TLS handshake error from [::1]:34888: remote error: tls: unknown certificate
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:26:58 logrequest.go:14: [::1]:34890 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:27:03 logrequest.go:14: [::1]:34890 GET /user/files
+INFO 2020/02/06 11:27:43 main.go:42: Starting app
+INFO 2020/02/06 11:27:43 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:27:43 route.go:360: middleware felipe
+INFO 2020/02/06 11:27:43 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:27:43 route.go:360: middleware felipe
+INFO 2020/02/06 11:27:43 server.go:35: 0.0.0.0:4430
+2020/02/06 11:27:50 server.go:3055: http: TLS handshake error from [::1]:34894: remote error: tls: unknown certificate
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:27:50 logrequest.go:14: [::1]:34896 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:27:53 logrequest.go:14: [::1]:34896 GET /user/files
+INFO 2020/02/06 11:31:25 main.go:42: Starting app
+INFO 2020/02/06 11:31:25 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 11:31:25 route.go:360: middleware felipe
+INFO 2020/02/06 11:31:25 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 11:31:25 route.go:360: middleware felipe
+INFO 2020/02/06 11:31:25 server.go:35: 0.0.0.0:4430
+2020/02/06 11:31:37 server.go:3055: http: TLS handshake error from [::1]:34900: remote error: tls: unknown certificate
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /static/css/bootstrap.css?1580175504
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /static/css/global.css?1580502366
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /static/js/jquery.min.js?1580175504
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /static/js/popper.min.js?1580175504
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /static/js/underscore-min.js?1580175504
+INFO 2020/02/06 11:31:37 logrequest.go:14: [::1]:34902 GET /static/js/global.js?1580175504
+INFO 2020/02/06 11:31:41 logrequest.go:14: [::1]:34902 GET /user/list
+INFO 2020/02/06 11:32:04 logrequest.go:14: [::1]:34902 GET /user/update/11
+INFO 2020/02/06 11:32:04 logrequest.go:14: [::1]:34902 GET /static/favicons/icon_b/iconwomanbw.png
+INFO 2020/02/06 11:32:07 logrequest.go:14: [::1]:34902 GET /user/list
+INFO 2020/02/06 11:32:56 logrequest.go:14: [::1]:34902 GET /user/register
+INFO 2020/02/06 11:33:58 logrequest.go:14: [::1]:34902 POST /user/register
+INFO 2020/02/06 11:33:58 logrequest.go:14: [::1]:34902 GET /user/list
+INFO 2020/02/06 11:34:08 logrequest.go:14: [::1]:34902 GET /user/update/12
+INFO 2020/02/06 11:34:08 logrequest.go:14: [::1]:34902 GET /user/update/static/favicons/icon_b/iconbrutus.png
+INFO 2020/02/06 11:35:51 logrequest.go:14: [::1]:34902 GET /user/list
+INFO 2020/02/06 11:35:58 logrequest.go:14: [::1]:34902 GET /user/update/12
+INFO 2020/02/06 11:35:58 logrequest.go:14: [::1]:34902 GET /static/favicons/icon_b/iconbrutus.png
+INFO 2020/02/06 16:21:02 main.go:42: Starting app
+INFO 2020/02/06 16:21:02 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 16:21:02 route.go:360: middleware felipe
+INFO 2020/02/06 16:21:02 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 16:21:02 route.go:360: middleware felipe
+INFO 2020/02/06 16:21:02 server.go:35: 0.0.0.0:4430
+2020/02/06 16:21:23 server.go:3056: http: TLS handshake error from 10.0.0.45:40248: remote error: tls: unknown certificate
+2020/02/06 16:21:23 server.go:3056: http: TLS handshake error from 10.0.0.45:40250: remote error: tls: unknown certificate
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/css/global.css?1580487966
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/js/global.js?1580161104
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/06 16:21:23 logrequest.go:14: 10.0.0.45:40252 GET /static/favicons/jpeg/imp_2_caset.jpg
+2020/02/06 16:21:40 server.go:3056: http: TLS handshake error from 10.0.0.45:40294: remote error: tls: unknown certificate
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/css/global.css?1580487966
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/js/global.js?1580161104
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/06 16:21:40 logrequest.go:14: 10.0.0.45:40302 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/06 16:21:46 logrequest.go:14: 10.0.0.45:40302 GET /login
+INFO 2020/02/06 16:21:55 logrequest.go:14: 10.0.0.45:40302 POST /login
+INFO 2020/02/06 16:21:55 logrequest.go:14: 10.0.0.45:40302 GET /
+INFO 2020/02/06 16:22:03 logrequest.go:14: 10.0.0.45:40302 GET /user/files
+INFO 2020/02/06 16:22:03 logrequest.go:14: 10.0.0.45:40302 GET /favicon.ico
+INFO 2020/02/06 16:39:08 main.go:42: Starting app
+INFO 2020/02/06 16:39:08 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 16:39:08 route.go:357: middleware felipe
+INFO 2020/02/06 16:39:08 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 16:39:08 route.go:357: middleware felipe
+INFO 2020/02/06 16:39:08 server.go:35: 0.0.0.0:4430
+2020/02/06 16:39:22 server.go:3056: http: TLS handshake error from 10.0.0.45:40546: remote error: tls: unknown certificate
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /static/css/global.css?1580487966
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /static/js/global.js?1580161104
+INFO 2020/02/06 16:39:22 logrequest.go:14: 10.0.0.45:40548 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/06 16:39:31 logrequest.go:14: 10.0.0.45:40548 GET /user/files
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /static/css/global.css?1580487966
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/06 16:39:33 logrequest.go:14: 10.0.0.45:40548 GET /static/js/global.js?1580161104
+INFO 2020/02/06 16:39:37 logrequest.go:14: 10.0.0.45:40548 GET /logout
+INFO 2020/02/06 16:39:37 logrequest.go:14: 10.0.0.45:40548 GET /
+INFO 2020/02/06 16:39:37 logrequest.go:14: 10.0.0.45:40548 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/06 16:39:37 logrequest.go:14: 10.0.0.45:40548 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/06 16:39:37 logrequest.go:14: 10.0.0.45:40548 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/06 16:39:37 logrequest.go:14: 10.0.0.45:40548 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/06 16:39:38 logrequest.go:14: 10.0.0.45:40548 GET /login
+INFO 2020/02/06 16:39:47 logrequest.go:14: 10.0.0.45:40548 POST /login
+INFO 2020/02/06 16:39:47 logrequest.go:14: 10.0.0.45:40548 GET /
+INFO 2020/02/06 16:39:54 logrequest.go:14: 10.0.0.45:40548 GET /user/files
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /static/css/global.css?1580487966
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/06 16:39:56 logrequest.go:14: 10.0.0.45:40548 GET /static/js/global.js?1580161104
+INFO 2020/02/06 16:41:02 main.go:42: Starting app
+INFO 2020/02/06 16:41:02 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 16:41:02 route.go:357: middleware felipe
+INFO 2020/02/06 16:41:02 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 16:41:02 route.go:357: middleware felipe
+INFO 2020/02/06 16:41:02 server.go:35: 0.0.0.0:4430
+2020/02/06 16:41:19 server.go:3056: http: TLS handshake error from 10.0.0.45:40552: remote error: tls: unknown certificate
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /logout
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /static/css/global.css?1580487966
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2020/02/06 16:41:19 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2020/02/06 16:41:21 logrequest.go:14: 10.0.0.45:40554 GET /login
+INFO 2020/02/06 16:41:29 logrequest.go:14: 10.0.0.45:40554 POST /login
+INFO 2020/02/06 16:41:29 logrequest.go:14: 10.0.0.45:40554 GET /
+INFO 2020/02/06 16:41:39 logrequest.go:14: 10.0.0.45:40554 GET /
+INFO 2020/02/06 16:42:18 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:42:22 logrequest.go:14: 10.0.0.45:40554 GET /user/update/11
+INFO 2020/02/06 16:42:22 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_c/iconmermaid.png
+INFO 2020/02/06 16:42:28 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:42:32 logrequest.go:14: 10.0.0.45:40554 GET /user/update/10
+INFO 2020/02/06 16:42:32 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_b/icongunivers.png
+INFO 2020/02/06 16:42:39 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:42:50 logrequest.go:14: 10.0.0.45:40554 GET /user/update/6
+INFO 2020/02/06 16:42:50 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_a/iconbatman.png
+INFO 2020/02/06 16:42:53 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:42:57 logrequest.go:14: 10.0.0.45:40554 GET /user/update/9
+INFO 2020/02/06 16:42:57 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_a/iconbravew.png
+INFO 2020/02/06 16:43:25 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:43:32 logrequest.go:14: 10.0.0.45:40554 GET /user/update/12
+INFO 2020/02/06 16:43:32 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_d/iconbrutus.png
+INFO 2020/02/06 16:43:35 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:43:39 logrequest.go:14: 10.0.0.45:40554 GET /user/update/7
+INFO 2020/02/06 16:43:39 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_a/iconstudm75.png
+INFO 2020/02/06 16:43:42 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:43:47 logrequest.go:14: 10.0.0.45:40554 GET /user/update/7
+INFO 2020/02/06 16:43:47 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_a/iconstudm75.png
+INFO 2020/02/06 16:43:50 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:43:55 logrequest.go:14: 10.0.0.45:40554 GET /user/update/8
+INFO 2020/02/06 16:43:55 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_a/iconneom.png
+INFO 2020/02/06 16:43:58 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:44:04 logrequest.go:14: 10.0.0.45:40554 GET /user/update/13
+INFO 2020/02/06 16:44:07 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:44:21 logrequest.go:14: 10.0.0.45:40554 GET /user/update/11
+INFO 2020/02/06 16:44:21 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_c/iconmermaid.png
+INFO 2020/02/06 16:44:25 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:44:28 logrequest.go:14: 10.0.0.45:40554 GET /user/update/10
+INFO 2020/02/06 16:44:28 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_b/icongunivers.png
+INFO 2020/02/06 16:48:49 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:48:57 logrequest.go:14: 10.0.0.45:40554 GET /user/update/9
+INFO 2020/02/06 16:48:57 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_a/iconbravew.png
+INFO 2020/02/06 16:49:00 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:49:03 logrequest.go:14: 10.0.0.45:40554 GET /user/update/11
+INFO 2020/02/06 16:49:03 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_c/iconmermaid.png
+INFO 2020/02/06 16:49:07 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:49:07 logrequest.go:14: 10.0.0.45:40554 GET /user/update/10
+INFO 2020/02/06 16:49:07 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_b/icongunivers.png
+INFO 2020/02/06 16:49:11 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:53:02 logrequest.go:14: 10.0.0.45:40554 GET /user/register
+INFO 2020/02/06 16:54:38 logrequest.go:14: 10.0.0.45:40554 POST /user/register
+INFO 2020/02/06 16:54:38 logrequest.go:14: 10.0.0.45:40554 GET /user/list
+INFO 2020/02/06 16:54:43 logrequest.go:14: 10.0.0.45:40554 GET /user/update/14
+INFO 2020/02/06 16:54:43 logrequest.go:14: 10.0.0.45:40554 GET /static/favicons/icon_c/iconyoungwo.png
+INFO 2020/02/06 17:18:18 main.go:42: Starting app
+INFO 2020/02/06 17:18:18 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 17:18:18 route.go:357: middleware felipe
+INFO 2020/02/06 17:18:18 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 17:18:18 route.go:357: middleware felipe
+INFO 2020/02/06 17:18:18 server.go:35: 0.0.0.0:4430
+2020/02/06 17:21:20 server.go:3056: http: TLS handshake error from 10.0.0.45:40570: remote error: tls: unknown certificate
+INFO 2020/02/06 17:21:20 logrequest.go:14: 10.0.0.45:40572 GET /user/list
+INFO 2020/02/06 17:21:23 logrequest.go:14: 10.0.0.45:40572 GET /user/update/14
+INFO 2020/02/06 17:21:23 logrequest.go:14: 10.0.0.45:40572 GET /static/favicons/icon_c/iconyoungwo.png
+INFO 2020/02/06 17:21:51 logrequest.go:14: 10.0.0.45:40572 GET /user/register
+INFO 2020/02/06 17:23:12 logrequest.go:14: 10.0.0.45:40572 POST /user/register
+INFO 2020/02/06 17:23:12 logrequest.go:14: 10.0.0.45:40572 GET /user/list
+INFO 2020/02/06 17:23:16 logrequest.go:14: 10.0.0.45:40572 GET /user/update/15
+INFO 2020/02/06 17:23:16 logrequest.go:14: 10.0.0.45:40572 GET /static/favicons/icon_d/iconstudw.png
+INFO 2020/02/06 17:23:29 logrequest.go:14: 10.0.0.45:40572 GET /user/list
+INFO 2020/02/06 17:23:41 logrequest.go:14: 10.0.0.45:40572 GET /user/update/12
+INFO 2020/02/06 17:23:41 logrequest.go:14: 10.0.0.45:40572 GET /static/favicons/icon_d/iconbrutus.png
+INFO 2020/02/06 17:24:04 logrequest.go:14: 10.0.0.45:40572 POST /user/update/:12
+2020/02/06 17:24:04 user.go:323: Result  no encontrado.
+INFO 2020/02/06 17:24:04 logrequest.go:14: 10.0.0.45:40572 GET /user/list
+INFO 2020/02/06 17:24:26 logrequest.go:14: 10.0.0.45:40572 GET /user/update/12
+INFO 2020/02/06 17:24:26 logrequest.go:14: 10.0.0.45:40572 GET /static/favicons/icon_d/iconbrutus.png
+INFO 2020/02/06 17:43:19 main.go:42: Starting app
+INFO 2020/02/06 17:43:19 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/06 17:43:19 route.go:357: middleware felipe
+INFO 2020/02/06 17:43:19 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/06 17:43:19 route.go:357: middleware felipe
+INFO 2020/02/06 17:43:19 server.go:35: 0.0.0.0:4430
+2020/02/06 17:43:32 server.go:3056: http: TLS handshake error from 10.0.0.45:40576: remote error: tls: unknown certificate
+INFO 2020/02/06 17:43:32 logrequest.go:14: 10.0.0.45:40578 GET /user/list
+INFO 2020/02/06 17:44:17 logrequest.go:14: 10.0.0.45:40578 GET /user/update/12
+INFO 2020/02/06 17:44:17 logrequest.go:14: 10.0.0.45:40578 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 17:44:17 logrequest.go:14: 10.0.0.45:40578 GET /static/favicons/icon_d/iconbrutus.png
+INFO 2020/02/06 17:44:17 logrequest.go:14: 10.0.0.45:40578 GET /static/css/global.css?1580487966
+INFO 2020/02/06 17:44:33 logrequest.go:14: 10.0.0.45:40578 POST /user/update/12
+INFO 2020/02/06 17:44:33 logrequest.go:14: 10.0.0.45:40578 GET /user/list/
+INFO 2020/02/06 17:44:33 logrequest.go:14: 10.0.0.45:40578 GET /user/list
+INFO 2020/02/06 17:44:33 logrequest.go:14: 10.0.0.45:40578 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 17:44:33 logrequest.go:14: 10.0.0.45:40578 GET /static/css/global.css?1580487966
+INFO 2020/02/06 17:44:41 logrequest.go:14: 10.0.0.45:40578 GET /user/update/12
+INFO 2020/02/06 17:44:41 logrequest.go:14: 10.0.0.45:40578 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 17:44:41 logrequest.go:14: 10.0.0.45:40578 GET /static/css/global.css?1580487966
+INFO 2020/02/06 17:44:41 logrequest.go:14: 10.0.0.45:40578 GET /static/favicons/icon_a/iconfsociety.png
+INFO 2020/02/06 17:52:23 logrequest.go:14: 10.0.0.45:40578 GET /user/list
+INFO 2020/02/06 17:52:23 logrequest.go:14: 10.0.0.45:40578 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/06 17:52:23 logrequest.go:14: 10.0.0.45:40578 GET /static/css/global.css?1580487966

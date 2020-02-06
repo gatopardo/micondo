@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 	"runtime"
-        "fmt"
+//        "fmt"
 
 	"github.com/gatopardo/micondo/app/route"
 	"github.com/gatopardo/micondo/app/shared/email"
@@ -44,11 +44,9 @@ func main() {
 	jsonconfig.Load("config"+string(os.PathSeparator)+"config.json", config)
 
 	// Configure the session cookie store
-//	fmt.Println(" main Server Remote ", config.Server.Remote)
 	model.Configure(config.Session)
 	// Connect to database
 	model.Connect(config.Database)
-	fmt.Println(" main  ", config.Database.Remote, " ", config.Database.PostgreSQL.Name)
         defer model.Db.Close()
         defer file.Close()
 
