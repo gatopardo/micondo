@@ -5,7 +5,7 @@ import (
 	"net/http"
          "strings"
          "fmt"
-//          "path/filepath"
+         "path"
           "os"
           "io"
 	  "math/rand"
@@ -35,7 +35,7 @@ import (
  var LisIcon = [...]string{"a", "b", "c", "d"}
 // ---------------------------------------------------
 
-  func getImage(r *http.Request, sname string)( st string ,err error){
+  func saveImage(r *http.Request, sname, spath string)( err error){
          var file multipart.File
          var fileHeader *multipart.FileHeader
 //         var buff bytes.Buffer
@@ -48,12 +48,7 @@ import (
          }
          defer file.Close()
 
-         sr  := rand.NewSource(time.Now().UnixNano())
-         rn  := rand.New(sr)
-	 ir  :=  rn.Intn(len(LisIcon))
-         s2  :=  LisIcon[ir] + "/"
-         st   =  path_img+s2+fileHeader.Filename
-	 str :=  "."+st
+	 str :=  "."+path.Dir(spath)+"/"+fileHeader.Filename
 // fmt.Println(" get Image ", fileHeader.Filename , str)
          f, err := os.OpenFile(str, os.O_WRONLY|os.O_CREATE, 0666)
          if err != nil {
@@ -70,6 +65,25 @@ import (
          return
    }
 
+   func getFileName(r * http.Request, sname string)(stf string, err error){
+         var fileHeader *multipart.FileHeader
+//         var buff bytes.Buffer
+         r.ParseMultipartForm(maxUploadSize)
+         _, fileHeader, err = r.FormFile(sname)
+         if err != nil {
+             fmt.Println("Error Retrieving the File")
+             fmt.Println(err)
+             return
+         }
+
+         sr  := rand.NewSource(time.Now().UnixNano())
+         rn  := rand.New(sr)
+	 ir  :=  rn.Intn(len(LisIcon))
+         s2  :=  LisIcon[ir] + "/"
+         stf   =  path_img+s2+fileHeader.Filename
+	 return
+   }
+
 //----------------------------------------------------
  func DatFormPers(p *model.Person, r * http.Request){
 	 p.ApartaId,_     = atoi32(r.FormValue("aptId"))
@@ -80,9 +94,10 @@ import (
          p.Tele           =  r.FormValue("tele")
          p.Mobil          =  r.FormValue("mobil")
          p.Tipo           =  r.FormValue("tipo")
-         rPhoto, _       :=  getImage(r, "photo")
-         p.Photo          =  rPhoto
-//         fmt.Println("Person ", *p )
+         rPhoto,err       :=  getFileName(r, "photo")
+	 if err == nil{
+                 p.Photo          =  rPhoto
+         }
    }
 
 // --------------------------------------------------------
@@ -162,6 +177,8 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
 		  http.Redirect(w, r, "/user/register", http.StatusFound)
                    return
                 }
+                saveImage(r, "photo", person.Photo )
+
                 user.PersonId =  person.Id
                 ex := (&user).UserCreate()
 	        if ex != nil {  // uyy como fue esto ? 
@@ -249,7 +266,7 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
    }
 
 //---------------------------------------------------------------
-    func getPersFormUp(p1, p2 model.Person)(stUp string){
+    func getPersFormUp(p1, p2 model.Person,r *http.Request )(stUp string){
       var sform string
       var  sArrSup []string
       if p1.ApartaId != p2.ApartaId  {
@@ -284,9 +301,11 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
            sform = fmt.Sprintf(" %s  = '%s' ","tipo",  strings.Trim(p2.Tipo," ") )
            sArrSup = append(sArrSup, sform)
       }
-      if strings.Trim(p1.Photo, " ") !=  strings.Trim(p2.Photo," ") {
+      if (strings.Trim(p1.Photo, " ") !=  strings.Trim(p2.Photo," ")) &&
+             (len(strings.Trim(p2.Photo, " ")) > 0){
            sform = fmt.Sprintf(" %s  = '%s' ","photo",  strings.Trim(p2.Photo," ") )
            sArrSup = append(sArrSup, sform)
+	   saveImage(r, "photo",  p2.Photo)
       }
 
        lon := len(sArrSup)
@@ -337,7 +356,7 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
         }
 	user.Cuenta     = r.FormValue("cuenta")
 	DatFormPers(&p,r)
-        st          :=  getPersFormUp(pers,p)
+        st          :=  getPersFormUp(pers,p, r)
 	fmt.Println(" RegisUpPOST ", st)
         if len(st) == 0{
             sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})

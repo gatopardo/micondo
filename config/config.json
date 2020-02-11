@@ -25,7 +25,7 @@
 		"Username": "gato.pardo",
 		"Password": "valle1nuevo5",
 		"Hostname": "smtp.gmail.com",
-		"Port": 465,
+		"Port": 587,
 		"From": "gato.pardo@gmail.com"
 	},
 	"Recaptcha": {

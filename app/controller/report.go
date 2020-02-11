@@ -3,9 +3,9 @@ package controller
 import (
       "log"
 	"net/http"
-//        "fmt"
+        "fmt"
         "strings"
-//        "time"
+        "time"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -19,14 +19,9 @@ import (
 // MailSendGet despliega formulario para enviar correo
 func MailSendGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
-        lisApts, err := model.Apts()
-        if err != nil {
-             sess.AddFlash(view.Flash{"No hay aptos", view.FlashError})
-         }
 	v                  := view.New(r)
 	v.Name              = "report/rptmail"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
-        v.Vars["LisApts"]    = lisApts
         v.Vars["Level"]     =  sess.Values["level"]
 	v.Render(w)
  }
@@ -36,17 +31,31 @@ func MailSendPOST(w http.ResponseWriter, r *http.Request) {
 	sess          := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            aptId,  _       := atoi32(r.FormValue("aptId"))
+            dateLayout := "2006-01-02"
+            timeLayout := "15:04:05"
+            tim        := time.Now()
+            fec        := tim.Format(dateLayout)
+            hour       := tim.Format(timeLayout)
+            stm        := "Fecha "+fec +" Hora : " + hour 
+fmt.Println("MailSendPost ", stm)
 	    tema            := r.FormValue("tema")
-	    content         := r.FormValue("content")
-            person, err         :=  model.EmailByAptId(aptId)
+	    content         := stm +"\n" + r.FormValue("content")
+            lisPers, err    :=  model.Persons()
             if err != nil {
-                 sess.AddFlash(view.Flash{"No hay correos ", view.FlashError})
-            }else{
-		    to := person.Email
-//	    fmt.Printf("%d | %s | %s | %s | %s\n",aptId, to, person.Fname ,tema, content)
-	        email.SendEmail(to, tema,content);
+                 sess.AddFlash(view.Flash{"No hay usuarios ", view.FlashError})
+		   fmt.Println("Error correo ", err)
+	       http.Redirect(w, r, "/email", http.StatusFound)
             }
+fmt.Println("MailSendPost lon  ", len(lisPers))
+             for _,person := range lisPers{
+                 to := person.Email
+    fmt.Printf(" %s | %s\n", person.Fname ,to)
+	        err = email.SendEmail(to, tema,content);
+                if err != nil {
+                   sess.AddFlash(view.Flash{"Error enviando ", view.FlashError})
+		   fmt.Println("Error Enviando", err)
+                }
+	       }
         }
 	http.Redirect(w, r, "/email", http.StatusFound)
  }

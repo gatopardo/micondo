@@ -8,13 +8,6 @@
 
 	<form enctype="multipart/form-data"  action="/email"  method="post" class="myForm" >
 
-                 <label for="aptId" ><span>Apto</span></label>
-                  <select name="aptId" id="aptId" autofocus> 
-                     {{range $key, $value := .LisApts}}
-                        <option value="{{ $value.Id }}">{{ $value.Codigo }}</option>
-                     {{end}}
-                  </select>
-
                 <label for="tema">Tema </label>
                 <input type="text" id="tema" name="tema" size="32" maxlength="64" placeholder="tema" />
 

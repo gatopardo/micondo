@@ -228,19 +228,21 @@ func PersDeleteAll() (err error) {
 
 // Get all users in the database and returns it
   func Persons() (persons []Person, err error) {
-        stq :=   "SELECT p.id, p.aparta_id , fname, lname, email, address, tele, mobil,p.photo, p.created_at, p.updated_at FROM persons p, users u where p.user_id = u.id  order by cuenta"
+        stq :=   "SELECT p.id, p.aparta_id , fname, lname, email, address, tele, mobil,p.photo, p.created_at, p.updated_at FROM persons p, users u where u.person_id = p.id  order by cuenta"
 	rows, err := Db.Query(stq)
 	if err != nil {
 
 		return
 	}
 	defer rows.Close()
+       fmt.Println(stq)
 	for rows.Next() {
 		person := Person{}
 		if err = rows.Scan(&person.Id, &person.ApartaId ,&person.Fname, &person.Lname, &person.Email, &person.Address, &person.Tele, &person.Mobil, &person.Photo ,&person.CreatedAt, &person.UpdatedAt); err != nil {
-
-			return
+              log.Println(err)
+              fmt.Println(err)
 		}
+		persons = append(persons, person)
 	}
 	return
 }
@@ -348,7 +350,7 @@ func UserDeleteAll() (err error) {
            }
 	    users = append(users, indi)
 	}
-	return
+    return
  }
 // -----------------------------------------------------
 // -----------------------------------------------------
