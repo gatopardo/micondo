@@ -7501,3 +7501,60 @@ INFO 2020/02/10 20:01:48 logrequest.go:14: 10.0.0.45:37698 GET /static/favicons/
 INFO 2020/02/10 20:01:50 logrequest.go:14: 10.0.0.45:37698 GET /login
 INFO 2020/02/10 20:02:00 logrequest.go:14: 10.0.0.45:37698 POST /login
 INFO 2020/02/10 20:02:01 logrequest.go:14: 10.0.0.45:37698 GET /
+INFO 2020/02/10 20:08:08 main.go:42: Starting app
+INFO 2020/02/10 20:08:08 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/10 20:08:08 route.go:357: middleware felipe
+INFO 2020/02/10 20:08:08 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/10 20:08:08 route.go:357: middleware felipe
+INFO 2020/02/10 20:08:08 server.go:35: 0.0.0.0:4430
+2020/02/10 20:08:16 server.go:3056: http: TLS handshake error from 10.0.0.45:37734: remote error: tls: unknown certificate
+INFO 2020/02/10 20:08:16 logrequest.go:14: 10.0.0.45:37736 GET /report/rptapto
+INFO 2020/02/10 20:08:17 logrequest.go:14: 10.0.0.45:37736 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/10 20:08:17 logrequest.go:14: 10.0.0.45:37736 GET /static/css/global.css?1580487966
+INFO 2020/02/10 20:08:17 logrequest.go:14: 10.0.0.45:37736 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/10 20:08:17 logrequest.go:14: 10.0.0.45:37736 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/10 20:08:17 logrequest.go:14: 10.0.0.45:37736 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/10 20:08:17 logrequest.go:14: 10.0.0.45:37736 GET /static/js/global.js?1580161104
+INFO 2020/02/10 20:08:31 logrequest.go:14: 10.0.0.45:37736 POST /report/rptapto
+INFO 2020/02/10 20:08:31 logrequest.go:14: 10.0.0.45:37736 POST /report/rptapto
+INFO 2020/02/10 20:08:48 logrequest.go:14: 10.0.0.45:37736 GET /email
+INFO 2020/02/10 21:09:37 main.go:42: Starting app
+INFO 2020/02/10 21:09:37 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/10 21:09:37 route.go:357: middleware felipe
+INFO 2020/02/10 21:09:37 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/10 21:09:37 route.go:357: middleware felipe
+INFO 2020/02/10 21:09:37 server.go:35: 0.0.0.0:4430
+2020/02/10 21:09:50 server.go:3056: http: TLS handshake error from 10.0.0.45:39000: remote error: tls: unknown certificate
+INFO 2020/02/10 21:09:50 logrequest.go:14: 10.0.0.45:39002 GET /user/list
+INFO 2020/02/10 21:09:57 logrequest.go:14: 10.0.0.45:39002 GET /email
+INFO 2020/02/10 21:10:56 logrequest.go:14: 10.0.0.45:39002 POST /email
+INFO 2020/02/10 21:10:59 logrequest.go:14: 10.0.0.45:39002 POST /email
+INFO 2020/02/10 21:11:13 logrequest.go:14: 10.0.0.45:39002 GET /email
+INFO 2020/02/10 21:24:31 main.go:42: Starting app
+INFO 2020/02/10 21:24:31 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/10 21:24:31 route.go:357: middleware felipe
+INFO 2020/02/10 21:24:31 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/10 21:24:31 route.go:357: middleware felipe
+INFO 2020/02/10 21:24:31 server.go:35: 0.0.0.0:4430
+2020/02/10 21:24:42 server.go:3056: http: TLS handshake error from 10.0.0.45:39262: remote error: tls: unknown certificate
+INFO 2020/02/10 21:24:42 logrequest.go:14: 10.0.0.45:39264 GET /user/list
+INFO 2020/02/10 21:24:47 logrequest.go:14: 10.0.0.45:39264 GET /email
+INFO 2020/02/10 21:24:47 logrequest.go:14: 10.0.0.45:39264 GET /favicon.ico
+INFO 2020/02/10 21:26:16 main.go:42: Starting app
+INFO 2020/02/10 21:26:16 route.go:36: HTTPS routes LoadHTTP
+INFO 2020/02/10 21:26:16 route.go:357: middleware felipe
+INFO 2020/02/10 21:26:16 route.go:30: HTTPS routes LoadHTTPS
+INFO 2020/02/10 21:26:16 route.go:357: middleware felipe
+INFO 2020/02/10 21:26:16 server.go:35: 0.0.0.0:4430
+2020/02/10 21:26:27 server.go:3056: http: TLS handshake error from 10.0.0.45:39268: remote error: tls: unknown certificate
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /user/list
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /static/css/bootstrap.css?1580161104
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /static/css/global.css?1580487966
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /static/js/jquery.min.js?1580161104
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /static/js/popper.min.js?1580161104
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /static/js/underscore-min.js?1580161104
+INFO 2020/02/10 21:26:27 logrequest.go:14: 10.0.0.45:39270 GET /static/js/global.js?1580161104
+INFO 2020/02/10 21:26:30 logrequest.go:14: 10.0.0.45:39270 GET /user/list
+INFO 2020/02/10 21:26:33 logrequest.go:14: 10.0.0.45:39270 GET /email
+INFO 2020/02/10 21:28:07 logrequest.go:14: 10.0.0.45:39270 POST /email
+INFO 2020/02/10 21:28:20 logrequest.go:14: 10.0.0.45:39270 GET /email
