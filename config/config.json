@@ -1,6 +1,6 @@
    {
 	"Database": {
-                "Remote"     : false,
+                "Remote"     : true,
 		"Type"       : "PostgreSQL",
 		"PostgreSql" : {
 			"Username": "postgres",
@@ -12,10 +12,10 @@
 		}
 	},
 	"Server": {
-                "Remote": false,
+                "Remote": true,
 		"Hostname": "0.0.0.0",
 		"UseHTTP": true,
-		"UseHTTPS": true,
+		"UseHTTPS": false,
 		"HTTPPort": 9090,
 		"HTTPSPort": 4430,
 		"CertFile": "tls/server.crt",
