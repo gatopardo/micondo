@@ -9,6 +9,12 @@
  <div class="container swrapper">
 -->
     <div> 
+	{{template "carrousel" .}}
+<!---
+	<p> Inicio. Pulse {{LINK "register" "aqui"}} para registrar.</p>
+-->
+    </div> 
+    <div> 
     <p>
        Aplicacion de administracion de condominio </br>
        Con la cuenta y clave que se te suministra 
@@ -16,12 +22,6 @@
     </p>
     </div> 
 
-    <div> 
-	{{template "carrousel" .}}
-<!---
-	<p> Inicio. Pulse {{LINK "register" "aqui"}} para registrar.</p>
--->
-    </div> 
     <div> 
          Si no esta registrado, pongase en contacto con la administracion
     </div> 
@@ -34,9 +34,6 @@
 {{end}}
 
 {{define "carrousel"}}
-
-     <h2>Nuestras imagenes</h2>
-     <p> Las imagenes del Condominio Imperiall II nos ubicam </p> 
 
      <div class="slideshow-container" >
 

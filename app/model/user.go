@@ -172,18 +172,21 @@ func (p * Person)PersonById() (err error) {
 //         return  standardizeError(err)
          return
  }
-
 // -----------------------------------------------------
-// PersonById obtenemos la persona dado id
-func EmailByAptId(id uint32) (p Person,err error) {
-         stq    :=   "SELECT fname, lname, email from persons p where p.aparta_id = $1"
-         err = Db.QueryRow(stq, id).Scan(&p.Fname, &p.Lname, &p.Email  )
-//         return  standardizeError(err)
-          if err != nil{
-		  return
-	  }
-         return
+// EmailByAptId obtenemos la persona dado aparta id
+func EmailByAptId(id uint32) (p Person, a Aparta, err error) {
+    stq := "SELECT a.id, a.codigo, a.descripcion, p.fname, p.lname, p.email, p.mobil, p.tipo,p.photo FROM  persons p JOIN apartas a ON p.aparta_id =  a.id WHERE a.id = $1 "
+        row := Db.QueryRow(stq, id)
+        err = row.Scan(&a.Id, &a.Codigo, &a.Descripcion, &p.Fname, &p.Lname, &p.Email,&p.Mobil, &p.Tipo, &p.Photo)
 
+	if err != nil {
+                  if err ==  sql.ErrNoRows {
+                     log.Println("No rows were returned!")
+		   }else{
+                     log.Println(err)
+		   }
+             }
+        return
  }
 
 // -----------------------------------------------------

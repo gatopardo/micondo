@@ -67,7 +67,7 @@ func (e * EgresoN)EgresCreate() error {
 // -----------------------------------------------------
  func  (egres * Egreso)EgresDeleteById()( err error){
          stqd :=  "DELETE FROM egresos where id = $1"
-           _, err = Db.Exec(stqd, egres.Id) 
+           _, err = Db.Exec(stqd, egres.Id)
          return
        }
 
@@ -87,7 +87,7 @@ func (egres *Egreso) EgresDelete() (err error) {
 // -----------------------------------------------------
 // Actualizar informacion de egres en la database
 func (egres *EgresoN)EgresUpdate(stq string) (err error) {
-        _, err = Db.Exec(stq ) 
+        _, err = Db.Exec(stq )
         return standardizeError(err)
 }
 

@@ -67,7 +67,7 @@ func (apt *Aparta)AptCreate() error {
 // -----------------------------------------------------
  func  (apt * Aparta)AptDeleteById()( err error){
          stqd :=  "DELETE FROM apartas where id = $1"
-           _, err = Db.Exec(stqd, apt.Id) 
+           _, err = Db.Exec(stqd, apt.Id)
          return
        }
 
@@ -86,7 +86,7 @@ func (apt *Aparta)AptDelete() (err error) {
 // -----------------------------------------------------
 // Actualizar informacion de apartamento en la database
 func (apt *Aparta)AptUpdate(stq string) (err error) {
-        _, err = Db.Exec(stq ) 
+        _, err = Db.Exec(stq )
         return standardizeError(err)
  }
 // -----------------------------------------------------

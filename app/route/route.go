@@ -318,12 +318,24 @@ func routes() *httprouter.Router {
 	r.POST("/report/rptapto", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptAptPOST)))
+       r.GET("/report/rptlisapto", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptLisAptGET)))
+	r.POST("/report/rptlisapto", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptLisAptPOST)))
        r.GET("/report/rptcondo", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptCondGET)))
 	r.POST("/report/rptcondo", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptCondPOST)))
+       r.GET("/report/rptallcondo", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptAllCondGET)))
+	r.POST("/report/rptallcondo", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.RptAllCondPOST)))
 
 
 	// About

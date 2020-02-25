@@ -104,7 +104,7 @@ func (cuot *Cuota) CuotDelete() (err error) {
 // -----------------------------------------------------
 // Actualizar informacion de cuota en la database
 func (cuot *CuotaN)CuotUpdate(stq string) (err error) {
-        _, err = Db.Exec(stq ) 
+        _, err = Db.Exec(stq )
         return standardizeError(err)
 }
 
@@ -193,12 +193,31 @@ func CuotDeleteAll() (err error) {
         return
  }
 // -------------------------------------------------------------
+// Get all cuotas per a period in the database and returns the list
+  func CuotsPeri(id uint32) (cuotas []CuotaN, err error) {
+        stq :=   "SELECT c.id, c.period_id, p.inicio, c.aparta_id, a.codigo, c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t where c.period_id = p.id and c.aparta_id = a.id and c.tipo_id = t.id and c.period_id = $1 order by p.inicio"
+	rows, err := Db.Query(stq, id )
+	if err != nil {
+            return
+	}
+	defer rows.Close()
+	for rows.Next() {
+            c := CuotaN{}
+           if err = rows.Scan(&c.Id,&c.PeriodId,&c.Period, &c.ApartaId, &c.Apto, &c.TipoId, &c.Tipo,  &c.Fecha,&c.Amount,  &c.CreatedAt, &c.UpdatedAt); err != nil {
+                  return
+             }
+             cuotas = append(cuotas, c)
+	}
+        return
+ }
+// -------------------------------------------------------------
+// -------------------------------------------------------------
 //  merge to merge 2 arrays
     func merge( cuots []CuotApt, fec time.Time) ( []CuotApt){
 	    sum := int64(0)
 	    for i, _ :=  range cuots{
 	        sum              =   sum + cuots[i].Cuota - cuots[i].Amount
-		if i > 0 && cuots[i].Inicio == cuots[i -1].Inicio{
+		if i > 0 && cuots[i].Id == cuots[i -1].Id{
                        sum  = sum - cuots[i].Cuota
 		}
 	        cuots[i].Balance = sum
@@ -212,12 +231,20 @@ func CuotDeleteAll() (err error) {
 	    }
 	    return cuots[i:]
     }
+
 // -------------------------------------------------------------
 // Payments of a given apt up to a period
    func Payments(aid uint32, fecf time.Time, feci time.Time )(cuotas []CuotApt, err error){
         var rows * sql.Rows
+        stq  := "SELECT p.id,  p.inicio, b.cuota, c1.fecha, c1.amount " +
+	        " FROM balances b JOIN periods p ON b.period_id = p.id " +
+		" left JOIN " + 
+		" (SELECT p.id AS id, c.fecha AS fecha,c.aparta_id, c.amount AS amount " +
+		" FROM cuotas c JOIN periods p ON p.id = c.period_id " +
+		" JOIN apartas a ON c.aparta_id = a.id JOIN persons p1 ON p1.aparta_id = a.id " +
+		" WHERE c.aparta_id = $1 )  c1 ON p.id = c1.id "  +
+		" WHERE p.inicio <= $2  ORDER BY p.inicio"
 
-	stq := "SELECT p.id,  p.inicio, b.cuota, c1.fecha, c1.amount from balances b join periods p on b.period_id = p.id left join (select p.id as id, c.fecha as fecha, c.amount as amount from cuotas c join periods p on p.id = c.period_id where c.aparta_id = $1 ) c1 on p.id = c1.id where p.inicio <= $2  order by p.inicio"
 
 	rows, err = Db.Query(stq, aid, fecf)
 	if err != nil {
@@ -230,7 +257,7 @@ func CuotDeleteAll() (err error) {
             c := CuotApt{}
 	    var  sqFec  sql.NullTime
 	    var  sqAmt  sql.NullInt64
-            err = rows.Scan(&c.Id, &c.Inicio, &c.Cuota, &sqFec, &sqAmt)
+            err = rows.Scan(&c.Id, &c.Inicio, &c.Cuota, &sqFec, &sqAmt )
 	    if err != nil {
 		log.Println(err)
 	         return
@@ -252,11 +279,11 @@ func CuotDeleteAll() (err error) {
    }
 // -------------------------------------------------------------
 // Amounts paid in Condo up to a period
-   func Amounts( fec time.Time )(amts []AmtCond, err error){
-    stq  := "select a.codigo, sum(c.amount) as monto from cuotas c join apartas a on c.aparta_id = a.id join periods p on c.period_id = p.id where c.fecha <= $1 group by a.codigo order by monto"
+   func Amounts( id uint32 )(amts []AmtCond, err error){
+    stq  := "SELECT a.codigo, sum(c.amount) AS monto FROM cuotas c JOIN apartas a ON c.aparta_id = a.id JOIN periods p ON c.period_id = p.id WHERE c.fecha <= (SELECT p1.final FROM periods p1 WHERE p1.id =  $1 )GROUP BY a.codigo ORDER BY monto"
 
         var rows  * sql.Rows
-	rows, err = Db.Query(stq,  fec)
+	rows, err = Db.Query(stq,  id)
 	if err != nil {
 		log.Println(err)
 		return
@@ -272,9 +299,9 @@ func CuotDeleteAll() (err error) {
 	    amts = append(amts,c)
         }
 
-	stq = "select sum(b.cuota) as cuota from balances b join periods p on b.period_id = p.id where p.final  <= $1 "
+	stq = "SELECT sum(b.cuota) AS cuota FROM balances b JOIN periods p ON b.period_id = p.id WHERE p.inicio <= (SELECT p1.final FROM periods p1 WHERE p1.id  = $1) "
 
-	rows, err = Db.Query(stq,  fec)
+	rows, err = Db.Query(stq,  id)
 	if err != nil {
 		log.Println(err)
 		return
@@ -295,6 +322,28 @@ func CuotDeleteAll() (err error) {
 	      amts[i].Mora        =  mora
 	 }
 
-	return
+	 return
     }
+// -------------------------------------------------------------
+//  MoneyFlow per period: cuotas, ingresos, egresos and payments
+    func MoneyFlow( id uint32)(cuots []CuotaN,ingresos []IngresoN, egresos []EgresoN, Amts []AmtCond, err error){
+	 cuots, err   =  CuotsPeri(id)
+	 if err != nil{
+             return
+	 }
+         ingresos, err = IngresPer(id)
+	 if err != nil{
+             return
+	 }
+	 egresos,err =  EgresLim(id)
+	 if err != nil{
+             return
+	 }
+         Amts, err = Amounts(id)
+	 if err != nil{
+             return
+	 }
+         return
+    }
+
 // -------------------------------------------------------------

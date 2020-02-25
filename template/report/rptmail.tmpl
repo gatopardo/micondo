@@ -5,23 +5,37 @@
    <div class="fcontent">
 
       <h3 class="mcenter">{{template "title" .}}</h3>
+	<form enctype="multipart/form-data"  action="/email"  method="post" >
 
-	<form enctype="multipart/form-data"  action="/email"  method="post" class="myForm" >
-
+	<div class="myForm">
                 <label for="tema">Tema </label>
                 <input type="text" id="tema" name="tema" size="32" maxlength="64" placeholder="tema" />
 
                 <label for="content">Contenido </label>
-                <textarea id="content" name="content" rows="8" cols="60" maxlength="512" placeholder="content" wrap="hard" class="mytxt" ></textarea>
+                <textarea id="content" name="content" rows="3" cols="60" maxlength="512" placeholder="content" wrap="hard" class="mytxt" ></textarea>
+        </div>
               
-                <div>
-		<input type="hidden" name="token" value="{{.token}}">
-                </div>
-                 <span> 
-                     <input type="submit" name="action" formenctype="multipart/form-data" value="Enviar" />
-                     <input type="submit" name="action" value="Cancelar" />
-                 </span> 
-	</form>
+	<div class="fwrapper fcols4c">
+        {{range  $key,$value := .LisApts}}
+           <div class="fbox">
+               <input type="checkbox" id="{{$key}}" name="{{$key}}" value="{{$value.Id}}" >
+               <label for="{{$key}}" >{{$value.Codigo}}</label>
+           </div>
+      {{end}}
+        </div>
+
+	<div class="fwrapper fcols2">
+           <div class="fbox">
+              <input type="hidden" name="token" value="{{.token}}">
+          </div>
+          <div class="fbox">
+            <span> 
+               <input type="submit" name="action" formenctype="multipart/form-data" value="Enviar" />
+              <input type="submit" name="action" value="Cancelar" />
+           </span> 
+          </div>
+        </div>
+       </form>
 	
 
 	{{template "footer" .}}
