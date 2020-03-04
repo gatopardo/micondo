@@ -1,5 +1,6 @@
 {{define "title"}}Crear Ingreso{{end}}
 {{define "head"}} {{end}}
+{{define "foot"}}<h5 class="mcenter">Ingresos</h5>{{end}}
 
 {{define "content"}}
   <div class="fcontent">
@@ -12,7 +13,7 @@
                <label for="period" >Periodo</label>
            </div>
            <div class="fbox">
-             <input type="text" id="period" name="period" size="10" value="{{.Egreso.Period | DATEFORMAT}}" readonly/>
+             <input type="text" id="period" name="period" size="10" value="{{.Ingreso.Period | DATEFORMAT}}" readonly/>
            </div>
            <div class="fbox">
                <label for="tipo" >Tipo</label>
@@ -71,8 +72,7 @@
    {{end}} 
 
 
-	{{template "footer" .}}
   </div>
-
+  <div>
+  </div>
 {{end}}
-{{define "foot"}}<h5 class="mcenter">Ingresos</h5>{{end}}

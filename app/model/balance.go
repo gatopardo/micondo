@@ -177,7 +177,7 @@ func BalanDeleteAll() (err error) {
 // -------------------------------------------------------------
 // Get all balances in the database and returns the list
   func Balans() (balances []BalanceN, err error) {
-        stq :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b, periods p where b.period_id = p.id order by p.inicio"
+        stq :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b, periods p WHERE b.period_id = p.id ORDER BY p.inicio DESC"
 	rows, err := Db.Query(stq)
 	if err != nil {
             log.Println(err)

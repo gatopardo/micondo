@@ -123,8 +123,7 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params  = context.Get(r, "params").(httprouter.Params)
 	id,_   := atoi32(params.ByName("id"))
-	SPag   := params.ByName("pg")
-        path   :=  fmt.Sprintf("/ingreso/list/%s", SPag)
+        path   :=  "/ingreso/list"
         ingres.Id = id
 	err := (&ingres).IngresById()
 	if err != nil { // Si no existe el usuario
@@ -135,7 +134,7 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
            return
 	}
 	v                    := view.New(r)
-	v.Name                = "ingreso/ingreso"
+	v.Name                = "ingreso/ingresoupdate"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
         v.Vars["Ingre"]       = ingres
         v.Vars["Level"]       =  sess.Values["level"]
@@ -172,10 +171,9 @@ func IngreUpPOST(w http.ResponseWriter, r *http.Request) {
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
-	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
         ingres.Id      = Id
-        path        :=  fmt.Sprintf("/ingreso/list/%s", SPag)
+        path        :=  "/ingreso/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             sr          :=  fmt.Sprintf(" where ingresos.id = %s ", SId)
@@ -239,19 +237,18 @@ func IngreLis(w http.ResponseWriter, r *http.Request) {
  }
 
 //------------------------------------------------
-// UserDeleteGET handles the note deletion
+// IngreDeleteGET handles the note deletion
  func IngreDeleteGET(w http.ResponseWriter, r *http.Request) {
         sess := model.Instance(r)
         var ingres model.IngresoN
-/*
         var params httprouter.Params
         params = context.Get(r, "params").(httprouter.Params)
-*/
-	id,_        := atoi32(r.FormValue("id"))
+	SId         := params.ByName("id")
+	id,_        := atoi32(SId)
         path        :=  "/ingreso/list"
         ingres.Id   = id
 	err         := (&ingres).IngresById()
-	if err != nil { // Si no existe el usuario
+	if err != nil { // Si no existe ingreso
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta ingreso.", view.FlashError})
            sess.Save(r, w)

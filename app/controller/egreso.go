@@ -125,12 +125,12 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
         var egres model.EgresoN
 	var params httprouter.Params
 	params  = context.Get(r, "params").(httprouter.Params)
-	id,_   := atoi32(params.ByName("id"))
-	SPag   := params.ByName("pg")
-        path   :=  fmt.Sprintf("/egreso/list/%s", SPag)
+	Sid         := params.ByName("id")
+	id,_        := atoi32(Sid)
+        path        := "/egreso/list"
         egres.Id = id
 	err := (&egres).EgresById()
-	if err != nil { // Si no existe el usuario
+	if err != nil { // Si no existe Egreso
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta egreso.", view.FlashError})
            sess.Save(r, w)
@@ -138,7 +138,7 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
            return
 	}
 	v                    := view.New(r)
-	v.Name                = "egreso/egreso"
+	v.Name                = "egreso/egresodelete"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
         v.Vars["Egre"]       = egres
         v.Vars["Level"]       =  sess.Values["level"]
@@ -175,10 +175,9 @@ func EgreUpPOST(w http.ResponseWriter, r *http.Request) {
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
-	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
         egres.Id      = Id
-        path        :=  fmt.Sprintf("/egreso/list/%s", SPag)
+        path        :=  "/egreso/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             sr          :=  fmt.Sprintf(" where egresos.id = %s ", SId)
@@ -243,20 +242,20 @@ func EgreLis(w http.ResponseWriter, r *http.Request) {
  }
 
 //------------------------------------------------
-// UserDeleteGET handles the note deletion
+// EgreDeleteGET handles the note deletion
  func EgreDeleteGET(w http.ResponseWriter, r *http.Request) {
         sess := model.Instance(r)
         var egres model.EgresoN
         var params httprouter.Params
         params = context.Get(r, "params").(httprouter.Params)
-	id,_        := atoi32(r.FormValue("id"))
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/egreso/list/%s", SPag)
-        egres.Id      = id
+	Sid         := params.ByName("id")
+	id,_        := atoi32(Sid)
+        path        :=  "/egreso/list"
+        egres.Id     = id
 	err         := (&egres).EgresById()
 	if err != nil { // Si no existe el usuario
            log.Println(err)
-           sess.AddFlash(view.Flash{"Es raro. No esta egreso.", view.FlashError})
+           sess.AddFlash(view.Flash{"Es raro. No hay egreso.", view.FlashError})
            sess.Save(r, w)
            http.Redirect(w, r, path, http.StatusFound)
            return
@@ -270,7 +269,7 @@ func EgreLis(w http.ResponseWriter, r *http.Request) {
   }
 
 // ---------------------------------------------------
-// EgreUpPOST procesa la forma enviada con los datos
+// EgreDeletePOST procesa la forma enviada con los datos
 func EgreDeletePOST(w http.ResponseWriter, r *http.Request) {
         var err error
         var egres model.Egreso
@@ -280,8 +279,7 @@ func EgreDeletePOST(w http.ResponseWriter, r *http.Request) {
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
         egres.Id      = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/egreso/list/%s", SPag)
+        path        :=  "/egreso/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
              err = egres.EgresDelete()

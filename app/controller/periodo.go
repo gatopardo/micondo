@@ -61,7 +61,7 @@ func PeriodPOST(w http.ResponseWriter, r *http.Request) {
             }
          }
         sess.Save(r, w)
-	http.Redirect(w, r, "/period/list/1", http.StatusFound)
+	http.Redirect(w, r, "/period/list", http.StatusFound)
  }
 
 // ---------------------------------------------------

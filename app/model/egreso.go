@@ -39,8 +39,12 @@ type EgresoN struct {
 // -----------------------------------------
 // EgresById tenemos el egreso dado id
 func (egres * EgresoN)EgresById() (err error) {
-        stq  :=   "SELECT e.id, e.period_id,p.inicio,e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM egresos e, periods p  WHERE e.period_id = p.id  e.tipo_id = t.id  and e.id=$1"
-		err = Db.QueryRow(stq, &egres.Id). Scan(&egres.Id, &egres.PeriodId,&egres.Period,  &egres.TipoId, &egres.Tipo, &egres.Fecha, &egres.Amount, &egres.Descripcion,  &egres.CreatedAt, &egres.UpdatedAt)
+        stq  := " SELECT e.id, e.period_id, p.inicio,e.tipo_id, t.codigo, e.fecha, " +
+	        " e.amount, e.description, e.created_at, e.updated_at " +
+		" FROM egresos e JOIN periods p ON e.period_id = p.id  " +
+		" JOIN tipos t ON e.tipo_id = t.id  WHERE  e.id=$1"
+
+		err = Db.QueryRow(stq, &egres.Id). Scan(&egres.Id, &egres.PeriodId, &egres.Period,  &egres.TipoId, &egres.Tipo, &egres.Fecha, &egres.Amount, &egres.Descripcion,  &egres.CreatedAt, &egres.UpdatedAt)
 
 	return  standardizeError(err)
 }
@@ -127,7 +131,7 @@ func EgresDeleteAll() (err error) {
         defer rows.Close()
         for rows.Next() {
            egres := EgresoN{}
-           if err = rows.Scan(&egres.Id,&egres.PeriodId,&egres.Period, &egres.TipoId, &egres.Tipo, &egres.Fecha, &egres.Amount, &egres.Descripcion,  &egres.CreatedAt, &egres.UpdatedAt); err != nil {
+           if err = rows.Scan(&egres.Id,&egres.PeriodId, &egres.Period, &egres.TipoId, &egres.Tipo, &egres.Fecha, &egres.Amount, &egres.Descripcion,  &egres.CreatedAt, &egres.UpdatedAt); err != nil {
                   return
             }
            egresos = append(egresos, egres)

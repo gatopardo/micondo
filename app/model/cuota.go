@@ -52,12 +52,18 @@ type CuotaN struct {
 	 Atraso        int64
 	 Mora          int64
   }
+// "SELECT c.id, c.period_id,p.inicio,c.aparta_id,a.codigo,c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t  WHERE c.period_id = p.id and c.aparta_id = a.id AND c.tipo_id = t.id  AND c.id= $1 "
 
 // -----------------------------------------
 // CuotById tenemos la cuota dado id
 func (cuot * CuotaN)CuotById() (err error) {
-        stq  :=   "SELECT c.id, c.period_id,p.inicio,c.aparta_id,a.codigo,c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p  WHERE c.period_id = p.id and c.aparta_id = a.id, c.tipo_id = t.id  and c.id=$1"
-		err = Db.QueryRow(stq, &cuot.Id). Scan(&cuot.Id, &cuot.PeriodId,&cuot.Period,&cuot.ApartaId, &cuot.Apto, &cuot.TipoId, &cuot.Tipo, &cuot.Fecha, &cuot.Amount,  &cuot.CreatedAt, &cuot.UpdatedAt)
+        stq  := " SELECT c.id, c.period_id,p.inicio,c.aparta_id,a.codigo,c.tipo_id," +
+	        " t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at " +
+		" FROM cuotas c JOIN periods p ON c.period_id = p.id " +
+		" JOIN  apartas a ON c.aparta_id = a.id " +
+		" JOIN tipos t  ON c.tipo_id = t.id  WHERE c.id= $1 "
+
+	err = Db.QueryRow(stq, &cuot.Id). Scan(&cuot.Id, &cuot.PeriodId,&cuot.Period,&cuot.ApartaId, &cuot.Apto, &cuot.TipoId, &cuot.Tipo, &cuot.Fecha, &cuot.Amount,  &cuot.CreatedAt, &cuot.UpdatedAt)
 
 	return  standardizeError(err)
 }
@@ -133,10 +139,16 @@ func CuotDeleteAll() (err error) {
         }
 	return
  }
+
+//	"SELECT c.id, c.period_id, p.inicio, c.aparta_id, a.codigo, c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t where c.period_id = p.id and c.aparta_id = a.id and c.tipo_id = t.id and p.id = $1 order by p.inicio, c.fecha "
 // -------------------------------------------------------------
 // Get cuotas from a period 
   func CuotLim(id uint32 ) (cuotas []CuotaN, err error) {
-        stq :=   "SELECT c.id, c.period_id, p.inicio, c.aparta_id, a.codigo, c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t where c.period_id = p.id and c.aparta_id = a.id and c.tipo_id = t.id and p.id = $1 order by p.inicio, c.fecha "
+        stq :=  " SELECT c.id, c.period_id, p.inicio, c.aparta_id, a.codigo, c.tipo_id, t.descripcion, " +
+	        " c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c " +
+		" JOIN  periods p ON c.Period_id = p.id JOIN  apartas a ON c.aparta_id = a.id " +
+		" JOIN  tipos t ON c.tipo_id = t.id  WHERE   p.id = $1 ORDER BY p.inicio, c.fecha" 
+
 	rows, err := Db.Query(stq, id)
 	if err != nil {
 		log.Println(err)

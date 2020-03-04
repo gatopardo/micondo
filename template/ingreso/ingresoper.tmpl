@@ -1,7 +1,8 @@
 {{define "title"}}Escoger Periodo{{end}}
 {{define "head"}} {{end}}
-{{define "content"}}
+{{define "foot"}}<h5 class="mcenter">Ingreso</h5>{{end}}
 
+{{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>  
        <form method="post" >
@@ -29,7 +30,5 @@
         </div>
        </form>
   </div>
-	{{template "footer" .}}
 
 {{end}}
-{{define "foot"}}<h5 class="mcenter">Ingreso</h5>{{end}}

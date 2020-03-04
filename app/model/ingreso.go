@@ -36,10 +36,16 @@ type IngresoN struct {
 	UpdatedAt time.Time        `db:"updated_at" bson:"updated_at"`
 }
 
+
+// " SELECT e.id, e.period_id,p.inicio,e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM ingresos e, periods p, tipos t  WHERE e.period_id = p.id AND  e.tipo_id = t.id  and e.id=$1"
 // -----------------------------------------
 // IngresById tenemos el ingreso dado id
 func (ingres * IngresoN)IngresById() (err error) {
-        stq  :=   "SELECT e.id, e.period_id,p.inicio,e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM ingresos e, periods p  WHERE e.period_id = p.id  e.tipo_id = t.id  and e.id=$1"
+        stq  :=  "SELECT e.id, e.period_id,p.inicio,e.tipo_id, t.codigo, e.fecha, e.amount," +
+	         " e.description, e.created_at, e.updated_at " +
+		 " FROM ingresos e JOIN periods p ON e.period_id = p.id " +
+		 " JOIN  tipos t ON e.tipo_id = t.id WHERE  e.id=$1"
+
 		err = Db.QueryRow(stq, &ingres.Id). Scan(&ingres.Id, &ingres.PeriodId,&ingres.Period,  &ingres.TipoId, &ingres.Tipo, &ingres.Fecha, &ingres.Amount, &ingres.Descripcion,  &ingres.CreatedAt, &ingres.UpdatedAt)
 
 	return  standardizeError(err)

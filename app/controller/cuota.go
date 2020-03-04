@@ -37,9 +37,9 @@ func CuotPerPOST(w http.ResponseWriter, r *http.Request) {
 	sess          := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            cuot.PeriodId,  _   =  atoi32(r.FormValue("periodId"))
+            cuot.PeriodId,  _   =  atoi32(r.FormValue("id"))
             period.Id           =  cuot.PeriodId
-            _                   =  (&period).PeriodById() 
+            _                   =  (&period).PeriodById()
             cuot.Period         =  period.Inicio
             lisApts, err       :=  model.Apts()
             if err != nil {
@@ -134,11 +134,10 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params  = context.Get(r, "params").(httprouter.Params)
 	id,_   := atoi32(params.ByName("id"))
-	SPag   := params.ByName("pg")
-        path   :=  fmt.Sprintf("/cuota/list/%s", SPag)
+        path   :=  "/cuota/list"
         cuot.Id = id
 	err := (&cuot).CuotById()
-	if err != nil { // Si no existe el usuario
+	if err != nil { // Si no existe cuota
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta cuota.", view.FlashError})
            sess.Save(r, w)
@@ -146,7 +145,7 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
            return
 	}
 	v                    := view.New(r)
-	v.Name                = "cuota/cuot"
+	v.Name                = "cuota/cuotupdate"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
         v.Vars["Cuot"]       = cuot
         v.Vars["Level"]       =  sess.Values["level"]
@@ -183,10 +182,9 @@ func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
-	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
         cuot.Id      = Id
-        path        :=  fmt.Sprintf("/cuota/list", SPag)
+        path        :=  "/cuota/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             sr          :=  fmt.Sprintf(" where cuotas.id = %s ", SId)
@@ -228,7 +226,7 @@ func CuotLisGET(w http.ResponseWriter, r *http.Request) {
 
 //------------------------------------------------
 // CuotLis displays the cuot page
-func CuotLis(w http.ResponseWriter, r *http.Request) {
+func CuotLisPOST(w http.ResponseWriter, r *http.Request) {
         var Id  uint32
 	var per model.Periodo
 	sess            := model.Instance(r)
@@ -238,11 +236,7 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
 	    sess.AddFlash(view.Flash{"Error Obteniendo Periodos.", view.FlashError})
             sess.Save(r, w)
          }
-        if r.Method == "GET" {
-            Id = lisPeriod[0].Id
-        }else{
             Id,_             = atoi32(r.FormValue("id"))
-        }
 	    per.Id           = Id
 	    (&per).PeriodById()
         lisCuot, err         := model.CuotLim(Id)
@@ -262,18 +256,18 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
  }
 
 //------------------------------------------------
-// UserDeleteGET handles the note deletion
+// CuotDeleteGET handles the note deletion
  func CuotDeleteGET(w http.ResponseWriter, r *http.Request) {
         sess := model.Instance(r)
         var cuot model.CuotaN
         var params httprouter.Params
-        params = context.Get(r, "params").(httprouter.Params)
-	id,_        := atoi32(r.FormValue("id"))
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/cuot/list/%s", SPag)
+        params       = context.Get(r, "params").(httprouter.Params)
+	SId         := params.ByName("id")
+	id,_        := atoi32(SId)
+        path        :=  "/cuota/list"
         cuot.Id      = id
 	err         := (&cuot).CuotById()
-	if err != nil { // Si no existe el usuario
+	if err != nil { // Si no existe cuota
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta cuota.", view.FlashError})
            sess.Save(r, w)
@@ -289,18 +283,17 @@ func CuotLis(w http.ResponseWriter, r *http.Request) {
   }
 
 // ---------------------------------------------------
-// CuotUpPOST procesa la forma enviada con los datos
+// CuotDeletePOST procesa la forma enviada con los datos
 func CuotDeletePOST(w http.ResponseWriter, r *http.Request) {
         var err error
         var cuot model.Cuota
 	sess := model.Instance(r)
         var params httprouter.Params
-	params = context.Get(r, "params").(httprouter.Params)
+        params       = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
         cuot.Id      = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/cuota/list/%s", SPag)
+        path        :=  "/cuota/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
              err = cuot.CuotDelete()

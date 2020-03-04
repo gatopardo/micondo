@@ -78,7 +78,7 @@ func BalanPOST(w http.ResponseWriter, r *http.Request) {
                sess.Save(r, w)
 	   }
       }
-	http.Redirect(w, r, "/balance/list/1", http.StatusFound)
+	http.Redirect(w, r, "/balance/list", http.StatusFound)
  }
 
 // ---------------------------------------------------
