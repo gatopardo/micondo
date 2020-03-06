@@ -1,45 +1,72 @@
 {{define "title"}}Actualizar Cuota{{end}}
 {{define "head"}} {{end}}
-{{define "foot"}}{{end}}
+{{define "foot"}} {{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post" action="/cuota/delete/{{.Cuot.Id}}">
+       <form method="post" action="/cuota/update/{{.Cuot.Id}}">
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="period">Periodo</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="period" name="period" size="12"  value="{{.Cuot.Period | DATEFORMAT}}" readonly autofocus />
+                 <input type="text" id="periodId" name="periodId" size="12"  value="{{.Cuot.Period | DATEFORMAT}}" readonly />
               </div>
            </div>
-		
-	   <div class="fwrapper fcols2">
-              <div class="fbox">
-                 <label for="fecha">Fecha</label>
-              </div>
-              <div class="fbox">
-                 <input type="text" id="fecha" name="fecha" size="12"  value="{{.Cuot.Fecha | DATEFORMAT}}" readonly />
-              </div>
-           </div>
+
+	{{ $save  := .}}	
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="apto">Apto</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="apto" name="apto" size="3"  value="{{.Cuot.Apto }}" readonly />
+               <select name="aptId"> 
+                  {{range $key, $value := .LisApt}}
+                    <option value="{{ $value.Id }}"
+                          {{ if eq $value.Id  $save.Cuot.ApartaId}} selected {{end}}
+                     >
+                    {{ $value.Codigo }}
+                    </option>
+                  {{end}}
+               </select>
               </div>
            </div>
-		
+
+        <div class="fwrapper fcols2">
+           <div class="fbox">
+               <label for="tip" >Tipo</label>
+           </div>
+           <div class="fbox">
+               <select name="tipoId"> 
+                  {{range $key, $value := .LisTip}}
+                    <option value="{{ $value.Id }}"
+                          {{ if eq $value.Id  $save.Cuot.TipoId}} selected {{end}}
+                     >
+                    {{ $value.Descripcion }}
+                   </option>
+                  {{end}}
+               </select>
+           </div>
+        </div>
+
+        <div class="fwrapper fcols2">
+            <div class="fbox">
+                 <label for="fecha">Fecha</label>
+            </div>
+            <div class="fbox">
+                 <input type="text" id="fecha" name="fecha" size="12"  value="{{.Cuot.Fecha | DATEFORMAT}}" />
+            </div>
+        </div>
+
 	   <div class="fwrapper fcols2">
               <div class="fbox">
-                 <label for="monto">Monto</label>
+                 <label for="amount">Monto</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="monto" name="monto" size="16"  value="{{.Cuot.Amount | FORMAT64}}"  readonly/>
+                 <input type="text" id="amount" name="amount" size="16"  value="{{.Cuot.Amount | FORMAT64}}"  />
               </div>
            </div>
 

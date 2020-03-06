@@ -85,7 +85,7 @@ import (
    }
 
 //----------------------------------------------------
- func DatFormPers(p *model.Person, r * http.Request){
+ func getFormPers(p *model.Person, r * http.Request){
 	 p.ApartaId,_     = atoi32(r.FormValue("aptId"))
          p.Fname          =  r.FormValue("fname")
          p.Lname          =  r.FormValue("lname")
@@ -166,7 +166,7 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
            user.Password = pass
 	   err := (&user).UserByCuenta()
            if err == model.ErrNoResult { // Exito:  no hay usuario creado aun 
-                DatFormPers(&person, r)
+                getFormPers(&person, r)
  // fmt.Println("Person ", person.Fname, person.Lname)
                 err = (&person).PersonCreate()
                 if err != nil {
@@ -256,15 +256,6 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
         v.Render(w)
    }
 //---------------------------------------------------------------
-   func getFormStr(sfld1, sfld2, snom string) ( sform string){
-        st1 := strings.Trim(sfld1, " ")
-        st2 := strings.Trim(sfld2, " ")
-	if st1 != st2 {
-            sform = fmt.Sprintf(" %s = '%s' ",snom, st2 )
-	}
-	return
-   }
-
 //---------------------------------------------------------------
     func getPersFormUp(p1, p2 model.Person,r *http.Request )(stUp string){
       var sform string
@@ -314,7 +305,6 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
             stUp =  strings.Join(sArrSup, ", ")
             sr          :=  fmt.Sprintf(" where persons.id = %d ", p1.Id)
              stUp = sini + stUp + sr
- fmt.Println( stUp)
        }
          return
     }
@@ -355,7 +345,7 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
             return
         }
 	user.Cuenta     = r.FormValue("cuenta")
-	DatFormPers(&p,r)
+	getFormPers(&p,r)
         st          :=  getPersFormUp(pers,p, r)
 	fmt.Println(" RegisUpPOST ", st)
         if len(st) == 0{

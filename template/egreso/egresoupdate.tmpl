@@ -12,16 +12,33 @@
                  <label for="period">Periodo</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="period" name="period" size="12"  value="{{.Egre.Period | DATEFORMAT}}" readonly autofocus />
+                 <input type="text" id="period" name="period" size="12"  value="{{.Egre.Period | DATEFORMAT}}" readonly />
               </div>
            </div>
 		
 	   <div class="fwrapper fcols2">
               <div class="fbox">
+               <label for="tipo" >Tipo</label>
+              </div>
+           <div class="fbox">
+               <select name="tipId"> 
+                  {{range $key, $value := .LisTip}}
+                    <option value="{{ $value.Id }}"
+                    {{if eq $value.Id $save.Egre.TipoId}} selected  {{end}}
+                   >
+                     {{ $value.Descripcion }}
+                 </option>
+                  {{end}} 
+               </select>
+           </div>
+        </div>
+
+	   <div class="fwrapper fcols2">
+              <div class="fbox">
                  <label for="fecha">Fecha</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="fecha" name="fecha" size="12"  value="{{.Egre.Fecha | DATEFORMAT}}" readonly />
+                 <input type="text" id="fecha" name="fecha" size="12"  value="{{.Egre.Fecha | DATEFORMAT}}"  />
               </div>
            </div>
 
@@ -30,10 +47,18 @@
                  <label for="monto">Monto</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="monto" name="monto" size="16"  value="{{.Egre.Amount | FORMAT64}}"  readonly/>
+                 <input type="text" id="monto" name="monto" size="16"  value="{{.Egre.Amount | FORMAT64}}"  />
               </div>
            </div>
 
+	<div class="fwrapper fcols2">
+           <div class="fbox">
+               <label for="descripcion" >Descripcion</label>
+           </div>
+            <div class="fbox">
+                <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" {{.Egre.Descripcion}}/>
+           </div>
+         </div>
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">

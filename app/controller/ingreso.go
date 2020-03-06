@@ -18,7 +18,7 @@ import (
 // IngrePerGET despliega formulario escoger periodo
 func IngrePerGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
-        lisPeriod, err := model.PeriodsI()
+        lisPeriod, err := model.Periods()
         if err != nil {
              sess.AddFlash(view.Flash{"No hay periodos ", view.FlashError})
          }
@@ -61,11 +61,12 @@ func IngrePerPOST(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/ingreso/list", http.StatusFound)
  }
 // ---------------------------------------------------
- func getIngreData(c *  model.IngresoN, r *http.Request)(err error){
-           formato         := "2006/01/02"
-           c.Period, _     = time.Parse(formato,r.FormValue("period"))
-           c.TipoId, _     = atoi32(r.FormValue("tipId"))
-           c.Fecha, _      =  time.Parse(layout,r.FormValue("fecha"))
+ func getFormIngre(c *  model.IngresoN, r *http.Request)(err error){
+           formato        :=  "2006/01/02"
+           c.PeriodId, _   =  atoi32(r.FormValue("periodId"))
+           c.TipoId, _     =  atoi32(r.FormValue("tipoId"))
+           c.Fecha, _      =  time.Parse(formato,r.FormValue("fecha"))
+	   c.Descripcion   =  r.FormValue("descripcion")
 	   var nro int64
            nro, err       = money2int64(r.FormValue("amount"))
            if err == nil {
@@ -83,7 +84,7 @@ func IngreRegPOST(w http.ResponseWriter, r *http.Request) {
 	sess   := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-           getIngreData(&ingres, r)
+           getFormIngre(&ingres, r)
            period.Inicio       =  ingres.Period
            err                 =  (&period).PeriodByCode()
            ingres.PeriodId       =   period.Id
@@ -125,7 +126,12 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
 	id,_   := atoi32(params.ByName("id"))
         path   :=  "/ingreso/list"
         ingres.Id = id
-	err := (&ingres).IngresById()
+
+	lisTipo,  err        := model.Tipos()
+            if err != nil {
+                 sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
+            }
+	err = (&ingres).IngresById()
 	if err != nil { // Si no existe el usuario
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta ingreso.", view.FlashError})
@@ -137,36 +143,54 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
 	v.Name                = "ingreso/ingresoupdate"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
         v.Vars["Ingre"]       = ingres
+        v.Vars["LisTip"]      = lisTipo
         v.Vars["Level"]       =  sess.Values["level"]
         v.Render(w)
    }
 
 // ---------------------------------------------------
- func   getIngreFormUp(r * http.Request)(st string){
+ func   getIngreFormUp(i1, i2 model.IngresoN ,r * http.Request)(stUp string){
         var sf string
-        var nr  int64
         var sup []string
-        if r.FormValue("ckingreso") == "true" {
-	     nr, _  =  money2int64(  r.FormValue("ingreso") )
-             sf  =  fmt.Sprintf( " ingreso = '%d' ", nr )
-	     sup = append(sup, sf)
-           }
-        if r.FormValue("ckamount") == "true" {
-	     nr, _  =  money2int64(  r.FormValue("amount") )
-             sf  =  fmt.Sprintf( " amount = '%d' ", nr )
-	     sup = append(sup, sf)
-           }
+        formato        :=  "2006-01-02"
 
-         if len(sup) > 0 {
-              st =  strings.Join(sup, ", ")
-          }
-         return
+	if i1.PeriodId != i2.PeriodId {
+             sf  =  fmt.Sprintf( " period_id = %d ", i2.PeriodId )
+	     sup = append(sup, sf)
+	}
+	if i1.TipoId != i2.TipoId {
+             sf  =  fmt.Sprintf( " tipo_id = %d ", i2.TipoId )
+	     sup = append(sup, sf)
+	}
+
+	if i1.Amount  != i2.Amount {
+             sf  =  fmt.Sprintf( " amount = '%d' ", i2.Amount )
+	     sup = append(sup, sf)
+	}
+        if i1.Fecha != i2.Fecha {
+             sf  =  fmt.Sprintf( " fecha = '%s' ", i2.Fecha.Format(formato) )
+	     sup = append(sup, sf)
+	}
+
+	if i1.Descripcion != i2.Descripcion {
+             sf  =  fmt.Sprintf( " descripcion = %s ", i2.Descripcion )
+	     sup = append(sup, sf)
+	}
+        lon := len(sup)
+        if lon  > 0 {
+            sini :=  "update ingresos set "
+            stUp  =  strings.Join(sup, ", ")
+            sr   :=  fmt.Sprintf(" where ingresos.id = %d ", i1.Id)
+            stUp = sini + stUp + sr
+       }
+
+       return
   }
 // ---------------------------------------------------
 // IngreUpPOST procesa la forma enviada con los datos
 func IngreUpPOST(w http.ResponseWriter, r *http.Request) {
         var err error
-        var ingres model.IngresoN
+        var ing, ingres model.IngresoN
 	sess := model.Instance(r)
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
@@ -176,13 +200,16 @@ func IngreUpPOST(w http.ResponseWriter, r *http.Request) {
         path        :=  "/ingreso/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            sr          :=  fmt.Sprintf(" where ingresos.id = %s ", SId)
-            sini        :=  "update ingresos set "
-            st          :=  getIngreFormUp(r)
+            err  = (&ingres).IngresById()
+	    if err != nil { // Si no existe cuota
+                  sess.AddFlash(view.Flash{"Es raro. No esta ingreso.", view.FlashError})
+            }
+	    getFormIngre(&ing,r)
+
+            st          :=  getIngreFormUp(ingres, ing, r)
             if len(st) == 0{
-                 sess.AddFlash(view.Flash{"No hay actualizacion solicitada", view.FlashSuccess})
+                 sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})
             } else {
-             st    = sini + st + sr
              err   =  ingres.IngresUpdate(st)
              if err == nil{
                  sess.AddFlash(view.Flash{"Ingreso actualizada exitosamente : " , view.FlashSuccess})
