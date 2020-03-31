@@ -37,6 +37,23 @@
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
+               <label for="tipo" >Tipo</label>
+              </div>
+           <div class="fbox">
+               <select name="tipId"> 
+                  {{range $key, $value := .LisTip}}
+                    <option value="{{ $value.Id }}"
+                    {{if eq $value.Id $save.Egre.TipoId}} selected  {{end}}
+                   >
+                     {{ $value.Descripcion }}
+                 </option>
+                  {{end}} 
+               </select>
+           </div>
+        </div>
+
+	   <div class="fwrapper fcols2">
+              <div class="fbox">
                  <label for="fecha">Fecha</label>
               </div>
               <div class="fbox">

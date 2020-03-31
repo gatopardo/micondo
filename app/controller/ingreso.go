@@ -61,12 +61,21 @@ func IngrePerPOST(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/ingreso/list", http.StatusFound)
  }
 // ---------------------------------------------------
+<<<<<<< HEAD
  func getFormIngre(ing *  model.IngresoN, r *http.Request)(err error){
            formato        :=  "2006/01/02"
            ing.PeriodId, _   =  atoi32(r.FormValue("id"))
            ing.TipoId, _     =  atoi32(r.FormValue("tipoId"))
            ing.Fecha, _      =  time.Parse(formato,r.FormValue("fecha"))
 	   ing.Descripcion   =  r.FormValue("descripcion")
+=======
+ func getFormIngre(c *  model.IngresoN, r *http.Request)(err error){
+           formato        :=  "2006/01/02"
+           c.PeriodId, _   =  atoi32(r.FormValue("periodId"))
+           c.TipoId, _     =  atoi32(r.FormValue("tipoId"))
+           c.Fecha, _      =  time.Parse(formato,r.FormValue("fecha"))
+	   c.Descripcion   =  r.FormValue("descripcion")
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
 	   var nro int64
            nro, err       = money2int64(r.FormValue("amount"))
            if err == nil {
@@ -86,12 +95,20 @@ func IngreRegPOST(w http.ResponseWriter, r *http.Request) {
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
            getFormIngre(&ingres, r)
+<<<<<<< HEAD
 // fmt.Printf(" IngreRegPOST %8d %8d %16d %s %s \n", ingres.PeriodId, ingres.TipoId, ingres.Amount,ingres.Fecha.Format("2006-01-02"), ingres.Descripcion )
         period.Id            =  ingres.PeriodId
         _                    =  (&period).PeriodById()
 
          err                 =  (&ingres).IngresCreate()
          if err != nil {  // uyy como fue esto ? 
+=======
+           period.Inicio       =  ingres.Period
+           err                 =  (&period).PeriodByCode()
+           ingres.PeriodId       =   period.Id
+           err                 =  (&ingres).IngresCreate()
+           if err != nil {  // uyy como fue esto ? 
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
                log.Println(err)
                fmt.Println(err)
                sess.AddFlash(view.Flash{"Error guardando Ingreso.", view.FlashError})
@@ -133,8 +150,12 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
                  sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
             }
 	err = (&ingres).IngresById()
+<<<<<<< HEAD
 // fmt.Printf(" %5d %5d %15d %s %s\n", ingres.Id, ingres.TipoId, ingres.Amount, ingres.Fecha.Format("2006-01-02"),ingres.Descripcion)
 	if err != nil { // Si no existe el ingreso
+=======
+	if err != nil { // Si no existe el usuario
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta ingreso.", view.FlashError})
            sess.Save(r, w)
@@ -145,8 +166,11 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
 	v.Name                = "ingreso/ingresoupdate"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
         v.Vars["Ingre"]       = ingres
+<<<<<<< HEAD
         v.Vars["Title"]     =  "Actualizar Ingreso"
         v.Vars["Action"]    =  "/ingreso/update"
+=======
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
         v.Vars["LisTip"]      = lisTipo
         v.Vars["Level"]       =  sess.Values["level"]
         v.Render(w)
@@ -156,6 +180,10 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
  func   getIngreFormUp(i1, i2 model.IngresoN ,r * http.Request)(stUp string){
         var sf string
         var sup []string
+<<<<<<< HEAD
+=======
+        formato        :=  "2006-01-02"
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
 
 	if i1.PeriodId != i2.PeriodId {
              sf  =  fmt.Sprintf( " period_id = %d ", i2.PeriodId )
@@ -167,26 +195,44 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if i1.Amount  != i2.Amount {
+<<<<<<< HEAD
              sf  =  fmt.Sprintf( " amount = %d ", i2.Amount )
 	     sup = append(sup, sf)
 	}
         if i1.Fecha != i2.Fecha {
              sf  =  fmt.Sprintf( " fecha = '%s' ", i2.Fecha.Format(layout) )
+=======
+             sf  =  fmt.Sprintf( " amount = '%d' ", i2.Amount )
+	     sup = append(sup, sf)
+	}
+        if i1.Fecha != i2.Fecha {
+             sf  =  fmt.Sprintf( " fecha = '%s' ", i2.Fecha.Format(formato) )
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
 	     sup = append(sup, sf)
 	}
 
 	if i1.Descripcion != i2.Descripcion {
+<<<<<<< HEAD
              sf  =  fmt.Sprintf( " descripcion = '%s' ", i2.Descripcion )
+=======
+             sf  =  fmt.Sprintf( " descripcion = %s ", i2.Descripcion )
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
 	     sup = append(sup, sf)
 	}
         lon := len(sup)
         if lon  > 0 {
             sini :=  "update ingresos set "
+<<<<<<< HEAD
 	    now         := time.Now()
 	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
             stUp  =  strings.Join(sup, ", ")
             sr   :=  fmt.Sprintf(" where ingresos.id = %d ", i1.Id)
             stUp = sini + stUp + sf + sr
+=======
+            stUp  =  strings.Join(sup, ", ")
+            sr   :=  fmt.Sprintf(" where ingresos.id = %d ", i1.Id)
+            stUp = sini + stUp + sr
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
        }
 
        return
@@ -207,6 +253,7 @@ func IngreUpPOST(w http.ResponseWriter, r *http.Request) {
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             err  = (&ingres).IngresById()
+<<<<<<< HEAD
 	    if err != nil { // Si no existe ingreso
                   sess.AddFlash(view.Flash{"Es raro. No esta ingreso.", view.FlashError})
             }
@@ -216,6 +263,14 @@ func IngreUpPOST(w http.ResponseWriter, r *http.Request) {
 
             st          :=  getIngreFormUp(ingres, ing, r)
 //	    fmt.Println("IngresoUpPOST ", st, ":\n")
+=======
+	    if err != nil { // Si no existe cuota
+                  sess.AddFlash(view.Flash{"Es raro. No esta ingreso.", view.FlashError})
+            }
+	    getFormIngre(&ing,r)
+
+            st          :=  getIngreFormUp(ingres, ing, r)
+>>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})
             } else {
