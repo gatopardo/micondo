@@ -34,7 +34,7 @@ type BalanceN struct {
 // -----------------------------------------
 // BalanById tenemos el balance dado id
 func (balan * BalanceN)BalanById() (err error) {
-        stq  :=   "SELECT b.id, b.period_id,p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b, periods p  WHERE b.period_id = p.id and b.id=$1"
+        stq  :=   "SELECT b.id, b.period_id,p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b JOIN periods p  ON  b.period_id = p.id WHERE  b.id=$1"
 		err = Db.QueryRow(stq, &balan.Id). Scan(&balan.Id, &balan.PeriodId,&balan.Period, &balan.Amount, &balan.Cuota, &balan.CreatedAt, &balan.UpdatedAt)
 
 	return  standardizeError(err)
@@ -43,17 +43,17 @@ func (balan * BalanceN)BalanById() (err error) {
 // --------------------------------------------------------
 
 // BalanByPeriod gets balan information from period
-func (balan *Balance)BalanByPeriod() ( error) {
+func (balan *BalanceN)BalanByPeriod() ( error) {
 	var err error
-        stq  :=   "SELECT id,period_id, amount, cuota, created_at, updated_at FROM balances WHERE period_id=$1"
-		err = Db.QueryRow(stq, &balan.PeriodId).Scan(&balan.Id,&balan.PeriodId, &balan.Amount, &balan.Cuota, &balan.CreatedAt, &balan.UpdatedAt)
+        stq  :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, bupdated_at FROM balances b JOIN periods p ON  b.period_id=$1"
+        err = Db.QueryRow(stq, &balan.PeriodId).Scan(&balan.Id,&balan.PeriodId, &balan.Period, &balan.Amount, &balan.Cuota, &balan.CreatedAt, &balan.UpdatedAt)
 
 	return   standardizeError(err)
 }
 
 // -----------------------------------------------------
 // BalanCreate crear balance
-func (b *Balance)BalanCreate() error {
+func (b *BalanceN)BalanCreate() error {
          var err error
          var stmt  *sql.Stmt
          stq := "INSERT INTO balances ( period_id, amount, cuota, created_at, updated_at ) VALUES ($1,$2,$3,$4, $5) returning id"
@@ -75,7 +75,7 @@ func (b *Balance)BalanCreate() error {
 // -----------------------------------------------------
  func  (balan * Balance)BalanDeleteById()( err error){
          stqd :=  "DELETE FROM balances where id = $1"
-           _, err = Db.Exec(stqd, balan.Id) 
+           _, err = Db.Exec(stqd, balan.Id)
          return
        }
 

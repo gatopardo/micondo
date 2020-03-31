@@ -1,11 +1,11 @@
-{{define "title"}}Eliminar Cuota{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
 {{define "foot"}}{{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post" action="/cuota/delete/{{.Cuot.Id}}">
+       <form method="post" action="{{.Action}}/{{.Cuot.Id}}">
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">

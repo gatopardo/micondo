@@ -139,24 +139,7 @@ func EgresDeleteAll() (err error) {
        return
  }
 // -------------------------------------------------------------
-// Get all egresos in the database and returns the list
-  func Egress() (egresos []EgresoN, err error) {
-        stq :=   "SELECT e.id, e.period_id, p.inicio,  a.codigo, e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM egresos e, periods p,  tipos t where e.period_id = p.id  and e.Tipo_id = t.id order by p.inicio"
-	rows, err := Db.Query(stq)
-	if err != nil {
-            return
-	}
-	defer rows.Close()
-	for rows.Next() {
-            egres := EgresoN{}
-           if err = rows.Scan(&egres.Id,&egres.PeriodId,&egres.Period, &egres.TipoId, &egres.Tipo,  &egres.Fecha,&egres.Amount, &egres.Descripcion,  &egres.CreatedAt, &egres.UpdatedAt); err != nil {
-                  return
-             }
-             egresos = append(egresos, egres)
-	}
-        return
- }
-// -------------------------------------------------------------
+
 // Get all egresos per a period in the database and returns the list
   func (egre * EgresoN)EgresPer() (egresos []EgresoN, err error) {
         stq :=   "SELECT e.id, e.period_id, p.inicio,  e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM egresos e, periods p,  tipos t where e.period_id = p.id and e.tipo_id = t.id and e.period_id = $1 order by p.inicio"
@@ -171,6 +154,24 @@ func EgresDeleteAll() (err error) {
                   return
              }
              egresos = append(egresos, e)
+	}
+        return
+ }
+// -------------------------------------------------------------
+// Get all egresos in the database and returns the list
+  func Egress() (egresos []EgresoN, err error) {
+        stq :=   "SELECT e.id, e.period_id, p.inicio,  a.codigo, e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM egresos e, periods p,  tipos t where e.period_id = p.id  and e.Tipo_id = t.id order by p.inicio"
+	rows, err := Db.Query(stq)
+	if err != nil {
+            return
+	}
+	defer rows.Close()
+	for rows.Next() {
+            egres := EgresoN{}
+           if err = rows.Scan(&egres.Id,&egres.PeriodId,&egres.Period, &egres.TipoId, &egres.Tipo,  &egres.Fecha,&egres.Amount, &egres.Descripcion,  &egres.CreatedAt, &egres.UpdatedAt); err != nil {
+                  return
+             }
+             egresos = append(egresos, egres)
 	}
         return
  }

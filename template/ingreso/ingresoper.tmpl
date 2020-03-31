@@ -1,18 +1,18 @@
 {{define "title"}}Escoger Periodo{{end}}
 {{define "head"}} {{end}}
-{{define "foot"}}<h5 class="mcenter">Ingreso</h5>{{end}}
+{{define "foot"}}<h5 class="mcenter">{{.Title}}</h5>{{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>  
-       <form method="post" >
+       <form method="post" action="{{.Action}}" >
 
    	<div class="fwrapper fcols4">
            <div class="fbox">
                <label for="period" >Periodo</label>
            </div>
            <div class="fbox">
-               <select name="periodId"> 
+               <select name="id"> 
                   {{range $key, $value := .LisPeriod}}
                     <option value="{{ $value.Id }}">{{ $value.Inicio | DATEFORMAT }}</option>
                   {{end}}

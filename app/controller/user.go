@@ -85,7 +85,7 @@ import (
    }
 
 //----------------------------------------------------
- func DatFormPers(p *model.Person, r * http.Request){
+ func getFormPers(p *model.Person, r * http.Request){
 	 p.ApartaId,_     = atoi32(r.FormValue("aptId"))
          p.Fname          =  r.FormValue("fname")
          p.Lname          =  r.FormValue("lname")
@@ -130,7 +130,6 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
         var shad model.Shadow
 	sess       := model.Instance(r)
         action     := r.FormValue("action")
-//      fmt.Println(action)
         if ! (strings.Compare(action,"Cancelar") == 0) {
            if validate, missingField := view.Validate(r, []string{"cuenta", "nivel", "password"}); !validate {
                sess.AddFlash(view.Flash{"Falta Campo: " + missingField, view.FlashError})
@@ -154,7 +153,6 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
 		return
            }
             pass, errp := passhash.HashString(rPasswd)
-	   // If password hashing failed
 	   if errp != nil {
 		log.Println(errp)
                 sess.AddFlash(view.Flash{"Problema encriptando clave.", view.FlashError})
@@ -166,12 +164,11 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
            user.Password = pass
 	   err := (&user).UserByCuenta()
            if err == model.ErrNoResult { // Exito:  no hay usuario creado aun 
-                DatFormPers(&person, r)
+                getFormPers(&person, r)
  // fmt.Println("Person ", person.Fname, person.Lname)
                 err = (&person).PersonCreate()
                 if err != nil {
                    log.Println(err)
-//  fmt.Println("Person ", person.Fname, person.Lname)
                    sess.AddFlash(view.Flash{"Error guardando Person.", view.FlashError})
                    sess.Save(r, w)
 		  http.Redirect(w, r, "/user/register", http.StatusFound)
@@ -203,7 +200,6 @@ func RegisterPOST(w http.ResponseWriter, r *http.Request) {
 	        }
            }
          }
-	// Display list
 	http.Redirect(w, r, "/user/list", http.StatusFound)
   }
 // ---------------------------------------------------
@@ -250,21 +246,11 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
         v.Vars["Person"]     = pers
         v.Vars["LisTips"]    = LisTip
         v.Vars["LisApts"]    = lsApts
-        v.Vars["Level"]      = sess.Values["level"]
 //    Refill any form fields
 //	view.Repopulate([]string{"cuenta", "level"}, r.Form, v.Vars)
         v.Render(w)
    }
 //---------------------------------------------------------------
-   func getFormStr(sfld1, sfld2, snom string) ( sform string){
-        st1 := strings.Trim(sfld1, " ")
-        st2 := strings.Trim(sfld2, " ")
-	if st1 != st2 {
-            sform = fmt.Sprintf(" %s = '%s' ",snom, st2 )
-	}
-	return
-   }
-
 //---------------------------------------------------------------
     func getPersFormUp(p1, p2 model.Person,r *http.Request )(stUp string){
       var sform string
@@ -281,12 +267,12 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
            sform = fmt.Sprintf(" %s  = '%s' ","lname",  strings.Trim(p2.Lname," ") )
            sArrSup = append(sArrSup, sform)
       }
-      if strings.Trim(p1.Email, " ") !=  strings.Trim(p2.Email," ") {
-           sform = fmt.Sprintf(" %s  = '%s' ","email",  strings.Trim(p2.Email," ") )
-           sArrSup = append(sArrSup, sform)
-      }
       if strings.Trim(p1.Address, " ") !=  strings.Trim(p2.Address," ") {
            sform = fmt.Sprintf(" %s  = '%s' ","address",  strings.Trim(p2.Address," ") )
+           sArrSup = append(sArrSup, sform)
+      }
+      if strings.Trim(p1.Email, " ") !=  strings.Trim(p2.Email," ") {
+           sform = fmt.Sprintf(" %s  = '%s' ","email",  strings.Trim(p2.Email," ") )
            sArrSup = append(sArrSup, sform)
       }
       if strings.Trim(p1.Tele, " ") !=  strings.Trim(p2.Tele," ") {
@@ -310,11 +296,12 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
 
        lon := len(sArrSup)
        if lon  > 0 {
+            now         := time.Now()
+	    sf          :=  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
             sini        :=  "update persons set "
             stUp =  strings.Join(sArrSup, ", ")
             sr          :=  fmt.Sprintf(" where persons.id = %d ", p1.Id)
-             stUp = sini + stUp + sr
- fmt.Println( stUp)
+             stUp = sini + stUp +sf + sr
        }
          return
     }
@@ -329,7 +316,6 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
 	params = context.Get(r, "params").(httprouter.Params)
         action        := r.FormValue("action")
         path :=  "/user/list/"
-//      fmt.Println(action)
         if (strings.Compare(action,"Cancelar") == 0) {
                sess.Save(r, w)
                http.Redirect(w, r, path, http.StatusFound)
@@ -340,7 +326,7 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
         err  = (&user).UserById()
         if err != nil { // Si no existe el usuario
             log.Println(err)
-            sess.AddFlash(view.Flash{"Raro update. No usuario.", view.FlashError})
+            sess.AddFlash(view.Flash{"Raro No usuario.", view.FlashError})
             sess.Save(r, w)
             http.Redirect(w, r, "/user/list", http.StatusFound)
             return
@@ -355,9 +341,9 @@ func RegisUpPOST(w http.ResponseWriter, r *http.Request) {
             return
         }
 	user.Cuenta     = r.FormValue("cuenta")
-	DatFormPers(&p,r)
+	getFormPers(&p,r)
         st          :=  getPersFormUp(pers,p, r)
-	fmt.Println(" RegisUpPOST ", st)
+//	fmt.Println(" RegisUpPOST ", st)
         if len(st) == 0{
             sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})
         } else {
@@ -419,42 +405,6 @@ func RegisLisGET(w http.ResponseWriter, r *http.Request) {
 	v.Render(w)
 }
 
-// UserDelGET handles the user deletion
- func RegisDelGET(w http.ResponseWriter, r *http.Request) {
-	// Get session
-        sess := model.Instance(r)
-        v    := view.New(r)
-        v.Name = "register/regisdelete"
-        var params httprouter.Params
-        params = context.Get(r, "params").(httprouter.Params)
-        Id,_   := atoi32(params.ByName("id"))
-	SPag        := params.ByName("pagi")
-        path :=  fmt.Sprintf("/user/list/%s", SPag)
-// fmt.Println(Id,SPag)
-        var user model.User
-        user.Id = Id
-        err := (&user).UserById()
-        if err != nil {
-            log.Println(err)
-            fmt.Println(err)
-            sess.AddFlash(view.Flash{"Error Usuario no hallado.", view.FlashError})
-                http.Redirect(w, r, path, http.StatusFound)
-        }else{
-//           v.Vars["cuenta"]  = user.Cuenta
-//           v.Vars["level"]    = user.Level
-              v.Vars["Level"]    =  sess.Values["level"]
-
-      }
-// fmt.Println(path)
-	   v.Vars["token"]  = csrfbanana.Token(w, r, sess)
-           v.Render(w)
-
-  }
-
-// PersDelPOST handles the user deletion
- func RegisDelPOST(w http.ResponseWriter, r *http.Request) {
-
- }
 // PersRegisGET displays the register page
 func PersRegisGET(w http.ResponseWriter, r *http.Request) {
 	// Get session
@@ -536,6 +486,82 @@ func PersLisGET(w http.ResponseWriter, r *http.Request) {
         v.Vars["lisPers"] = lisPers
 	v.Render(w)
 }
+//
+// UserDelGET handles the user deletion
+ func RegisDelGET(w http.ResponseWriter, r *http.Request) {
+	// Get session
+        sess := model.Instance(r)
+        var params httprouter.Params
+        params =  context.Get(r, "params").(httprouter.Params)
+        Id,_   := atoi32(params.ByName("id"))
+        path   := "/user/list"
+        var user model.User
+        var pers model.Person
+	var apt  model.Aparta
+        user.Id = Id
+        err := (&user).UserById()
+        if err != nil {
+            log.Println(err)
+            fmt.Println(err)
+            sess.AddFlash(view.Flash{"Error Usuario no hallado.", view.FlashError})
+             http.Redirect(w, r, path, http.StatusFound)
+            return
+        }
+        pers.Id = user.PersonId
+        err = (&pers).PersonById()
+        if err != nil { // Si no existe el usuario
+            log.Println(err)
+            sess.AddFlash(view.Flash{"No hay atributos.", view.FlashError})
+            sess.Save(r, w)
+            http.Redirect(w, r, "/user/list", http.StatusFound)
+            return
+        }
+	apt.Id  = pers.ApartaId
+        err =   (&apt).AptById()
+        if err != nil {
+            log.Println(err)
+            fmt.Println(err)
+            sess.AddFlash(view.Flash{"Error Usuario no hallado.", view.FlashError})
+             http.Redirect(w, r, path, http.StatusFound)
+            return
+        }
+
+	v := view.New(r)
+        v.Name = "register/regisdelete"
+	v.Name               = "register/regisupdate"
+	v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+        v.Vars["User"]       = user
+        v.Vars["aptCodigo"]  = apt.Codigo
+        v.Vars["Person"]     = pers
+        v.Render(w)
+  }
+
+// PersDelPOST handles the user deletion
+ func RegisDelPOST(w http.ResponseWriter, r *http.Request) {
+        var err error
+        var pers model.Person
+	sess := model.Instance(r)
+        var params httprouter.Params
+        params       = context.Get(r, "params").(httprouter.Params)
+	SId         := params.ByName("id")
+        Id,_        := atoi32(SId)
+        pers.Id      = Id
+        path        :=  "/user/list"
+        action      := r.FormValue("action")
+        if ! (strings.Compare(action,"Cancelar") == 0) {
+             err = pers.PersDeleteById()
+             if err != nil {
+                 log.Println(err)
+                 sess.AddFlash(view.Flash{"Error no posible. Auxilio.", view.FlashError})
+              } else {
+                  sess.AddFlash(view.Flash{"Persona borrada!", view.FlashSuccess})
+              }
+              sess.Save(r, w)
+        }
+	http.Redirect(w, r, path, http.StatusFound)
+
+ }
+
 
 
 

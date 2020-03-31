@@ -1,11 +1,11 @@
-{{define "title"}}Eliminar Ingreso{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
 {{define "foot"}}{{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post" action="/ingreso/update/{{.Ingre.Id}}">
+       <form method="post" action="{{.Action}}/{{.Ingre.Id}}">
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
@@ -31,6 +31,15 @@
               </div>
               <div class="fbox">
                  <input type="text" id="monto" name="monto" size="16"  value="{{.Ingre.Amount | FORMAT64}}"  readonly/>
+              </div>
+           </div>
+
+	   <div class="fwrapper fcols2">
+              <div class="fbox">
+                 <label for="descripcion">Descripcion</label>
+              </div>
+              <div class="fbox">
+                 <input type="text" id="descripcion" name="descripcion" size="16"  value="{{.Ingre.Descripcion }}"  readonly/>
               </div>
            </div>
 

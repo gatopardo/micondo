@@ -1,11 +1,11 @@
-{{define "title"}}Eliminar Balance{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}}
 {{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post">
+       <form method="post" action="{{.Action}}/{{.Balan.Id}}">
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">

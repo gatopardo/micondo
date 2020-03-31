@@ -55,10 +55,18 @@
                 <input type="text" id="fname" name="fname" size="48" maxlength="64" placeholder="Nombre" />
               </div>
            </div>
+
 	   <div class="fwrapper fcols2 ">
               <div class="fbox"> <label for="lname">Apellido </label> </div>
               <div class="fbox">
                 <input type="text" id="lname" name="lname" size="48" maxlength="64" placeholder="Apellido" />
+              </div>
+           </div>
+
+	   <div class="fwrapper fcols2 ">
+              <div class="fbox"> <label for="address">Direccion </label> </div>
+              <div class="fbox">
+                <input type="text" id="address" name="address" size="48" maxlength="64" placeholder="Direccion" />
               </div>
            </div>
 
@@ -91,11 +99,8 @@
                    <input type="file" id="photo" name="photo"  accept="image/*" value ="{{.pers.Photo}}"  />
                </div>
             </div>
-<!--
-                  <button class="butfile" onclick="document.getElementById('photo').click();">Escoger</button>
-                   <input type="file" id="photo" name="photo"  accept="image/*" value ="{{.pers.Photo}}" style="display:none;" />
--->
-	   <div class="fwrapper fcols2 ">
+	   
+           <div class="fwrapper fcols2 ">
               <div class="fbox"> <label for="tipo">Tipo </label> </div>
               <div class="fbox">
                <select id="tipo" name="tipo"> 
@@ -114,14 +119,8 @@
                  </span> 
              </div>
            </div>
-<!--
-               {{if RECAPTCHA_SITEKEY}}
-                  <div class="g-recaptcha" data-sitekey="{{RECAPTCHA_SITEKEY}}" style="margin-bottom: 1rem;">
-                  </div>
-		{{end}}
--->
-	</form>
 	
+	</form>
 
   </div>
 

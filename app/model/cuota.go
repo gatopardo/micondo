@@ -343,7 +343,7 @@ func CuotDeleteAll() (err error) {
 	 if err != nil{
              return
 	 }
-         ingresos, err = IngresPer(id)
+         ingresos, err = IngresLim(id)
 	 if err != nil{
              return
 	 }

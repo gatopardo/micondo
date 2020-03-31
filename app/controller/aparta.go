@@ -5,6 +5,7 @@ import (
 	"net/http"
         "strings"
         "fmt"
+        "time"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -87,41 +88,50 @@ func AptUpGET(w http.ResponseWriter, r *http.Request) {
         v.Render(w)
    }
 // ---------------------------------------------------
- func   getAptFormUp(r * http.Request)(st string){
+ func   getAptFormUp(a1, a2 model.Aparta, r * http.Request)(stup string){
         var sf string
-        st = ""
         var sup []string
-        if r.FormValue("ckdescrip") == "true" {
-	     sf  =  fmt.Sprintf( " descrip = '%s' ", r.FormValue("descrip") )
+
+        if a1.Descripcion != a2.Descripcion {
+	     sf  =  fmt.Sprintf( " descrip = '%s' ", a2.Descripcion )
 	     sup = append(sup, sf)
         }
-        if len(sup) > 0 {
-              st =  strings.Join(sup, ", ")
+        if a1.Codigo != a2.Codigo {
+	     sf  =  fmt.Sprintf( " codigo = '%s' ", a2.Codigo )
+	     sup = append(sup, sf)
+        }
+	lon  := len(sup)
+        if  lon > 0 {
+            sini        :=  "update apartas set "
+	    now         := time.Now()
+	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+            stup =  strings.Join(sup, ", ")
+            sr          :=  fmt.Sprintf(" where apartas.id = %d ", a1.Id)
+             stup = sini + stup + sf + sr
         }
         return
   }
 // ---------------------------------------------------
 // AptUpPOST procesa la forma enviada con los datos
 func AptUpPOST(w http.ResponseWriter, r *http.Request) {
-        var err error
-        var apt model.Aparta
+        var apt , a2 model.Aparta
 	sess := model.Instance(r)
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
-	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
         apt.Id      = Id
-        path        :=  fmt.Sprintf("/apto/list/%s", SPag)
+	a2.Id       = Id
+        path        :=  "/apto/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            sr          :=  fmt.Sprintf(" where apt.id = %s ", SId)
-            sini        :=  "update apartas set "
-            st          :=  getAptFormUp(r)
+		err                 :=  (&apt).AptById()
+            a2.Codigo           = r.FormValue("codigo")
+            a2.Descripcion      = r.FormValue("descripcion")
+            st                 :=  getAptFormUp(apt, a2, r)
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No hay actualizacion solicitada", view.FlashSuccess})
             } else {
-             st = sini + st + sr
              err =  apt.AptUpdate(st)
              if err == nil{
                  sess.AddFlash(view.Flash{"Apto actualizado exitosamente para: " +apt.Codigo, view.FlashSuccess})
@@ -138,14 +148,6 @@ func AptUpPOST(w http.ResponseWriter, r *http.Request) {
 // AptLisGET displays the aparta page
 func AptLisGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
-//        var params httprouter.Params
-//        params     = context.Get(r, "params").(httprouter.Params)
-//        SPg       := params.ByName("pg")
-//        pg,_      := atoi32(SPg)
-//        posact     = int(pg)
-//        offset     = posact  - 1
-//        offset     = offset * limit
-//        TotalCount = model.AptCount()
         lisApts, err := model.Apts()
         if err != nil {
            log.Println(err)
@@ -156,10 +158,6 @@ func AptLisGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "aparta/aptlis"
 	v.Vars["token"] = csrfbanana.Token(w, r, sess)
- //       numberOfBtns      :=  getNumberOfButtonsForPagination(TotalCount, limit)
-//        sliceBtns         :=  createSliceForBtns(numberOfBtns, posact)
-//        v.Vars["slice"]    =  sliceBtns
-        v.Vars["current"]  =  posact
         v.Vars["LisApt"]   = lisApts
         v.Vars["Level"]    =  sess.Values["level"]
 	v.Render(w)
@@ -173,8 +171,7 @@ func AptLisGET(w http.ResponseWriter, r *http.Request) {
         params = context.Get(r, "params").(httprouter.Params)
         Id,_ := atoi32(params.ByName("id"))
         apt.Id = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/apto/list/%s", SPag)
+        path        :=  "/apto/list"
         err := (&apt).AptById()
         if err != nil {
             log.Println(err)
@@ -186,8 +183,9 @@ func AptLisGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "aparta/aptdelete"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
+        v.Vars["Title"]     =  "Eliminar Aparta"
+        v.Vars["Action"]    =  "/aparta/delete"
         v.Vars["Apto"]      =  apt
-        v.Vars["level"]     =  sess.Values["level"]
 	v.Render(w)
   }
 // ---------------------------------------------------
@@ -200,8 +198,7 @@ func AptLisGET(w http.ResponseWriter, r *http.Request) {
         params = context.Get(r, "params").(httprouter.Params)
         Id,_ := atoi32(params.ByName("id"))
         apt.Id = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/apto/list/%s", SPag)
+        path        :=  "/apto/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             err  = apt.AptDelete()

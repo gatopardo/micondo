@@ -220,6 +220,13 @@ func (p * Person) Update(stq string ) (err error) {
 }
 
 // -----------------------------------------------------
+// Delete person from database
+func (pers * Person)PersDeleteById() (err error) {
+         stqd :=  "DELETE FROM persons where id = $1"
+           _, err = Db.Exec(stqd, pers.Id)
+	return
+}
+// -----------------------------------------------------
 
 // Delete all users from database
 func PersDeleteAll() (err error) {

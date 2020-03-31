@@ -19,9 +19,10 @@
                <label for="tipo" >Tipo</label>
            </div>
            <div class="fbox">
-               <select name="tipId"> 
+               <select name="tipoId"> 
                   {{range $key, $value := .LisTip}}
-                    <option value="{{ $value.Id }}">{{ .Descripcion }}</option>
+                    <option value="{{ $value.Id }}"> {{ $value.Descripcion }}
+                    </option>
                   {{end}}
                </select>
            </div>
@@ -50,7 +51,10 @@
                 <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" placeholder="Descripcion" />
            </div>
            <div class="fbox">
+                 <span>
+		<input type="hidden" name="id" value="{{.Ingreso.PeriodId}}">
 		<input type="hidden" name="token" value="{{.token}}">
+                 </span>
            </div>
            <div class="fbox">
                  <span>

@@ -37,14 +37,10 @@ type IngresoN struct {
 }
 
 
-// " SELECT e.id, e.period_id,p.inicio,e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM ingresos e, periods p, tipos t  WHERE e.period_id = p.id AND  e.tipo_id = t.id  and e.id=$1"
 // -----------------------------------------
 // IngresById tenemos el ingreso dado id
 func (ingres * IngresoN)IngresById() (err error) {
-        stq  :=  "SELECT e.id, e.period_id,p.inicio,e.tipo_id, t.codigo, e.fecha, e.amount," +
-	         " e.description, e.created_at, e.updated_at " +
-		 " FROM ingresos e JOIN periods p ON e.period_id = p.id " +
-		 " JOIN  tipos t ON e.tipo_id = t.id WHERE  e.id=$1"
+	stq :=  " SELECT i.id, i.period_id, p.inicio, i.tipo_id, t.codigo, i.fecha, i.amount,  i.description, i.created_at, i.updated_at  FROM ingresos i JOIN periods p ON i.period_id = p.id  JOIN  tipos t ON i.tipo_id = t.id WHERE  i.id=$1 "
 
 		err = Db.QueryRow(stq, &ingres.Id). Scan(&ingres.Id, &ingres.PeriodId,&ingres.Period,  &ingres.TipoId, &ingres.Tipo, &ingres.Fecha, &ingres.Amount, &ingres.Descripcion,  &ingres.CreatedAt, &ingres.UpdatedAt)
 
@@ -53,7 +49,7 @@ func (ingres * IngresoN)IngresById() (err error) {
 
 // -----------------------------------------------------
 // IngresCreate crear ingreso
-func (e * IngresoN)IngresCreate() error {
+func (ing * IngresoN)IngresCreate() error {
          var err error
          var stmt  *sql.Stmt
          stq := "INSERT INTO ingresos ( period_id, tipo_id, fecha, amount, description, created_at, updated_at ) VALUES ($1,$2,$3,$4, $5, $6, $7) returning id"
@@ -63,9 +59,9 @@ func (e * IngresoN)IngresCreate() error {
          }
          defer stmt.Close()
          var id uint32
-         err = stmt.QueryRow(&e.PeriodId, &e.TipoId,&e.Fecha, &e.Amount, &e.Descripcion,  now, now ).Scan(&id)
+         err = stmt.QueryRow(&ing.PeriodId, &ing.TipoId,&ing.Fecha, &ing.Amount, &ing.Descripcion,  now, now ).Scan(&id)
          if err == nil {
-              e.Id = id
+              ing.Id = id
          }
 	 return standardizeError(err)
   }
@@ -73,8 +69,8 @@ func (e * IngresoN)IngresCreate() error {
 // -----------------------------------------------------
  func  (ingres * Ingreso)IngresDeleteById()( err error){
          stqd :=  "DELETE FROM ingresos where id = $1"
-           _, err = Db.Exec(stqd, ingres.Id) 
-         return
+           _, err = Db.Exec(stqd, ingres.Id)
+        return
        }
 
 // -----------------------------------------------------
@@ -93,7 +89,7 @@ func (ingres *Ingreso) IngresDelete() (err error) {
 // -----------------------------------------------------
 // Actualizar informacion de ingres en la database
 func (ingres *IngresoN)IngresUpdate(stq string) (err error) {
-        _, err = Db.Exec(stq ) 
+        _, err = Db.Exec(stq )
         return standardizeError(err)
 }
 
@@ -125,7 +121,8 @@ func IngresDeleteAll() (err error) {
 // -------------------------------------------------------------
 // Get ingresos from a period 
   func IngresLim(id uint32 ) (ingresos []IngresoN, err error) {
-        stq :=   "SELECT e.id, e.period_id, p.inicio,  e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM ingresos e, periods p,  tipos t where e.period_id = p.id  and e.tipo_id = t.id and p.id = $1 order by p.inicio, e.fecha "
+      stq :=  "SELECT i.id, i.period_id, p.inicio,  i.tipo_id, t.codigo, i.fecha, i.amount, i.description, i.created_at, i.updated_at FROM ingresos i JOIN  periods p ON i.period_id = p.id JOIN tipos t ON i.tipo_id = t.id WHERE   p.id = $1 ORDER BY p.inicio, i.fecha "
+
 	rows, err := Db.Query(stq, id)
 	if err != nil {
             return
@@ -139,6 +136,25 @@ func IngresDeleteAll() (err error) {
            ingresos = append(ingresos, ingres)
          }
        return
+ }
+
+// -------------------------------------------------------------
+// Get all ingresos per a period in the database and returns the list
+  func (ingre * IngresoN)IngresPer() (ingresos []IngresoN, err error) {
+        stq :=   "SELECT i.id, i.period_id, p.inicio,  i.tipo_id, t.codigo, i.fecha, i.amount, i.description, i.created_at, i.updated_at FROM ingresos i, periods p,  tipos t where i.period_id = p.id and i.tipo_id = t.id and i.period_id = $1 order by p.inicio"
+	rows, err := Db.Query(stq, ingre.PeriodId )
+	if err != nil {
+            return
+	}
+	defer rows.Close()
+	for rows.Next() {
+            i := IngresoN{}
+           if err = rows.Scan(&i.Id, &i.PeriodId, &i.Period, &i.TipoId, &i.Tipo, &i.Fecha, &i.Amount, &i.Descripcion, &i.CreatedAt, &i.UpdatedAt); err != nil {
+                  return
+             }
+             ingresos = append(ingresos, i)
+	}
+        return
  }
 // -------------------------------------------------------------
 // Get all ingresos in the database and returns the list
@@ -155,24 +171,6 @@ func IngresDeleteAll() (err error) {
                   return
              }
              ingresos = append(ingresos, ingres)
-	}
-        return
- }
-// -------------------------------------------------------------
-// Get all ingresos per a period in the database and returns the list
-  func IngresPer(pid uint32) (ingresos []IngresoN, err error) {
-        stq :=   "SELECT i.id, i.period_id, p.inicio,  i.tipo_id, t.codigo, i.fecha, i.amount, i.description, i.created_at, i.updated_at FROM ingresos i, periods p,  tipos t where i.period_id = p.id and i.tipo_id = t.id and i.period_id = $1 order by p.inicio"
-	rows, err := Db.Query(stq, pid )
-	if err != nil {
-            return
-	}
-	defer rows.Close()
-	for rows.Next() {
-            i := IngresoN{}
-           if err = rows.Scan(&i.Id, &i.PeriodId, &i.Period, &i.TipoId, &i.Tipo, &i.Fecha, &i.Amount, &i.Descripcion, &i.CreatedAt, &i.UpdatedAt); err != nil {
-                  return
-             }
-             ingresos = append(ingresos, i)
 	}
         return
  }

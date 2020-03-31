@@ -27,11 +27,10 @@
            <div class="fbox">
                <select name="aptId"> 
                  {{range $key, $value := .LisApts}}
-                    {{ if eq $value.Id $.Person.ApartaId}}
-                      <option value="{{ $value.Id }}" selected>{{ $value.Codigo }}</option>
-                    {{else}}
-                      <option value="{{ $value.Id }}" >{{ $value.Codigo }}</option>
-                    {{end}}
+                      <option value="{{ $value.Id }}" 
+                         {{ if eq $value.Id $.Person.ApartaId}} selected 
+                         {{end}}
+                        >{{ $value.Codigo }}</option>
                   {{end}}
                </select>
            </div>
@@ -50,6 +49,14 @@
                 <input type="text" id="lname" name="lname" size="48" maxlength="64" value="{{.Person.Lname}}"   />
               </div>
            </div>
+
+	   <div class="fwrapper fcols2 ">
+              <div class="fbox"> <label for="address">Direccion </label> </div>
+              <div class="fbox">
+                <input type="text" id="address" name="address" size="48" maxlength="64" placeholder="Direccion" />
+              </div>
+           </div>
+
 
 	   <div class="fwrapper fcols2 ">
               <div class="fbox"> <label for="email" >Email </label> </div>

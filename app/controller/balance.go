@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
         "fmt"
+        "time"
         "strings"
 
 	"github.com/gatopardo/micondo/app/model"
@@ -32,11 +33,10 @@ func BalanGET(w http.ResponseWriter, r *http.Request) {
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
         v.Vars["LisBalans"] = lisBalans
         v.Vars["LisPeriod"] = lisPeriod
-        v.Vars["Level"]     =  sess.Values["level"]
 	v.Render(w)
  }
 // ---------------------------------------------------
- func getBalanData(b *  model.Balance, r *http.Request)(err error){
+ func getFormBalan(b *  model.BalanceN, r *http.Request)(err error){
 	   var nro int64
            b.PeriodId, _   = atoi32(r.FormValue("periodId"))
            nro, err        = money2int64(r.FormValue("amount"))
@@ -52,7 +52,7 @@ func BalanGET(w http.ResponseWriter, r *http.Request) {
 // ---------------------------------------------------
 // BalanPOST procesa la forma enviada con los datos
 func BalanPOST(w http.ResponseWriter, r *http.Request) {
-        var balan model.Balance
+        var balan model.BalanceN
 	sess          := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
@@ -62,7 +62,7 @@ func BalanPOST(w http.ResponseWriter, r *http.Request) {
                BalanGET(w, r)
                return
 	     }
-           getBalanData(&balan, r)
+           getFormBalan(&balan, r)
            err := (&balan).BalanByPeriod()
            if err == model.ErrNoResult { // Exito:  no hay usuario creado aun 
                ex := (&balan).BalanCreate()
@@ -89,11 +89,12 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params  = context.Get(r, "params").(httprouter.Params)
 	id,_   := atoi32(params.ByName("id"))
-	SPag   := params.ByName("pg")
-        path   :=  fmt.Sprintf("/balance/list/%s", SPag)
+//	SPag   := params.ByName("pg")
+//        path   :=  fmt.Sprintf("/balance/list/%s", SPag)
+        path   :=  "/balance/list"
         balan.Id = id
 	err := (&balan).BalanById()
-	if err != nil { // Si no existe el usuario
+	if err != nil { // Si no existe balance
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta balance.", view.FlashError})
            sess.Save(r, w)
@@ -104,53 +105,53 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
 	v.Name                = "balance/balanupdate"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
         v.Vars["Balan"]       = balan
-        v.Vars["Level"]       =  sess.Values["level"]
         v.Render(w)
    }
 
+//	     nro, _  =  money2int64(  r.FormValue("cuota") )
 // ---------------------------------------------------
- func   getBalanFormUp(r * http.Request)(st string){
+ func   getBalanFormUp(b1, b2 model.BalanceN, r * http.Request)(stup string){
         var sf string
-        var nro  int64
         var sup []string
-        if r.FormValue("ckcuota") == "true" {
-	     nro, _  =  money2int64(  r.FormValue("cuota") )
-             sf  =  fmt.Sprintf( " cuota = '%d' ", nro )
-	     sup = append(sup, sf)
-           }
-        if r.FormValue("ckamount") == "true" {
-	     nro, _  =  money2int64(  r.FormValue("amount") )
-             sf  =  fmt.Sprintf( " amount = '%d' ", nro )
-	     sup = append(sup, sf)
-           }
 
-         if len(sup) > 0 {
-              st =  strings.Join(sup, ", ")
+        if   b1.Cuota != b2.Cuota {
+             sf  =  fmt.Sprintf( " cuota = '%d' ", b2.Cuota )
+	     sup = append(sup, sf)
+           }
+        if b1.Amount != b2.Amount {
+             sf  =  fmt.Sprintf( " amount = '%d' ", b2.Amount )
+	     sup = append(sup, sf)
+           }
+          lon := len(sup)
+         if lon > 0 {
+            sini        :=  "update periods set "
+	    now        := time.Now()
+	    sf          =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+            stup         =  strings.Join(sup, ", ")
+            sr          :=  fmt.Sprintf(" where periods.id = %s ", b1.Id)
+	    stup         =  sini + stup + sf + sr
           }
          return
   }
 // ---------------------------------------------------
 // BalanUpPOST procesa la forma enviada con los datos
 func BalanUpPOST(w http.ResponseWriter, r *http.Request) {
-        var err error
-        var balan model.BalanceN
+        var balan, bal model.BalanceN
 	sess := model.Instance(r)
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
-	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
-        balan.Id      = Id
-        path        :=  fmt.Sprintf("/balance/list/%s", SPag)
+        balan.Id     = Id
+        path        :=  "/balance/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            sr          :=  fmt.Sprintf(" where balances.id = %s ", SId)
-            sini        :=  "update balances set "
-            st          :=  getBalanFormUp(r)
+            getFormBalan(&balan, r)
+	    err := (&bal).BalanById()
+            st          :=  getBalanFormUp(bal, balan,r)
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No hay actualizacion solicitada", view.FlashSuccess})
             } else {
-             st    = sini + st + sr
              err   =  balan.BalanUpdate(st)
              if err == nil{
                  sess.AddFlash(view.Flash{"Balance actualizada exitosamente : " , view.FlashSuccess})
@@ -167,33 +168,15 @@ func BalanUpPOST(w http.ResponseWriter, r *http.Request) {
 // BalanLisGET displays the balance page
 func BalanLisGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
-/*	
-        var params httprouter.Params
-        params = context.Get(r, "params").(httprouter.Params)
-
-        SPg := params.ByName("pg")
-        Pg,_ := atoi32(SPg)
-        posact = int(Pg)
-        offset =  posact   -  1
-        offset = offset * limit
-        TotalCount =  model.BalansCount()
-*/
         lisBalan, err := model.Balans()
         if err != nil {
-//            fmt.Println(err)
             log.Println(err)
-	    sess.AddFlash(view.Flash{"Error Listando Usuarios.", view.FlashError})
+	    sess.AddFlash(view.Flash{"Error Listando Balances.", view.FlashError})
             sess.Save(r, w)
          }
 	v := view.New(r)
 	v.Name             = "balance/balanlis"
 	v.Vars["token"]    = csrfbanana.Token(w, r, sess)
-/*
-        numberOfBtns      :=  getNumberOfButtonsForPagination(TotalCount, limit)
-        sliceBtns         :=  createSliceForBtns(numberOfBtns, posact)
-        v.Vars["slice"]    =  sliceBtns
-        v.Vars["current"]  =  posact
-*/
         v.Vars["LisBalan"] = lisBalan
         v.Vars["Level"]    =  sess.Values["level"]
 	v.Render(w)
@@ -207,11 +190,10 @@ func BalanLisGET(w http.ResponseWriter, r *http.Request) {
         var params httprouter.Params
         params = context.Get(r, "params").(httprouter.Params)
 	id,_        := atoi32(params.ByName("id"))
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/balance/list/%s", SPag)
+        path        :=  "/balance/list"
         balan.Id      = id
 	err         := (&balan).BalanById()
-	if err != nil { // Si no existe el usuario
+	if err != nil { // Si no existe el balance
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta balance.", view.FlashError})
            sess.Save(r, w)
@@ -221,8 +203,9 @@ func BalanLisGET(w http.ResponseWriter, r *http.Request) {
 	v                    := view.New(r)
 	v.Name                = "balance/balandelete"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
+        v.Vars["Title"]     =  "Eliminar Balance"
+        v.Vars["Action"]    =  "/balance/delete"
         v.Vars["Balan"]        = balan
-        v.Vars["Level"]       =  sess.Values["level"]
 	v.Render(w)
   }
 
@@ -232,15 +215,11 @@ func BalanDeletePOST(w http.ResponseWriter, r *http.Request) {
         var err error
         var balan model.Balance
 	sess := model.Instance(r)
-/*
         var params httprouter.Params
-	params = context.Get(r, "params").(httprouter.Params)
+        params       = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
         balan.Id      = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/balance/list", SPag)
-*/
         path        :=  "/balance/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {

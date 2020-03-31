@@ -5,7 +5,7 @@
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post">
+       <form method="post" action="/balance/update/{{.Balan.Id}}">
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
@@ -16,29 +16,21 @@
               </div>
            </div>
 		
-	   <div class="fwrapper fcols4">
+	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="amount">Monto</label>
               </div>
               <div class="fbox">
                  <input type="text" id="amount" name="amount" size="16"  value="{{.Balan.Amount | FORMAT64}}" />
               </div>
-              <div class="fbox" >Check </div>
-              <div class="fbox" >
-                  <input type="checkbox" name="ckamount" value="true">
-              </div>
            </div>
 
-	   <div class="fwrapper fcols4">
+	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="cuota">Cuota</label>
               </div>
               <div class="fbox">
                  <input type="text" id="cuota" name="cuota" size="12"  value="{{.Balan.Cuota | FORMAT64}}" />
-              </div>
-              <div class="fbox" >Check </div>
-              <div class="fbox" >
-                  <input type="checkbox" name="ckcuota" value="true">
               </div>
            </div>
 

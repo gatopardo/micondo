@@ -261,10 +261,10 @@ func routes() *httprouter.Router {
 ////          List
 	r.GET("/egreso/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.EgreLis)))
+		ThenFunc(controller.EgreLisGET)))
 	r.POST("/egreso/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.EgreLis)))
+		ThenFunc(controller.EgreLisPOST)))
 ////          Delete
 	r.GET("/egreso/delete/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).
@@ -293,10 +293,10 @@ func routes() *httprouter.Router {
 ////          List
 	r.GET("/ingreso/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.IngreLis)))
+		ThenFunc(controller.IngreLisGET)))
 	r.POST("/ingreso/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
-		ThenFunc(controller.IngreLis)))
+		ThenFunc(controller.IngreLisPOST)))
 ////          Delete
 	r.GET("/ingreso/delete/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).

@@ -1,17 +1,17 @@
-{{define "title"}}Eliminar Apto{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
 {{define "foot"}} {{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post">
+       <form method="post" action="{{.Action}}" >
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="codigo">Codigo</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="codigo" name="descrip" size="2"  value="{{.Apto.Codigo}}" readonly autofocus />
+                 <input type="text" id="codigo" name="codigo" size="2"  value="{{.Apto.Codigo}}" readonly />
               </div>
            </div>
 		

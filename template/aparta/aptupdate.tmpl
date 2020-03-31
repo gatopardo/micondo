@@ -5,7 +5,7 @@
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post">
+       <form method="post" action="/aparta/update/{{.Apto.Id}}" >
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="codigo">Codigo</label>
@@ -30,7 +30,10 @@
 
 	   <div class="fwrapper fcols4">
               <div class="fbox">
+                <span>
+		 <input type="hidden" name="id" value="{{.Apto.id}}">
 		 <input type="hidden" name="token" value="{{.token}}">
+                </span>
               </div>
               <div class="fbox">
                  <input type="submit" name="action" value="Actualizar" />

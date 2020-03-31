@@ -1,11 +1,11 @@
-{{define "title"}}Eliminar Ingreso{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
 {{define "foot"}}{{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post" action="/egreso/update/{{.Egre.Id}}">
+       <form method="post" action="{{.Action}}/{{.Egre.Id}}">
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
@@ -34,6 +34,15 @@
               </div>
            </div>
 
+
+	   <div class="fwrapper fcols2">
+              <div class="fbox">
+                 <label for="descripcion">Descripcion</label>
+              </div>
+              <div class="fbox">
+                 <input type="text" id="descripcion" name="descripcion" size="16"  value="{{.Egre.Descripcion }}"  readonly/>
+              </div>
+           </div>
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">

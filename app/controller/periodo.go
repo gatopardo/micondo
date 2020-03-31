@@ -58,9 +58,9 @@ func PeriodPOST(w http.ResponseWriter, r *http.Request) {
                  } else {  // todo bien
                 sess.AddFlash(view.Flash{"Periodo. creado: " + period.Inicio.Format(layout), view.FlashSuccess})
 	         }
+                 sess.Save(r, w)
             }
          }
-        sess.Save(r, w)
 	http.Redirect(w, r, "/period/list", http.StatusFound)
  }
 
@@ -73,8 +73,7 @@ func PeriodUpGET(w http.ResponseWriter, r *http.Request) {
 	params = context.Get(r, "params").(httprouter.Params)
 	id,_ := atoi32(params.ByName("id"))
         period.Id = id
-	SPag   := params.ByName("pg")
-        path   :=  fmt.Sprintf("/period/list/%s", SPag)
+        path   :=  "/period/list"
         err    := (&period).PeriodById()
 	if err != nil { // Si no existe el periodo
            log.Println(err)
@@ -91,19 +90,25 @@ func PeriodUpGET(w http.ResponseWriter, r *http.Request) {
         v.Render(w)
    }
 // ---------------------------------------------------
- func   getPeriodFormUp(r * http.Request)(st string){
+ func   getPeriodFormUp(p1, p2 model.Periodo, r * http.Request)(stUp string){
         var sf string
         var sup []string
-        if r.FormValue("ckinicio") == "true" {
-	     sf  =  fmt.Sprintf( " inicio = '%s' ", r.FormValue("inicio") )
+        if p1.Inicio != p2.Inicio {
+	     sf  =  fmt.Sprintf( " inicio = '%s' ", p2.Inicio.Format(layout) )
 	     sup = append(sup, sf)
         }
-        if r.FormValue("ckfinal") == "true" {
-	     sf  =  fmt.Sprintf( " final = '%s' ", r.FormValue("final") )
+        if p1.Final != p2.Final {
+	     sf  =  fmt.Sprintf( " final = '%s' ", p2.Final.Format(layout) )
 	     sup = append(sup, sf)
         }
-        if len(sup) > 0 {
-              st =  strings.Join(sup, ", ")
+	lon := len(sup)
+        if lon > 0 {
+            sini        :=  "update periods set "
+	    now         := time.Now()
+	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+            stUp         =  strings.Join(sup, ", ")
+            sr          :=  fmt.Sprintf(" where periods.id = %s ", p1.Id)
+	    stUp         =  sini + stUp + sf + sr
         }
         return
   }
@@ -111,23 +116,31 @@ func PeriodUpGET(w http.ResponseWriter, r *http.Request) {
 // PeriodUpPOST procesa la forma enviada con los datos
 func PeriodUpPOST(w http.ResponseWriter, r *http.Request) {
         var err error
-        var period model.Periodo
+        var per, period model.Periodo
 	sess := model.Instance(r)
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
-	SPag        := params.ByName("pg")
-	SId          := params.ByName("id")
-	period.Id, _ = atoi32(SId)
-        path        :=  fmt.Sprintf("/period/list/%s", SPag)
+	SId           := params.ByName("id")
+	id, _         := atoi32(SId)
+	period.Id      =  id
+	per.Id         =  id
+        path          :=  "/period/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            sr          :=  fmt.Sprintf(" where periods.id = %s ", SId)
-            sini        :=  "update periods set "
-            st          :=  getPeriodFormUp(r)
+	    err          =  (&per).PeriodById()
+	    if err != nil { // Si no existe el balance
+                  log.Println(err)
+                  sess.AddFlash(view.Flash{"Es raro. No tenemos balance.", view.FlashError})
+                  sess.Save(r, w)
+                  http.Redirect(w, r, path, http.StatusFound)
+                  return
+	    }
+            period.Inicio, _    = time.Parse(layout,r.FormValue("inicio"))
+            period.Final, _     = time.Parse(layout,r.FormValue("final"))
+            st          :=  getPeriodFormUp(per, period, r)
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No hay actualizacion solicitada", view.FlashSuccess})
             } else {
-             st = sini + st + sr
              err =  period.PeriodUpdate(st)
              if err == nil{
                  sess.AddFlash(view.Flash{"Periodo actualizado exitosamente ", view.FlashSuccess})
@@ -144,16 +157,6 @@ func PeriodUpPOST(w http.ResponseWriter, r *http.Request) {
 // PeriodLisGET displays the aparta page
 func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
-/*
-        var params httprouter.Params
-        params           = context.Get(r, "params").(httprouter.Params)
-        SPg             := params.ByName("pg")
-        pg,_            := atoi32(SPg)
-        posact           = int(pg)
-        offset           = posact  - 1
-        offset           = offset * limit
-        TotalCount       = model.PeriodCount()
-*/
         lisPeriods, err := model.Periods()
         if err != nil {
            log.Println(err)
@@ -163,10 +166,6 @@ func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
 	v                    := view.New(r)
 	v.Name                = "periodo/periodlis"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
-        numberOfBtns         :=  getNumberOfButtonsForPagination(TotalCount, limit)
-        sliceBtns            :=  createSliceForBtns(numberOfBtns, posact)
-        v.Vars["slice"]       =  sliceBtns
-        v.Vars["current"]     =  posact	
         v.Vars["LisPeriod"]   = lisPeriods
         v.Vars["Level"]       =  sess.Values["level"]
 	v.Render(w)
@@ -180,8 +179,7 @@ func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
         params     = context.Get(r, "params").(httprouter.Params)
         Id,_      := atoi32(params.ByName("id"))
         period.Id  = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/period/list/%s", SPag)
+        path        :=  "/period/list"
         err := (&period).PeriodById()
         if err != nil {
             log.Println(err)
@@ -193,8 +191,9 @@ func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
 	v                  := view.New(r)
 	v.Name              = "periodo/perioddelete"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
+        v.Vars["Title"]     =  "Eliminar Period"
+        v.Vars["Action"]    =  "/periodo/delete"
         v.Vars["Period"]   =  period
-        v.Vars["level"]     =  sess.Values["level"]
 	v.Render(w)
   }
 //-----------------------------------------------------------------------
@@ -206,10 +205,9 @@ func PeriodLisGET(w http.ResponseWriter, r *http.Request) {
         var period model.Periodo
         var params httprouter.Params
         params     = context.Get(r, "params").(httprouter.Params)
-//        Id,_      := atoi32(params.ByName("id"))
-//        period.Id  = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/period/list/%s", SPag)
+        Id,_      := atoi32(params.ByName("id"))
+        period.Id  = Id
+        path        :=  "/period/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
            err  = period.PeriodDelete()

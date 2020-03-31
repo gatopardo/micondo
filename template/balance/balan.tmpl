@@ -6,7 +6,7 @@
 
        <h3 class="mcenter">{{template "title" .}}</h3>  
 
-       <form method="post">
+       <form method="post" action="/balance/register" >
 
 	<div class="fwrapper fcols2">
            <div class="fbox">
@@ -51,6 +51,7 @@
             </div>
        </div>
        </form>
+
   {{  range  .LisBalans}}
          <div class="lwrapper fcols3">
            <div class="box"> {{ .Period | DATEFORMAT }} </div>

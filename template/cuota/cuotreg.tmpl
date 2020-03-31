@@ -3,7 +3,6 @@
 {{define "foot"}}<h5 class="mcenter">Cuota</h5>{{end}}
 
 {{define "content"}}
-
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>  
 
@@ -13,6 +12,7 @@
            <div class="fbox">
                <label for="period" >Periodo</label>
            </div>
+
            <div class="fbox">
              <input type="text" id="period" name="period" size="10" value="{{.Cuota.Period | DATEFORMAT}}" readonly/>
            </div>

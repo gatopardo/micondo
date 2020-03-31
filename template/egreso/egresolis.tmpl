@@ -23,11 +23,10 @@
            <div class="box">
                <select name="id"> 
                   {{range $key, $value := .LisPeriod}}
-                    {{ if eq $value.Id  $.Per.Id }}
-                    <option value="{{ $value.Id }}" selected>{{ $value.Inicio | DATEFORMAT }} </option>
-                    {{else}}
-                    <option value="{{ $value.Id }}" >{{ $value.Inicio | DATEFORMAT }} </option>
-                    {{end}}
+                    <option value="{{ $value.Id }}"
+                    {{ if eq $value.Id  $.Per.Id }} selected {{end}}
+                     >
+                   {{ $value.Inicio | DATEFORMAT }} </option>
                   {{end}}
                </select>
            </div>
@@ -44,10 +43,10 @@
        </form>
 
 	  <div class="lwrapper fcols5c">
+               <div class="box">             </div>
                <div class="box"> Periodo     </div>
                <div class="box"> {{.Per.Inicio  | DATEFORMAT }}     </div>
-               <div class="box">             </div>
-               <div class="box">             </div>
+               <div class="box"> {{.Per.Final   | DATEFORMAT }}     </div>
                <div class="box">             </div>
           </div>
 
