@@ -89,13 +89,10 @@ func CuotRegPOST(w http.ResponseWriter, r *http.Request) {
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
            getFormCuot(&cuot, r)
-<<<<<<< HEAD
            period.Id           =  cuot.PeriodId
            err                 =  (&period).PeriodById()
-=======
            period.Inicio       =  cuot.Period
            err                 =  (&period).PeriodByCode()
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
            cuot.PeriodId       =   period.Id
            err                 =  (&cuot).CuotCreate()
            if err != nil {  // uyy como fue esto ? 
@@ -140,7 +137,6 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
         var cuot model.CuotaN
 	var params httprouter.Params
-<<<<<<< HEAD
 	params   = context.Get(r, "params").(httprouter.Params)
 	id,_    := atoi32(params.ByName("id"))
         cuot.Id  = id
@@ -151,19 +147,7 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
         }
         lisTipo,  err        = model.Tipos()
         if err   != nil {
-=======
-	params  = context.Get(r, "params").(httprouter.Params)
-	id,_   := atoi32(params.ByName("id"))
-        cuot.Id = id
-        path   :=  "/cuota/list"
-        lisApts, err       :=  model.Apts()
-        if err != nil {
              sess.AddFlash(view.Flash{"No hay aptos ", view.FlashError})
-        }
-        lisTipo,  err        = model.Tipos()
-        if err != nil {
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
-             sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
         }
 	err = (&cuot).CuotById()
 	if err != nil { // Si no existe cuota
@@ -173,7 +157,6 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
            http.Redirect(w, r, path, http.StatusFound)
            return
 	}
-<<<<<<< HEAD
 	v                    :=  view.New(r)
 	v.Name                =  "cuota/cuotupdate"
 	v.Vars["token"]       =  csrfbanana.Token(w, r, sess)
@@ -182,15 +165,6 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
         v.Vars["Cuot"]        =  cuot
         v.Vars["LisApt"]      =  lisApts
         v.Vars["LisTip"]      =  lisTipo
-=======
-	v                    := view.New(r)
-	v.Name                = "cuota/cuotupdate"
-	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
-        v.Vars["Cuot"]       = cuot
-        v.Vars["LisApt"]    = lisApts
-        v.Vars["LisTip"]    = lisTipo
-        v.Vars["Level"]       =  sess.Values["level"]
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
         v.Render(w)
    }
 
@@ -198,7 +172,6 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
  func   getCuotFormUp(c1,c2 model.CuotaN, r * http.Request)(stUp string){
         var sf string
 	var sup  []string
-<<<<<<< HEAD
 
 	if c1.ApartaId != c2.ApartaId {
              sf  =  fmt.Sprintf( " aparta_id = %d ", c2.ApartaId )
@@ -210,8 +183,8 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 	}
 	if c1.Fecha != c2.Fecha {
              sf  =  fmt.Sprintf( " fecha = '%s' ", c2.Fecha.Format(layout) )
-=======
-        formato        :=  "2006-01-02"
+	     sup = append(sup, sf)
+	}
 
 	if c1.PeriodId != c2.PeriodId {
              sf  =  fmt.Sprintf( " period_id = %d ", c2.PeriodId )
@@ -226,8 +199,7 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 	     sup = append(sup, sf)
 	}
 	if c1.Fecha != c2.Fecha {
-             sf  =  fmt.Sprintf( " fecha = '%s' ", c2.Fecha.Format(formato) )
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
+             sf  =  fmt.Sprintf( " fecha = '%s' ", c2.Fecha.Format(layout) )
 	     sup = append(sup, sf)
 	}
 	if c1.Amount != c2.Amount {
@@ -236,21 +208,13 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 	}
        lon := len(sup)
        if lon  > 0 {
-<<<<<<< HEAD
-            sini        :=  "update balances set "
 	    now         := time.Now()
 	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
-            stUp =  strings.Join(sup, ", ")
-            sr          :=  fmt.Sprintf(" where balances.id = %d ", c1.Id)
-             stUp = sini + stUp + sf + sr
-=======
             sini        :=  "update cuotas set "
-            stUp =  strings.Join(sup, ", ")
+            stUp         =  strings.Join(sup, ", ")
             sr          :=  fmt.Sprintf(" where cuotas.id = %d ", c1.Id)
-             stUp = sini + stUp + sr
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
+            stUp         = sini + stUp + sf +  sr
        }
-
          return
   }
 // ---------------------------------------------------

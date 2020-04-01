@@ -1,0 +1,2 @@
+INFO 2020/04/01 08:27:20 main.go:42: Starting app
+2020/04/01 08:27:20 model.go:109: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')

@@ -301,11 +301,7 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
             sini        :=  "update persons set "
             stUp =  strings.Join(sArrSup, ", ")
             sr          :=  fmt.Sprintf(" where persons.id = %d ", p1.Id)
-<<<<<<< HEAD
              stUp = sini + stUp +sf + sr
-=======
-             stUp = sini + stUp + sr
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
        }
          return
     }
