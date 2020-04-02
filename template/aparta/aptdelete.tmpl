@@ -5,7 +5,7 @@
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-       <form method="post" action="{{.Action}}" >
+       <form method="post" action="{{.Action}}/{{Apto.Id}}" >
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="codigo">Codigo</label>
@@ -24,7 +24,7 @@
               </div>
            </div>
 
-	   <div class="fwrapper fcols4">
+	   <div class="fwrapper fcols2">
               <div class="fbox">
 		 <input type="hidden" name="token" value="{{.token}}">
               </div>

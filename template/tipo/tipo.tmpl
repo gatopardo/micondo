@@ -1,10 +1,12 @@
-{{define "title"}}Crear Categoria{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
+{{define "foot"}}<h5>Categorias</h5>{{end}}
+
 {{define "content"}}
 
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>  
-       <form method="post">
+       <form method="post" action="{{.Action}}">
        <div class="fwrapper fcols2 ">
             <div class="fbox">
                <label for="codigo">Codigo</label>
@@ -43,8 +45,6 @@
    {{end}} 
 
 	
-	{{template "footer" .}}
 </div>
 
 {{end}}
-{{define "foot"}}<h5>Categoria</h5>{{end}}

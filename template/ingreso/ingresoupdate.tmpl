@@ -17,23 +17,14 @@
            </div>
 		
            {{ $save := .}}
-<<<<<<< HEAD
 	
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                <label for="tipoId" >Tipo</label>
               </div>
-           <div class="fbox">
-               <select name="tipoId"> 
-=======
 		
-	   <div class="fwrapper fcols2">
-              <div class="fbox">
-               <label for="tipo" >Tipo</label>
-              </div>
            <div class="fbox">
                <select name="tipId"> 
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
                   {{range $key, $value := .LisTip}}
                     <option value="{{ $value.Id }}"
                     {{if eq $value.Id $save.Ingre.TipoId}} selected  {{end}}
@@ -59,11 +50,7 @@
                  <label for="amount">Monto</label>
               </div>
               <div class="fbox">
-<<<<<<< HEAD
                  <input type="text" id="amount" name="amount" size="16"  value="{{.Ingre.Amount | FORMAT64}}"  />
-=======
-                 <input type="text" id="monto" name="monto" size="16"  value="{{.Ingre.Amount | FORMAT64}}"  />
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
               </div>
            </div>
 
@@ -72,11 +59,7 @@
                <label for="descripcion" >Descripcion</label>
            </div>
             <div class="fbox">
-<<<<<<< HEAD
                 <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" value="{{.Ingre.Descripcion}}"/>
-=======
-                <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" {{.Ingre.Descripcion}}/>
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
            </div>
          </div>
 

@@ -27,6 +27,8 @@ func AptGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "aparta/apt"
 	v.Vars["token"] = csrfbanana.Token(w, r, sess)
+	v.Vars["Title"]  = "Crear Apto"
+	v.Vars["Action"]  = "/apto/register"
         v.Vars["LisApts"] =  lisApts
 	v.Render(w)
  }
@@ -59,7 +61,7 @@ func AptPOST(w http.ResponseWriter, r *http.Request) {
               }
           }
           sess.Save(r, w)
-	  http.Redirect(w, r, "/apto/list/1", http.StatusFound)
+	  http.Redirect(w, r, "/apto/list", http.StatusFound)
   }
 
 // ---------------------------------------------------
@@ -84,6 +86,8 @@ func AptUpGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "aparta/aptupdate"
 	v.Vars["token"]  = csrfbanana.Token(w, r, sess)
+	v.Vars["Title"]  = "Actualizar Apto"
+	v.Vars["Action"]  = "/apto/update"
         v.Vars["Apto"] = apt
         v.Render(w)
    }
@@ -125,7 +129,11 @@ func AptUpPOST(w http.ResponseWriter, r *http.Request) {
         path        :=  "/apto/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-		err                 :=  (&apt).AptById()
+            err                 :=  (&apt).AptById()
+	    if err != nil{
+                 log.Println(err)
+                 sess.AddFlash(view.Flash{"Error No Apto", view.FlashError})
+	    }
             a2.Codigo           = r.FormValue("codigo")
             a2.Descripcion      = r.FormValue("descripcion")
             st                 :=  getAptFormUp(apt, a2, r)
@@ -184,7 +192,7 @@ func AptLisGET(w http.ResponseWriter, r *http.Request) {
 	v.Name = "aparta/aptdelete"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
         v.Vars["Title"]     =  "Eliminar Aparta"
-        v.Vars["Action"]    =  "/aparta/delete"
+        v.Vars["Action"]    =  "/apto/delete"
         v.Vars["Apto"]      =  apt
 	v.Render(w)
   }

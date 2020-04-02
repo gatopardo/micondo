@@ -1,27 +1,9 @@
 {{define "title"}}Listar Categorias{{end}}
-{{define "head"}}  
- 
-{{end}}
-
-
-{{define "pagi"}}
-     <div class="cwrapper">
-        {{ range $index, $btn := .slice }}
-            {{if eq $btn $.current}}
-               <div class="button color2">
-                  <a class="label" href="/categoria/list/{{$btn}}"> << {{$btn}} >></a>
-            {{else}}
-               <div class="button color1">
-                  <a class="label" href="/categoria/list/{{$btn}}"> {{$btn}}</a>
-            {{end}}
-               </div>
-         {{end}}
-     </div>
-   {{end}}
+{{define "head"}}  {{end}}
+{{define "foot"}}{{end}}
 
 
  {{define "content"}}
-      {{template "pagi"    .  }}
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
 	  <div class="lwrapper fcols3">
@@ -61,7 +43,6 @@
            {{end}} 
          </div>
       {{end}}
-      {{template "footer" .}}
+
 {{end}}
 
-{{define "foot"}}{{end}}

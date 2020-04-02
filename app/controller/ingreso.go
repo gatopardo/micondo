@@ -252,7 +252,6 @@ func IngreLisPOST(w http.ResponseWriter, r *http.Request) {
             sess.Save(r, w)
          }
          Id,_             = atoi32(r.FormValue("id"))
-//  fmt.Println("IngreLis lon ", len(lisPeriod), " id ", Id, " ", r.Method)
 	per.Id                 = Id
 	err = (&per).PeriodById();
         if err != nil {

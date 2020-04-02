@@ -5,6 +5,7 @@ import (
 	"net/http"
         "strings"
         "fmt"
+        "time"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -26,6 +27,8 @@ func TipoGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "tipo/tipo"
 	v.Vars["token"] = csrfbanana.Token(w, r, sess)
+	v.Vars["Title"]  = "Crear Apto"
+	v.Vars["Action"]  = "/categoria/register"
         v.Vars["LisTipos"] =  lisTipos
 	v.Render(w)
  }
@@ -34,8 +37,9 @@ func TipoGET(w http.ResponseWriter, r *http.Request) {
 // POST procesa la forma enviada con los datos
 func TipoPOST(w http.ResponseWriter, r *http.Request) {
         var tipo model.Tipo
-	sess := model.Instance(r)
-        action        := r.FormValue("action")
+	sess      := model.Instance(r)
+        action    := r.FormValue("action")
+	path      :=  "/categoria/list"
         if ! (strings.Compare(action,"Cancelar") == 0) {
 	    if validate, missingField := view.Validate(r, []string{"codigo"}); !validate {
                  sess.AddFlash(view.Flash{"Falta Campo: " + missingField, view.FlashError})
@@ -58,7 +62,7 @@ func TipoPOST(w http.ResponseWriter, r *http.Request) {
               }
           }
           sess.Save(r, w)
-	  http.Redirect(w, r, "/categoria/list/1", http.StatusFound)
+	  http.Redirect(w, r, path, http.StatusFound)
   }
 
 // ---------------------------------------------------
@@ -69,8 +73,7 @@ func TipoUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	id,_ := atoi32(params.ByName("id"))
-	SPag   := params.ByName("pg")
-        path   :=  fmt.Sprintf("/categoria/list/%s", SPag)
+        path   :=  "/categoria/list"
         tipo.Id = id
 	 err := (&tipo).TipoById()
 	if err != nil { // Si no existe el usuario
@@ -83,20 +86,33 @@ func TipoUpGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "tipo/tipoupdate"
 	v.Vars["token"]  = csrfbanana.Token(w, r, sess)
+	v.Vars["Title"]  = "Actualizar Categoria"
+	v.Vars["Action"]  = "/categoria/update"
         v.Vars["Tipo"] = tipo
         v.Render(w)
    }
    // ---------------------------------------------------
- func   getTipoFormUp(r * http.Request)(st string){
+ func   getTipoFormUp(t1, t2 model.Tipo , r * http.Request)(stup string){
         var sf string
-        st = ""
         var sup []string
-        if r.FormValue("ckdescrip") == "true" {
-             sf  =  fmt.Sprintf( " descrip = '%s' ", r.FormValue("descrip") )
+
+        if t1.Descripcion != t2.Descripcion {
+             sf  =  fmt.Sprintf( " descrip = '%s' ", t2.Descripcion )
              sup = append(sup, sf)
         }
-        if len(sup) > 0 {
-              st =  strings.Join(sup, ", ")
+        if t1.Codigo != t2.Codigo {
+             sf  =  fmt.Sprintf( " descrip = '%s' ", t2.Codigo )
+             sup = append(sup, sf)
+        }
+	lon :=  len(sup)
+        if lon > 0 {
+            sini       :=  "update tipos set "
+	    now        := time.Now()
+	    sf          =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+            sr         :=  fmt.Sprintf(" where tipo.id = %d ", t1.Id)
+            stup        =  strings.Join(sup, ", ")
+            stup        = sini + stup + sf + sr
+
         }
         return
   }
@@ -106,25 +122,22 @@ func TipoUpGET(w http.ResponseWriter, r *http.Request) {
 // TipoUpPOST procesa la forma enviada con los datos
 func TipoUpPOST(w http.ResponseWriter, r *http.Request) {
         var err error
-        var tipo model.Tipo
+        var tipo, t2 model.Tipo
 	// Get session
 	sess := model.Instance(r)
         var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
-	SPag        := params.ByName("pg")
         Id,_        := atoi32(SId)
         tipo.Id      = Id
-        path        :=  fmt.Sprintf("/categoria/list/%s", SPag)
+        t2.Id        = Id
+        path        := "/categoria/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            sr          :=  fmt.Sprintf(" where tipo.id = %s ", SId)
-            sini        :=  "update tipos set "
-            st          :=  getTipoFormUp(r)
+            st          :=  getTipoFormUp(tipo, t2, r)
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No hay actualizacion solicitada", view.FlashSuccess})
             } else {
-             st = sini + st + sr
              err =  tipo.Update(st)
              if err == nil{
                  sess.AddFlash(view.Flash{"Tipo actualizado exitosamente para: " +tipo.Codigo, view.FlashSuccess})
@@ -141,14 +154,6 @@ func TipoUpPOST(w http.ResponseWriter, r *http.Request) {
 // TipoLisGET displays the tipo page
 func TipoLisGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
-//        var params httprouter.Params
-//        params = context.Get(r, "params").(httprouter.Params)
-//        SPg   := params.ByName("pg")
-//        pg,_ := atoi32(SPg)
-//        posact = int(pg)
-//        offset = posact  - 1
-//        offset = offset * limit
-//        TotalCount = model.TipoCount()
         lisTipos, err := model.Tipos()
         if err != nil {
            log.Println(err)
@@ -158,10 +163,6 @@ func TipoLisGET(w http.ResponseWriter, r *http.Request) {
 	v                 := view.New(r)
 	v.Name             = "tipo/tipolis"
 	v.Vars["token"]    = csrfbanana.Token(w, r, sess)
-//        numberOfBtns      :=  getNumberOfButtonsForPagination(TotalCount, limit)
-//        sliceBtns         :=  createSliceForBtns(numberOfBtns, posact)
-//        v.Vars["slice"]    =  sliceBtns
-        v.Vars["current"]  =  posact
         v.Vars["LisTipo"]   = lisTipos
         v.Vars["Level"]    =  sess.Values["level"]
 	v.Render(w)
@@ -173,11 +174,10 @@ func TipoLisGET(w http.ResponseWriter, r *http.Request) {
         sess := model.Instance(r)
         var tipo model.Tipo
         var params httprouter.Params
-        params = context.Get(r, "params").(httprouter.Params)
-        Id,_ := atoi32(params.ByName("id"))
-        tipo.Id = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/categoria/list/%s", SPag)
+        params   = context.Get(r, "params").(httprouter.Params)
+        Id,_    := atoi32(params.ByName("id"))
+        tipo.Id  = Id
+        path    :=  "/categoria/list"
         err := (&tipo).TipoById()
         if err != nil {
             log.Println(err)
@@ -189,8 +189,9 @@ func TipoLisGET(w http.ResponseWriter, r *http.Request) {
 	v := view.New(r)
 	v.Name = "tipo/tipodelete"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
+        v.Vars["Title"]     =  "Eliminar Tipo"
+        v.Vars["Action"]    =  "/tipo/delete"
         v.Vars["Tipo"]      =  tipo
-        v.Vars["level"]     =  sess.Values["level"]
 	v.Render(w)
   }
 // ---------------------------------------------------
@@ -203,8 +204,7 @@ func TipoLisGET(w http.ResponseWriter, r *http.Request) {
         params = context.Get(r, "params").(httprouter.Params)
         Id,_ := atoi32(params.ByName("id"))
         tipo.Id = Id
-	SPag        := params.ByName("pg")
-        path        :=  fmt.Sprintf("/categoria/list/%s", SPag)
+        path        :=  "/categoria/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             err  = tipo.Delete()

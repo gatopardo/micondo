@@ -5,22 +5,14 @@
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>
-<<<<<<< HEAD
        <form method="post" action="{{.Action}}/{{.Cuot.Id}}">
-=======
-       <form method="post" action="/cuota/update/{{.Cuot.Id}}">
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
                  <label for="period">Periodo</label>
               </div>
               <div class="fbox">
-<<<<<<< HEAD
                  <input type="text" id="period" name="period" size="12"  value="{{.Cuot.Period | DATEFORMAT}}" readonly />
-=======
-                 <input type="text" id="periodId" name="periodId" size="12"  value="{{.Cuot.Period | DATEFORMAT}}" readonly />
->>>>>>> f465b1bf4aa3a90fd83cfd0ebb4b2020c1cba62c
               </div>
            </div>
 

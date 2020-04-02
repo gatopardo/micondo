@@ -231,7 +231,6 @@ func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
         c.Id         = Id
         path        :=  "/cuota/list"
         action      := r.FormValue("action")
-	fmt.Println(action)
         if ! (strings.Compare(action,"Cancelar") == 0) {
 	    err = (&cuot).CuotById()
 	    if err != nil { // Si no existe cuota
@@ -280,7 +279,7 @@ func CuotLisPOST(w http.ResponseWriter, r *http.Request) {
         var Id  uint32
 	var per model.Periodo
 	sess            := model.Instance(r)
-        lisPeriod,err    := model.PeriodsI()
+        lisPeriod,err    := model.Periods()
         if err != nil {
             log.Println(err)
 	    sess.AddFlash(view.Flash{"Error Obteniendo Periodos.", view.FlashError})
