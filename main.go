@@ -39,7 +39,7 @@ func init() {
 }
 
 func main() {
-          route.Flogger.Println("Starting app")
+        route.Flogger.Println("Starting app")
 	// Load the configuration file
 	jsonconfig.Load("config"+string(os.PathSeparator)+"config.json", config)
 

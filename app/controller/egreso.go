@@ -6,6 +6,7 @@ import (
         "fmt"
         "strings"
         "time"
+        "encoding/json"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -250,6 +251,51 @@ func EgreLisGET(w http.ResponseWriter, r *http.Request) {
         v.Vars["Action"]    =  "/egreso/list"
 	v.Render(w)
  }
+//------------------------------------------------
+ func JEgreGET(w http.ResponseWriter, r *http.Request) {
+	var periodo model.Periodo
+        var lisEgre  []model.EgresoJ
+	var  egresoL  model.EgresoL
+        var js []byte
+        var params httprouter.Params
+        params      = context.Get(r, "params").(httprouter.Params)
+	sfec       :=  params.ByName("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+        if err != nil {
+	        fmt.Println(err)
+	        log.Println(err)
+	}else{
+//        fmt.Println(" JEgreGET fec:",sfec, " - ", dtfec )
+        dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
+//        fmt.Println(" JEgreGET fec:",sfec, " - ", dtfec )
+        err         = (&periodo).PeriodByFec(dtfec)
+        if err     != nil {
+	        fmt.Println(err)
+	        log.Println(err)
+        }else{
+          lisEgre, err           = model.EgresoJPer( periodo.Id )
+          if err != nil {
+            log.Println(err)
+            log.Println(err)
+          }else{
+            egresoL.Period  =  periodo.Inicio
+            egresoL.LisEgre =  lisEgre
+            js, err =  json.Marshal(egresoL)
+            if err == nil{
+//               fmt.Println(" json " + string(js))
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }
+           }
+          }
+          }
+          fmt.Println("JEgre  ", err)
+          log.Println("JEgre  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+ }
+
 
 //------------------------------------------------
 // EgreLis displays the egres page

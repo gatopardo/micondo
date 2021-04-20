@@ -2,7 +2,7 @@ package controller
 
 import (
         "fmt"
-        "strings" 
+        "strings"
           "strconv"
 //	   "github.com/jung-kurt/gofpdf"
   )
@@ -10,6 +10,8 @@ import (
       const(
               limit       = 15
               margenlat   = 3
+	      layout      = "2006-01-02"
+              timeLayout = "15:04:05"
             )
       var (
             TotalCount  int

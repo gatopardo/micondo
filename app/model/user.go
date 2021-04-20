@@ -32,6 +32,7 @@ import (
         ApartaId     uint32        `db:"aparta_id"  bson: "aparta_id"`
 	Fname       string        `db:"first_name" bson:"first_name"`
 	Lname       string        `db:"last_name" bson:"last_name"`
+	FecNac      time.Time     `db:"fecNac" bson:"fecNac"`
 	Email       string        `db:"email" bson:"email"`
 	Address     string        `db:"address" bson:"address"`
 	Tele        string        `db:"tele" bson:"tele"`
@@ -46,6 +47,26 @@ import (
            Usu User
            Pers Person
 	   Apto Aparta
+   }
+
+   type Jperson struct {
+	Id          uint32        `db:"id" bson:"id,omitempty"`
+	Cuenta      string        `db:"cuenta" bson:"cuenta"`
+//	Password    string        `db:"password" bson:"password"`
+	Uuid        string        `db:"uuid" bson:"uuid,omitempty"`
+	Nivel       uint32        `db:"nivel" bson:"nivel"`
+        AptId       uint32       `db:"aptid" bson:"aptid"`
+	Apto        string        `db:"apto" bson:"apto"`
+        PersonId    uint32        `db:"personid" bson:"personid"`
+	Fname       string        `db:"first_name" bson:"first_name"`
+	Lname       string        `db:"last_name" bson:"last_name"`
+	FecNac      time.Time     `db:"fecNac" bson:"fecNac"`
+	Email       string        `db:"email" bson:"email"`
+	Address     string        `db:"address" bson:"address"`
+	Tele        string        `db:"tele" bson:"tele"`
+	Mobil       string        `db:"mobil" bson:"mobil"`
+        Tipo        string        `db:"type"  bson: "type"`
+        Photo       string        `db:"photo"  bson: "photo"`
    }
 
 // Shadow table contains text password
@@ -214,7 +235,7 @@ func (p * Person)PersonCreate()( err error) {
 func (p * Person) Update(stq string ) (err error) {
             _, err = Db.Exec(stq )
             if err != nil{
-              fmt.Println("Person Update ", err)
+              log.Println("Person Update ", err)
             }
 	    return standardizeError(err)
 }
@@ -245,12 +266,11 @@ func PersDeleteAll() (err error) {
 		return
 	}
 	defer rows.Close()
-       fmt.Println(stq)
+       log.Println(stq)
 	for rows.Next() {
 		person := Person{}
 		if err = rows.Scan(&person.Id, &person.ApartaId ,&person.Fname, &person.Lname, &person.Email, &person.Address, &person.Tele, &person.Mobil, &person.Photo ,&person.CreatedAt, &person.UpdatedAt); err != nil {
               log.Println(err)
-              fmt.Println(err)
 		}
 		persons = append(persons, person)
 	}
@@ -272,9 +292,57 @@ func (user * User)UserById() (err error) {
 func (user *User)UserByCuenta() ( error) {
 	var err error
         stq  :=   "SELECT id, uuid, cuenta, password,nivel, created_at, updated_at FROM users WHERE cuenta=$1"
+//	 fmt.Println("UserByCuenta ", user.Cuenta," ; ", user.Password , stq)
          err = Db.QueryRow(stq, &user.Cuenta).Scan(&user.Id, &user.Uuid, &user.Cuenta, &user.Password, &user.Nivel, &user.CreatedAt, &user.UpdatedAt)
 	return   standardizeError(err)
 }
+
+// ----------------------------------------
+// JpersByCuenta gets user information from cuenta
+func (jpers *Jperson)JPersByCuenta()(pass string,  ex error) {
+	var err error
+        stq  :=   "SELECT  u.id,u.cuenta, u.password,u.uuid, u.nivel, a.codigo, p.fname, p.lname, p.fecNac, p.email, p.address, p.tele, p.mobil, p.tipo, p.photo  FROM users u JOIN persons p ON u.person_id = p.id JOIN apartas a ON p.aparta_id = a.id  WHERE u.cuenta=$1"
+         err = Db.QueryRow(stq,&jpers.Cuenta).Scan(&jpers.Id, &jpers.Cuenta, &pass, &jpers.Uuid, &jpers.Nivel, &jpers.Apto, &jpers.Fname, &jpers.Lname, &jpers.FecNac, &jpers.Email,&jpers.Address, &jpers.Tele, &jpers.Mobil, &jpers.Tipo, &jpers.Photo)
+     if err != nil {
+	 jpers.Cuenta   = strings.Trim(jpers.Cuenta, " ")
+	 jpers.Uuid     = strings.Trim(jpers.Uuid, " ")
+	 jpers.Apto     = strings.Trim(jpers.Apto, " ")
+	 jpers.Fname    = strings.Trim(jpers.Fname, " ")
+	 jpers.Lname    = strings.Trim(jpers.Lname, " ")
+	 jpers.Email    = strings.Trim(jpers.Email, " ")
+	 jpers.Address  = strings.Trim(jpers.Address, " ")
+	 jpers.Tele     = strings.Trim(jpers.Tele, " ")
+	 jpers.Mobil    = strings.Trim(jpers.Mobil, " ")
+	 jpers.Tipo     = strings.Trim(jpers.Tipo, " ")
+	 jpers.Photo    = strings.Trim(jpers.Photo, " ")
+   }
+	 ex             = standardizeError(err)
+	return
+}
+// -----------------------------------------------------
+// JpersById gets user information from cuenta
+func (jpers *Jperson)JPersByUserId(uid uint32)(pass string,  ex error) {
+	var err error
+        stq  :=   "SELECT  u.id,u.cuenta, u.password, u.uuid, u.nivel,a.id, a.codigo,p.id, p.fname, p.lname, p.fecNac, p.email, p.address, p.tele, p.mobil, p.tipo, p.photo  FROM users u JOIN persons p ON u.person_id = p.id JOIN apartas a ON p.aparta_id = a.id  WHERE u.id=$1"
+         err = Db.QueryRow(stq, uid).Scan(&jpers.Id, &jpers.Cuenta, &pass, &jpers.Uuid, &jpers.Nivel, &jpers.AptId , &jpers.Apto,&jpers.PersonId , &jpers.Fname, &jpers.Lname, &jpers.FecNac, &jpers.Email,&jpers.Address, &jpers.Tele, &jpers.Mobil, &jpers.Tipo, &jpers.Photo)
+      if err !=  nil{
+
+	 jpers.Cuenta   = strings.Trim(jpers.Cuenta, " ")
+	 jpers.Uuid     = strings.Trim(jpers.Uuid, " ")
+	 jpers.Apto     = strings.Trim(jpers.Apto, " ")
+	 jpers.Fname    = strings.Trim(jpers.Fname, " ")
+	 jpers.Lname    = strings.Trim(jpers.Lname, " ")
+	 jpers.Email    = strings.Trim(jpers.Email, " ")
+	 jpers.Address  = strings.Trim(jpers.Address, " ")
+	 jpers.Tele     = strings.Trim(jpers.Tele, " ")
+	 jpers.Mobil    = strings.Trim(jpers.Mobil, " ")
+	 jpers.Tipo     = strings.Trim(jpers.Tipo, " ")
+	 jpers.Photo    = strings.Trim(jpers.Photo, " ")
+      }
+	 ex             = standardizeError(err)
+	return
+}
+// -----------------------------------------------------
 
 // -----------------------------------------------------
 // UserCreate crear usuario
@@ -347,22 +415,21 @@ func UserDeleteAll() (err error) {
 	rows, err := Db.Query(stq)
 	if err != nil {
            log.Println(err)
-           fmt.Println(err)
+//           fmt.Println(err)
            return
 	}
 	defer rows.Close()
 	for rows.Next() {
 		indi := Individ{}
 		if err = rows.Scan(&indi.Usu.Id,  &indi.Usu.Cuenta,  &indi.Usu.Nivel,&indi.Pers.Id,  &indi.Pers.Fname, &indi.Pers.Lname,&indi.Pers.Email, &indi.Pers.Address, &indi.Pers.Tele, &indi.Pers.Mobil, &indi.Pers.Tipo, &indi.Pers.Photo, &indi.Apto.Id, &indi.Apto.Codigo, &indi.Apto.Descripcion); err != nil {
-              fmt.Println(indi.Usu, indi.Pers)
+//              fmt.Println(indi.Usu, indi.Pers)
               log.Println(err)
-              fmt.Println(err)
+//              fmt.Println(err)
            }
 	    users = append(users, indi)
 	}
     return
  }
-// -----------------------------------------------------
 // -----------------------------------------------------
 // Get selected users in the database and returns the list
   func SUsers(rsearch string) (users []Individ, err error) {
@@ -381,7 +448,7 @@ func UserDeleteAll() (err error) {
                stqf =    " order by p.lname, p.fname"
         stq =  stqi  + stq1 + stq2  + stqf
 
-fmt.Println("SUsus ", stq)
+// fmt.Println("SUsus ", stq)
 	rows, err := Db.Query(stq)
 	if err != nil {
 
@@ -393,7 +460,7 @@ fmt.Println("SUsus ", stq)
                  var arPhoto []byte
 		if err = rows.Scan(&indi.Usu.Id,  &indi.Usu.Cuenta,  &indi.Usu.Nivel, &indi.Pers.Fname, &indi.Pers.Lname, &indi.Pers.Address, &indi.Pers.Tele, &indi.Pers.Mobil, &indi.Pers.Tipo, &arPhoto); err != nil {
 
-fmt.Println(indi.Usu, indi.Pers)
+// fmt.Println(indi.Usu, indi.Pers)
 			return
 		}
                 indi.Pers.Photo = string(arPhoto)

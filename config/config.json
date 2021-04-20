@@ -7,7 +7,7 @@
 			"Password": "",
 			"Name": "dbcondo",
 			"Hostname": "127.0.0.1",
-			"Port": 5433,
+			"Port": 5434,
 			"Parameter": "disable"
 		}
 	},
@@ -15,7 +15,7 @@
                 "Remote": true,
 		"Hostname": "0.0.0.0",
 		"UseHTTP": true,
-		"UseHTTPS": false,
+		"UseHTTPS": true,
 		"HTTPPort": 9090,
 		"HTTPSPort": 4430,
 		"CertFile": "tls/server.crt",
@@ -35,7 +35,7 @@
 	},
 	"Session": {
 		"SecretKey": "@r4B?EThaSEh_drudR7P_hub=s#s2Pah",
-		"Name": "felipe",
+		"Name": "micondo",
 		"Options": {
 			"Path": "/",
 			"Domain": "",

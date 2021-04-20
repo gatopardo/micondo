@@ -34,11 +34,19 @@ func (period * Periodo)PeriodById() (err error) {
 }
 
 // --------------------------------------------------------
-
-// PeriodById tenemos el period dado id
+// PeriodByCode tenemos el period dado id
 func (period * Periodo)PeriodByCode() (err error) {
-        stq  :=   "SELECT id, inicio, final, created_at, updated_at FROM periods WHERE inicio=$1"
+        stq  :=   "SELECT id, inicio, final, created_at, updated_at FROM periods WHERE inicio = $1"
 	err = Db.QueryRow(stq, &period.Inicio).Scan(&period.Id, &period.Inicio, &period.Final, &period.CreatedAt, &period.UpdatedAt)
+
+	return  standardizeError(err)
+}
+
+// --------------------------------------------------------
+// PeriodByFec tenemos el period dado id
+func (period * Periodo)PeriodByFec(fec time.Time) (err error) {
+        stq  :=   "SELECT id, inicio, final, created_at, updated_at FROM periods WHERE $1 BETWEEN inicio AND final"
+	err = Db.QueryRow(stq, fec).Scan(&period.Id, &period.Inicio, &period.Final, &period.CreatedAt, &period.UpdatedAt)
 
 	return  standardizeError(err)
 }
@@ -48,7 +56,7 @@ func (period * Periodo)PeriodByCode() (err error) {
 func (period *Periodo)PeriodCreate() error {
          var err error
          var stmt  *sql.Stmt
-         stq := "INSERT INTO periods ( inicio, final, created_at, updated_at ) VALUES ($1,$2,$3, $4) returning id" 
+         stq := "INSERT INTO periods ( inicio, final, created_at, updated_at ) VALUES ($1,$2,$3, $4) returning id"
 
 	now  := time.Now()
 

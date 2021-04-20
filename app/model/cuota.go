@@ -4,8 +4,15 @@ import (
         "database/sql"
 	"time"
         "log"
-//       "fmt"
+//        "fmt"
+
 )
+
+//     const(
+//              layout      = "2006-01-02"
+//              timeLayout = "15:04:05"
+//           )
+
 
 // *****************************************************************************
 // Cuota
@@ -52,6 +59,12 @@ type CuotaN struct {
 	 Atraso        int64
 	 Mora          int64
   }
+
+  type AmtPerCond struct {
+          Fecha         time.Time
+	  LisAmt        []AmtCond
+  }
+
 // "SELECT c.id, c.period_id,p.inicio,c.aparta_id,a.codigo,c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t  WHERE c.period_id = p.id and c.aparta_id = a.id AND c.tipo_id = t.id  AND c.id= $1 "
 
 // -----------------------------------------
@@ -234,10 +247,11 @@ func CuotDeleteAll() (err error) {
 		}
 	        cuots[i].Balance = sum
 	    }
-	    var i int
+	    var i  int
 	    for i,_ =  range cuots {
 		 feci  := cuots[i].Inicio
-                 if fec.Equal(feci) || fec.Before(feci) {
+		 fecj  :=  time.Date(feci.Year(), feci.Month(), feci.Day(), 0, 0, 0, 0, time.Local)
+                 if fec.Equal(fecj) || fec.Before(fecj) {
 			 break
 		 }
 	    }
@@ -250,13 +264,12 @@ func CuotDeleteAll() (err error) {
         var rows * sql.Rows
         stq  := "SELECT p.id,  p.inicio, b.cuota, c1.fecha, c1.amount " +
 	        " FROM balances b JOIN periods p ON b.period_id = p.id " +
-		" left JOIN " + 
+		" left JOIN " +
 		" (SELECT p.id AS id, c.fecha AS fecha,c.aparta_id, c.amount AS amount " +
 		" FROM cuotas c JOIN periods p ON p.id = c.period_id " +
 		" JOIN apartas a ON c.aparta_id = a.id JOIN persons p1 ON p1.aparta_id = a.id " +
 		" WHERE c.aparta_id = $1 )  c1 ON p.id = c1.id "  +
 		" WHERE p.inicio <= $2  ORDER BY p.inicio"
-
 
 	rows, err = Db.Query(stq, aid, fecf)
 	if err != nil {
@@ -269,7 +282,7 @@ func CuotDeleteAll() (err error) {
             c := CuotApt{}
 	    var  sqFec  sql.NullTime
 	    var  sqAmt  sql.NullInt64
-            err = rows.Scan(&c.Id, &c.Inicio, &c.Cuota, &sqFec, &sqAmt )
+            err = rows.Scan(&c.Id, &c.Inicio,  &c.Cuota, &sqFec, &sqAmt )
 	    if err != nil {
 		log.Println(err)
 	         return

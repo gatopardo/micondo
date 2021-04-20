@@ -36,6 +36,17 @@ type EgresoN struct {
 	UpdatedAt time.Time        `db:"updated_at" bson:"updated_at"`
 }
 
+type EgresoJ struct {
+	Tipo             string     `db:"tcodigo" bson:"tcodigo,omitempty"`
+        Fecha       time.Time       `db:"fecha" bson:"fecha"`
+        Amount           int64     `db:"amount" bson:"amount"`
+        Descripcion      string      `db:"dscripcion" bson:"dscripcion"`
+}
+
+type EgresoL struct {
+        Period      time.Time
+	LisEgre     []EgresoJ
+}
 // -----------------------------------------
 // EgresById tenemos el egreso dado id
 func (egres * EgresoN)EgresById() (err error) {
@@ -138,8 +149,27 @@ func EgresDeleteAll() (err error) {
          }
        return
  }
-// -------------------------------------------------------------
 
+// -------------------------------------------------------------
+// Get egresos from a period - json 
+  func EgresoJPer(id uint32 ) (egresos []EgresoJ, err error) {
+        stq :=   "SELECT t.codigo, e.fecha, e.amount, e.description FROM egresos e, periods p,  tipos t where e.period_id = p.id  and e.tipo_id = t.id and p.id = $1 order by p.inicio, e.fecha "
+	rows, err := Db.Query(stq, id)
+	if err != nil {
+            return
+	}
+        defer rows.Close()
+        for rows.Next() {
+           egres := EgresoJ{}
+           if err = rows.Scan( &egres.Tipo, &egres.Fecha, &egres.Amount, &egres.Descripcion); err != nil {
+                  return
+            }
+           egresos = append(egresos, egres)
+         }
+       return
+ }
+
+// -------------------------------------------------------------
 // Get all egresos per a period in the database and returns the list
   func (egre * EgresoN)EgresPer() (egresos []EgresoN, err error) {
         stq :=   "SELECT e.id, e.period_id, p.inicio,  e.tipo_id, t.codigo, e.fecha, e.amount, e.description, e.created_at, e.updated_at FROM egresos e, periods p,  tipos t where e.period_id = p.id and e.tipo_id = t.id and e.period_id = $1 order by p.inicio"

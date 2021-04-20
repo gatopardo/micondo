@@ -1,38 +1,45 @@
 package controller
 
 import (
-      "log"
+        "log"
 	"net/http"
         "fmt"
         "strings"
         "strconv"
         "time"
+        "encoding/json"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
 	"github.com/gatopardo/micondo/app/shared/email"
 	"github.com/gorilla/sessions"
 
-//        "github.com/gorilla/context"
+        "github.com/gorilla/context"
 	"github.com/josephspurrier/csrfbanana"
-//       "github.com/julienschmidt/httprouter"
+       "github.com/julienschmidt/httprouter"
   )
 
   type  STotals struct{
-       SCuot  int64
-       SIng  int64
-       SEgre  int64
-       SAtra  int64
+       SCuot    int64
+       SIng     int64
+       SEgre    int64
+       SAtra    int64
        SAmount  int64
   }
 
    type  ArPay struct {
+	Apto    string
+	Final   time.Time
+	APaym   []model.CuotApt
+   }
+
+   type TotPay struct {
         Value   int64
 	Fname   string
 	Lname   string
 	Email   string
-	Codigo   string
-	Final    time.Time
+	Codigo  string
+	Final   time.Time
 	APaym   []model.CuotApt
    }
 
@@ -55,10 +62,8 @@ func MailSendGET(w http.ResponseWriter, r *http.Request) {
  }
 // ---------------------------------------------------
   func  getContent(r *http.Request)( tema, content string){
-            dateLayout := "2006-01-02"
-            timeLayout := "15:04:05"
             tim        := time.Now()
-            fec        := tim.Format(dateLayout)
+            fec        := tim.Format(layout)
             hour       := tim.Format(timeLayout)
             stm        := "Fecha "+fec +" Hora : " + hour
 	    tema       = r.FormValue("tema")
@@ -69,11 +74,12 @@ func MailSendGET(w http.ResponseWriter, r *http.Request) {
    func sendPost(sess *sessions.Session, lisPers []model.Person, tema, content string){
              for _,person := range lisPers{
                  to := person.Email
-    fmt.Printf(" %s | %s\n", person.Fname ,to)
+//    fmt.Printf(" %s | %s\n", person.Fname ,to)
                 err := email.SendEmail(to, tema,content);
                 if err != nil {
                    sess.AddFlash(view.Flash{"Error enviando ", view.FlashError})
-		   fmt.Println("Error Enviando", err)
+//		   fmt.Println("Error Enviando", err)
+		   log.Println("Error Enviando", err)
                 }
 	    }
    }
@@ -111,7 +117,7 @@ func MailSendPOST(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/user/list", http.StatusFound)
  }
 // ---------------------------------------------------
-// RptAptGet reporte estado de apto
+// RptAptGET reporte estado de apto
 func RptAptGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
         lisPeriods, err := model.Periods()
@@ -149,20 +155,25 @@ func RptAptPOST(w http.ResponseWriter, r *http.Request) {
 	        log.Println(err)
                 sess.AddFlash(view.Flash{"No apto", view.FlashError})
 	     }
-            peridf.Id = fperid
-            err := (&peridf).PeriodById()
-            if err != nil {
-	        log.Println(err)
-                sess.AddFlash(view.Flash{"No hay periodo", view.FlashError})
+             peridf.Id = fperid
+             err := (&peridf).PeriodById()
+             if err != nil {
+	         log.Println(err)
+                 sess.AddFlash(view.Flash{"No hay periodo", view.FlashError})
              }
-            peridi.Id = iperid
-            err = (&peridi).PeriodById()
-            if err != nil {
-	        log.Println(err)
-                sess.AddFlash(view.Flash{"No hay periodo", view.FlashError})
+             peridi.Id = iperid
+             err = (&peridi).PeriodById()
+             if err != nil {
+	         log.Println(err)
+                 sess.AddFlash(view.Flash{"No hay periodo", view.FlashError})
              }
+//        fmt.Println("RptApt ",apt.Id, " & ",peridf.Inicio.Format(layout), ",", peridi.Inicio.Format(layout) )
 	     lisPaym, _            := model.Payments(apt.Id, peridf.Inicio, peridi.Inicio)
-	     value                 := lisPaym[len(lisPaym) - 1].Balance
+	     lon                   :=  len(lisPaym)
+	     value                 := lisPaym[lon - 1].Balance
+//	fmt.Println("Id:",uid," fec1:",peridf.Inicio.Format(layout)," fec2:", peridi.Inicio.Format(layout)," len ", lon  )
+//	fmt.Println("id:",lisPaym[0].Id, " Inicio:", lisPaym[0].Inicio.Format(layout), "  mount", lisPaym[0].Amount )
+//	fmt.Println("id:",lisPaym[1].Id, " Inicio:", lisPaym[1].Inicio.Format(layout), "  mount", lisPaym[1].Amount )
              v                     := view.New(r)
              v.Name                 = "report/rptapto"
 	     v.Vars["token"]        = csrfbanana.Token(w, r, sess)
@@ -173,9 +184,68 @@ func RptAptPOST(w http.ResponseWriter, r *http.Request) {
              v.Vars["LisPaym"]      = lisPaym
              v.Vars["Level"]        =  sess.Values["level"]
 	     v.Render(w)
-         }else{
+        }else{
 	  http.Redirect(w, r, "/cuota/list", http.StatusFound)
 	 }
+ }
+
+// ---------------------------------------------------
+// japt get json service for apt state
+ func JAptGET(w http.ResponseWriter, r *http.Request) {
+        var params httprouter.Params
+        var jpers  model.Jperson
+	var peridi, peridf model.Periodo
+        var lisPaym []model.CuotApt
+	var arPaym ArPay
+	var dt11, dt22  time.Time
+	var err  error
+        params           = context.Get(r, "params").(httprouter.Params)
+	sfec1           :=  params.ByName("fec1")[:10]
+	sfec2           :=  params.ByName("fec2")[:10]
+        sId             :=  params.ByName("id")
+        uid,_           :=  atoi32(sId)
+	dt11,err         =  time.Parse(layout, sfec1)
+        if err == nil {
+            dt11       =  time.Date(dt11.Year(), dt11.Month(),dt11.Day(), 0, 0, 0, 0, time.Local)
+	    dt22,err   =  time.Parse(layout, sfec2)
+            dt22       =  time.Date(dt22.Year(), dt22.Month(),dt22.Day(), 0, 0, 0, 0, time.Local)
+            err        =  (&peridi).PeriodByFec(dt11)
+	    if err    ==  nil {
+               err     =  (&peridf).PeriodByFec(dt22)
+            }
+        }
+        if err      != nil {
+//	        fmt.Println(err)
+	        log.Println(err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
+	        return
+        }
+	_, err         =   (&jpers).JPersByUserId(uid)
+	// Determine if user exists
+	if err == model.ErrNoResult {
+//           fmt.Println("JAPTGET ", err)
+           log.Println("JAPTGET ", err)
+           http.Error(w, err.Error(), http.StatusBadRequest)
+	   return
+        }
+        lisPaym, err   =  model.Payments(jpers.AptId, peridf.Inicio, peridi.Inicio)
+        if err == nil {
+           arPaym.Apto   = jpers.Apto
+	   arPaym.Final  = peridf.Final
+	   arPaym.APaym  = lisPaym
+           var js []byte
+           js, err =  json.Marshal(arPaym)
+           if err == nil{
+//               fmt.Println(" json " + string(js))
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+           }
+	}
+//           fmt.Println("JAPTGET 2 ", err)
+           log.Println("JAPTGET 2 ", err)
+            http.Error(w, err.Error(), http.StatusInternalServerError)
+	return
  }
 // ---------------------------------------------------
 // RptLisAptGet reporte estado de aptos
@@ -207,15 +277,15 @@ func RptLisAptPOST(w http.ResponseWriter, r *http.Request) {
 	var apt model.Aparta
 	var peridi model.Periodo
 	var peridf model.Periodo
-	var  lisPay []ArPay
-	var  aPay     ArPay
+	var  lisPay []TotPay
+	var  aPay   TotPay
 	sess := model.Instance(r)
 	action    := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-            sPeridf    :=  r.FormValue("idf")
-            fperid,_   := atoi32(sPeridf)
-            sPeridi    :=  r.FormValue("idi")
-            iperid,_   := atoi32(sPeridi)
+            sPeridf    :=   r.FormValue("idf")
+            fperid,_   :=   atoi32(sPeridf)
+            sPeridi    :=   r.FormValue("idi")
+            iperid,_   :=   atoi32(sPeridi)
             lisApts, err := model.Apts()
             if err != nil {
                  sess.AddFlash(view.Flash{"No hay apartas", view.FlashError})
@@ -319,6 +389,140 @@ func RptCondPOST(w http.ResponseWriter, r *http.Request) {
 	  http.Redirect(w, r, "/cuota/list", http.StatusFound)
 	 }
  }
+
+// ---------------------------------------------------
+// JCondoGET reporte ingresos cuotas
+ func JCondoGET(w http.ResponseWriter, r *http.Request) {
+	var perid model.Periodo
+        var lisAmt     []model.AmtCond
+        var amtPerCond   model.AmtPerCond
+        var params httprouter.Params
+//	sess := model.Instance(r)
+        params      = context.Get(r, "params").(httprouter.Params)
+	sfec       :=  params.ByName("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+        if err != nil {
+//	        fmt.Println(err)
+	        log.Println(err)
+	}else{
+//        fmt.Println(" JCondoGET fec:",sfec, " - ", dtfec )
+        dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
+//        fmt.Println(" JCondoGET fec:",sfec, " - ", dtfec )
+        err         = (&perid).PeriodByFec(dtfec)
+        if err     != nil {
+//	        fmt.Println(err)
+	        log.Println(err)
+        }else{
+	  lisAmt, err           = model.Amounts( perid.Id )
+          if err != nil {
+            log.Println(err)
+            log.Println(err)
+          }else{
+	    amtPerCond.Fecha = perid.Inicio
+	    amtPerCond.LisAmt = lisAmt
+            var js []byte
+            js, err =  json.Marshal(amtPerCond)
+            if err == nil{
+//               fmt.Println(" json " + string(js))
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }
+           }
+          }
+          }
+//          fmt.Println("JCondo  ", err)
+          log.Println("JCondo  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+ }
+
+// ---------------------------------------------------
+// JCuotPOST reporte ingresos cuotas
+ func JCuotPOST(w http.ResponseWriter, r *http.Request) {
+	var periodo model.Periodo
+        var lisCuot  []model.CuotaN
+//	sess := model.Instance(r)
+	sfec       :=  r.FormValue("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+        if err != nil {
+//	        fmt.Println(err)
+	        log.Println(err)
+	}else{
+//        fmt.Println(" JCuotPOST fec:",sfec, " - ", dtfec )
+        dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
+//        fmt.Println(" JCuotPOST fec:",sfec, " - ", dtfec )
+        err         = (&periodo).PeriodByFec(dtfec)
+        if err     != nil {
+//	        fmt.Println(err)
+	        log.Println(err)
+        }else{
+          lisCuot, err           = model.CuotLim( periodo.Id )
+          if err != nil {
+            log.Println(err)
+            log.Println(err)
+          }else{
+            var js []byte
+            js, err =  json.Marshal(lisCuot)
+            if err == nil{
+//               fmt.Println(" json " + string(js))
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }
+           }
+          }
+          }
+//          fmt.Println("JCuot  ", err)
+          log.Println("JCuot  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+ }
+
+// ---------------------------------------------------
+// JCuotGET reporte ingresos cuotas
+ func JCuotGET(w http.ResponseWriter, r *http.Request) {
+	var periodo model.Periodo
+        var lisCuot  []model.CuotaN
+        var params httprouter.Params
+	sess := model.Instance(r)
+        params      = context.Get(r, "params").(httprouter.Params)
+	sfec       :=  params.ByName("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+        if err != nil {
+	        fmt.Println(err)
+	        log.Println(err)
+	}else{
+        fmt.Println(" JCuotGET fec:",sfec, " - ", dtfec )
+        dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
+        fmt.Println(" JCuotGET fec:",sfec, " - ", dtfec )
+        err         = (&periodo).PeriodByFec(dtfec)
+        if err     != nil {
+	        fmt.Println(err)
+	        log.Println(err)
+        }else{
+          lisCuot, err           = model.CuotLim( periodo.Id )
+          if err != nil {
+            log.Println(err)
+          }else{
+            var js []byte
+            js, err =  json.Marshal(lisCuot)
+            if err == nil{
+               fmt.Println(" JCuotGET sess.Values ", sess.Values)
+               fmt.Println(" json " + string(js))
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }
+           }
+          }
+          }
+//          fmt.Println("JCuot  ", err)
+          log.Println("JCuot  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+ }
+
 // ---------------------------------------------------
 // RptAllCondGet reporte estado de apto
 func RptAllCondGET(w http.ResponseWriter, r *http.Request) {

@@ -15,9 +15,6 @@ import (
 	"github.com/josephspurrier/csrfbanana"
 	"github.com/julienschmidt/httprouter"
   )
-const (
-       layout = "2006-01-02"
- )
 
 // ---------------------------------------------------
 

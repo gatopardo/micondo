@@ -74,6 +74,12 @@ func routes() *httprouter.Router {
 	r.POST("/login", hr.Handler(alice.
 		New(acl.DisallowAuth).
 		ThenFunc(controller.LoginPOST)))
+        r.GET("/jlogin/:cuenta/:password", hr.Handler(alice.
+                New(acl.DisallowAuth).
+                ThenFunc(controller.JLoginGET)))
+        r.POST("/jlogin", hr.Handler(alice.
+                New(acl.DisallowAuth).
+                ThenFunc(controller.JLoginPOST)))
 	r.GET("/logout", hr.Handler(alice.
 		New().
 		ThenFunc(controller.LogoutGET)))
@@ -104,7 +110,6 @@ func routes() *httprouter.Router {
 		New(acl.DisallowAnon).
                 ThenFunc(controller.RegisDelPOST)))
 
-
 // Apartamento
 	r.GET("/apto/register", hr.Handler(alice.
 		New(acl.DisallowAnon).
@@ -119,6 +124,9 @@ func routes() *httprouter.Router {
 	r.POST("/apto/update/:id", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.AptUpPOST)))
+	r.GET("/japt/:fec1/:fec2/:id", hr.Handler(alice.
+		New(acl.DisallowAuth).
+		ThenFunc(controller.JAptGET)))
 //          List
 	r.GET("/apto/list/", hr.Handler(alice.
 		New(acl.DisallowAnon).
@@ -227,6 +235,13 @@ func routes() *httprouter.Router {
 		New(acl.DisallowAnon).
 		ThenFunc(controller.CuotUpPOST)))
 ////          List
+	r.GET("/jcuot/:fec", hr.Handler(alice.
+		New(acl.DisallowAuth).
+//		New(acl.DisallowAnon).
+		ThenFunc(controller.JCuotGET)))
+	r.POST("/jcuot", hr.Handler(alice.
+		New(acl.DisallowAnon).
+		ThenFunc(controller.JCuotPOST)))
 	r.GET("/cuota/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.CuotLisGET)))
@@ -259,6 +274,9 @@ func routes() *httprouter.Router {
 		New(acl.DisallowAnon).
 		ThenFunc(controller.EgreUpPOST)))
 ////          List
+	r.GET("/jegre/:fec", hr.Handler(alice.
+		New(acl.DisallowAuth).
+		ThenFunc(controller.JEgreGET)))
 	r.GET("/egreso/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.EgreLisGET)))
@@ -325,8 +343,11 @@ func routes() *httprouter.Router {
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptLisAptPOST)))
        r.GET("/report/rptcondo", hr.Handler(alice.
-		New(acl.DisallowAnon).
+                New(acl.DisallowAnon).
 		ThenFunc(controller.RptCondGET)))
+        r.GET("/jcondo/:fec", hr.Handler(alice.
+                New(acl.DisallowAuth).
+		ThenFunc(controller.JCondoGET)))
 	r.POST("/report/rptcondo", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptCondPOST)))
@@ -336,6 +357,8 @@ func routes() *httprouter.Router {
 	r.POST("/report/rptallcondo", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptAllCondPOST)))
+
+//              New(acl.DisallowAnon).
 
 
 	// About
