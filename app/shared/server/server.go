@@ -14,7 +14,7 @@ import (
 // Server stores the hostname and port number
 type Server struct {
         Remote    bool  `json:"Remote"`   // Server origin
-        Origin    bool  `json:"Origin"`   // Server origin
+        Origin    string `json:"Origin"`   // Server origin
 	Hostname  string `json:"Hostname"`  // Server name
 	UseHTTP   bool   `json:"UseHTTP"`   // Listen on HTTP
 	UseHTTPS  bool   `json:"UseHTTPS"`  // Listen on HTTPS
