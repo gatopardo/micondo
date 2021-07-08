@@ -6165,3 +6165,27 @@ INFO 2021/07/07 15:14:15 logrequest.go:14: 10.0.0.45:59338 GET /report/rptlisapt
 INFO 2021/07/07 15:14:26 logrequest.go:14: 10.0.0.45:59338 POST /report/rptlisapto
 INFO 2021/07/07 15:14:32 logrequest.go:14: 10.0.0.45:59338 GET /report/rptapto
 INFO 2021/07/07 15:14:47 logrequest.go:14: 10.0.0.45:59338 POST /report/rptapto
+INFO 2021/07/08 09:34:34 main.go:42: Starting app
+INFO 2021/07/08 09:34:34 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/07/08 09:34:34 route.go:392: middleware micondo
+INFO 2021/07/08 09:34:34 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/07/08 09:34:34 route.go:392: middleware micondo
+INFO 2021/07/08 09:34:34 server.go:37: 0.0.0.0:4430
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46556 GET /
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46556 GET /static/css/bootstrap.css?1580161104
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46558 GET /static/css/global.css?1582295166
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46560 GET /static/js/jquery.min.js?1580161104
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46562 GET /static/js/underscore-min.js?1580161104
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46566 GET /static/js/global.js?1580161104
+INFO 2021/07/08 09:34:56 logrequest.go:14: 179.53.224.18:46564 GET /static/js/popper.min.js?1580161104
+INFO 2021/07/08 09:34:57 logrequest.go:14: 179.53.224.18:46560 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/07/08 09:34:57 logrequest.go:14: 179.53.224.18:46562 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/07/08 09:34:57 logrequest.go:14: 179.53.224.18:46558 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/07/08 09:34:57 logrequest.go:14: 179.53.224.18:46564 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/07/08 09:34:57 logrequest.go:14: 179.53.224.18:46562 GET /static/favicons/favicon-196x196.png
+INFO 2021/07/08 09:34:57 logrequest.go:14: 179.53.224.18:46564 GET /static/favicons/favicon-16x16.png
+INFO 2021/07/08 09:35:01 logrequest.go:14: 179.53.224.18:46556 GET /login
+INFO 2021/07/08 09:35:01 logrequest.go:14: 179.53.224.18:46562 GET /static/css/bootstrap.css?1580161104
+INFO 2021/07/08 09:35:01 logrequest.go:14: 179.53.224.18:46564 GET /static/css/global.css?1582295166
+INFO 2021/07/08 09:35:01 logrequest.go:14: 179.53.224.18:46560 GET /static/favicons/favicon-196x196.png
+INFO 2021/07/08 09:35:01 logrequest.go:14: 179.53.224.18:46558 GET /static/favicons/favicon-16x16.png

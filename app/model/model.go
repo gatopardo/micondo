@@ -113,9 +113,10 @@ func Connect(d Info) {
 	if sslmode == "" {
 		sslmode = "disable"
 	}
-	spec := fmt.Sprintf("user=%s password=%s host=%s port=%s dbname=%s sslmode=%s", matches[1], matches[2], matches[3], matches[4], matches[5], sslmode)
+//	spec := fmt.Sprintf("user=%s password=%s host=%s port=%s dbname=%s sslmode=%s", matches[1], matches[2], matches[3], matches[4], matches[5], sslmode)
 
-          Db, err = sql.Open("postgres", spec)
+//          Db, err = sql.Open("postgres", spec)
+            Db, err =  sql.Open("postgres", os.Getenv("DATABASE_URL"))
           if err != nil {
                  log.Println(err)
               }
