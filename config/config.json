@@ -1,6 +1,6 @@
    {
 	"Database": {
-                "Remote"     : true,
+                "Remote"     : false,
                 "Origin":    "heroku",
 		"Type"       : "PostgreSQL",
 		"PostgreSql" : {
@@ -8,12 +8,12 @@
 			"Password": "",
 			"Name": "dbcondo",
 			"Hostname": "127.0.0.1",
-			"Port": 5434,
+			"Port": 5436,
 			"Parameter": "disable"
 		}
 	},
 	"Server": {
-                "Remote": true,
+                "Remote": false,
                 "Origin": "heroku",
 		"Hostname": "0.0.0.0",
 		"UseHTTP": true,
