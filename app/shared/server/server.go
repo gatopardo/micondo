@@ -67,6 +67,7 @@ func startHTTPS(handlers http.Handler, s Server) {
              log.Fatal(http.ListenAndServe(httpsAddress(s), handlers))
         } else {
              log.Fatal(http.ListenAndServeTLS(httpsAddress(s), s.CertFile, s.KeyFile, handlers))
+        }
 }
 
 // httpAddress returns the HTTP address
