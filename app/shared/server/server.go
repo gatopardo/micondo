@@ -63,7 +63,10 @@ func startHTTPS(handlers http.Handler, s Server) {
 	fmt.Println(time.Now().Format("2006-01-02 03:04:05 PM"), "Running HTTPS "+httpsAddress(s))
 
 	// Start the HTTPS listener
-	log.Fatal(http.ListenAndServeTLS(httpsAddress(s), s.CertFile, s.KeyFile, handlers))
+	if s.Remote {
+             log.Fatal(http.ListenAndServe(httpsAddress(s), handlers))
+        } else {
+             log.Fatal(http.ListenAndServeTLS(httpsAddress(s), s.CertFile, s.KeyFile, handlers))
 }
 
 // httpAddress returns the HTTP address
