@@ -16,7 +16,7 @@
                 "Remote": true,
                 "Origin": "heroku",
 		"Hostname": "0.0.0.0",
-		"UseHTTP": true,
+		"UseHTTP": false,
 		"UseHTTPS": true,
 		"HTTPPort": 9090,
 		"HTTPSPort": 4430,
