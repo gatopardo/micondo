@@ -6,8 +6,9 @@
  {{define "content"}}
       <div class="lwidth">
           <h3 class="center"> {{template "title" . }} </h3>
-	  <div class="lwrapper fcols3">
+	  <div class="lwrapper fcols4">
              <div class="box"> Codigo      </div>
+             <div class="box"> Aplica      </div>
              <div class="box"> Descripcion	   </div>
              {{ if or ( eq $.Level 3)  ( eq $.Level 4)}}
                 <div class="box">   
@@ -24,8 +25,9 @@
              {{end}} 
       </div>
       {{  range  .LisTipo}}
-         <div class="lwrapper fcols3">
+         <div class="lwrapper fcols4">
            <div class="box"> {{ .Codigo }} </div>
+           <div class="box"> {{ .Aplica }} </div>
            <div class="box"> {{ .Descripcion }} </div>
            {{ if or ( eq $.Level 3)  ( eq $.Level 4)}}
               <div class="box">

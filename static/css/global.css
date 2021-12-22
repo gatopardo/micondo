@@ -514,6 +514,9 @@ h1, h2, h3, h4, h5, h6 {
   .fcols3 {
        grid-template-columns: 3fr  3fr 1fr ;
      }
+  .fcols3a {
+       grid-template-columns: 1fr  1fr 5fr ;
+     }
   .fcols4 {
        grid-template-columns: 2fr  3fr 4fr 1fr ;
      }

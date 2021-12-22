@@ -108,7 +108,7 @@ func AptUpGET(w http.ResponseWriter, r *http.Request) {
         if  lon > 0 {
             sini        :=  "update apartas set "
 	    now         := time.Now()
-	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf           =  fmt.Sprintf( ",  updated_at = '%s' ", now.Format(layout) )
             stup =  strings.Join(sup, ", ")
             sr          :=  fmt.Sprintf(" where apartas.id = %d ", a1.Id)
              stup = sini + stup + sf + sr

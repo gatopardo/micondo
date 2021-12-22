@@ -63,10 +63,12 @@ func BalanPOST(w http.ResponseWriter, r *http.Request) {
                return
 	     }
            getFormBalan(&balan, r)
+	   fmt.Println(balan)
            err := (&balan).BalanByPeriod()
-           if err == model.ErrNoResult { // Exito:  no hay usuario creado aun 
+           if err == model.ErrNoResult { // Exito:  no hay balance creado aun 
                ex := (&balan).BalanCreate()
                log.Println("Creating balance")
+               fmt.Println("Creating balance")
 	       if ex != nil {  // uyy como fue esto ? 
                    log.Println(ex)
 //   fmt.Println(ex)
@@ -89,8 +91,6 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params  = context.Get(r, "params").(httprouter.Params)
 	id,_   := atoi32(params.ByName("id"))
-//	SPag   := params.ByName("pg")
-//        path   :=  fmt.Sprintf("/balance/list/%s", SPag)
         path   :=  "/balance/list"
         balan.Id = id
 	err := (&balan).BalanById()
@@ -115,22 +115,23 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
         var sup []string
 
         if   b1.Cuota != b2.Cuota {
-             sf  =  fmt.Sprintf( " cuota = '%d' ", b2.Cuota )
+             sf  =  fmt.Sprintf( " cuota = %d ", b2.Cuota )
 	     sup = append(sup, sf)
            }
         if b1.Amount != b2.Amount {
-             sf  =  fmt.Sprintf( " amount = '%d' ", b2.Amount )
+             sf  =  fmt.Sprintf( " amount = %d ", b2.Amount )
 	     sup = append(sup, sf)
            }
           lon := len(sup)
          if lon > 0 {
-            sini        :=  "update periods set "
+            sini        :=  "update balances set "
 	    now        := time.Now()
-	    sf          =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf          =  fmt.Sprintf( " , updated_at = '%s' ", now.Format(layout) )
             stup         =  strings.Join(sup, ", ")
-            sr          :=  fmt.Sprintf(" where periods.id = %s ", b1.Id)
+            sr          :=  fmt.Sprintf(" where balances.id = %d ", b1.Id)
 	    stup         =  sini + stup + sf + sr
           }
+// fmt.Println(stup)
          return
   }
 // ---------------------------------------------------
@@ -142,7 +143,7 @@ func BalanUpPOST(w http.ResponseWriter, r *http.Request) {
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
-        balan.Id     = Id
+        bal.Id     = Id
         path        :=  "/balance/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {

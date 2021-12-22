@@ -102,7 +102,7 @@ func PeriodUpGET(w http.ResponseWriter, r *http.Request) {
         if lon > 0 {
             sini        :=  "update periods set "
 	    now         := time.Now()
-	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf           =  fmt.Sprintf( " , updated_at = '%s' ", now.Format(layout) )
             stUp         =  strings.Join(sup, ", ")
             sr          :=  fmt.Sprintf(" where periods.id = %s ", p1.Id)
 	    stUp         =  sini + stUp + sf + sr

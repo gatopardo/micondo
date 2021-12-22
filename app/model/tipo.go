@@ -17,16 +17,31 @@ import (
 type Tipo struct {
 	Id            uint32        `db:"id" bson:"id,omitempty"`
 	Codigo        string        `db:"codigo" bson:"codigo"`
+	Aplica        string        `db:"aplica" bson:"aplica"`
 	Descripcion   string        `db:"descricpion" bson:"descripcion"`
 	CreatedAt     time.Time     `db:"created_at" bson:"created_at"`
 	UpdatedAt     time.Time     `db:"updated_at" bson:"updated_at"`
 }
 
+type Aplic struct {
+	Id            uint32        `db:"id" bson:"id,omitempty"`
+	Aplica        string        `db:"aplica" bson:"aplica"`
+}
+
 // --------------------------------------------------------
+
+func  ApliLis()(  ptApli []Aplic){
+      ptApli = make([]Aplic, 2)
+      ptApli[0]. Id = 0
+      ptApli[0].Aplica = "DB"
+      ptApli[1]. Id = 0
+      ptApli[1].Aplica = "CR"
+      return
+}
 
 // TipoById tenemos el category dado id
 func (tip * Tipo)TipoById() (err error) {
-        stq  :=   "SELECT id, codigo, descripcion, created_at, updated_at FROM tipos WHERE id=$1"
+        stq  :=   "SELECT id, codigo, aplica, descripcion, created_at, updated_at FROM tipos WHERE id=$1"
 	err = Db.QueryRow(stq, &tip.Id).Scan(&tip.Id, &tip.Codigo, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt)
 
 	return  standardizeError(err)
@@ -36,8 +51,8 @@ func (tip * Tipo)TipoById() (err error) {
 
 // TipById tenemos el category dado id
 func (tip * Tipo)TipoByCode() (err error) {
-        stq  :=   "SELECT id, codigo, descripcion, created_at, updated_at FROM tipos WHERE codigo=$1"
-	err = Db.QueryRow(stq, &tip.Codigo).Scan(&tip.Id, &tip.Codigo, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt)
+        stq  :=   "SELECT id, codigo, aplica, descripcion, created_at, updated_at FROM tipos WHERE codigo=$1"
+	err = Db.QueryRow(stq, &tip.Codigo).Scan(&tip.Id, &tip.Codigo,&tip.Aplica, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt)
 
 	return  standardizeError(err)
 }
@@ -47,7 +62,7 @@ func (tip * Tipo)TipoByCode() (err error) {
 func (tip *Tipo)TipoCreate() error {
          var err error
          var stmt  *sql.Stmt
-         stq := "INSERT INTO tipos ( codigo, descripcion, created_at, updated_at ) VALUES ($1,$2,$3, $4) returning id" 
+         stq := "INSERT INTO tipos ( codigo, aplica, descripcion, created_at, updated_at ) VALUES ($1,$2,$3, $4) returning id"
 
 	now  := time.Now()
 
@@ -66,7 +81,7 @@ func (tip *Tipo)TipoCreate() error {
 // -----------------------------------------------------
  func  (tip * Tipo)TipoDeleteById()( err error){
          stqd :=  "DELETE FROM tipos where id = $1"
-           _, err = Db.Exec(stqd, tip.Id) 
+           _, err = Db.Exec(stqd, tip.Id)
          return
        }
 
@@ -90,7 +105,6 @@ func (tip *Tipo)Update(stq string) (err error) {
 		return
 	}
 	defer stmt.Close()
-
 	_, err = stmt.Exec(tip.Id, tip.Codigo, tip.Descripcion)
 	return
 }
@@ -124,7 +138,7 @@ func TipoDeleteAll() (err error) {
 // Get limit records from offset
   func TipoLim(lim int , offs int) ( tipos []Tipo, err error) {
         var tip Tipo
-        stq :=   "SELECT id, codigo, descripcion, created_at, updated_at FROM tipos order by codigo LIMIT $1 OFFSET $2"
+        stq :=   "SELECT id, codigo, aplica, descripcion, created_at, updated_at FROM tipos order by codigo LIMIT $1 OFFSET $2"
 	rows, err := Db.Query(stq, lim, offs)
 	if err != nil {
 		return
@@ -132,7 +146,7 @@ func TipoDeleteAll() (err error) {
 	defer rows.Close()
 	for rows.Next() {
                 tip = Tipo{}
-		if err = rows.Scan(&tip.Id,  &tip.Codigo, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt); err != nil {
+		if err = rows.Scan(&tip.Id,  &tip.Codigo,&tip.Aplica, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt); err != nil {
 			return
 		}
 		tipos = append(tipos, tip)
@@ -144,7 +158,7 @@ func TipoDeleteAll() (err error) {
   func Tipos() (tipos []Tipo, err error) {
         var tip Tipo
 
-        stq :=   "SELECT id,  codigo, descripcion, created_at, updated_at FROM tipos  where aplica = 'CR' order by  codigo"
+        stq :=   "SELECT id,  codigo,aplica, descripcion, created_at, updated_at FROM tipos   order by  codigo"
 	rows, err := Db.Query(stq)
 	if err != nil {
 
@@ -152,7 +166,7 @@ func TipoDeleteAll() (err error) {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		if err = rows.Scan(&tip.Id, &tip.Codigo, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt); err != nil {
+		if err = rows.Scan(&tip.Id, &tip.Codigo,&tip.Aplica, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt); err != nil {
 		return
 		}
 		tipos = append(tipos, tip)
@@ -163,7 +177,7 @@ func TipoDeleteAll() (err error) {
 // Get all tipos in the database and returns the list
   func TiposI() (tipos []Tipo, err error) {
         var tip Tipo
-	stq := " select id,codigo, descripcion, created_at, updated_at  from tipos where  aplica = 'CR' and not  (codigo = 'NC' or codigo = 'IC') order by codigo"
+	stq := " select id,codigo, aplica, descripcion, created_at, updated_at  from tipos where  aplica = 'CR' and not  (codigo = 'NC' or codigo = 'IC') order by codigo"
 	rows, err := Db.Query(stq)
 	if err != nil {
 
@@ -171,7 +185,7 @@ func TipoDeleteAll() (err error) {
 	}
 	defer rows.Close()
 	for rows.Next() {
-		if err = rows.Scan(&tip.Id, &tip.Codigo, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt); err != nil {
+		if err = rows.Scan(&tip.Id, &tip.Codigo,&tip.Aplica, &tip.Descripcion, &tip.CreatedAt, &tip.UpdatedAt); err != nil {
 		return
 		}
 		tipos = append(tipos, tip)

@@ -26,9 +26,9 @@ func EgrePerGET(w http.ResponseWriter, r *http.Request) {
 	v                  := view.New(r)
 	v.Name              = "egreso/egresoper"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
+	v.Vars["Title"]     =  "Escoger Periodo"
+        v.Vars["Action"]    =  "/egreso/periodo/register"
         v.Vars["LisPeriod"] = lisPeriod
-	v.Vars["Title"]     =  "Ingreso"
-        v.Vars["Action"]    =  "/ingreso/periodo/register"
 	v.Render(w)
  }
 // ---------------------------------------------------
@@ -54,24 +54,35 @@ func EgrePerPOST(w http.ResponseWriter, r *http.Request) {
 	    v                  := view.New(r)
 	    v.Name              = "egreso/egresoreg"
             v.Vars["token"]     = csrfbanana.Token(w, r, sess)
+	    v.Vars["Title"]     =  "Crear Egreso"
+            v.Vars["Action"]    =  "/egreso/register"
             v.Vars["Egreso"]    = egres
             v.Vars["LisTip"]    = lisTipo
             v.Vars["LisEgres"]  = lisEgre
             v.Render(w)
         }
-	http.Redirect(w, r, "/egreso/list", http.StatusFound)
+//	http.Redirect(w, r, "/egreso/list", http.StatusFound)  //
  }
 // ---------------------------------------------------
- func getFormEgre(e *  model.EgresoN, r *http.Request)(err error){
-           e.PeriodId, _    =  atoi32(r.FormValue("id"))
-           e.TipoId, _      =  atoi32(r.FormValue("tipoId"))
-           e.Fecha, _       =  time.Parse(layout,r.FormValue("fecha"))
-           e.Descripcion    =  r.FormValue("descripcion")
-	   var nro int64
-           nro, err         = money2int64(r.FormValue("amount"))
-           if err == nil {
-                 e.Amount   =  nro
+ func getFormEgre(e *  model.EgresoN, r *http.Request, b bool)(err error){
+	   formato         :=  "2006/01/02"
+           formato2        :=  "2006-01-02"
+           e.TipoId, _      =  atoi32(r.FormValue("tipId"))
+           e.PeriodId, _  =  atoi32(r.FormValue("periodId"))
+           e.Period, _      =  time.Parse(formato,r.FormValue("period"))
+	   if b{
+               e.Fecha, _   =  time.Parse(formato2,r.FormValue("fecha"))
+           }else{
+               e.Fecha, _   =  time.Parse(formato,r.FormValue("fecha"))
             }
+           e.Descripcion    =  r.FormValue("descripcion")
+	   var unr int64
+	   ramount         :=  r.FormValue("amount")
+	   samount         :=   strings.ReplaceAll(ramount, ",","")
+           unr, err        =  money2int64(samount)
+           if err == nil {
+                 e.Amount  =  unr
+           }
        return
    }
 // ---------------------------------------------------
@@ -83,23 +94,21 @@ func EgreRegPOST(w http.ResponseWriter, r *http.Request) {
 	sess   := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-           getFormEgre(&egres, r)
+           getFormEgre(&egres, r, true)
            period.Id       =  egres.PeriodId
            err                 =  (&period).PeriodById()
-
-           period.Inicio       =  egres.Period
-           err                 =  (&period).PeriodByCode()
+fmt.Println("p_id ", egres.PeriodId, " fecha ", egres.Fecha, " amount ", egres.Amount)
            egres.PeriodId       =   period.Id
            err                 =  (&egres).EgresCreate()
            if err != nil {  // uyy como fue esto ? 
                log.Println(err)
                fmt.Println(err)
                sess.AddFlash(view.Flash{"Error guardando Egreso.", view.FlashError})
+	       http.Redirect(w, r, "/egreso/list", http.StatusFound)
                return
            } else {  // todo bien
                 sess.AddFlash(view.Flash{"Egreso. creada: " , view.FlashSuccess})
            }
-
             var lisTipo []model.Tipo
             var lisEgre []model.EgresoN
             lisTipo, err  = model.Tipos()
@@ -113,14 +122,15 @@ func EgreRegPOST(w http.ResponseWriter, r *http.Request) {
             v                   := view.New(r)
             v.Name               = "egreso/egresoreg"
             v.Vars["token"]      = csrfbanana.Token(w, r, sess)
+            v.Vars["Title"]     =  "Guardar Egreso"
+            v.Vars["Action"]    =  "/egreso/register"
             v.Vars["Egreso"]     = egres
             v.Vars["LisTip"]     = lisTipo
             v.Vars["LisEgres"]   = lisEgre
 	    v.Render(w)
         }
-	http.Redirect(w, r, "/egreso/list", http.StatusFound)
+//	http.Redirect(w, r, "/egreso/list", http.StatusFound)
  }
-
 // ---------------------------------------------------
 // EgreUpGET despliega la pagina del usuario
 func EgreUpGET(w http.ResponseWriter, r *http.Request) {
@@ -132,16 +142,12 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
 	id,_        := atoi32(Sid)
         path        := "/egreso/list"
         egres.Id = id
-
 	lisTipo,  err        := model.Tipos()
         if err != nil {
              sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
         }
-            if err != nil {
-                 sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
-            }
-
 	err = (&egres).EgresById()
+//  fmt.Printf("Hola %s %s %s\n", egres.Fecha, egres.Amount, egres.Descripcion)
 	if err != nil { // Si no existe Egreso
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta egreso.", view.FlashError})
@@ -152,9 +158,9 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
 	v                    := view.New(r)
 	v.Name                = "egreso/egresoupdate"
 	v.Vars["token"]       = csrfbanana.Token(w, r, sess)
-        v.Vars["Egre"]       = egres
         v.Vars["Title"]     =  "Actualizar Egreso"
         v.Vars["Action"]    =  "/egreso/update"
+        v.Vars["Egre"]       = egres
         v.Vars["LisTip"]      = lisTipo
         v.Render(w)
    }
@@ -163,39 +169,35 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
  func   getEgreFormUp(e1, e2 model.EgresoN, r * http.Request)(stUp string){
         var sf string
         var sup []string
+        formato        :=  "2006/01/02"
 
-	if e1.PeriodId != e2.PeriodId {
-             sf  =  fmt.Sprintf( " period_id = %d ", e2.PeriodId )
-	     sup = append(sup, sf)
-	}
 	if e1.TipoId != e2.TipoId {
-             sf  =  fmt.Sprintf( " tipo_id = %d ", e2.TipoId )
+             sf  =  fmt.Sprintf( " tipo_id = %d ", e1.TipoId )
 	     sup = append(sup, sf)
 	}
 
 	if e1.Amount  != e2.Amount {
-             sf  =  fmt.Sprintf( " amount = %d ", e2.Amount )
+             sf  =  fmt.Sprintf( " amount = %d ", e1.Amount )
 	     sup = append(sup, sf)
 	}
-        if e1.Fecha != e2.Fecha {
-             sf  =  fmt.Sprintf( " fecha = '%s' ", e2.Fecha.Format(layout) )
+        if e1.Fecha.Format(formato) != e2.Fecha.Format(formato) {
+             sf  =  fmt.Sprintf( " fecha = '%s' ", e1.Fecha.Format(formato) )
 	     sup = append(sup, sf)
 	}
-
 	if e1.Descripcion != e2.Descripcion {
-             sf  =  fmt.Sprintf( " descripcion = %s ", e2.Descripcion )
+             sf  =  fmt.Sprintf( " description = '%s' ", e1.Descripcion )
 	     sup = append(sup, sf)
 	}
         lon := len(sup)
         if lon  > 0 {
             sini :=  "update egresos set "
 	    now         := time.Now()
-	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf           =  fmt.Sprintf( " ,  updated_at = '%s' ", now.Format(layout) )
             stUp  =  strings.Join(sup, ", ")
             sr   :=  fmt.Sprintf(" where egresos.id = %d ", e1.Id)
             stUp = sini + stUp + sf + sr
        }
-
+fmt.Println(stUp)
          return
   }
 // ---------------------------------------------------
@@ -209,7 +211,7 @@ func EgreUpPOST(w http.ResponseWriter, r *http.Request) {
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
         egres.Id     = Id
-        eg.Id     = Id
+        eg.Id        = Id
         path        :=  "/egreso/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
@@ -217,8 +219,7 @@ func EgreUpPOST(w http.ResponseWriter, r *http.Request) {
 	    if err != nil { // Si no existe cuota
                   sess.AddFlash(view.Flash{"Es raro. No esta egreso.", view.FlashError})
             }
-	    getFormEgre(&eg,r)
-
+	    getFormEgre(&eg,r, false)
 	    st          :=  getEgreFormUp(eg, egres, r)
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})
@@ -226,7 +227,7 @@ func EgreUpPOST(w http.ResponseWriter, r *http.Request) {
              err   =  egres.EgresUpdate(st)
              if err == nil{
                  sess.AddFlash(view.Flash{"Egreso actualizada exitosamente : " , view.FlashSuccess})
-             } else       {
+             } else  {
 		log.Println(err)
 		sess.AddFlash(view.Flash{"Un error ocurrio actualizando.", view.FlashError})
 	     }
@@ -246,9 +247,9 @@ func EgreLisGET(w http.ResponseWriter, r *http.Request) {
 	v                  := view.New(r)
 	v.Name              = "egreso/egresoper"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
-        v.Vars["LisPeriod"] = lisPeriod
         v.Vars["Title"]     =  "Listar"
         v.Vars["Action"]    =  "/egreso/list"
+        v.Vars["LisPeriod"] = lisPeriod
 	v.Render(w)
  }
 //------------------------------------------------
@@ -295,8 +296,6 @@ func EgreLisGET(w http.ResponseWriter, r *http.Request) {
           http.Error(w, err.Error(), http.StatusInternalServerError)
           return
  }
-
-
 //------------------------------------------------
 // EgreLis displays the egres page
 func EgreLisPOST(w http.ResponseWriter, r *http.Request) {

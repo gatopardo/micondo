@@ -24,11 +24,14 @@ func TipoGET(w http.ResponseWriter, r *http.Request) {
 	// Get session
 	sess := model.Instance(r)
         lisTipos, _ := model.Tipos()
+	lisApli     :=   make([]model.Aplic,2,2)
+	lisApli     =   model.ApliLis()
 	v := view.New(r)
 	v.Name = "tipo/tipo"
 	v.Vars["token"] = csrfbanana.Token(w, r, sess)
-	v.Vars["Title"]  = "Crear Apto"
-	v.Vars["Action"]  = "/categoria/register"
+	v.Vars["Title"]  = "Crear Tipo"
+	v.Vars["Action"]  = "/tipo/register"
+        v.Vars["LisApli"] =  lisApli
         v.Vars["LisTipos"] =  lisTipos
 	v.Render(w)
  }
@@ -39,7 +42,7 @@ func TipoPOST(w http.ResponseWriter, r *http.Request) {
         var tipo model.Tipo
 	sess      := model.Instance(r)
         action    := r.FormValue("action")
-	path      :=  "/categoria/list"
+	path      :=  "/tipo/list"
         if ! (strings.Compare(action,"Cancelar") == 0) {
 	    if validate, missingField := view.Validate(r, []string{"codigo"}); !validate {
                  sess.AddFlash(view.Flash{"Falta Campo: " + missingField, view.FlashError})
@@ -48,6 +51,7 @@ func TipoPOST(w http.ResponseWriter, r *http.Request) {
                  return
 	      }
               tipo.Codigo           = r.FormValue("codigo")
+              tipo.Aplica           = r.FormValue("aplica")
               tipo.Descripcion      = r.FormValue("descripcion")
               err := (&tipo).TipoByCode()
               if err == model.ErrNoResult { // Exito: no hay tipo creado aun 
@@ -73,7 +77,7 @@ func TipoUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params = context.Get(r, "params").(httprouter.Params)
 	id,_ := atoi32(params.ByName("id"))
-        path   :=  "/categoria/list"
+        path   :=  "/tipo/list"
         tipo.Id = id
 	 err := (&tipo).TipoById()
 	if err != nil { // Si no existe el usuario
@@ -87,7 +91,7 @@ func TipoUpGET(w http.ResponseWriter, r *http.Request) {
 	v.Name = "tipo/tipoupdate"
 	v.Vars["token"]  = csrfbanana.Token(w, r, sess)
 	v.Vars["Title"]  = "Actualizar Categoria"
-	v.Vars["Action"]  = "/categoria/update"
+	v.Vars["Action"]  = "/tipo/update"
         v.Vars["Tipo"] = tipo
         v.Render(w)
    }
@@ -108,7 +112,7 @@ func TipoUpGET(w http.ResponseWriter, r *http.Request) {
         if lon > 0 {
             sini       :=  "update tipos set "
 	    now        := time.Now()
-	    sf          =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf          =  fmt.Sprintf( " , updated_at = '%s' ", now.Format(layout) )
             sr         :=  fmt.Sprintf(" where tipo.id = %d ", t1.Id)
             stup        =  strings.Join(sup, ", ")
             stup        = sini + stup + sf + sr
@@ -131,7 +135,7 @@ func TipoUpPOST(w http.ResponseWriter, r *http.Request) {
         Id,_        := atoi32(SId)
         tipo.Id      = Id
         t2.Id        = Id
-        path        := "/categoria/list"
+        path        := "/tipo/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             st          :=  getTipoFormUp(tipo, t2, r)
@@ -177,7 +181,7 @@ func TipoLisGET(w http.ResponseWriter, r *http.Request) {
         params   = context.Get(r, "params").(httprouter.Params)
         Id,_    := atoi32(params.ByName("id"))
         tipo.Id  = Id
-        path    :=  "/categoria/list"
+        path    :=  "/tipo/list"
         err := (&tipo).TipoById()
         if err != nil {
             log.Println(err)
@@ -204,7 +208,7 @@ func TipoLisGET(w http.ResponseWriter, r *http.Request) {
         params = context.Get(r, "params").(httprouter.Params)
         Id,_ := atoi32(params.ByName("id"))
         tipo.Id = Id
-        path        :=  "/categoria/list"
+        path        :=  "/tipo/list"
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
             err  = tipo.Delete()
