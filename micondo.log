@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INFO 2022/01/03 19:15:14 main.go:42: Starting app
 INFO 2022/01/03 19:15:14 route.go:36: HTTPS routes LoadHTTP
 INFO 2022/01/03 19:15:14 route.go:408: middleware micondo
@@ -212,3 +213,706 @@ INFO 2022/01/04 09:35:06 logrequest.go:14: 10.0.0.55:48696 GET /jegre/2021-11-01
 INFO 2022/01/04 09:35:06 logrequest.go:14: 10.0.0.55:48696 GET /jbalance/2021-11-01
 INFO 2022/01/04 09:35:06 logrequest.go:14: 10.0.0.55:48696 GET /report/jrptcondo/2021-11-01
 INFO 2022/01/04 09:35:06 logrequest.go:14: 10.0.0.55:48696 GET /report/jrptcondodet/2021-11-01
+=======
+INFO 2021/09/02 16:23:55 main.go:42: Starting app
+INFO 2021/09/02 16:23:55 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/02 16:23:55 route.go:392: middleware micondo
+INFO 2021/09/02 16:23:55 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/02 16:23:55 route.go:392: middleware micondo
+INFO 2021/09/02 16:23:55 server.go:37: 0.0.0.0:4430
+INFO 2021/09/02 16:24:04 logrequest.go:14: 172.21.0.73:34474 GET /login
+INFO 2021/09/02 16:24:05 logrequest.go:14: 172.21.0.73:34474 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/02 16:24:05 logrequest.go:14: 172.21.0.73:34476 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/02 16:24:06 logrequest.go:14: 172.21.0.73:34478 POST /login
+INFO 2021/09/02 16:24:06 logrequest.go:14: 172.21.0.73:34478 GET /
+INFO 2021/09/02 16:24:11 logrequest.go:14: 172.21.0.73:34478 GET /ingreso/periodo/register
+INFO 2021/09/02 16:24:13 logrequest.go:14: 172.21.0.73:34478 POST /ingreso/periodo/register
+2021/09/02 16:24:13 server.go:3119: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.IngrePerPOST (ingreso.go:63)
+INFO 2021/09/02 16:24:14 logrequest.go:14: 172.21.0.73:34478 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/02 16:24:14 logrequest.go:14: 172.21.0.73:34478 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/02 16:24:26 logrequest.go:14: 172.21.0.73:34478 GET /ingreso/list
+INFO 2021/09/02 16:24:28 logrequest.go:14: 172.21.0.73:34478 POST /ingreso/list
+INFO 2021/09/02 16:24:32 logrequest.go:14: 172.21.0.73:34478 GET /ingreso/update/184
+INFO 2021/09/02 16:24:42 logrequest.go:14: 172.21.0.73:34478 POST /ingreso/update/184
+2021/09/02 16:24:43 ingreso.go:223: pq: insert or update on table "ingresos" violates foreign key constraint "ingresos_tipo_id_fkey"
+INFO 2021/09/02 16:24:43 logrequest.go:14: 172.21.0.73:34478 GET /ingreso/list
+INFO 2021/09/02 16:24:43 logrequest.go:14: 172.21.0.73:34478 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/02 16:26:21 main.go:42: Starting app
+INFO 2021/09/02 16:26:21 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/02 16:26:21 route.go:392: middleware micondo
+INFO 2021/09/02 16:26:21 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/02 16:26:21 route.go:392: middleware micondo
+INFO 2021/09/02 16:26:21 server.go:37: 0.0.0.0:4430
+INFO 2021/09/02 16:26:31 logrequest.go:14: 172.21.0.73:34514 GET /ingreso/list
+INFO 2021/09/02 16:26:31 logrequest.go:14: 172.21.0.73:34514 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/02 16:26:31 logrequest.go:14: 172.21.0.73:34516 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/02 16:26:33 logrequest.go:14: 172.21.0.73:34518 POST /ingreso/list
+INFO 2021/09/02 16:26:33 logrequest.go:14: 172.21.0.73:34518 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/02 16:26:33 logrequest.go:14: 172.21.0.73:34520 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/02 16:26:35 logrequest.go:14: 172.21.0.73:34520 GET /ingreso/update/184
+INFO 2021/09/02 16:27:01 logrequest.go:14: 172.21.0.73:34520 POST /ingreso/update/184
+2021/09/02 16:27:01 ingreso.go:223: pq: insert or update on table "ingresos" violates foreign key constraint "ingresos_tipo_id_fkey"
+INFO 2021/09/02 16:27:01 logrequest.go:14: 172.21.0.73:34520 GET /ingreso/list
+INFO 2021/09/02 16:41:15 main.go:42: Starting app
+INFO 2021/09/02 16:41:15 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/02 16:41:15 route.go:392: middleware micondo
+INFO 2021/09/02 16:41:15 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/02 16:41:15 route.go:392: middleware micondo
+INFO 2021/09/02 16:41:15 server.go:37: 0.0.0.0:4430
+INFO 2021/09/02 16:41:29 logrequest.go:14: 172.21.0.73:34650 GET /ingreso/list
+INFO 2021/09/02 16:41:29 logrequest.go:14: 172.21.0.73:34650 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/02 16:41:29 logrequest.go:14: 172.21.0.73:34652 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/02 16:41:30 logrequest.go:14: 172.21.0.73:34654 POST /ingreso/list
+INFO 2021/09/02 16:41:33 logrequest.go:14: 172.21.0.73:34654 GET /ingreso/update/184
+INFO 2021/09/02 16:41:45 logrequest.go:14: 172.21.0.73:34654 POST /ingreso/update/184
+INFO 2021/09/02 16:41:45 logrequest.go:14: 172.21.0.73:34654 GET /ingreso/list
+INFO 2021/09/02 16:41:48 logrequest.go:14: 172.21.0.73:34654 POST /ingreso/list
+INFO 2021/09/02 16:49:52 main.go:42: Starting app
+INFO 2021/09/02 16:49:52 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/02 16:49:52 route.go:392: middleware micondo
+INFO 2021/09/02 16:49:52 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/02 16:49:52 route.go:392: middleware micondo
+INFO 2021/09/02 16:49:52 server.go:37: 0.0.0.0:4430
+INFO 2021/09/02 16:49:58 logrequest.go:14: 172.21.0.73:34728 GET /egreso/list
+INFO 2021/09/02 16:50:02 logrequest.go:14: 172.21.0.73:34728 GET /ingreso/list
+INFO 2021/09/02 16:50:04 logrequest.go:14: 172.21.0.73:34728 POST /ingreso/list
+INFO 2021/09/02 16:50:07 logrequest.go:14: 172.21.0.73:34728 GET /ingreso/update/184
+INFO 2021/09/02 16:50:24 logrequest.go:14: 172.21.0.73:34728 POST /ingreso/update/184
+INFO 2021/09/02 16:50:24 logrequest.go:14: 172.21.0.73:34728 GET /ingreso/list
+INFO 2021/09/02 16:52:25 main.go:42: Starting app
+INFO 2021/09/02 16:52:25 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/02 16:52:25 route.go:392: middleware micondo
+INFO 2021/09/02 16:52:25 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/02 16:52:25 route.go:392: middleware micondo
+INFO 2021/09/02 16:52:25 server.go:37: 0.0.0.0:4430
+INFO 2021/09/02 16:52:36 logrequest.go:14: 172.21.0.73:34760 GET /ingreso/list
+INFO 2021/09/02 16:52:37 logrequest.go:14: 172.21.0.73:34760 POST /ingreso/list
+INFO 2021/09/02 16:52:49 logrequest.go:14: 172.21.0.73:34760 GET /ingreso/update/184
+INFO 2021/09/02 16:52:59 logrequest.go:14: 172.21.0.73:34760 POST /ingreso/update/184
+INFO 2021/09/02 16:52:59 logrequest.go:14: 172.21.0.73:34760 GET /ingreso/list
+INFO 2021/09/02 16:58:37 main.go:42: Starting app
+INFO 2021/09/02 16:58:37 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/02 16:58:37 route.go:392: middleware micondo
+INFO 2021/09/02 16:58:37 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/02 16:58:37 route.go:392: middleware micondo
+INFO 2021/09/02 16:58:37 server.go:37: 0.0.0.0:4430
+INFO 2021/09/02 16:58:44 logrequest.go:14: 172.21.0.73:34818 POST /ingreso/list
+INFO 2021/09/02 16:58:50 logrequest.go:14: 172.21.0.73:34818 GET /ingreso/update/184
+INFO 2021/09/02 16:59:01 logrequest.go:14: 172.21.0.73:34818 POST /ingreso/update/184
+INFO 2021/09/02 16:59:01 logrequest.go:14: 172.21.0.73:34818 GET /ingreso/list
+INFO 2021/09/02 16:59:03 logrequest.go:14: 172.21.0.73:34818 POST /ingreso/list
+INFO 2021/09/04 14:42:57 main.go:42: Starting app
+INFO 2021/09/04 14:42:57 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/04 14:42:57 route.go:392: middleware micondo
+INFO 2021/09/04 14:42:57 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/04 14:42:57 route.go:392: middleware micondo
+INFO 2021/09/04 14:42:57 server.go:37: 0.0.0.0:4430
+INFO 2021/09/04 15:02:16 logrequest.go:14: 10.0.0.55:33380 GET /
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33380 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33382 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33384 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33384 GET /static/css/bootstrap.css?1580161104
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33380 GET /static/css/global.css?1629019482
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33380 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33384 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/04 15:02:17 logrequest.go:14: 10.0.0.55:33380 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/04 15:02:18 logrequest.go:14: 10.0.0.55:33384 GET /login
+INFO 2021/09/04 15:02:19 logrequest.go:14: 10.0.0.55:33384 GET /static/js/jquery.min.js?1580161104
+INFO 2021/09/04 15:02:19 logrequest.go:14: 10.0.0.55:33384 GET /static/js/underscore-min.js?1580161104
+INFO 2021/09/04 15:02:19 logrequest.go:14: 10.0.0.55:33380 GET /static/js/popper.min.js?1580161104
+INFO 2021/09/04 15:02:19 logrequest.go:14: 10.0.0.55:33382 GET /static/js/global.js?1580161104
+INFO 2021/09/04 15:02:27 logrequest.go:14: 10.0.0.55:33384 POST /login
+INFO 2021/09/04 15:02:28 logrequest.go:14: 10.0.0.55:33384 GET /
+INFO 2021/09/04 15:02:38 logrequest.go:14: 10.0.0.55:33384 GET /balance/register
+INFO 2021/09/04 15:02:55 logrequest.go:14: 10.0.0.55:33384 GET /egreso/list
+INFO 2021/09/04 15:02:57 logrequest.go:14: 10.0.0.55:33384 POST /egreso/list
+INFO 2021/09/04 15:03:04 logrequest.go:14: 10.0.0.55:33384 GET /balance/list
+INFO 2021/09/04 15:03:06 logrequest.go:14: 10.0.0.55:33384 GET /balance/update/451
+INFO 2021/09/04 15:04:05 logrequest.go:14: 10.0.0.55:33384 POST /balance/update/451
+INFO 2021/09/04 15:04:05 logrequest.go:14: 10.0.0.55:33384 GET /balance/list
+INFO 2021/09/04 15:04:30 logrequest.go:14: 10.0.0.55:33384 GET /logout
+INFO 2021/09/04 15:04:30 logrequest.go:14: 10.0.0.55:33384 GET /
+INFO 2021/09/12 12:15:14 main.go:42: Starting app
+INFO 2021/09/12 12:15:14 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/12 12:15:14 route.go:392: middleware micondo
+INFO 2021/09/12 12:15:14 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/12 12:15:14 route.go:392: middleware micondo
+INFO 2021/09/12 12:15:14 server.go:37: 0.0.0.0:4430
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44206 GET /balance/list
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44206 GET /
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44206 GET /static/css/bootstrap.css?1580161104
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44212 GET /static/css/global.css?1629019482
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44214 GET /static/js/jquery.min.js?1580161104
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44216 GET /static/js/underscore-min.js?1580161104
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44220 GET /static/js/global.js?1580161104
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44218 GET /static/js/popper.min.js?1580161104
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44206 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44214 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44216 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44218 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44216 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/12 12:15:19 logrequest.go:14: 10.0.0.55:44206 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/12 12:15:22 logrequest.go:14: 10.0.0.55:44206 GET /login
+INFO 2021/09/12 12:15:36 logrequest.go:14: 10.0.0.55:44206 POST /login
+INFO 2021/09/12 12:15:36 logrequest.go:14: 10.0.0.55:44206 GET /
+INFO 2021/09/12 12:15:44 logrequest.go:14: 10.0.0.55:44206 GET /balance/register
+INFO 2021/09/12 12:16:02 logrequest.go:14: 10.0.0.55:44206 GET /balance/register
+INFO 2021/09/12 12:16:10 logrequest.go:14: 10.0.0.55:44206 GET /period/register
+INFO 2021/09/12 12:16:25 logrequest.go:14: 10.0.0.55:44206 POST /period/register
+INFO 2021/09/12 12:16:25 logrequest.go:14: 10.0.0.55:44206 GET /period/list
+INFO 2021/09/12 12:16:25 logrequest.go:14: 10.0.0.55:44206 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/12 12:16:25 logrequest.go:14: 10.0.0.55:44216 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/12 12:16:32 logrequest.go:14: 10.0.0.55:44214 GET /balance/register
+INFO 2021/09/12 12:17:17 logrequest.go:14: 10.0.0.55:44214 POST /balance/register
+INFO 2021/09/12 12:17:17 logrequest.go:14: 10.0.0.55:44214 GET /balance/list
+INFO 2021/09/12 12:17:27 logrequest.go:14: 10.0.0.55:44214 GET /cuota/periodo/register
+INFO 2021/09/12 12:17:38 logrequest.go:14: 10.0.0.55:44214 POST /cuota/periodo/register
+INFO 2021/09/12 12:18:04 logrequest.go:14: 10.0.0.55:44214 POST /cuota/register
+2021/09/12 12:18:05 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/12 12:18:30 logrequest.go:14: 10.0.0.55:44214 POST /cuota/register
+2021/09/12 12:18:30 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/12 12:19:42 logrequest.go:14: 10.0.0.55:44214 POST /cuota/register
+2021/09/12 12:19:42 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/12 12:20:11 logrequest.go:14: 10.0.0.55:44214 POST /cuota/register
+2021/09/12 12:20:11 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/12 12:20:41 logrequest.go:14: 10.0.0.55:44214 POST /cuota/register
+2021/09/12 12:20:41 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/12 12:21:10 logrequest.go:14: 10.0.0.55:44214 POST /cuota/register
+2021/09/12 12:21:10 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/12 12:21:19 logrequest.go:14: 10.0.0.55:44214 GET /logout
+INFO 2021/09/12 12:21:19 logrequest.go:14: 10.0.0.55:44214 GET /
+INFO 2021/09/27 14:38:03 main.go:42: Starting app
+INFO 2021/09/27 14:38:05 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/09/27 14:38:05 route.go:392: middleware micondo
+INFO 2021/09/27 14:38:05 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/09/27 14:38:05 route.go:392: middleware micondo
+INFO 2021/09/27 14:38:05 server.go:37: 0.0.0.0:4430
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46758 GET /
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46758 GET /static/css/bootstrap.css?1580161104
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46770 GET /static/css/global.css?1629019482
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46772 GET /static/js/jquery.min.js?1580161104
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46776 GET /static/js/popper.min.js?1580161104
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46770 GET /static/js/global.js?1580161104
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46774 GET /static/js/underscore-min.js?1580161104
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46770 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46774 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46776 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46772 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46758 GET /static/favicons/favicon-196x196.png
+INFO 2021/09/27 15:04:05 logrequest.go:14: 10.0.0.55:46774 GET /static/favicons/favicon-16x16.png
+INFO 2021/09/27 15:04:07 logrequest.go:14: 10.0.0.55:46758 GET /login
+INFO 2021/09/27 15:04:16 logrequest.go:14: 10.0.0.55:46758 POST /login
+INFO 2021/09/27 15:04:28 logrequest.go:14: 10.0.0.55:46758 POST /login
+INFO 2021/09/27 15:04:42 logrequest.go:14: 10.0.0.55:46758 POST /login
+INFO 2021/09/27 15:04:42 logrequest.go:14: 10.0.0.55:46758 GET /
+INFO 2021/09/27 15:04:51 logrequest.go:14: 10.0.0.55:46758 GET /balance/list
+INFO 2021/09/27 15:05:12 logrequest.go:14: 10.0.0.55:46758 GET /period/list
+INFO 2021/09/27 15:05:17 logrequest.go:14: 10.0.0.55:46758 GET /balance/register
+INFO 2021/09/27 15:05:36 logrequest.go:14: 10.0.0.55:46758 POST /balance/register
+INFO 2021/09/27 15:05:36 logrequest.go:14: 10.0.0.55:46758 GET /balance/list
+INFO 2021/09/27 15:05:47 logrequest.go:14: 10.0.0.55:46758 GET /cuota/periodo/register
+INFO 2021/09/27 15:05:49 logrequest.go:14: 10.0.0.55:46758 POST /cuota/periodo/register
+INFO 2021/09/27 15:06:38 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:06:38 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:07:08 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:07:08 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:07:29 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:07:29 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:07:56 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:07:57 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:09:40 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:09:40 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:10:11 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:10:11 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:11:03 logrequest.go:14: 10.0.0.55:46758 POST /cuota/register
+2021/09/27 15:11:03 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/09/27 15:11:08 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:11:10 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:11:19 logrequest.go:14: 10.0.0.55:46758 GET /cuota/delete/13088
+INFO 2021/09/27 15:11:29 logrequest.go:14: 10.0.0.55:46758 POST /cuota/delete/13088
+INFO 2021/09/27 15:11:29 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:11:30 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:11:37 logrequest.go:14: 10.0.0.55:46758 GET /cuota/delete/13094
+INFO 2021/09/27 15:11:39 logrequest.go:14: 10.0.0.55:46758 POST /cuota/delete/13094
+INFO 2021/09/27 15:11:39 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:11:42 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:11:47 logrequest.go:14: 10.0.0.55:46758 GET /cuota/delete/13096
+INFO 2021/09/27 15:11:48 logrequest.go:14: 10.0.0.55:46758 POST /cuota/delete/13096
+INFO 2021/09/27 15:11:48 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:11:50 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:11:55 logrequest.go:14: 10.0.0.55:46758 GET /cuota/update/13091
+INFO 2021/09/27 15:11:56 logrequest.go:14: 10.0.0.55:46758 POST /cuota/update/13091
+INFO 2021/09/27 15:11:56 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:11:58 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:12:10 logrequest.go:14: 10.0.0.55:46758 GET /cuota/update/13090
+INFO 2021/09/27 15:12:12 logrequest.go:14: 10.0.0.55:46758 POST /cuota/update/13090
+INFO 2021/09/27 15:12:12 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:12:14 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:12:20 logrequest.go:14: 10.0.0.55:46758 GET /cuota/delete/13091
+INFO 2021/09/27 15:12:21 logrequest.go:14: 10.0.0.55:46758 POST /cuota/delete/13091
+INFO 2021/09/27 15:12:21 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:12:23 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:12:28 logrequest.go:14: 10.0.0.55:46758 GET /cuota/delete/13090
+INFO 2021/09/27 15:12:30 logrequest.go:14: 10.0.0.55:46758 POST /cuota/delete/13090
+INFO 2021/09/27 15:12:30 logrequest.go:14: 10.0.0.55:46758 GET /cuota/list
+INFO 2021/09/27 15:12:32 logrequest.go:14: 10.0.0.55:46758 POST /cuota/list
+INFO 2021/09/27 15:14:07 logrequest.go:14: 10.0.0.55:46758 GET /logout
+INFO 2021/09/27 15:14:07 logrequest.go:14: 10.0.0.55:46758 GET /
+INFO 2021/10/02 20:19:06 main.go:42: Starting app
+INFO 2021/10/02 20:19:07 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/02 20:19:07 route.go:392: middleware micondo
+INFO 2021/10/02 20:19:07 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/02 20:19:07 route.go:392: middleware micondo
+INFO 2021/10/02 20:19:07 server.go:37: 0.0.0.0:4430
+INFO 2021/10/02 20:21:59 logrequest.go:14: 10.0.0.55:51976 GET /
+INFO 2021/10/02 20:21:59 logrequest.go:14: 10.0.0.55:51976 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/10/02 20:21:59 logrequest.go:14: 10.0.0.55:51978 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/10/02 20:21:59 logrequest.go:14: 10.0.0.55:51982 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/10/02 20:21:59 logrequest.go:14: 10.0.0.55:51980 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/10/02 20:22:00 logrequest.go:14: 10.0.0.55:51986 GET /static/css/global.css?1629019482
+INFO 2021/10/02 20:22:01 logrequest.go:14: 10.0.0.55:51982 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/02 20:22:01 logrequest.go:14: 10.0.0.55:51978 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/02 20:22:02 logrequest.go:14: 10.0.0.55:51982 GET /login
+INFO 2021/10/02 20:22:14 logrequest.go:14: 10.0.0.55:51982 POST /login
+INFO 2021/10/02 20:22:16 logrequest.go:14: 10.0.0.55:51982 GET /
+INFO 2021/10/02 20:22:24 logrequest.go:14: 10.0.0.55:51982 GET /balance/list
+INFO 2021/10/02 20:22:44 logrequest.go:14: 10.0.0.55:51982 GET /period/list
+INFO 2021/10/02 20:22:53 logrequest.go:14: 10.0.0.55:51982 GET /balance/list
+INFO 2021/10/02 20:22:57 logrequest.go:14: 10.0.0.55:51982 GET /balance/register
+INFO 2021/10/02 20:23:49 logrequest.go:14: 10.0.0.55:51982 POST /balance/register
+INFO 2021/10/02 20:23:49 logrequest.go:14: 10.0.0.55:51982 GET /balance/list
+INFO 2021/10/02 20:24:16 logrequest.go:14: 10.0.0.55:51982 GET /period/register
+INFO 2021/10/02 20:24:27 logrequest.go:14: 10.0.0.55:51982 GET /balance/register
+INFO 2021/10/02 20:24:56 logrequest.go:14: 10.0.0.55:51982 POST /balance/register
+INFO 2021/10/02 20:24:56 logrequest.go:14: 10.0.0.55:51982 GET /balance/list
+INFO 2021/10/02 20:46:45 logrequest.go:14: 10.0.0.55:52326 GET /balance/register
+INFO 2021/10/02 20:46:45 logrequest.go:14: 10.0.0.55:52326 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/02 20:46:45 logrequest.go:14: 10.0.0.55:52328 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/02 20:47:07 logrequest.go:14: 10.0.0.55:52326 POST /balance/register
+INFO 2021/10/02 20:47:07 logrequest.go:14: 10.0.0.55:52326 GET /balance/list
+INFO 2021/10/02 20:50:24 main.go:42: Starting app
+INFO 2021/10/02 20:50:24 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/02 20:50:24 route.go:392: middleware micondo
+INFO 2021/10/02 20:50:24 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/02 20:50:24 route.go:392: middleware micondo
+INFO 2021/10/02 20:50:24 server.go:37: 0.0.0.0:4430
+INFO 2021/10/02 20:50:30 logrequest.go:14: 10.0.0.55:52382 GET /balance/register
+INFO 2021/10/02 20:50:30 logrequest.go:14: 10.0.0.55:52382 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/02 20:50:47 logrequest.go:14: 10.0.0.55:52388 POST /balance/register
+INFO 2021/10/02 20:50:47 logrequest.go:14: 10.0.0.55:52388 GET /balance/list
+INFO 2021/10/02 21:00:02 main.go:42: Starting app
+INFO 2021/10/02 21:00:02 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/02 21:00:02 route.go:392: middleware micondo
+INFO 2021/10/02 21:00:02 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/02 21:00:02 route.go:392: middleware micondo
+INFO 2021/10/02 21:00:02 server.go:37: 0.0.0.0:4430
+INFO 2021/10/02 21:00:12 logrequest.go:14: 10.0.0.55:52466 GET /balance/register
+INFO 2021/10/02 21:00:24 logrequest.go:14: 10.0.0.55:52466 POST /balance/register
+INFO 2021/10/02 21:00:24 logrequest.go:14: 10.0.0.55:52466 GET /balance/list
+INFO 2021/10/02 21:03:31 main.go:42: Starting app
+INFO 2021/10/02 21:03:31 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/02 21:03:31 route.go:392: middleware micondo
+INFO 2021/10/02 21:03:31 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/02 21:03:31 route.go:392: middleware micondo
+INFO 2021/10/02 21:03:31 server.go:37: 0.0.0.0:4430
+INFO 2021/10/02 21:03:37 logrequest.go:14: 10.0.0.55:52502 GET /balance/register
+INFO 2021/10/02 21:03:48 logrequest.go:14: 10.0.0.55:52502 POST /balance/register
+2021/10/02 21:03:48 balance.go:72: <nil>
+2021/10/02 21:03:48 balance.go:70: Creating balance
+INFO 2021/10/02 21:03:48 logrequest.go:14: 10.0.0.55:52502 GET /balance/list
+INFO 2021/10/02 21:04:44 logrequest.go:14: 10.0.0.55:52502 GET /cuota/periodo/register
+INFO 2021/10/02 21:04:46 logrequest.go:14: 10.0.0.55:52502 POST /cuota/periodo/register
+INFO 2021/10/02 21:06:01 logrequest.go:14: 10.0.0.55:52502 POST /cuota/register
+2021/10/02 21:06:02 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/02 21:06:33 logrequest.go:14: 10.0.0.55:52502 POST /cuota/register
+2021/10/02 21:06:33 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/02 21:07:13 logrequest.go:14: 10.0.0.55:52502 GET /logout
+INFO 2021/10/02 21:07:13 logrequest.go:14: 10.0.0.55:52502 GET /
+INFO 2021/10/03 05:56:22 main.go:42: Starting app
+INFO 2021/10/03 05:56:22 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/03 05:56:22 route.go:392: middleware micondo
+INFO 2021/10/03 05:56:22 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/03 05:56:22 route.go:392: middleware micondo
+INFO 2021/10/03 05:56:22 server.go:37: 0.0.0.0:4430
+INFO 2021/10/03 06:17:09 logrequest.go:14: 10.0.0.55:47872 GET /static/css/bootstrap.css?1580161104
+INFO 2021/10/03 06:17:09 logrequest.go:14: 10.0.0.55:47874 GET /static/css/global.css?1629019482
+INFO 2021/10/03 06:17:09 logrequest.go:14: 10.0.0.55:47876 GET /static/js/popper.min.js?1580161104
+INFO 2021/10/03 06:17:09 logrequest.go:14: 10.0.0.55:47878 GET /static/js/global.js?1580161104
+INFO 2021/10/03 06:17:10 logrequest.go:14: 10.0.0.55:47876 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/10/03 06:17:10 logrequest.go:14: 10.0.0.55:47874 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/10/03 06:17:10 logrequest.go:14: 10.0.0.55:47878 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/10/03 06:17:10 logrequest.go:14: 10.0.0.55:47872 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/10/03 06:17:11 logrequest.go:14: 10.0.0.55:47872 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/03 06:17:11 logrequest.go:14: 10.0.0.55:47874 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/03 06:17:11 logrequest.go:14: 10.0.0.55:47872 GET /login
+INFO 2021/10/03 06:17:25 logrequest.go:14: 10.0.0.55:47872 POST /login
+INFO 2021/10/03 06:17:26 logrequest.go:14: 10.0.0.55:47872 GET /
+INFO 2021/10/03 06:17:40 logrequest.go:14: 10.0.0.55:47872 GET /egreso/periodo/register
+INFO 2021/10/03 06:17:42 logrequest.go:14: 10.0.0.55:47872 POST /egreso/periodo/register
+INFO 2021/10/03 06:19:17 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:20:22 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:21:21 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:22:45 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:23:30 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:24:48 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:25:42 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:26:22 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:27:46 logrequest.go:14: 10.0.0.55:47872 POST /egreso/register
+INFO 2021/10/03 06:30:10 logrequest.go:14: 10.0.0.55:47996 POST /egreso/register
+INFO 2021/10/03 06:31:27 logrequest.go:14: 10.0.0.55:47996 POST /egreso/register
+INFO 2021/10/03 06:32:22 logrequest.go:14: 10.0.0.55:47996 POST /egreso/register
+INFO 2021/10/03 06:33:27 logrequest.go:14: 10.0.0.55:47996 POST /egreso/register
+INFO 2021/10/03 06:34:13 logrequest.go:14: 10.0.0.55:47996 POST /egreso/register
+INFO 2021/10/03 06:34:25 logrequest.go:14: 10.0.0.55:47996 GET /egreso/list
+INFO 2021/10/03 06:34:27 logrequest.go:14: 10.0.0.55:47996 POST /egreso/list
+INFO 2021/10/03 06:34:43 logrequest.go:14: 10.0.0.55:47996 GET /egreso/update/6996
+INFO 2021/10/03 06:35:16 logrequest.go:14: 10.0.0.55:47996 POST /egreso/update/6996
+INFO 2021/10/03 06:35:16 logrequest.go:14: 10.0.0.55:47996 GET /egreso/list
+INFO 2021/10/03 06:35:27 logrequest.go:14: 10.0.0.55:47996 GET /egreso/list
+INFO 2021/10/03 06:35:30 logrequest.go:14: 10.0.0.55:47996 POST /egreso/list
+INFO 2021/10/03 06:36:27 logrequest.go:14: 10.0.0.55:47996 GET /logout
+INFO 2021/10/03 06:36:27 logrequest.go:14: 10.0.0.55:47996 GET /
+INFO 2021/10/03 07:17:28 logrequest.go:14: 10.0.0.55:49576 GET /login
+INFO 2021/10/03 07:17:28 logrequest.go:14: 10.0.0.55:49576 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/03 07:17:37 logrequest.go:14: 10.0.0.55:49578 POST /login
+INFO 2021/10/03 07:17:37 logrequest.go:14: 10.0.0.55:49578 GET /
+INFO 2021/10/03 07:17:37 logrequest.go:14: 10.0.0.55:49578 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/03 07:17:37 logrequest.go:14: 10.0.0.55:49578 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/03 07:17:46 logrequest.go:14: 10.0.0.55:49578 GET /ingreso/periodo/register
+INFO 2021/10/03 07:17:49 logrequest.go:14: 10.0.0.55:49578 POST /ingreso/periodo/register
+2021/10/03 07:17:49 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.IngrePerPOST (ingreso.go:63)
+INFO 2021/10/03 07:17:50 logrequest.go:14: 10.0.0.55:49578 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/03 07:18:30 logrequest.go:14: 10.0.0.55:49596 POST /ingreso/register
+2021/10/03 07:18:30 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.IngreRegPOST (ingreso.go:126)
+INFO 2021/10/03 07:18:30 logrequest.go:14: 10.0.0.55:49596 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/03 07:18:34 logrequest.go:14: 10.0.0.55:49598 GET /logout
+INFO 2021/10/03 07:18:34 logrequest.go:14: 10.0.0.55:49598 GET /
+INFO 2021/10/31 09:43:28 main.go:42: Starting app
+INFO 2021/10/31 09:43:28 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/31 09:43:28 route.go:392: middleware micondo
+INFO 2021/10/31 09:43:28 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/31 09:43:28 route.go:392: middleware micondo
+INFO 2021/10/31 09:43:28 server.go:37: 0.0.0.0:4430
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40986 GET /
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40986 GET /static/css/bootstrap.css?1580161104
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40996 GET /static/css/global.css?1629019482
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40992 GET /static/js/underscore-min.js?1580161104
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40994 GET /static/js/jquery.min.js?1580161104
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40988 GET /static/js/global.js?1580161104
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40990 GET /static/js/popper.min.js?1580161104
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40992 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40996 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40986 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40988 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40996 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/31 09:44:03 logrequest.go:14: [::1]:40988 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/31 09:44:05 logrequest.go:14: [::1]:40986 GET /login
+INFO 2021/10/31 09:44:15 logrequest.go:14: [::1]:40986 POST /login
+INFO 2021/10/31 09:44:16 logrequest.go:14: [::1]:40986 GET /
+INFO 2021/10/31 09:44:16 logrequest.go:14: [::1]:40996 GET /static/css/bootstrap.css?1580161104
+INFO 2021/10/31 09:44:24 logrequest.go:14: [::1]:40986 GET /balance/list
+INFO 2021/10/31 09:44:34 logrequest.go:14: [::1]:40986 GET /period/list
+INFO 2021/10/31 09:44:34 logrequest.go:14: [::1]:40988 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/31 09:44:34 logrequest.go:14: [::1]:40992 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/31 09:44:39 logrequest.go:14: [::1]:40986 GET /period/register
+INFO 2021/10/31 09:44:39 logrequest.go:14: [::1]:40994 GET /static/css/bootstrap.css?1580161104
+INFO 2021/10/31 09:44:39 logrequest.go:14: [::1]:40990 GET /static/css/global.css?1629019482
+INFO 2021/10/31 09:44:39 logrequest.go:14: [::1]:40986 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/31 09:44:57 logrequest.go:14: [::1]:41012 POST /period/register
+INFO 2021/10/31 09:44:57 logrequest.go:14: [::1]:41016 GET /period/list
+INFO 2021/10/31 09:45:05 logrequest.go:14: [::1]:41016 GET /balance/register
+INFO 2021/10/31 09:46:14 logrequest.go:14: [::1]:41016 POST /balance/register
+2021/10/31 09:46:14 balance.go:72: <nil>
+2021/10/31 09:46:14 balance.go:70: Creating balance
+INFO 2021/10/31 09:46:14 logrequest.go:14: [::1]:41016 GET /balance/list
+INFO 2021/10/31 09:46:25 logrequest.go:14: [::1]:41016 GET /cuota/periodo/register
+INFO 2021/10/31 09:46:28 logrequest.go:14: [::1]:41016 POST /cuota/periodo/register
+INFO 2021/10/31 09:47:04 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:47:04 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:47:30 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:47:30 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:48:11 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:48:11 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:48:42 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:48:43 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:49:20 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:49:20 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:49:46 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:49:46 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:50:19 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:50:19 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:50:47 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:50:47 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:51:15 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:51:15 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:51:50 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:51:50 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:52:50 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:52:50 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 09:53:26 logrequest.go:14: [::1]:41016 POST /cuota/register
+2021/10/31 09:53:26 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 10:58:05 logrequest.go:14: [::1]:41772 GET /egreso/periodo/register
+INFO 2021/10/31 10:58:05 logrequest.go:14: [::1]:41772 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/31 10:58:07 logrequest.go:14: [::1]:41782 POST /egreso/periodo/register
+INFO 2021/10/31 10:59:43 logrequest.go:14: [::1]:41782 POST /egreso/register
+INFO 2021/10/31 11:00:29 logrequest.go:14: [::1]:41782 POST /egreso/register
+INFO 2021/10/31 11:01:02 logrequest.go:14: [::1]:41782 POST /egreso/register
+INFO 2021/10/31 11:02:21 logrequest.go:14: [::1]:41782 POST /egreso/register
+INFO 2021/10/31 11:03:04 logrequest.go:14: [::1]:41782 POST /egreso/register
+INFO 2021/10/31 11:03:39 logrequest.go:14: [::1]:41782 POST /egreso/register
+INFO 2021/10/31 11:03:39 logrequest.go:14: [::1]:41782 GET /favicon.ico
+INFO 2021/10/31 11:04:03 logrequest.go:14: [::1]:41782 GET /egreso/list
+INFO 2021/10/31 11:04:04 logrequest.go:14: [::1]:41782 POST /egreso/list
+INFO 2021/10/31 11:06:18 logrequest.go:14: [::1]:41898 GET /egreso/periodo/register
+INFO 2021/10/31 11:06:20 logrequest.go:14: [::1]:41898 POST /egreso/periodo/register
+INFO 2021/10/31 11:12:47 logrequest.go:14: [::1]:41958 POST /egreso/register
+INFO 2021/10/31 11:12:53 logrequest.go:14: [::1]:41958 GET /report/rptapto
+INFO 2021/10/31 11:12:59 logrequest.go:14: [::1]:41958 GET /report/rptlisapto
+INFO 2021/10/31 11:13:10 logrequest.go:14: [::1]:41958 GET /report/rptcondo
+INFO 2021/10/31 11:13:12 logrequest.go:14: [::1]:41958 POST /report/rptcondo
+INFO 2021/10/31 17:10:55 main.go:42: Starting app
+INFO 2021/10/31 17:10:55 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/10/31 17:10:55 route.go:392: middleware micondo
+INFO 2021/10/31 17:10:55 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/10/31 17:10:55 route.go:392: middleware micondo
+INFO 2021/10/31 17:10:55 server.go:37: 0.0.0.0:4430
+INFO 2021/10/31 18:01:55 logrequest.go:14: [::1]:56502 GET /
+INFO 2021/10/31 18:01:55 logrequest.go:14: [::1]:56502 GET /static/css/bootstrap.css?1580161104
+INFO 2021/10/31 18:01:55 logrequest.go:14: [::1]:56504 GET /static/css/global.css?1629019482
+INFO 2021/10/31 18:01:55 logrequest.go:14: [::1]:56504 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/31 18:01:55 logrequest.go:14: [::1]:56508 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/31 18:02:06 logrequest.go:14: [::1]:56504 GET /cuota/periodo/register
+INFO 2021/10/31 18:02:06 logrequest.go:14: [::1]:56504 GET /static/css/global.css?1629019482
+INFO 2021/10/31 18:02:06 logrequest.go:14: [::1]:56504 GET /static/favicons/favicon-196x196.png
+INFO 2021/10/31 18:02:06 logrequest.go:14: [::1]:56508 GET /static/favicons/favicon-16x16.png
+INFO 2021/10/31 18:02:09 logrequest.go:14: [::1]:56514 POST /cuota/periodo/register
+INFO 2021/10/31 18:02:56 logrequest.go:14: [::1]:56514 POST /cuota/register
+2021/10/31 18:02:56 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/10/31 18:17:42 logrequest.go:14: [::1]:56968 GET /logout
+INFO 2021/10/31 18:17:42 logrequest.go:14: [::1]:56968 GET /
+INFO 2021/10/31 18:17:42 logrequest.go:14: [::1]:56968 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/10/31 18:17:42 logrequest.go:14: [::1]:56974 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/10/31 18:17:42 logrequest.go:14: [::1]:56972 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/10/31 18:17:42 logrequest.go:14: [::1]:56970 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/11/29 17:12:25 main.go:42: Starting app
+INFO 2021/11/29 17:12:26 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/11/29 17:12:26 route.go:392: middleware micondo
+INFO 2021/11/29 17:12:26 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/11/29 17:12:26 route.go:392: middleware micondo
+INFO 2021/11/29 17:12:26 server.go:37: 0.0.0.0:4430
+INFO 2021/11/29 17:12:43 logrequest.go:14: [::1]:48540 GET /
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48540 GET /static/css/bootstrap.css?1580161104
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48544 GET /static/css/global.css?1629019482
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48544 GET /static/js/jquery.min.js?1580161104
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48550 GET /static/js/global.js?1580161104
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48546 GET /static/js/popper.min.js?1580161104
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48542 GET /static/js/underscore-min.js?1580161104
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48544 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48542 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48546 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/11/29 17:12:44 logrequest.go:14: [::1]:48550 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/11/29 17:12:45 logrequest.go:14: [::1]:48550 GET /static/favicons/favicon-196x196.png
+INFO 2021/11/29 17:12:45 logrequest.go:14: [::1]:48546 GET /static/favicons/favicon-16x16.png
+INFO 2021/11/29 17:12:47 logrequest.go:14: [::1]:48540 GET /login
+INFO 2021/11/29 17:12:55 logrequest.go:14: [::1]:48540 POST /login
+INFO 2021/11/29 17:12:55 logrequest.go:14: [::1]:48540 GET /
+INFO 2021/11/29 17:13:02 logrequest.go:14: [::1]:48540 GET /period/list
+INFO 2021/11/29 17:13:07 logrequest.go:14: [::1]:48540 GET /period/register
+INFO 2021/11/29 17:13:25 logrequest.go:14: [::1]:48540 POST /period/register
+INFO 2021/11/29 17:13:25 logrequest.go:14: [::1]:48540 GET /period/list
+INFO 2021/11/29 17:14:00 logrequest.go:14: [::1]:48540 GET /cuota/periodo/register
+INFO 2021/11/29 17:14:09 logrequest.go:14: [::1]:48540 POST /cuota/periodo/register
+INFO 2021/11/29 17:14:46 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:14:47 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:15:12 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:15:12 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:15:47 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:15:47 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:16:35 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:16:35 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:17:28 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:17:28 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:18:09 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:18:10 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:19:09 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:19:09 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:19:28 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:19:28 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:20:12 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:20:12 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:20:43 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:20:43 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:21:37 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:21:37 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:22:20 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:22:20 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:22:44 logrequest.go:14: [::1]:48540 POST /cuota/register
+2021/11/29 17:22:44 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/29 17:24:37 logrequest.go:14: [::1]:48540 GET /cuota/list
+INFO 2021/11/29 17:24:39 logrequest.go:14: [::1]:48540 POST /cuota/list
+INFO 2021/11/29 17:24:57 logrequest.go:14: [::1]:48540 GET /logout
+INFO 2021/11/29 17:24:57 logrequest.go:14: [::1]:48540 GET /
+INFO 2021/11/29 18:54:57 main.go:42: Starting app
+INFO 2021/11/29 18:54:57 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/11/29 18:54:57 route.go:392: middleware micondo
+INFO 2021/11/29 18:54:57 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/11/29 18:54:57 route.go:392: middleware micondo
+INFO 2021/11/29 18:54:57 server.go:37: 0.0.0.0:4430
+INFO 2021/11/29 18:55:03 logrequest.go:14: 127.0.0.1:46908 GET /
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46908 GET /static/css/bootstrap.css?1580161104
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46910 GET /static/css/global.css?1629019482
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46920 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46918 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46914 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46916 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46920 GET /static/favicons/favicon-196x196.png
+INFO 2021/11/29 18:55:04 logrequest.go:14: 127.0.0.1:46916 GET /static/favicons/favicon-16x16.png
+INFO 2021/11/29 18:55:07 logrequest.go:14: 127.0.0.1:46920 GET /login
+INFO 2021/11/29 18:55:14 logrequest.go:14: 127.0.0.1:46920 POST /login
+INFO 2021/11/29 18:55:15 logrequest.go:14: 127.0.0.1:46920 GET /
+INFO 2021/11/29 18:55:15 logrequest.go:14: 127.0.0.1:46920 GET /static/favicons/favicon-196x196.png
+INFO 2021/11/29 18:55:15 logrequest.go:14: 127.0.0.1:46916 GET /static/favicons/favicon-16x16.png
+INFO 2021/11/29 18:55:22 logrequest.go:14: 127.0.0.1:46914 GET /egreso/periodo/register
+INFO 2021/11/29 18:55:26 logrequest.go:14: 127.0.0.1:46914 POST /egreso/periodo/register
+INFO 2021/11/29 18:57:11 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 18:57:55 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 18:58:31 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 18:59:35 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 19:00:23 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 19:01:31 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 19:02:05 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 19:02:48 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 19:03:17 logrequest.go:14: 127.0.0.1:46914 POST /egreso/register
+INFO 2021/11/29 19:03:25 logrequest.go:14: 127.0.0.1:46914 GET /logout
+INFO 2021/11/29 19:03:25 logrequest.go:14: 127.0.0.1:46914 GET /
+INFO 2021/11/29 19:03:25 logrequest.go:14: 127.0.0.1:46914 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/11/29 19:03:25 logrequest.go:14: 127.0.0.1:46914 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/11/29 19:03:25 logrequest.go:14: 127.0.0.1:47018 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/11/29 19:03:25 logrequest.go:14: 127.0.0.1:47016 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/11/30 19:40:20 main.go:42: Starting app
+INFO 2021/11/30 19:40:20 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/11/30 19:40:20 route.go:392: middleware micondo
+INFO 2021/11/30 19:40:20 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/11/30 19:40:20 route.go:392: middleware micondo
+INFO 2021/11/30 19:40:20 server.go:37: 0.0.0.0:4430
+INFO 2021/11/30 19:40:32 logrequest.go:14: [::1]:44776 GET /
+INFO 2021/11/30 19:40:32 logrequest.go:14: [::1]:44776 GET /static/css/bootstrap.css?1580161104
+INFO 2021/11/30 19:40:32 logrequest.go:14: [::1]:44778 GET /static/css/global.css?1629019482
+INFO 2021/11/30 19:40:32 logrequest.go:14: [::1]:44778 GET /static/favicons/favicon-196x196.png
+INFO 2021/11/30 19:40:32 logrequest.go:14: [::1]:44782 GET /static/favicons/favicon-16x16.png
+INFO 2021/11/30 19:40:36 logrequest.go:14: [::1]:44778 GET /login
+INFO 2021/11/30 19:40:36 logrequest.go:14: [::1]:44778 GET /static/css/global.css?1629019482
+INFO 2021/11/30 19:40:36 logrequest.go:14: [::1]:44778 GET /static/favicons/favicon-196x196.png
+INFO 2021/11/30 19:40:36 logrequest.go:14: [::1]:44782 GET /static/favicons/favicon-16x16.png
+INFO 2021/11/30 19:40:44 logrequest.go:14: [::1]:44778 POST /login
+INFO 2021/11/30 19:40:45 logrequest.go:14: [::1]:44778 GET /
+INFO 2021/11/30 19:40:53 logrequest.go:14: [::1]:44778 GET /cuota/periodo/register
+INFO 2021/11/30 19:40:55 logrequest.go:14: [::1]:44778 POST /cuota/periodo/register
+INFO 2021/11/30 19:41:29 logrequest.go:14: [::1]:44778 POST /cuota/register
+2021/11/30 19:41:30 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/30 19:41:50 logrequest.go:14: [::1]:44778 POST /cuota/register
+2021/11/30 19:41:50 server.go:3139: http: superfluous response.WriteHeader call from github.com/gatopardo/micondo/app/controller.CuotRegPOST (cuota.go:142)
+INFO 2021/11/30 19:42:42 logrequest.go:14: [::1]:44778 GET /logout
+INFO 2021/11/30 19:42:42 logrequest.go:14: [::1]:44778 GET /
+INFO 2021/12/01 06:25:40 main.go:42: Starting app
+INFO 2021/12/01 06:25:40 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/12/01 06:25:40 route.go:392: middleware micondo
+INFO 2021/12/01 06:25:40 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/12/01 06:25:40 route.go:392: middleware micondo
+INFO 2021/12/01 06:25:40 server.go:37: 0.0.0.0:4430
+INFO 2021/12/01 06:25:45 logrequest.go:14: 127.0.0.1:32988 GET /
+INFO 2021/12/01 06:25:47 logrequest.go:14: 127.0.0.1:32988 GET /login
+INFO 2021/12/01 06:25:56 logrequest.go:14: 127.0.0.1:32988 POST /login
+INFO 2021/12/01 06:25:56 logrequest.go:14: 127.0.0.1:32988 GET /
+INFO 2021/12/01 06:26:09 logrequest.go:14: 127.0.0.1:32988 GET /balance/register
+INFO 2021/12/01 06:26:52 logrequest.go:14: 127.0.0.1:32988 POST /balance/register
+2021/12/01 06:26:52 balance.go:72: <nil>
+2021/12/01 06:26:52 balance.go:70: Creating balance
+INFO 2021/12/01 06:26:52 logrequest.go:14: 127.0.0.1:32988 GET /balance/list
+INFO 2021/12/01 06:27:01 logrequest.go:14: 127.0.0.1:32988 GET /cuota/list
+INFO 2021/12/01 06:27:04 logrequest.go:14: 127.0.0.1:32988 POST /cuota/list
+INFO 2021/12/01 06:27:28 logrequest.go:14: 127.0.0.1:32988 GET /logout
+INFO 2021/12/01 06:27:28 logrequest.go:14: 127.0.0.1:32988 GET /
+INFO 2021/12/01 11:20:29 main.go:42: Starting app
+INFO 2021/12/01 11:20:29 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/12/01 11:20:29 route.go:392: middleware micondo
+INFO 2021/12/01 11:20:29 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/12/01 11:20:29 route.go:392: middleware micondo
+INFO 2021/12/01 11:20:29 server.go:37: 0.0.0.0:4430
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48398 GET /
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48398 GET /static/css/bootstrap.css?1580161104
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48400 GET /static/css/global.css?1629019482
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48400 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48408 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48406 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48404 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48408 GET /static/favicons/favicon-196x196.png
+INFO 2021/12/01 11:20:39 logrequest.go:14: [::1]:48404 GET /static/favicons/favicon-16x16.png
+INFO 2021/12/01 11:20:42 logrequest.go:14: [::1]:48408 GET /login
+INFO 2021/12/01 11:20:50 logrequest.go:14: [::1]:48408 POST /login
+INFO 2021/12/01 11:20:50 logrequest.go:14: [::1]:48408 GET /
+INFO 2021/12/01 11:20:50 logrequest.go:14: [::1]:48408 GET /static/css/bootstrap.css?1580161104
+INFO 2021/12/01 11:20:50 logrequest.go:14: [::1]:48404 GET /static/favicons/favicon-196x196.png
+INFO 2021/12/01 11:20:50 logrequest.go:14: [::1]:48400 GET /static/favicons/favicon-16x16.png
+INFO 2021/12/01 11:20:57 logrequest.go:14: [::1]:48406 GET /cuota/list
+INFO 2021/12/01 11:20:58 logrequest.go:14: [::1]:48406 POST /cuota/list
+INFO 2021/12/01 11:20:59 logrequest.go:14: [::1]:48406 GET /static/favicons/favicon-196x196.png
+INFO 2021/12/01 11:21:10 logrequest.go:14: [::1]:48414 GET /cuota/update/13126
+INFO 2021/12/01 11:21:16 logrequest.go:14: [::1]:48414 POST /cuota/update/13126
+INFO 2021/12/01 11:21:17 logrequest.go:14: [::1]:48414 GET /cuota/list
+INFO 2021/12/01 11:21:20 logrequest.go:14: [::1]:48414 POST /cuota/list
+INFO 2021/12/01 11:21:33 logrequest.go:14: [::1]:48414 GET /cuota/update/13127
+INFO 2021/12/01 11:21:33 logrequest.go:14: [::1]:48414 GET /static/css/bootstrap.css?1580161104
+INFO 2021/12/01 11:21:33 logrequest.go:14: [::1]:48418 GET /static/css/global.css?1629019482
+INFO 2021/12/01 11:21:37 logrequest.go:14: [::1]:48418 POST /cuota/update/13127
+INFO 2021/12/01 11:21:37 logrequest.go:14: [::1]:48418 GET /cuota/list
+INFO 2021/12/01 11:21:40 logrequest.go:14: [::1]:48418 POST /cuota/list
+INFO 2021/12/10 07:17:59 main.go:42: Starting app
+INFO 2021/12/10 07:17:59 route.go:36: HTTPS routes LoadHTTP
+INFO 2021/12/10 07:17:59 route.go:392: middleware micondo
+INFO 2021/12/10 07:17:59 route.go:30: HTTPS routes LoadHTTPS
+INFO 2021/12/10 07:17:59 route.go:392: middleware micondo
+INFO 2021/12/10 07:17:59 server.go:37: 0.0.0.0:4430
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:58996 GET /
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:58996 GET /static/css/bootstrap.css?1580161104
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59000 GET /static/css/global.css?1629019482
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59002 GET /static/js/underscore-min.js?1580161104
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:58998 GET /static/js/jquery.min.js?1580161104
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59006 GET /static/js/global.js?1580161104
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59004 GET /static/js/popper.min.js?1580161104
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:58998 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59002 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59000 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59004 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59002 GET /static/favicons/favicon-196x196.png
+INFO 2021/12/10 07:21:24 logrequest.go:14: [::1]:59004 GET /static/favicons/favicon-16x16.png
+INFO 2021/12/10 07:21:26 logrequest.go:14: [::1]:58996 GET /login
+INFO 2021/12/10 07:21:36 logrequest.go:14: [::1]:58996 POST /login
+INFO 2021/12/10 07:21:36 logrequest.go:14: [::1]:58996 GET /
+INFO 2021/12/10 07:21:54 logrequest.go:14: [::1]:58996 GET /balance/list
+INFO 2021/12/10 07:22:29 logrequest.go:14: [::1]:58996 GET /balance/update/453
+INFO 2021/12/10 07:22:51 logrequest.go:14: [::1]:58996 POST /balance/update/453
+INFO 2021/12/10 07:22:52 logrequest.go:14: [::1]:58996 GET /balance/list
+>>>>>>> 96f1ffc77069ec398864993476175f51a8918ae4
+INFO 2022/01/04 10:01:05 main.go:42: Starting app
+2022/01/04 10:01:05 model.go:111: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2022/01/04 10:01:56 main.go:42: Starting app
+INFO 2022/01/04 10:01:56 route.go:36: HTTPS routes LoadHTTP
+INFO 2022/01/04 10:01:56 route.go:409: middleware micondo
+INFO 2022/01/04 10:01:56 route.go:30: HTTPS routes LoadHTTPS
+INFO 2022/01/04 10:01:56 route.go:409: middleware micondo
+INFO 2022/01/04 10:01:56 server.go:37: 0.0.0.0:4430
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /jcuot/2021-11-01
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /jingre/2021-11-01
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /jegre/2021-11-01
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /jbalance/2021-11-01
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /report/jrptcondo/2021-11-01
+INFO 2022/01/04 10:02:00 logrequest.go:14: 10.0.0.55:49080 GET /report/jrptcondodet/2021-11-01
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jcuot/2021-11-01
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jingre/2021-11-01
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jegre/2021-11-01
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jbalance/2021-11-01
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /report/jrptcondo/2021-11-01
+INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /report/jrptcondodet/2021-11-01

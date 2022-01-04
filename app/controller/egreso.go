@@ -27,15 +27,11 @@ import (
 	sfec       :=  params.ByName("fec")[:10]
 	dtfec,err  :=  time.Parse(layout, sfec)
         if err != nil {
-// 	        fmt.Println(err)
 	        log.Println(err)
 	}else{
-//        fmt.Println(" JEgreGET fec:",sfec, " - ", dtfec )
         dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
-//        fmt.Println(" JEgreGET fec:",sfec, " - ", dtfec )
         err         = (&periodo).PeriodByFec(dtfec)
         if err     != nil {
-// 	        fmt.Println(err)
 	        log.Println(err)
         }else{
           lisEgre, err           = model.EgresoJPer( periodo.Id )
@@ -48,7 +44,6 @@ import (
             egresoL.LisEgre =  lisEgre
             js, err =  json.Marshal(egresoL)
             if err == nil{
-//               fmt.Println(" json " + string(js))
                w.Header().Set("Content-Type", "application/json")
                w.Write(js)
 	       return
@@ -60,7 +55,7 @@ import (
           http.Error(w, err.Error(), http.StatusInternalServerError)
           return
  }
-// ---------------------------------------------------
+//------------------------------------------------
 // EgrePerGET despliega formulario escoger periodo
 func EgrePerGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
@@ -142,12 +137,10 @@ func EgreRegPOST(w http.ResponseWriter, r *http.Request) {
            getFormEgre(&egres, r, true)
            period.Id       =  egres.PeriodId
            err                 =  (&period).PeriodById()
-// fmt.Println("p_id ", egres.PeriodId, " fecha ", egres.Fecha, " amount ", egres.Amount)
            egres.PeriodId       =   period.Id
            err                 =  (&egres).EgresCreate()
            if err != nil {  // uyy como fue esto ? 
                log.Println(err)
-//                fmt.Println(err)
                sess.AddFlash(view.Flash{"Error guardando Egreso.", view.FlashError})
 	       http.Redirect(w, r, "/egreso/list", http.StatusFound)
                return
@@ -192,7 +185,6 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
              sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
         }
 	err = (&egres).EgresById()
-//  fmt.Printf("Hola %s %s %s\n", egres.Fecha, egres.Amount, egres.Descripcion)
 	if err != nil { // Si no existe Egreso
            log.Println(err)
            sess.AddFlash(view.Flash{"Es raro. No esta egreso.", view.FlashError})
@@ -242,7 +234,6 @@ func EgreUpGET(w http.ResponseWriter, r *http.Request) {
             sr   :=  fmt.Sprintf(" where egresos.id = %d ", e1.Id)
             stUp = sini + stUp + sf + sr
        }
-// fmt.Println(stUp)
          return
   }
 // ---------------------------------------------------
@@ -318,7 +309,6 @@ func EgreLisPOST(w http.ResponseWriter, r *http.Request) {
             sess.Save(r, w)
          }
 
-// fmt.Println("List Egreso ", Id)
         lisEgre, err         := model.EgresLim(Id)
         if err != nil {
             log.Println(err)

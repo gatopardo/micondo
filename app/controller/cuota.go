@@ -122,6 +122,7 @@ func CuotPerPOST(w http.ResponseWriter, r *http.Request) {
         if ! (strings.Compare(action,"Cancelar") == 0) {
             var lisTipo []model.Tipo
             var lisCuot []model.CuotaN
+fmt.Printf("%s %s\n", " ID ", r.FormValue("id"))
             cuot.PeriodId,  _   =  atoi32(r.FormValue("id"))
             period.Id           =  cuot.PeriodId
             _                   =  (&period).PeriodById()
@@ -179,13 +180,19 @@ func CuotRegPOST(w http.ResponseWriter, r *http.Request) {
         var err  error
 	sess   := model.Instance(r)
         action        := r.FormValue("action")
+fmt.Println(" CuotRegPost ",action, " ")
         if ! (strings.Compare(action,"Cancelar") == 0) {
            getFormCuot(&cuot, r, true)
            period.Id           =  cuot.PeriodId
            err                 =  (&period).PeriodById()
+           if err != nil {  // uyy como fue esto ? 
+               log.Println(err)
+	       fmt.Println(err)
+          }
            err                 =  (&cuot).CuotCreate()
            if err != nil {  // uyy como fue esto ? 
                log.Println(err)
+	       fmt.Println(err)
                sess.AddFlash(view.Flash{"Error guardando.", view.FlashError})
                return
            } else {  // todo bien
@@ -290,6 +297,7 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
 	    sr          :=  fmt.Sprintf(" where cuotas.id = %d ", c1.Id)
 
             stUp         = sini + stUp + sf +  sr
+ fmt.Println(stUp)
        }
          return
   }

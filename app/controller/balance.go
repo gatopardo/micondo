@@ -101,10 +101,12 @@ func BalanPOST(w http.ResponseWriter, r *http.Request) {
                return
 	     }
            getFormBalan(&balan, r)
+	   fmt.Println(balan)
            err := (&balan).BalanByPeriod()
            if err == model.ErrNoResult { // Exito:  no hay balance creado aun 
                ex := (&balan).BalanCreate()
                log.Println("Creating balance")
+               fmt.Println("Creating balance")
 	       if ex != nil {  // uyy como fue esto ? 
                    log.Println(ex)
                    sess.AddFlash(view.Flash{"Error guardando.", view.FlashError})

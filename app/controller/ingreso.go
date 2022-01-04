@@ -15,8 +15,10 @@ import (
 	"github.com/josephspurrier/csrfbanana"
 	"github.com/julienschmidt/httprouter"
   )
-  var formato         =  "2006/01/02"
-  var formato2        =  "2006-01-02"
+  var (
+      formato         =  "2006/01/02"
+      formato2        =  "2006-01-02"
+  )
 //------------------------------------------------
  func JIngreGET(w http.ResponseWriter, r *http.Request) {
 	var periodo model.Periodo
@@ -29,15 +31,11 @@ import (
 	sfec       :=  params.ByName("fec")[:10]
 	dtfec,err  :=  time.Parse(layout, sfec)
         if err != nil {
-//	        fmt.Println(err)
 	        log.Println(err)
 	}else{
-//        fmt.Println(" JIngreGET fec:",sfec, " - ", dtfec )
         dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
-//        fmt.Println(" JIngreGET fec:",sfec, " - ", dtfec )
         err         = (&periodo).PeriodByFec(dtfec)
         if err     != nil {
-//	        fmt.Println(err)
 	        log.Println(err)
         }else{
           lisIngre, err  = model.IngresoJPer( periodo.Id )
@@ -54,7 +52,6 @@ import (
             }
             ingresoL.Period  =  periodo.Inicio
             ingresoL.LisIngre =  lisIngre
-//        fmt.Println(" JIngreGET ",ingresoL )
             js, err =  json.Marshal(ingresoL)
             if err == nil{
                w.Header().Set("Content-Type", "application/json")
@@ -68,7 +65,6 @@ import (
           http.Error(w, err.Error(), http.StatusInternalServerError)
           return
  }
-// ---------------------------------------------------
 
 // ---------------------------------------------------
 // IngrePerGET despliega formulario escoger periodo
@@ -120,7 +116,8 @@ func IngrePerPOST(w http.ResponseWriter, r *http.Request) {
  }
 // ---------------------------------------------------
  func getFormIngre(ing *  model.IngresoN, r *http.Request, b bool)(err error){
-           ing.TipoId, _    =  atoi32(r.FormValue("tipId"))
+           formato         :=  "2006/01/02"
+           formato2        :=  "2006-01-02"
            ing.PeriodId, _  =  atoi32(r.FormValue("periodId"))
            ing.Period, _    =  time.Parse(layout,r.FormValue("period"))
 	   if b{
@@ -155,7 +152,6 @@ func IngreRegPOST(w http.ResponseWriter, r *http.Request) {
          err                 =  (&ingres).IngresCreate()
          if err != nil {  // uyy como fue esto ? 
                log.Println(err)
-//               fmt.Println(err)
                sess.AddFlash(view.Flash{"Error guardando Ingreso.", view.FlashError})
 	       http.Redirect(w, r, "/ingreso/list", http.StatusFound)
          } else {  // todo bien
@@ -215,6 +211,7 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
  func   getIngreFormUp(i1, i2 model.IngresoN ,r * http.Request)(stUp string){
         var sf string
         var sup []string
+        formato        :=  "2006/01/02"
 
 	if i1.TipoId != i2.TipoId {
              sf  =  fmt.Sprintf( " tipo_id = %d ", i1.TipoId )
@@ -241,7 +238,6 @@ func IngreUpGET(w http.ResponseWriter, r *http.Request) {
             sr   :=  fmt.Sprintf(" where ingresos.id = %d ", i1.Id)
             stUp = sini + stUp + sf + sr
        }
-//fmt.Println(stUp)
        return
   }
 // ---------------------------------------------------
