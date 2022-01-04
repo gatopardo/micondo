@@ -37,23 +37,6 @@
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
-               <label for="tipo" >Tipo</label>
-              </div>
-           <div class="fbox">
-               <select name="tipId"> 
-                  {{range $key, $value := .LisTip}}
-                    <option value="{{ $value.Id }}"
-                    {{if eq $value.Id $save.Egre.TipoId}} selected  {{end}}
-                   >
-                     {{ $value.Descripcion }}
-                 </option>
-                  {{end}} 
-               </select>
-           </div>
-        </div>
-
-	   <div class="fwrapper fcols2">
-              <div class="fbox">
                  <label for="fecha">Fecha</label>
               </div>
               <div class="fbox">
@@ -66,7 +49,7 @@
                  <label for="monto">Monto</label>
               </div>
               <div class="fbox">
-                 <input type="text" id="monto" name="monto" size="16"  value="{{.Egre.Amount | FORMAT64}}"  />
+                 <input type="text" id="amount" name="amount" size="16"  value="{{.Egre.Amount | FORMAT64}}"  />
               </div>
            </div>
 
@@ -75,16 +58,13 @@
                <label for="descripcion" >Descripcion</label>
            </div>
             <div class="fbox">
-                <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" {{.Egre.Descripcion}}/>
+                <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" value="{{.Egre.Descripcion}}"/>
            </div>
          </div>
 
 	   <div class="fwrapper fcols2">
               <div class="fbox">
-                 <span>
-		 <input type="hidden" name="id" value="{{.Egre.Id}}">
 		 <input type="hidden" name="token" value="{{.token}}">
-                 </span>
               </div>
               <div class="fbox">
                  <span>

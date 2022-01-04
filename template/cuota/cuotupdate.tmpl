@@ -40,7 +40,7 @@
                <label for="tip" >Tipo</label>
            </div>
            <div class="fbox">
-               <select name="tipoId"> 
+               <select name="tipId"> 
                   {{range $key, $value := .LisTip}}
                     <option value="{{ $value.Id }}"
                           {{ if eq $value.Id  $save.Cuot.TipoId}} selected {{end}}

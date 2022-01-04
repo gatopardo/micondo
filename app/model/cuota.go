@@ -8,12 +8,6 @@ import (
 
 )
 
-//     const(
-//              layout      = "2006-01-02"
-//              timeLayout = "15:04:05"
-//           )
-
-
 // *****************************************************************************
 // Cuota
 // *****************************************************************************.
@@ -64,6 +58,17 @@ type CuotaN struct {
           Fecha         time.Time
 	  LisAmt        []AmtCond
   }
+
+   type  AmtAptTot struct{
+         Inicio  time.Time
+	 Final    time.Time
+	 Tp      string
+	 Ap      string
+	 Cuota   int64
+         Fecha  time.Time
+	 Monto   int64
+	 Dif     int64
+}
 
 // "SELECT c.id, c.period_id,p.inicio,c.aparta_id,a.codigo,c.tipo_id, t.descripcion, c.fecha, c.amount, c.created_at, c.updated_at FROM cuotas c, periods p, apartas a, tipos t  WHERE c.period_id = p.id and c.aparta_id = a.id AND c.tipo_id = t.id  AND c.id= $1 "
 
@@ -372,3 +377,26 @@ func CuotDeleteAll() (err error) {
     }
 
 // -------------------------------------------------------------
+// 
+ func  AptDetails(apt string, dIni time.Time, dFini time.Time)(amtTots []AmtAptTot, err error){
+	 stq := "select p.inicio,p.final,  coalesce(x.tp, ' '), coalesce(x.ap, $1) as ap, b.cuota,  coalesce(x.fecha, p.inicio) as fecha, coalesce(x.monto,0) as monto  from periods p  join balances b on b.period_id = p.id  left join (   select t.codigo as tp, a.codigo as ap,  c.period_id,  c.fecha,  c.amount as monto  from cuotas c join apartas a on a.id = c.aparta_id  join tipos t on c.tipo_id = t.id where a.codigo = $1 ) x on p.id = x.period_id where p.inicio >= $2 and p.final <= $3 order by  p.inicio, x.fecha "
+        var rows * sql.Rows
+	rows, err = Db.Query(stq,  apt, dIni, dFini )
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer rows.Close()
+        for rows.Next() {
+            c := AmtAptTot{}
+            err = rows.Scan(&c.Inicio,&c.Final, &c.Tp, &c.Ap,&c.Cuota, &c.Fecha, &c.Monto)
+	    if err != nil {
+		log.Println(err)
+	         return
+	    }
+	    amtTots = append(amtTots,c)
+        }
+    return
+ }
+// -------------------------------------------------------------
+

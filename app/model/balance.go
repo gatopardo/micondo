@@ -45,9 +45,9 @@ func (balan * BalanceN)BalanById() (err error) {
 // BalanByPeriod gets balan information from period
 func (balan *BalanceN)BalanByPeriod() ( error) {
 	var err error
-        stq  :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, bupdated_at FROM balances b JOIN periods p ON  b.period_id=$1"
+        stq  :=   "SELECT b.id, b.period_id, p.inicio, b.amount, b.cuota, b.created_at, b.updated_at FROM balances b JOIN periods p ON  b.period_id=$1"
         err = Db.QueryRow(stq, &balan.PeriodId).Scan(&balan.Id,&balan.PeriodId, &balan.Period, &balan.Amount, &balan.Cuota, &balan.CreatedAt, &balan.UpdatedAt)
-
+//       fmt.Println(stq)
 	return   standardizeError(err)
 }
 
@@ -57,6 +57,7 @@ func (b *BalanceN)BalanCreate() error {
          var err error
          var stmt  *sql.Stmt
          stq := "INSERT INTO balances ( period_id, amount, cuota, created_at, updated_at ) VALUES ($1,$2,$3,$4, $5) returning id"
+//       fmt.Println(stq)
 	 now  := time.Now()
          if stmt, err = Db.Prepare(stq ); err != nil  {
                  log.Println(err)
@@ -195,3 +196,24 @@ func BalanDeleteAll() (err error) {
         return
  }
 // -------------------------------------------------------------
+ func GetAmount(inicio time.Time)(lsAmt []int64, err error){
+          stq := "select b.amount from balances b join periods p on p.id = b.period_id where p.inicio = $1" ;
+	rows, err := Db.Query(stq, inicio)
+	if err != nil {
+            log.Println(err)
+            return
+	}
+        defer rows.Close()
+
+        for rows.Next() {
+           var  ivar int64
+           if err = rows.Scan(&ivar); err != nil {
+                  return
+            }
+           lsAmt = append(lsAmt, ivar)
+         }
+	 return
+ }
+// -------------------------------------------------------------
+
+

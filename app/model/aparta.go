@@ -22,6 +22,8 @@ type Aparta struct {
 	UpdatedAt     time.Time     `db:"updated_at" bson:"updated_at"`
 }
 
+   type  Apt string
+
 // --------------------------------------------------------
 
 // AptById tenemos el apartamento dado id
@@ -190,3 +192,22 @@ func AptDeleteAll() (err error) {
      return
     }
 // -------------------------------------------------------------
+
+ func LisApts()(lsApts []Apt,err error){
+        stq := "select codigo from Apartas order by codigo"
+        var rows * sql.Rows
+	rows, err = Db.Query(stq)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer rows.Close()
+        for rows.Next() {
+            var c   Apt
+            err = rows.Scan(&c)
+	    lsApts = append(lsApts, c)
+        }
+	return
+  }
+// -------------------------------------------------------------
+

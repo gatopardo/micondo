@@ -3,7 +3,7 @@ package model
 import (
         "database/sql"
 	"time"
-//        "log"
+        "log"
 //	"fmt"
 )
 
@@ -153,6 +153,7 @@ func EgresDeleteAll() (err error) {
 // -------------------------------------------------------------
 // Get egresos from a period - json 
   func EgresoJPer(id uint32 ) (egresos []EgresoJ, err error) {
+	stLayout := "2006-01-02"
         stq :=   "SELECT t.codigo, e.fecha, e.amount, e.description FROM egresos e, periods p,  tipos t where e.period_id = p.id  and e.tipo_id = t.id and p.id = $1 order by p.inicio, e.fecha "
 	rows, err := Db.Query(stq, id)
 	if err != nil {
@@ -160,10 +161,25 @@ func EgresDeleteAll() (err error) {
 	}
         defer rows.Close()
         for rows.Next() {
+	    var  sqFec  sql.NullTime
+	    var  sqAmt  sql.NullInt64
+
            egres := EgresoJ{}
-           if err = rows.Scan( &egres.Tipo, &egres.Fecha, &egres.Amount, &egres.Descripcion); err != nil {
+           if err = rows.Scan( &egres.Tipo, &sqFec, &sqAmt, &egres.Descripcion); err != nil {
+		   log.Println(err)
                   return
             }
+           if sqFec.Valid{
+		 egres.Fecha = sqFec.Time
+	    }else{
+		  egres.Fecha, _ = time.Parse(stLayout, "1900-01-01")
+	  }
+	    if sqAmt.Valid{
+		    egres.Amount = sqAmt.Int64
+	    }else{
+		    egres.Amount = 0
+	    }
+
            egresos = append(egresos, egres)
          }
        return

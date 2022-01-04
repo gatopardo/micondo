@@ -6,6 +6,7 @@ import (
         "strings"
         "fmt"
         "time"
+        "encoding/json"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -14,11 +15,62 @@ import (
 	"github.com/josephspurrier/csrfbanana"
 	"github.com/julienschmidt/httprouter"
   )
-
 //      Refill any form fields
 // view.Repopulate([]string{"name"}, r.Form, v.Vars)
 // ---------------------------------------------------
-
+// japt get json service for apt state
+ func JAptGET(w http.ResponseWriter, r *http.Request) {
+        var params httprouter.Params
+        var jpers  model.Jperson
+	var peridi, peridf model.Periodo
+        var lisPaym []model.CuotApt
+	var arPaym ArPay
+	var dt11, dt22  time.Time
+	var err  error
+        params           = context.Get(r, "params").(httprouter.Params)
+	sfec1           :=  params.ByName("fec1")[:10]
+	sfec2           :=  params.ByName("fec2")[:10]
+        sId             :=  params.ByName("id")
+        uid,_           :=  atoi32(sId)
+	dt11,err         =  time.Parse(layout, sfec1)
+        if err == nil {
+            dt11       =  time.Date(dt11.Year(), dt11.Month(),dt11.Day(), 0, 0, 0, 0, time.Local)
+	    dt22,err   =  time.Parse(layout, sfec2)
+            dt22       =  time.Date(dt22.Year(), dt22.Month(),dt22.Day(), 0, 0, 0, 0, time.Local)
+            err        =  (&peridi).PeriodByFec(dt11)
+	    if err    ==  nil {
+               err     =  (&peridf).PeriodByFec(dt22)
+            }
+        }
+        if err      != nil {
+	        log.Println(err)
+		http.Error(w, err.Error(), http.StatusBadRequest)
+	        return
+        }
+	_, err         =   (&jpers).JPersByUserId(uid)
+	if err == model.ErrNoResult {
+           log.Println("JAPTGET ", err)
+           http.Error(w, err.Error(), http.StatusBadRequest)
+	   return
+        }
+        lisPaym, err   =  model.Payments(jpers.AptId, peridf.Inicio, peridi.Inicio)
+        if err == nil {
+           arPaym.Apto   = jpers.Apto
+	   arPaym.Final  = peridf.Final
+	   arPaym.APaym  = lisPaym
+           var js []byte
+           js, err =  json.Marshal(arPaym)
+           if err == nil{
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+           }
+	}
+           log.Println("JAPTGET 2 ", err)
+            http.Error(w, err.Error(), http.StatusInternalServerError)
+	return
+ }
+// ---------------------------------------------------
 // AptGET despliega la pagina del apto
 func AptGET(w http.ResponseWriter, r *http.Request) {
 	// Get session
@@ -32,7 +84,6 @@ func AptGET(w http.ResponseWriter, r *http.Request) {
         v.Vars["LisApts"] =  lisApts
 	v.Render(w)
  }
-// ---------------------------------------------------
 // ---------------------------------------------------
 // POST procesa la forma enviada con los datos
 func AptPOST(w http.ResponseWriter, r *http.Request) {
@@ -108,7 +159,7 @@ func AptUpGET(w http.ResponseWriter, r *http.Request) {
         if  lon > 0 {
             sini        :=  "update apartas set "
 	    now         := time.Now()
-	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf           =  fmt.Sprintf( ",  updated_at = '%s' ", now.Format(layout) )
             stup =  strings.Join(sup, ", ")
             sr          :=  fmt.Sprintf(" where apartas.id = %d ", a1.Id)
              stup = sini + stup + sf + sr

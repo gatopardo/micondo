@@ -6,6 +6,7 @@ import (
         "fmt"
         "strings"
         "time"
+        "encoding/json"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -14,18 +15,99 @@ import (
 	"github.com/josephspurrier/csrfbanana"
 	"github.com/julienschmidt/httprouter"
   )
+  // -------------------------------------------------:--
+  // JCondoGET reporte ingresos cuotas
+ func JCondoGET(w http.ResponseWriter, r *http.Request) {
+	var perid model.Periodo
+        var lisAmt     []model.AmtCond
+        var amtPerCond   model.AmtPerCond
+        var params httprouter.Params
+	sess := model.Instance(r)
+        params      = context.Get(r, "params").(httprouter.Params)
+	sfec       :=  params.ByName("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+        if err != nil {
+              sess.AddFlash(view.Flash{"Formato Fecha Errado ", view.FlashError})
+	      log.Println(err)
+	}else{
+        dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
+        err         = (&perid).PeriodByFec(dtfec)
+        if err     != nil {
+	        log.Println(err)
+        }else{
+	  lisAmt, err           = model.Amounts( perid.Id )
+          if err != nil {
+            log.Println(err)
+            log.Println(err)
+          }else{
+	    amtPerCond.Fecha = perid.Inicio
+	    amtPerCond.LisAmt = lisAmt
+            var js []byte
+            js, err =  json.Marshal(amtPerCond)
+            if err == nil{
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }
+           }
+          }
+          }
+          log.Println("JCondo  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+ }
+
 // ---------------------------------------------------
+// JCuotGET reporte ingresos cuotas
+ func JCuotGET(w http.ResponseWriter, r *http.Request) {
+	var periodo model.Periodo
+        var lisCuot  []model.CuotaN
+        var params httprouter.Params
+	sess := model.Instance(r)
+        params      = context.Get(r, "params").(httprouter.Params)
+	sfec       :=  params.ByName("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+        if err != nil {
+             sess.AddFlash(view.Flash{"Formato Fecha Errado ", view.FlashError})
+	        log.Println("JCuotGET",err)
+	}else{
+        dtfec       =  time.Date(dtfec.Year(), dtfec.Month(),dtfec.Day(), 0, 0, 0, 0, time.Local)
+        err         = (&periodo).PeriodByFec(dtfec)
+        if err     != nil {
+	        log.Println(err)
+        }else{
+          lisCuot, err           = model.CuotLim( periodo.Id )
+          if err != nil {
+             sess.AddFlash(view.Flash{"No hay cuotas Periodo ", view.FlashError})
+            log.Println(err)
+          }else{
+            var js []byte
+            js, err =  json.Marshal(lisCuot)
+            if err == nil{
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }
+           }
+          }
+          }
+          log.Println("JCuot  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+ }
+  // -------------------------------------------------:--
 // CuotPerGET despliega formulario escoger periodo
 func CuotPerGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
         lisPeriod, err := model.Periods()
         if err != nil {
              sess.AddFlash(view.Flash{"No hay periodos ", view.FlashError})
+	     log.Println("CuotPerGet",err)
          }
 	v                  := view.New(r)
 	v.Name              = "cuota/cuotper"
 	v.Vars["token"]     = csrfbanana.Token(w, r, sess)
-	v.Vars["Title"]     =  "Cuotas"
+        v.Vars["Title"]     =  "Escoger Periodo"
         v.Vars["Action"]    =  "/cuota/periodo/register"
         v.Vars["LisPeriod"] = lisPeriod
 	v.Render(w)
@@ -53,26 +135,37 @@ func CuotPerPOST(w http.ResponseWriter, r *http.Request) {
                  sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
              }
              lisCuot, _          = (&cuot).CuotsPer()
-
 	     v                  := view.New(r)
 	     v.Name              = "cuota/cuotreg"
              v.Vars["token"]     = csrfbanana.Token(w, r, sess)
-             v.Vars["Cuota"]     = cuot
+	     v.Vars["Title"]     =  "Crear Cuota"
+             v.Vars["Action"]    =  "/cuota/register"
+             v.Vars["Cuot"]      = cuot
              v.Vars["LisApt"]    = lisApts
              v.Vars["LisTip"]    = lisTipo
-             v.Vars["LisCuots"]   = lisCuot
+             v.Vars["LisCuots"]  = lisCuot
              v.Render(w)
         }
-	http.Redirect(w, r, "/cuota/list", http.StatusFound)
+//	http.Redirect(w, r, "/cuota/list", http.StatusFound)
  }
 // ---------------------------------------------------
- func getFormCuot(c *  model.CuotaN, r *http.Request)(err error){
-           formato        :=  "2006/01/02"
-           c.PeriodId, _   =  atoi32(r.FormValue("periodId"))
-           c.ApartaId, _   =  atoi32(r.FormValue("aptId"))
-           c.TipoId, _     =  atoi32(r.FormValue("tipId"))
-           c.Fecha, _      =  time.Parse(formato,r.FormValue("fecha"))
-           unr, err       :=  money2int64(r.FormValue("amount"))
+ func getFormCuot(c *  model.CuotaN, r *http.Request, b bool)(err error){
+           formato         :=  "2006/01/02"
+           formato2        :=  "2006-01-02"
+           c.ApartaId, _    =  atoi32(r.FormValue("aptId"))
+           c.TipoId, _      =  atoi32(r.FormValue("tipId"))
+           c.PeriodId, _  =  atoi32(r.FormValue("periodId"))
+           stPeriod        := r.FormValue("period")
+           stFecha         := r.FormValue("fecha")
+           c.Period,_       =  time.Parse(formato,stPeriod)
+	   if b {
+              c.Fecha, _    =  time.Parse(formato2,stFecha)
+            }else{
+              c.Fecha, _    =  time.Parse(formato,stFecha)
+	    }
+           ramount         :=  r.FormValue("amount")
+           samount         :=   strings.ReplaceAll(ramount, ",","")
+           unr, err        :=  money2int64(samount)
            if err == nil {
                  c.Amount   =  unr
             }
@@ -84,16 +177,12 @@ func CuotRegPOST(w http.ResponseWriter, r *http.Request) {
         var cuot   model.CuotaN
         var period  model.Periodo
         var err  error
-//fmt.Println("CuotRegPost 1")
 	sess   := model.Instance(r)
         action        := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {
-           getFormCuot(&cuot, r)
+           getFormCuot(&cuot, r, true)
            period.Id           =  cuot.PeriodId
            err                 =  (&period).PeriodById()
-           period.Inicio       =  cuot.Period
-           err                 =  (&period).PeriodByCode()
-           cuot.PeriodId       =   period.Id
            err                 =  (&cuot).CuotCreate()
            if err != nil {  // uyy como fue esto ? 
                log.Println(err)
@@ -102,7 +191,6 @@ func CuotRegPOST(w http.ResponseWriter, r *http.Request) {
            } else {  // todo bien
                 sess.AddFlash(view.Flash{"Cuota. creada: " , view.FlashSuccess})
            }
-
             var lisApto []model.Aparta
             var lisTipo []model.Tipo
             var lisCuot []model.CuotaN
@@ -118,11 +206,12 @@ func CuotRegPOST(w http.ResponseWriter, r *http.Request) {
             if err != nil {
                  sess.AddFlash(view.Flash{"No hay cuotas ", view.FlashError})
             }
-
             v                   := view.New(r)
             v.Name               = "cuota/cuotreg"
             v.Vars["token"]      = csrfbanana.Token(w, r, sess)
-            v.Vars["Cuota"]      = cuot
+	    v.Vars["Title"]     =  "Guardar Cuota"
+            v.Vars["Action"]    =  "/cuota/register"
+            v.Vars["Cuot"]      = cuot
             v.Vars["LisApt"]     = lisApto
             v.Vars["LisTip"]     = lisTipo
             v.Vars["LisCuots"]   = lisCuot
@@ -147,7 +236,7 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
         }
         lisTipo,  err        = model.Tipos()
         if err   != nil {
-             sess.AddFlash(view.Flash{"No hay aptos ", view.FlashError})
+             sess.AddFlash(view.Flash{"No hay tipos ", view.FlashError})
         }
 	err = (&cuot).CuotById()
 	if err != nil { // Si no existe cuota
@@ -172,52 +261,39 @@ func CuotUpGET(w http.ResponseWriter, r *http.Request) {
  func   getCuotFormUp(c1,c2 model.CuotaN, r * http.Request)(stUp string){
         var sf string
 	var sup  []string
-
+        formato        :=  "2006/01/02"
 	if c1.ApartaId != c2.ApartaId {
-             sf  =  fmt.Sprintf( " aparta_id = %d ", c2.ApartaId )
-	     sup = append(sup, sf)
-	}
-	if c1.TipoId != c2.TipoId {
-             sf  =  fmt.Sprintf( " tipo_id = %d ", c2.TipoId )
-	     sup = append(sup, sf)
-	}
-	if c1.Fecha != c2.Fecha {
-             sf  =  fmt.Sprintf( " fecha = '%s' ", c2.Fecha.Format(layout) )
+             sf  =  fmt.Sprintf( " aparta_id = %d ", c1.ApartaId )
 	     sup = append(sup, sf)
 	}
 
-	if c1.PeriodId != c2.PeriodId {
-             sf  =  fmt.Sprintf( " period_id = %d ", c2.PeriodId )
-	     sup = append(sup, sf)
-	}
-	if c1.ApartaId != c2.ApartaId {
-             sf  =  fmt.Sprintf( " aparta_id = %d ", c2.ApartaId )
-	     sup = append(sup, sf)
-	}
 	if c1.TipoId != c2.TipoId {
-             sf  =  fmt.Sprintf( " tipo_id = %d ", c2.TipoId )
+             sf  =  fmt.Sprintf( " tipo_id = %d ", c1.TipoId )
 	     sup = append(sup, sf)
 	}
-	if c1.Fecha != c2.Fecha {
-             sf  =  fmt.Sprintf( " fecha = '%s' ", c2.Fecha.Format(layout) )
+
+	if c1.Fecha.Format(formato) != c2.Fecha.Format(formato) {
+             sf  =  fmt.Sprintf( " fecha = '%s' ", c1.Fecha.Format(formato) )
 	     sup = append(sup, sf)
 	}
+
 	if c1.Amount != c2.Amount {
-             sf  =  fmt.Sprintf( " amount = %d ", c2.Amount )
+             sf  =  fmt.Sprintf( " amount = %d ", c1.Amount )
 	     sup = append(sup, sf)
 	}
        lon := len(sup)
        if lon  > 0 {
 	    now         := time.Now()
-	    sf           =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf           =  fmt.Sprintf( " , updated_at = '%s' ", now.Format(formato) )
             sini        :=  "update cuotas set "
             stUp         =  strings.Join(sup, ", ")
-            sr          :=  fmt.Sprintf(" where cuotas.id = %d ", c1.Id)
+	    sr          :=  fmt.Sprintf(" where cuotas.id = %d ", c1.Id)
+
             stUp         = sini + stUp + sf +  sr
        }
          return
   }
-// ---------------------------------------------------
+  // ---------------------------------------------------
 // CuotUpPOST procesa la forma enviada con los datos
 func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
         var err error
@@ -236,8 +312,8 @@ func CuotUpPOST(w http.ResponseWriter, r *http.Request) {
 	    if err != nil { // Si no existe cuota
                   sess.AddFlash(view.Flash{"Es raro. No esta cuota.", view.FlashError})
             }
-	    getFormCuot(&c,r)
-            st          :=  getCuotFormUp(cuot, c, r)
+	    getFormCuot(&c,r, false)
+            st          :=  getCuotFormUp(c, cuot, r)
             if len(st) == 0{
                  sess.AddFlash(view.Flash{"No actualizacion solicitada", view.FlashSuccess})
             } else {

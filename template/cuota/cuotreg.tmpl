@@ -1,18 +1,18 @@
-{{define "title"}}Crear Cuota{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
 {{define "foot"}}<h5 class="mcenter">Cuota</h5>{{end}}
 
 {{define "content"}}
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>  
-       <form method="post" action="/cuota/register">
+       <form method="post" action="{{.Action}}"  >
    	<div class="fwrapper fcols42">
            <div class="fbox">
                <label for="period" >Periodo</label>
            </div>
 
            <div class="fbox">
-             <input type="text" id="period" name="period" size="10" value="{{.Cuota.Period | DATEFORMAT}}" readonly/>
+             <input type="text" id="period" name="period" size="10" value="{{.Cuot.Period | DATEFORMAT}}" readonly/>
            </div>
            <div class="fbox">
                <label for="apt" >Apto</label>
@@ -53,13 +53,16 @@
                 <input type="text" id="amount" name="amount" size="12" maxlength="16" placeholder="Amount" />
            </div>
            <div class="fbox">
+             <span>
+		<input type="hidden" name="periodId" value="{{.Cuot.PeriodId}}">
 		<input type="hidden" name="token" value="{{.token}}">
+             </span>
            </div>
            <div class="fbox">
-                 <span>
+             <span>
 		<input type="submit" name="action"  value="Seguir" />
 		<input type="submit" name="action"  value="Cancelar" />
-                 </span>
+             </span>
            </div>
         </div>
 

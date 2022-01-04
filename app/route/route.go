@@ -77,9 +77,9 @@ func routes() *httprouter.Router {
         r.GET("/jlogin/:cuenta/:password", hr.Handler(alice.
                 New(acl.DisallowAuth).
                 ThenFunc(controller.JLoginGET)))
-        r.POST("/jlogin", hr.Handler(alice.
-                New(acl.DisallowAuth).
-                ThenFunc(controller.JLoginPOST)))
+//        r.POST("/jlogin", hr.Handler(alice.
+//                New(acl.DisallowAuth).
+//                ThenFunc(controller.JLoginPOST)))
 	r.GET("/logout", hr.Handler(alice.
 		New().
 		ThenFunc(controller.LogoutGET)))
@@ -192,6 +192,10 @@ func routes() *httprouter.Router {
 		ThenFunc(controller.PeriodDeletePOST)))
 
 // Balances
+        r.GET("/jbalance/:fec", hr.Handler(alice.
+		New(acl.DisallowAnon).
+//		New(acl.DisallowAuth).
+		ThenFunc(controller.JBalanGET)))
 	r.GET("/balance/register", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.BalanGET)))
@@ -236,12 +240,12 @@ func routes() *httprouter.Router {
 		ThenFunc(controller.CuotUpPOST)))
 ////          List
 	r.GET("/jcuot/:fec", hr.Handler(alice.
-		New(acl.DisallowAuth).
-//		New(acl.DisallowAnon).
-		ThenFunc(controller.JCuotGET)))
-	r.POST("/jcuot", hr.Handler(alice.
+//		New(acl.DisallowAuth).
 		New(acl.DisallowAnon).
-		ThenFunc(controller.JCuotPOST)))
+		ThenFunc(controller.JCuotGET)))
+//	r.POST("/jcuot", hr.Handler(alice.
+//		New(acl.DisallowAnon).
+//		ThenFunc(controller.JCuotPOST)))
 	r.GET("/cuota/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.CuotLisGET)))
@@ -257,6 +261,10 @@ func routes() *httprouter.Router {
 		ThenFunc(controller.CuotDeletePOST)))
 
 // Egresos
+	r.GET("/jegre/:fec", hr.Handler(alice.
+//		New(acl.DisallowAuth).
+		New(acl.DisallowAnon).
+		ThenFunc(controller.JEgreGET)))
 	r.GET("/egreso/periodo/register", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.EgrePerGET)))
@@ -274,9 +282,6 @@ func routes() *httprouter.Router {
 		New(acl.DisallowAnon).
 		ThenFunc(controller.EgreUpPOST)))
 ////          List
-	r.GET("/jegre/:fec", hr.Handler(alice.
-		New(acl.DisallowAuth).
-		ThenFunc(controller.JEgreGET)))
 	r.GET("/egreso/list", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.EgreLisGET)))
@@ -292,6 +297,10 @@ func routes() *httprouter.Router {
 		ThenFunc(controller.EgreDeletePOST)))
 
 // Ingresos
+	r.GET("/jingre/:fec", hr.Handler(alice.
+//		New(acl.DisallowAuth).
+		New(acl.DisallowAnon).
+		ThenFunc(controller.JIngreGET)))
 	r.GET("/ingreso/periodo/register", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.IngrePerGET)))
@@ -351,6 +360,14 @@ func routes() *httprouter.Router {
 	r.POST("/report/rptcondo", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptCondPOST)))
+	r.GET("/report/jrptcondodet/:fec", hr.Handler(alice.
+		New(acl.DisallowAnon).
+//		New(acl.DisallowAuth).
+		ThenFunc(controller.JRptCondDetGET)))
+	r.GET("/report/jrptcondo/:fec", hr.Handler(alice.
+		New(acl.DisallowAnon).
+//		New(acl.DisallowAuth).
+		ThenFunc(controller.JRptCondGET)))
        r.GET("/report/rptallcondo", hr.Handler(alice.
 		New(acl.DisallowAnon).
 		ThenFunc(controller.RptAllCondGET)))

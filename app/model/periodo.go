@@ -34,7 +34,7 @@ func (period * Periodo)PeriodById() (err error) {
 }
 
 // --------------------------------------------------------
-// PeriodByCode tenemos el period dado id
+// PeriodByCode tenemos el period dado inicio
 func (period * Periodo)PeriodByCode() (err error) {
         stq  :=   "SELECT id, inicio, final, created_at, updated_at FROM periods WHERE inicio = $1"
 	err = Db.QueryRow(stq, &period.Inicio).Scan(&period.Id, &period.Inicio, &period.Final, &period.CreatedAt, &period.UpdatedAt)

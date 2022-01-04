@@ -1,4 +1,4 @@
-{{define "title"}}Crear Egreso{{end}}
+{{define "title"}}{{.Title}}{{end}}
 {{define "head"}} {{end}}
 {{define "foot"}}<h5 class="mcenter">Egresos</h5>{{end}}
 
@@ -6,7 +6,7 @@
   <div class="fcontent">
        <h3 class="mcenter">{{template "title" .}}</h3>  
 
-       <form method="post" action="/egreso/register">
+       <form method="post" action="{{.Action}}">
 
    	<div class="fwrapper fcols42">
            <div class="fbox">
@@ -50,13 +50,16 @@
                 <input type="text" id="descripcion" name="descripcion" size="20" maxlength="48" placeholder="Descripcion" />
            </div>
            <div class="fbox">
+             <span>
+		<input type="hidden" name="periodId" value="{{.Egreso.PeriodId}}">
 		<input type="hidden" name="token" value="{{.token}}">
+            </span>
            </div>
            <div class="fbox">
-                 <span>
+             <span>
 		<input type="submit" name="action"  value="Seguir" />
 		<input type="submit" name="action"  value="Cancelar" />
-                 </span>
+            </span>
            </div>
         </div>
 

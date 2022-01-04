@@ -3,7 +3,7 @@ package model
 import (
         "database/sql"
 	"time"
-//        "log"
+        "log"
 //	"fmt"
 )
 
@@ -36,6 +36,17 @@ type IngresoN struct {
 	UpdatedAt time.Time        `db:"updated_at" bson:"updated_at"`
 }
 
+type IngresoJ struct {
+	Tipo             string     `db:"tcodigo" bson:"tcodigo,omitempty"`
+        Fecha       time.Time       `db:"fecha" bson:"fecha"`
+        Amount           int64     `db:"amount" bson:"amount"`
+        Descripcion      string      `db:"dscripcion" bson:"dscripcion"`
+}
+
+type IngresoL struct {
+        Period      time.Time
+	LisIngre     []IngresoJ
+}
 
 // -----------------------------------------
 // IngresById tenemos el ingreso dado id
@@ -137,7 +148,41 @@ func IngresDeleteAll() (err error) {
          }
        return
  }
+// -------------------------------------------------------------
+// Get ingresos from a period - json 
+  func IngresoJPer(id uint32 ) (ingresos []IngresoJ, err error) {
+	stLayout := "2006-01-02"
+        stq :=   "SELECT t.codigo, e.fecha, e.amount, e.description FROM ingresos e, periods p,  tipos t where e.period_id = p.id  and e.tipo_id = t.id and p.id = $1 order by p.inicio, e.fecha "
+	rows, err := Db.Query(stq, id)
+	if err != nil {
+            return
+	}
+        defer rows.Close()
+        for rows.Next() {
+	    var  sqFec  sql.NullTime
+	    var  sqAmt  sql.NullInt64
 
+           ingres := IngresoJ{}
+           if err = rows.Scan( &ingres.Tipo, &sqFec, &sqAmt, &ingres.Descripcion); err != nil {
+		   log.Println(err)
+                  return
+            }
+           if sqFec.Valid{
+		 ingres.Fecha = sqFec.Time
+	    }else{
+		  ingres.Fecha, _ = time.Parse(stLayout, "1900-01-01")
+	  }
+	    if sqAmt.Valid{
+		    ingres.Amount = sqAmt.Int64
+	    }else{
+		    ingres.Amount = 0
+	    }
+           ingresos = append(ingresos, ingres)
+         }
+       return
+ }
+
+// -------------------------------------------------------------
 // -------------------------------------------------------------
 // Get all ingresos per a period in the database and returns the list
   func (ingre * IngresoN)IngresPer() (ingresos []IngresoN, err error) {

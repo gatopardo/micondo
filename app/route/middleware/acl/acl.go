@@ -4,7 +4,7 @@ package acl
 import (
 	"net/http"
 	"github.com/gatopardo/micondo/app/model"
-	"fmt"
+//	"fmt"
 )
 
 // DisallowAuth does not allow authenticated users to access the page
@@ -13,7 +13,7 @@ func DisallowAuth(h http.Handler) http.Handler {
 		// Get session
 		sess := model.Instance(r)
 
-fmt.Println("DissallowAuth sess ",sess, " sess.Values "  , sess.Values)
+// fmt.Println("DissallowAuth sess ",sess, " sess.Values "  , sess.Values)
 
 		// If user is authenticated, don't allow them to access the page
 		if sess.Values["id"] != nil {
@@ -31,7 +31,7 @@ func DisallowAnon(h http.Handler) http.Handler {
 		// Get session
 		sess := model.Instance(r)
 
-fmt.Println(" DissalowAnon sess ", sess,  " sess.Values ", sess.Values)
+// fmt.Println(" DissalowAnon sess ", sess,  " sess.Values ", sess.Values)
 
 		// If user is not authenticated, don't allow them to access the page
 		if sess.Values["id"] == nil {

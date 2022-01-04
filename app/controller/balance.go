@@ -6,6 +6,7 @@ import (
         "fmt"
         "time"
         "strings"
+        "encoding/json"
 
 	"github.com/gatopardo/micondo/app/model"
 	"github.com/gatopardo/micondo/app/shared/view"
@@ -15,6 +16,43 @@ import (
 	"github.com/julienschmidt/httprouter"
   )
 // ---------------------------------------------------
+// JBalanGET obtener  balances
+func JBalanGET(w http.ResponseWriter, r *http.Request) {
+//            fmt.Println("JBalanGET 0"  )
+        var params httprouter.Params
+	var js []byte
+	sess := model.Instance(r)
+        params      = context.Get(r, "params").(httprouter.Params)
+	sfec       :=  params.ByName("fec")[:10]
+	dtfec,err  :=  time.Parse(layout, sfec)
+//	sess       := model.Instance(r)
+         fAnte    := dtfec.AddDate(0,-1,0)
+	 iAmount  := int64(0)
+//            fmt.Println("JBalanGET 1",  sfec)
+	 lsAmount,err  :=  model.GetAmount(fAnte)
+//            fmt.Println("JBalanGET 2", lsAmount, sfec)
+        if err != nil {
+          sess.AddFlash(view.Flash{"No balance periodo ", view.FlashError})
+            log.Println(err)
+            log.Fatalln(err)
+         }
+	 if len(lsAmount) > 0{
+            iAmount = lsAmount[0]
+            js, err =  json.Marshal(iAmount)
+            if err == nil{
+               w.Header().Set("Content-Type", "application/json")
+               w.Write(js)
+	       return
+            }else{
+            log.Println(err)
+
+            }
+        }
+         log.Println("JBalanGET  ", err)
+          http.Error(w, err.Error(), http.StatusInternalServerError)
+          return
+
+ }
 // ---------------------------------------------------
 // BalanGET despliega formulario crear balances
 func BalanGET(w http.ResponseWriter, r *http.Request) {
@@ -64,12 +102,11 @@ func BalanPOST(w http.ResponseWriter, r *http.Request) {
 	     }
            getFormBalan(&balan, r)
            err := (&balan).BalanByPeriod()
-           if err == model.ErrNoResult { // Exito:  no hay usuario creado aun 
+           if err == model.ErrNoResult { // Exito:  no hay balance creado aun 
                ex := (&balan).BalanCreate()
                log.Println("Creating balance")
 	       if ex != nil {  // uyy como fue esto ? 
                    log.Println(ex)
-//   fmt.Println(ex)
                    sess.AddFlash(view.Flash{"Error guardando.", view.FlashError})
                    sess.Save(r, w)
                    return
@@ -89,8 +126,6 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
 	var params httprouter.Params
 	params  = context.Get(r, "params").(httprouter.Params)
 	id,_   := atoi32(params.ByName("id"))
-//	SPag   := params.ByName("pg")
-//        path   :=  fmt.Sprintf("/balance/list/%s", SPag)
         path   :=  "/balance/list"
         balan.Id = id
 	err := (&balan).BalanById()
@@ -115,22 +150,23 @@ func BalanUpGET(w http.ResponseWriter, r *http.Request) {
         var sup []string
 
         if   b1.Cuota != b2.Cuota {
-             sf  =  fmt.Sprintf( " cuota = '%d' ", b2.Cuota )
+             sf  =  fmt.Sprintf( " cuota = %d ", b2.Cuota )
 	     sup = append(sup, sf)
            }
         if b1.Amount != b2.Amount {
-             sf  =  fmt.Sprintf( " amount = '%d' ", b2.Amount )
+             sf  =  fmt.Sprintf( " amount = %d ", b2.Amount )
 	     sup = append(sup, sf)
            }
           lon := len(sup)
          if lon > 0 {
-            sini        :=  "update periods set "
+            sini        :=  "update balances set "
 	    now        := time.Now()
-	    sf          =  fmt.Sprintf( " updated_at = '%s' ", now.Format(layout) )
+	    sf          =  fmt.Sprintf( " , updated_at = '%s' ", now.Format(layout) )
             stup         =  strings.Join(sup, ", ")
-            sr          :=  fmt.Sprintf(" where periods.id = %s ", b1.Id)
+            sr          :=  fmt.Sprintf(" where balances.id = %d ", b1.Id)
 	    stup         =  sini + stup + sf + sr
           }
+// fmt.Println(stup)
          return
   }
 // ---------------------------------------------------
@@ -142,7 +178,7 @@ func BalanUpPOST(w http.ResponseWriter, r *http.Request) {
 	params = context.Get(r, "params").(httprouter.Params)
 	SId         := params.ByName("id")
         Id,_        := atoi32(SId)
-        balan.Id     = Id
+        bal.Id     = Id
         path        :=  "/balance/list"
         action      := r.FormValue("action")
         if ! (strings.Compare(action,"Cancelar") == 0) {

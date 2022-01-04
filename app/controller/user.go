@@ -38,28 +38,25 @@ import (
   func saveImage(r *http.Request, sname, spath string)( err error){
          var file multipart.File
          var fileHeader *multipart.FileHeader
-//         var buff bytes.Buffer
          r.ParseMultipartForm(maxUploadSize)
          file, fileHeader, err = r.FormFile(sname)
          if err != nil {
-             fmt.Println("Error Retrieving the File")
-             fmt.Println(err)
+            log.Println(err)
              return
          }
          defer file.Close()
 
 	 str :=  "."+path.Dir(spath)+"/"+fileHeader.Filename
-// fmt.Println(" get Image ", fileHeader.Filename , str)
          f, err := os.OpenFile(str, os.O_WRONLY|os.O_CREATE, 0666)
          if err != nil {
-             fmt.Println("OpenFile ", err)
+            log.Println(err)
              return
          }
          defer f.Close()
             var  nr int64
             nr, err =     io.Copy(f, file)
             if err != nil {
-                fmt.Println(nr, err)
+                  log.Println("No Copiando", nr, err)
                 return
          }
          return
@@ -67,12 +64,10 @@ import (
 
    func getFileName(r * http.Request, sname string)(stf string, err error){
          var fileHeader *multipart.FileHeader
-//         var buff bytes.Buffer
          r.ParseMultipartForm(maxUploadSize)
          _, fileHeader, err = r.FormFile(sname)
          if err != nil {
-             fmt.Println("Error Retrieving the File")
-             fmt.Println(err)
+                  log.Println(err)
              return
          }
 
@@ -107,7 +102,7 @@ import (
 	sess    := model.Instance(r)
 	lsApts, err  := model.Apts()
 	if err != nil {
-	   fmt.Println(err)
+//	   fmt.Println(err)
 	   log.Println(err)
 	}
 	// Display the view
@@ -211,7 +206,7 @@ func RegisUpGET(w http.ResponseWriter, r *http.Request) {
 	sess := model.Instance(r)
 	lsApts, err  := model.Apts()
 	if err != nil {
-	   fmt.Println(err)
+//	   fmt.Println(err)
 	   log.Println(err)
 	}
         // necesitamos user id
@@ -365,7 +360,8 @@ func RegisSearchPOST(w http.ResponseWriter, r *http.Request) {
 	sess       := model.Instance(r)
         rSearch    := r.FormValue("search")
         if rSearch == ""{
-           fmt.Println("Nada a buscar")
+//           fmt.Println("Nada a buscar")
+	   log.Println("Nada encontrado")
            return
          }
         lisUsers, err := model.SUsers(rSearch)
@@ -502,7 +498,7 @@ func PersLisGET(w http.ResponseWriter, r *http.Request) {
         err := (&user).UserById()
         if err != nil {
             log.Println(err)
-            fmt.Println(err)
+//            fmt.Println(err)
             sess.AddFlash(view.Flash{"Error Usuario no hallado.", view.FlashError})
              http.Redirect(w, r, path, http.StatusFound)
             return
@@ -520,7 +516,7 @@ func PersLisGET(w http.ResponseWriter, r *http.Request) {
         err =   (&apt).AptById()
         if err != nil {
             log.Println(err)
-            fmt.Println(err)
+//            fmt.Println(err)
             sess.AddFlash(view.Flash{"Error Usuario no hallado.", view.FlashError})
              http.Redirect(w, r, path, http.StatusFound)
             return

@@ -21,7 +21,7 @@ var (
 	// ErrCode is a config or an internal error
 	ErrCode = errors.New("Sentencia Case en codigo no es correcta.")
 	// ErrNoResult is a not results error
-	ErrNoResult = errors.New("Result  no encontrado.")
+	ErrNoResult = errors.New("Resultado  no encontrado.")
 	// ErrUnavailable is a database not available error
 	ErrUnavailable = errors.New("Database no disponible.")
 	// ErrUnauthorized is a permissions violation
@@ -36,6 +36,8 @@ var (
 
 	// Database info
 	databases Info
+	formato = "2006-01-02"
+
 )
 
 // Type is the type of database from a Type* constant

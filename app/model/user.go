@@ -301,9 +301,16 @@ func (user *User)UserByCuenta() ( error) {
 // JpersByCuenta gets user information from cuenta
 func (jpers *Jperson)JPersByCuenta()(pass string,  ex error) {
 	var err error
-        stq  :=   "SELECT  u.id,u.cuenta, u.password,u.uuid, u.nivel, a.codigo, p.fname, p.lname, p.fecNac, p.email, p.address, p.tele, p.mobil, p.tipo, p.photo  FROM users u JOIN persons p ON u.person_id = p.id JOIN apartas a ON p.aparta_id = a.id  WHERE u.cuenta=$1"
-         err = Db.QueryRow(stq,&jpers.Cuenta).Scan(&jpers.Id, &jpers.Cuenta, &pass, &jpers.Uuid, &jpers.Nivel, &jpers.Apto, &jpers.Fname, &jpers.Lname, &jpers.FecNac, &jpers.Email,&jpers.Address, &jpers.Tele, &jpers.Mobil, &jpers.Tipo, &jpers.Photo)
+	var sqFecNac sql.NullTime
+	stLayout := "2006-01-02"
+        stq  :=   "SELECT  u.id,u.cuenta, u.password,u.uuid, u.nivel, a.codigo, p.fname, p.lname, p.fecnac, p.email, p.address, p.tele, p.mobil, p.tipo, p.photo  FROM users u JOIN persons p ON u.person_id = p.id JOIN apartas a ON p.aparta_id = a.id  WHERE u.cuenta=$1"
+         err = Db.QueryRow(stq,&jpers.Cuenta).Scan(&jpers.Id, &jpers.Cuenta, &pass, &jpers.Uuid, &jpers.Nivel, &jpers.Apto, &jpers.Fname, &jpers.Lname, &sqFecNac, &jpers.Email,&jpers.Address, &jpers.Tele, &jpers.Mobil, &jpers.Tipo, &jpers.Photo)
      if err != nil {
+          if sqFecNac.Valid{
+	     jpers.FecNac = sqFecNac.Time
+	  }else{
+               jpers.FecNac, _ = time.Parse(stLayout, "1900-01-01")
+	  }
 	 jpers.Cuenta   = strings.Trim(jpers.Cuenta, " ")
 	 jpers.Uuid     = strings.Trim(jpers.Uuid, " ")
 	 jpers.Apto     = strings.Trim(jpers.Apto, " ")
