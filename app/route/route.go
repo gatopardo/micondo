@@ -77,9 +77,6 @@ func routes() *httprouter.Router {
         r.GET("/jlogin/:cuenta/:password", hr.Handler(alice.
                 New(acl.DisallowAuth).
                 ThenFunc(controller.JLoginGET)))
-//        r.POST("/jlogin", hr.Handler(alice.
-//                New(acl.DisallowAuth).
-//                ThenFunc(controller.JLoginPOST)))
 	r.GET("/logout", hr.Handler(alice.
 		New().
 		ThenFunc(controller.LogoutGET)))

@@ -916,3 +916,11 @@ INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jegre/2021-11-01
 INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /jbalance/2021-11-01
 INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /report/jrptcondo/2021-11-01
 INFO 2022/01/04 10:02:04 logrequest.go:14: 10.0.0.55:49084 GET /report/jrptcondodet/2021-11-01
+INFO 2022/01/04 21:19:27 main.go:42: Starting app
+2022/01/04 21:19:27 model.go:111: DATABASE_URL variable must look like: postgres://username:password@hostname:port/dbname (not '')
+INFO 2022/01/04 21:20:23 main.go:42: Starting app
+INFO 2022/01/04 21:20:23 route.go:36: HTTPS routes LoadHTTP
+INFO 2022/01/04 21:20:23 route.go:409: middleware micondo
+INFO 2022/01/04 21:20:23 route.go:30: HTTPS routes LoadHTTPS
+INFO 2022/01/04 21:20:23 route.go:409: middleware micondo
+INFO 2022/01/04 21:20:23 server.go:37: 0.0.0.0:4430
