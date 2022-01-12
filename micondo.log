@@ -924,3 +924,85 @@ INFO 2022/01/04 21:20:23 route.go:409: middleware micondo
 INFO 2022/01/04 21:20:23 route.go:30: HTTPS routes LoadHTTPS
 INFO 2022/01/04 21:20:23 route.go:409: middleware micondo
 INFO 2022/01/04 21:20:23 server.go:37: 0.0.0.0:4430
+INFO 2022/01/06 13:35:10 main.go:42: Starting app
+INFO 2022/01/06 13:35:10 route.go:36: HTTPS routes LoadHTTP
+INFO 2022/01/06 13:35:10 route.go:406: middleware micondo
+INFO 2022/01/06 13:35:10 route.go:30: HTTPS routes LoadHTTPS
+INFO 2022/01/06 13:35:10 route.go:406: middleware micondo
+INFO 2022/01/06 13:35:10 server.go:37: 0.0.0.0:4430
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32864 GET /
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32864 GET /static/favicons/jpeg/imp_2_izq.jpg
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32866 GET /static/favicons/jpeg/imp_2_cent.jpg
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32868 GET /static/favicons/jpeg/imp_2_der.jpg
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32870 GET /static/favicons/jpeg/imp_2_caset.jpg
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32874 GET /static/css/global.css?1629019482
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32872 GET /static/css/bootstrap.css?1580161104
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32870 GET /static/favicons/favicon-196x196.png
+INFO 2022/01/06 13:35:31 logrequest.go:14: 10.0.0.55:32866 GET /static/favicons/favicon-16x16.png
+INFO 2022/01/06 13:35:34 logrequest.go:14: 10.0.0.55:32870 GET /login
+INFO 2022/01/06 13:35:44 logrequest.go:14: 10.0.0.55:32870 POST /login
+INFO 2022/01/06 13:35:44 logrequest.go:14: 10.0.0.55:32870 GET /
+INFO 2022/01/06 13:35:50 logrequest.go:14: 10.0.0.55:32870 GET /cuota/periodo/register
+INFO 2022/01/06 13:35:51 logrequest.go:14: 10.0.0.55:32870 POST /cuota/periodo/register
+INFO 2022/01/06 13:36:06 logrequest.go:14: 10.0.0.55:32870 GET /cuota/list
+INFO 2022/01/06 13:36:07 logrequest.go:14: 10.0.0.55:32870 POST /cuota/list
+INFO 2022/01/06 13:36:17 logrequest.go:14: 10.0.0.55:32870 GET /cuota/update/13140
+INFO 2022/01/06 13:36:22 logrequest.go:14: 10.0.0.55:32870 GET /favicon.ico
+INFO 2022/01/06 13:36:26 logrequest.go:14: 10.0.0.55:32870 GET /cuota/delete/13140
+INFO 2022/01/06 13:36:29 logrequest.go:14: 10.0.0.55:32870 POST /cuota/delete/13140
+INFO 2022/01/06 13:36:29 logrequest.go:14: 10.0.0.55:32870 GET /cuota/list
+INFO 2022/01/06 13:36:32 logrequest.go:14: 10.0.0.55:32870 POST /cuota/list
+INFO 2022/01/06 13:41:47 logrequest.go:14: 10.0.0.55:32934 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/06 13:41:47 logrequest.go:14: 10.0.0.55:32934 GET /jcuot/2021-11-01
+INFO 2022/01/06 13:41:47 logrequest.go:14: 10.0.0.55:32934 GET /jingre/2021-11-01
+INFO 2022/01/06 13:41:48 logrequest.go:14: 10.0.0.55:32934 GET /jegre/2021-11-01
+INFO 2022/01/06 13:41:48 logrequest.go:14: 10.0.0.55:32934 GET /jbalance/2021-11-01
+INFO 2022/01/06 13:41:48 logrequest.go:14: 10.0.0.55:32934 GET /report/jrptcondo/2021-11-01
+INFO 2022/01/06 13:41:48 logrequest.go:14: 10.0.0.55:32934 GET /report/jrptcondodet/2021-11-01
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /jcuot/2021-12-01
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /jingre/2021-12-01
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /jegre/2021-12-01
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /jbalance/2021-12-01
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /report/jrptcondo/2021-12-01
+INFO 2022/01/06 13:44:08 logrequest.go:14: 10.0.0.55:32952 GET /report/jrptcondodet/2021-12-01
+INFO 2022/01/06 13:45:13 logrequest.go:14: 10.0.0.55:32958 GET /balance/register
+INFO 2022/01/06 13:45:22 logrequest.go:14: 10.0.0.55:32958 GET /balance/list
+INFO 2022/01/06 13:45:26 logrequest.go:14: 10.0.0.55:32958 GET /balance/update/455
+INFO 2022/01/06 13:45:53 logrequest.go:14: 10.0.0.55:32958 POST /balance/update/455
+INFO 2022/01/06 13:45:53 logrequest.go:14: 10.0.0.55:32958 GET /balance/list
+INFO 2022/01/06 13:45:56 logrequest.go:14: 10.0.0.55:32958 GET /logout
+INFO 2022/01/06 13:45:56 logrequest.go:14: 10.0.0.55:32958 GET /
+INFO 2022/01/12 17:51:39 main.go:42: Starting app
+INFO 2022/01/12 17:51:39 route.go:36: HTTPS routes LoadHTTP
+INFO 2022/01/12 17:51:39 route.go:406: middleware micondo
+INFO 2022/01/12 17:51:39 route.go:30: HTTPS routes LoadHTTPS
+INFO 2022/01/12 17:51:39 route.go:406: middleware micondo
+INFO 2022/01/12 17:51:39 server.go:37: 0.0.0.0:4430
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /jcuot/2021-12-01
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /jingre/2021-12-01
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /jegre/2021-12-01
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /jbalance/2021-12-01
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /report/jrptcondo/2021-12-01
+INFO 2022/01/12 17:51:45 logrequest.go:14: 10.0.0.55:48400 GET /report/jrptcondodet/2021-12-01
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /jcuot/2021-12-01
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /jingre/2021-12-01
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /jegre/2021-12-01
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /jbalance/2021-12-01
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /report/jrptcondo/2021-12-01
+INFO 2022/01/12 17:51:57 logrequest.go:14: 10.0.0.55:48402 GET /report/jrptcondodet/2021-12-01
+INFO 2022/01/12 17:54:50 main.go:42: Starting app
+INFO 2022/01/12 17:54:50 route.go:36: HTTPS routes LoadHTTP
+INFO 2022/01/12 17:54:50 route.go:406: middleware micondo
+INFO 2022/01/12 17:54:50 route.go:30: HTTPS routes LoadHTTPS
+INFO 2022/01/12 17:54:50 route.go:406: middleware micondo
+INFO 2022/01/12 17:54:50 server.go:37: 0.0.0.0:4430
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /jlogin/gato/cGFyZG8xNQ==
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /jcuot/2021-12-01
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /jingre/2021-12-01
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /jegre/2021-12-01
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /jbalance/2021-12-01
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /report/jrptcondo/2021-12-01
+INFO 2022/01/12 17:56:51 logrequest.go:14: 10.0.0.55:48436 GET /report/jrptcondodet/2021-12-01
