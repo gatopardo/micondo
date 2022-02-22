@@ -52,6 +52,8 @@ type AptEstadJ struct {
 
 type AptEstadL struct {
 	Apt         string
+	SCuota      int64
+	SAmount     int64
         Period      time.Time
 	LisEstad     []AptEstadJ
 }
@@ -492,15 +494,18 @@ func RptAllCondPOST(w http.ResponseWriter, r *http.Request) {
 
 // ---------------------------------------------------
 // getAptEstad get apt State up to a period
-  func getAptEstad(apt string,  dFini time.Time)(aptEstad []AptEstadJ, err error){
-	  var aptDet AptEstadJ
-	  dIni,_ := time.Parse("001-01-01" , formato)
+  func getAptEstad(apt string,  dFini time.Time)(aptEstadL AptEstadL, err error){
+	var aptDet AptEstadJ
+	var aptEstad []AptEstadJ
+	dIni,_ := time.Parse("001-01-01" , formato)
         amtTots, err := model.AptDetails(apt, dIni , dFini )
 	if err != nil {
 		log.Println(err)
 		return
 	}
-        p,_,_ := procesaApt(amtTots)
+        p,scuot,smonto := procesaApt(amtTots)
+	aptEstadL.SCuota =  scuot
+	aptEstadL.SAmount =  smonto
 	lon :=  len(amtTots)
 	for i  := p; i < lon; i++ {
 		aptDet = AptEstadJ{ Fecha:   amtTots[i].Fecha,
@@ -510,6 +515,7 @@ func RptAllCondPOST(w http.ResponseWriter, r *http.Request) {
 	                                }
 	   aptEstad  = append(aptEstad, aptDet)
          }
+	 aptEstadL.LisEstad = aptEstad
       return
   }
 // ---------------------------------------------------
@@ -519,7 +525,7 @@ func JRptCondDetGET(w http.ResponseWriter, r *http.Request) {
 	var apts   []model.Apt
         var lisEstad     []AptEstadL
 	var aptEstad       AptEstadL
-        var lisAptEstad  []AptEstadJ
+//        var lisAptEstad  []AptEstadJ
         var js []byte
 	var params httprouter.Params
 	sess := model.Instance(r)
@@ -538,14 +544,13 @@ func JRptCondDetGET(w http.ResponseWriter, r *http.Request) {
 	        log.Fatalln("JRptCondDetGET",err)
         }
 	for _, apt := range apts {
-             lisAptEstad, err       = getAptEstad(string(apt), dtfec  )
+              aptEstad, err       = getAptEstad(string(apt), dtfec  )
               if err != nil {
                 log.Println("JRptCondDetGET",err)
               }else{
-		      aptEstad = AptEstadL{ Period:  dtfec,
-		                            Apt:     string(apt),
-		                            LisEstad: lisAptEstad,
-		                                }
+		      aptEstad.Period = dtfec
+		      aptEstad.Apt    = string(apt)
+//		                            LisEstad: lisAptEstad, }
 		  lisEstad = append(lisEstad, aptEstad)
              }
             }

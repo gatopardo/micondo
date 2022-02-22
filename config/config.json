@@ -1,7 +1,7 @@
    {
 	"Database": {
-                "Remote"     : true,
-                "Origin":    "heroku",
+                "Remote"     : false,
+                "Origin":    "localhost",
 		"Type"       : "PostgreSQL",
 		"PostgreSql" : {
 			"Username": "postgres",
@@ -13,10 +13,10 @@
 		}
 	},
 	"Server": {
-                "Remote": true,
-                "Origin": "heroku",
+                "Remote": false,
+                "Origin": "localhost",
 		"Hostname": "0.0.0.0",
-		"UseHTTP": false,
+		"UseHTTP": true,
 		"UseHTTPS": true,
 		"HTTPPort": 9090,
 		"HTTPSPort": 4430,
