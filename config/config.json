@@ -1,6 +1,6 @@
    {
 	"Database": {
-                "Remote"     : false,
+                "Remote"     : true,
                 "Origin":    "localhost",
 		"Type"       : "PostgreSQL",
 		"PostgreSql" : {
@@ -13,10 +13,10 @@
 		}
 	},
 	"Server": {
-                "Remote": false,
+                "Remote": true,
                 "Origin": "localhost",
 		"Hostname": "0.0.0.0",
-		"UseHTTP": true,
+		"UseHTTP": false,
 		"UseHTTPS": true,
 		"HTTPPort": 9090,
 		"HTTPSPort": 4430,
